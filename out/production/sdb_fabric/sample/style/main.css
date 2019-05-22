@@ -1,0 +1,127 @@
+#cancelShop {
+}
+.table-view .column-header  {
+    -fx-background-color: #1ab394;
+}
+.button {
+    -fx-background-color: #1ab394;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.button:pressed {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
+}
+
+.label {
+    -fx-text-fill: white;
+}
+.label-list-item{
+    -fx-text-fill: white;
+}
+.label-summ{
+    -fx-text-fill:  #1ab394;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+
+}
+.label-plastic{
+    -fx-text-fill: #1ab394;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+
+}
+.toggle-button{
+    -fx-background-color: #1ab394;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.toggle-button:selected{
+    -fx-background-color: #fa6c7b;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
+}
+
+.scroll-pane, .table-view {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.Xisoblar-pane{
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.text-black{
+    -fx-text-fill: black;
+}
+.table-row-cell:odd{
+    -fx-background-color:   #eaeaee;
+}
+.table-row-cell:selected {
+    -fx-background-color: #6c9dfa;
+}
+.color-text{
+    -fx-text-fill:#1ab394;
+}
+.check-box .box {
+
+    -fx-background-color: white;
+    -fx-border-color:grey;
+    -fx-border-radius:3px;
+}
+.check-box:selected .mark {
+
+    -fx-background-color: white;
+}
+.check-box:selected .box {
+
+    -fx-background-color: #1ab394;
+}
+.text-white{
+    -fx-text-fill: white;
+}
+.App_profile{
+    -fx-background-color:  #1ab394;
+    -fx-border-width: 2;
+    -fx-border-color: #1ab394;
+}
+.calendar{
+    -fx-border-width: 1;
+    -fx-border-color: #1ab394;
+}
+.button:hover{
+    -fx-background-color:  #20E27B;
+}
+#Main-update{
+    -fx-graphic: url("../../style/Images/update1.png");
+    -fx-background-color: #6c9dfa;
+}
+#Main-cancel{
+    -fx-graphic: url("../../style/Images/cancel1.png");
+    -fx-background-color:#fa6c7b ;
+}
+#Main-sell{
+    -fx-graphic: url("../../style/Images/sell1.png");
+}
+.table-view .table-cell{
+    -fx-font-size:16px;
+}
+.list-view{
+    -fx-text-fill: white;
+    -fx-font-size: 25px;
+}
+.list-cell{
+    -fx-fill-height: 100px;
+}
+.list-cell:selected{
+    -fx-background-color: #fa6c7b;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+#item_list{
+    -fx-background-color: #e8e8e8;
+    -fx-text-fill: white;
+}
+#btnlLogOut{
+    -fx-fit-to-width: 100px;
+}
