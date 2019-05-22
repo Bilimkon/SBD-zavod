@@ -35,7 +35,7 @@ public class userDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-           daoUtils.close(statement,res);
+           DaoUtils.close(statement,res);
         }
         return null;
     }

@@ -61,38 +61,10 @@ html{
 .tab-pane{
     -fx-padding: 0 -1 -1 -1;
 }
-#Main-tab1 .tab-label{
-    -fx-graphic: url("../../style/Images/33.png");
+#Main-tab1 .tab-label {
+    -fx-graphic: url("./images/logo-beta1.png");
+}
 
-}
-#Main-tab2 .tab-label{
-    -fx-graphic: url("../../style/Images/44.png");
-
-}
-#Main-tab8 .tab-label{
-    -fx-graphic: url("../../style/Images/1111.png");
-}
-#Main-tab3 .tab-label{
-    -fx-graphic: url("../../style/Images/55.png");
-}
-#Main-tab3 .tab-label{
-    -fx-graphic: url("../../style/Images/55.png");
-}
-#Main-tab4 .tab-label{
-    -fx-graphic: url("../../style/Images/66.png");
-}
-#Main-tab5 .tab-label{
-    -fx-graphic: url("../../style/Images/77.png");
-}
-#Main-tab6 .tab-label{
-    -fx-graphic: url("../../style/Images/88.png");
-}
-#Main-tab7 .tab-label{
-    -fx-graphic: url("../../style/Images/99.png");
-}
-#Main-tab9 .tab-label{
-    -fx-graphic: url("../../style/Images/1212.png");
-}
 .check-box .box {
     -fx-background-color: white;
     -fx-border-color:#1ab394;

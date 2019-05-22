@@ -10,7 +10,7 @@ import java.sql.Statement;
 /**
  * Humoyun Qo'rg'onov  SBD(Software Business Development)
  */
-public class daoUtils {
+public class DaoUtils {
     public static String tableName = "sbd_factory?autoReconnect=true&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     public static void close(Connection myConn, Statement myStmt, ResultSet myRs)

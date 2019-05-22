@@ -14,7 +14,7 @@
 }
 
 .label {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 .label-list-item{
     -fx-text-fill: white;
@@ -91,17 +91,6 @@
 }
 .button:hover{
     -fx-background-color:  #20E27B;
-}
-#Main-update{
-    -fx-graphic: url("../../style/Images/update1.png");
-    -fx-background-color: #6c9dfa;
-}
-#Main-cancel{
-    -fx-graphic: url("../../style/Images/cancel1.png");
-    -fx-background-color:#fa6c7b ;
-}
-#Main-sell{
-    -fx-graphic: url("../../style/Images/sell1.png");
 }
 .table-view .table-cell{
     -fx-font-size:16px;

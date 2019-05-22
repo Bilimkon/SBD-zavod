@@ -37,7 +37,7 @@ public class Login {
                 Screen screen = Screen.getPrimary();
                 Rectangle2D bounds = screen.getVisualBounds();
                 stage.setScene(new Scene(root));
-                stage.initStyle(StageStyle.UNDECORATED);
+                //stage.initStyle(StageStyle.UNDECORATED);
                 stage.setFullScreen(true);
                 stage.show();
                 stage.setOnCloseRequest(e -> Platform.exit());
