@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="barcode4j">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/barcode4j.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

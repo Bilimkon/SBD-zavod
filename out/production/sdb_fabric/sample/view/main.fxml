@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -35,8 +34,8 @@
                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                                <RowConstraints maxHeight="900.0" minHeight="10.0" prefHeight="417.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="184.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="900.0" minHeight="10.0" prefHeight="520.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
                                                 <GridPane prefHeight="428.0" prefWidth="275.0">
@@ -56,40 +55,34 @@
                                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     </rowConstraints>
                                                     <children>
-                                                        <TextField id="text-red" fx:id="AdminTextBarcode" prefHeight="40.0" prefWidth="200.0" promptText="Barcode" styleClass="labelTextField" GridPane.columnIndex="1">
+                                                        <TextField id="text-red" fx:id="textBarcode" prefHeight="40.0" prefWidth="200.0" promptText="Barcode" styleClass="labelTextField" GridPane.columnIndex="1">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <TextField id="text-red" fx:id="AdminTextNomi" prefHeight="40.0" prefWidth="200.0" promptText="Nomi" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                        <TextField id="text-red" fx:id="textName" prefHeight="40.0" prefWidth="200.0" promptText="Nomi" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <TextField id="text-red" fx:id="AdminTextMiqdori" maxHeight="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="Miqdori" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                        <TextField id="text-red" fx:id="textQuantity" maxHeight="-Infinity" prefHeight="40.0" prefWidth="200.0" promptText="Miqdori" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <TextField id="text-red" fx:id="AdminTextNarxi" prefHeight="40.0" prefWidth="200.0" promptText="Sotuv narxi" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                        <TextField id="text-red" fx:id="textWeight" prefHeight="40.0" prefWidth="200.0" promptText="Og'irligi" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <TextField id="text-red" fx:id="AdminTextSale" prefHeight="40.0" prefWidth="200.0" promptText="Tannarx" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                        <TextField id="text-red" fx:id="textCost" prefHeight="40.0" prefWidth="200.0" promptText="Narxi" styleClass="labelTextField" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <TextField id="text-red" fx:id="AdminTextId" editable="false" prefHeight="40.0" prefWidth="200.0" promptText="Id" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                        <TextField id="text-red" fx:id="textId" editable="false" prefHeight="40.0" prefWidth="200.0" promptText="Id" GridPane.columnIndex="1" GridPane.rowIndex="12">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <JFXDatePicker id="text-red" fx:id="AdminTextDan" prefHeight="40.0" prefWidth="200.0" promptText="Ishlab chiqarilgan sana" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                                                            <GridPane.margin>
-                                                                <Insets left="5.0" right="7.0" />
-                                                            </GridPane.margin></JFXDatePicker>
-                                                        <JFXDatePicker id="text-red" fx:id="AdminTextGacha" prefHeight="40.0" prefWidth="200.0" promptText="Oxirgi saqlash sanasi" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                                                            <GridPane.margin>
-                                                                <Insets left="5.0" right="7.0" />
-                                                            </GridPane.margin></JFXDatePicker>
                                                         <ComboBox id="text-red" fx:id="ComboTypeList" onAction="#AddTypeComboboxAction" onContextMenuRequested="#AddTypeComboboxAction" onMouseClicked="#AddTypeComboboxAction" prefHeight="40.0" prefWidth="200.0" promptText="Turlar" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
@@ -98,7 +91,7 @@
                                                                 <Insets left="10.0" />
                                                             </padding>
                                                         </ComboBox>
-                                                        <Label alignment="CENTER" prefHeight="76.0" prefWidth="90.0" text="Nomi" GridPane.rowIndex="3">
+                                                        <Label alignment="CENTER" prefHeight="76.0" prefWidth="90.0" text="Nomi" GridPane.rowIndex="4">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
@@ -110,23 +103,23 @@
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <Label alignment="CENTER" prefHeight="147.0" prefWidth="227.0" text="Sotuv narxi" GridPane.rowIndex="5">
+                                                        <Label alignment="CENTER" prefHeight="147.0" prefWidth="227.0" text="Og'irligi" GridPane.rowIndex="5">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <Label alignment="CENTER" prefHeight="174.0" prefWidth="201.0" text="Tannarx" GridPane.rowIndex="4">
+                                                        <Label alignment="CENTER" prefHeight="174.0" prefWidth="201.0" text="Narxi" GridPane.rowIndex="7">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <Label alignment="CENTER" prefHeight="131.0" prefWidth="193.0" text="..dan" GridPane.rowIndex="8">
+                                                        <Label alignment="CENTER" prefHeight="131.0" prefWidth="193.0" text="Rangi" GridPane.rowIndex="8">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <Label alignment="CENTER" prefHeight="164.0" prefWidth="197.0" text="...gacha" GridPane.rowIndex="9">
+                                                        <Label alignment="CENTER" prefHeight="164.0" prefWidth="197.0" text="Qalinligi" GridPane.rowIndex="9">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <Label alignment="CENTER" prefHeight="191.0" prefWidth="200.0" text="Id" GridPane.rowIndex="10">
+                                                        <Label alignment="CENTER" prefHeight="191.0" prefWidth="200.0" text="Id" GridPane.rowIndex="12">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
@@ -135,11 +128,11 @@
                                                                 <Insets bottom="2.0" left="5.0" />
                                                             </GridPane.margin>
                                                         </JFXButton>
-                                                        <Label alignment="CENTER" prefHeight="64.0" prefWidth="90.0" text="Taminotchi" GridPane.rowIndex="7">
+                                                        <Label alignment="CENTER" prefHeight="64.0" prefWidth="90.0" text="Taminotchi" GridPane.rowIndex="3">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <ComboBox fx:id="comboBoxSuplier" prefHeight="40.0" prefWidth="200.0" promptText="Taminotchi" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                        <ComboBox fx:id="comboBoxSuplier" prefHeight="40.0" prefWidth="200.0" promptText="Taminotchi" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin>
@@ -160,52 +153,71 @@
                                                                 <Insets left="10.0" />
                                                             </padding>
                                                         </ComboBox>
+                                          <TextField fx:id="textColor" prefHeight="40.0" prefWidth="200.0" promptText="Rangi" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="7.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <TextField fx:id="textHeight" prefHeight="40.0" prefWidth="200.0" promptText="Qalinligi" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="7.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label alignment="CENTER" prefHeight="74.0" prefWidth="135.0" text="Eni" GridPane.rowIndex="10">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField fx:id="textWidth" prefHeight="40.0" prefWidth="200.0" promptText="Eni" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="7.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <TextField fx:id="textDescription" prefHeight="44.0" prefWidth="185.0" promptText="Qo'shimcha" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="7.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label alignment="CENTER" prefHeight="40.0" prefWidth="140.0" text="Qo'shimcha" GridPane.rowIndex="11">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" />
+                                             </GridPane.margin>
+                                          </Label>
                                                     </children>
                                                 </GridPane>
                                                 <VBox prefHeight="197.0" prefWidth="275.0" GridPane.rowIndex="1">
                                                     <children>
-                                                        <GridPane prefHeight="200.0" prefWidth="275.0">
+                                                        <GridPane prefHeight="146.0" prefWidth="275.0">
                                                             <columnConstraints>
                                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                             </columnConstraints>
                                                             <rowConstraints>
-                                                                <RowConstraints prefHeight="66.0" />
                                                                 <RowConstraints minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
                                                                 <RowConstraints minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
                                                             </rowConstraints>
                                                             <children>
-                                                                <Button mnemonicParsing="false" onAction="#AddTypeAction" prefHeight="86.0" prefWidth="128.0" text="Tur qo'shish">
+                                                                <Button mnemonicParsing="false" onAction="#AddTypeAction" prefHeight="86.0" prefWidth="128.0" text="Tur qo'shish" GridPane.columnIndex="1">
                                                                     <GridPane.margin>
-                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                        <Insets bottom="3.0" left="5.0" right="7.0" top="3.0" />
                                                                     </GridPane.margin>
                                                                 </Button>
-                                                                <Button mnemonicParsing="false" prefHeight="86.0" prefWidth="127.0" text="\%" GridPane.columnIndex="1">
+                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="50.0" prefWidth="341.0" style="-fx-background-color: red;" text="O'chirish" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                                     <GridPane.margin>
-                                                                        <Insets bottom="5.0" left="5.0" right="7.0" top="5.0" />
+                                                                        <Insets bottom="3.0" left="5.0" right="7.0" top="3.0" />
                                                                     </GridPane.margin>
                                                                 </Button>
-                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnOchirishAction" prefHeight="50.0" prefWidth="341.0" style="-fx-background-color: red;" text="O'chirish" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                                <Button fx:id="btnAddProduct" maxHeight="100.0" mnemonicParsing="false" onAction="#btnAddProductAction" prefHeight="50.0" prefWidth="313.0" style="-fx-background-color: #6c9dfa;" text="Qo'shish">
                                                                     <GridPane.margin>
-                                                                        <Insets bottom="5.0" left="5.0" right="7.0" top="5.0" />
+                                                                        <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                                                                     </GridPane.margin>
                                                                 </Button>
-                                                                <Button fx:id="btnAddProduct" maxHeight="100.0" mnemonicParsing="false" onAction="#maxsulotQoshish" prefHeight="50.0" prefWidth="313.0" style="-fx-background-color: #6c9dfa;" text="Qo'shish" GridPane.rowIndex="1">
-                                                                    <GridPane.margin>
-                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                                    </GridPane.margin>
-                                                                </Button>
-                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnOzgartirishAction" prefHeight="50.0" prefWidth="323.0" text="O'zgartirish" GridPane.rowIndex="2">
+                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="50.0" prefWidth="323.0" text="O'zgartirish" GridPane.rowIndex="1">
                                                                     <padding>
                                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                     </padding>
                                                                     <GridPane.margin>
-                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                                    </GridPane.margin>
-                                                                </Button>
-                                                                <Button maxHeight="100.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: orange;" text="Excell" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                                                    <GridPane.margin>
-                                                                        <Insets bottom="5.0" left="5.0" right="7.0" top="5.0" />
+                                                                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
                                                                     </GridPane.margin>
                                                                 </Button>
                                                             </children>
@@ -217,12 +229,6 @@
                                     </right>
                                     <top>
                                         <BorderPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="960.0" BorderPane.alignment="CENTER">
-                                            <center>
-                                                <TextField fx:id="AdminTextSearch" prefHeight="39.0" prefWidth="450.0" promptText="Izlang..." BorderPane.alignment="CENTER">
-                                                    <BorderPane.margin>
-                                                        <Insets left="5.0" />
-                                                    </BorderPane.margin></TextField>
-                                            </center>
                                             <right>
                                                 <Button fx:id="AdminBtnSearch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="270.0" text="Izlash" BorderPane.alignment="CENTER">
                                                     <font>
@@ -233,6 +239,31 @@
                                                     </BorderPane.margin>
                                                 </Button>
                                             </right>
+                                 <center>
+                                    <GridPane BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="567.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                                      <TextField fx:id="AdminTextSearch" prefHeight="39.0" prefWidth="503.0" promptText="Izlang..." GridPane.columnIndex="2" />
+                                          <Button fx:id="btnPdfAction" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="39.0" prefWidth="94.0" text="PDF">
+                                             <GridPane.margin>
+                                                <Insets bottom="2.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button mnemonicParsing="false" onAction="#btnPathImage" prefHeight="40.0" prefWidth="62.0" text="Path" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets bottom="2.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                 </center>
                                         </BorderPane>
                                     </top>
                                     <center>

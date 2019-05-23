@@ -102,20 +102,4 @@ public class BarCodeService {
                 return numb;
         }
     }
-
-//    public static void main(String[] args) {
-//    /*System.out.println((char)(Character.getNumericValue('4')+33));
-//    System.out.println((char)((int)('a')+2));
-//    System.out.println((int)'%');
-//    System.out.println("'"+(char)'0'+"'");*/
-//        //if(true)return;
-//        // %hB00FB|PUPWVp 4820062050760
-//        //"%hB00FB|PUQUUr";"4820062051552";
-//        String testCode = String.valueOf(numbGen());
-//        BarCodeService serv = new BarCodeService();
-//        String parsedString = serv.parseInput(testCode);
-//        System.out.println("Input: " + testCode + ", parsed string: " + parsedString);
-//        String barCodeString = serv.generateCode(parsedString);
-//        System.out.println("Result: " + barCodeString);
-//    }
 }
