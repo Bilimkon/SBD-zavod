@@ -1,6 +1,10 @@
 package sample.dao;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
+import sample.model.Product;
 import sample.utils.utils;
 
 import java.sql.*;
@@ -10,8 +14,44 @@ public class ProductDao {
     private Connection myConn;
     private String apple = String.valueOf(utils.getCurrentDate());
 
-    public ProductDao() throws Exception {
+    public ProductDao() {
         myConn = database.getConnection();
+    }
+
+    public void initializeTable(TableView tableView) throws SQLException {
+        Statement statement = null;
+        ResultSet resultSet = null;
+        ObservableList<Product> products = FXCollections.observableArrayList();
+        try {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM product_v ORDER BY id");
+            while (resultSet.next()) {
+
+                Product product = new Product();
+                product.setId(resultSet.getString("id"));
+                product.setUnit(resultSet.getString("unit"));
+                product.setBarcode(resultSet.getString("barcode"));
+                product.setName(resultSet.getString("name"));
+                product.setType(resultSet.getString("type"));
+                product.setCost(resultSet.getString("cost"));
+                product.setQuantity(resultSet.getString("quantity"));
+                product.setWeight(resultSet.getString("weight"));
+                product.setSuplier(resultSet.getString("suplier"));
+                product.setDate_cr(resultSet.getString("date_cr"));
+                product.setCr_by(resultSet.getString("user"));
+                product.setDescription(resultSet.getString("description"));
+                product.setWidth(resultSet.getString("width"));
+                product.setHeight(resultSet.getString("height"));
+                product.setColor(resultSet.getString("color"));
+
+                products.addAll(product);
+            }
+            tableView.setItems(products);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DaoUtils.close(statement, resultSet);
+        }
     }
 
     public void addProduct(String barcode, String name, String type, String cost, String quantity, String unit, String weight, String description, String suplier, String color, String height, String width) throws SQLException {

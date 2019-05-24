@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 public class Admin implements Initializable {
 
-    private Connection myConn;
+    private Connection myConn = null;
 
     public Admin(){
         try {

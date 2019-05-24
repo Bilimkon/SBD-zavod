@@ -1,11 +1,8 @@
 package sample.utils;
 
-
-import org.krysalis.barcode4j.impl.code128.Code128Bean;
 import org.krysalis.barcode4j.impl.upcean.EAN13Bean;
 import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 import sample.dao.SystemUtilsDao;
-
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -31,6 +28,7 @@ public class Barcode_pdf {
             fos.flush();
             fos.close();
         } catch (Exception e) {
+            e.printStackTrace();
             // TODO: handle exception
         }
     }

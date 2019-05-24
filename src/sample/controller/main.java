@@ -1,10 +1,5 @@
 package sample.controller;
 
-import com.sun.xml.internal.messaging.saaj.soap.JpegDataContentHandler;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,35 +10,26 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import org.jcp.xml.dsig.internal.dom.Utils;
-import sample.dao.DaoUtils;
 import sample.dao.ProductDao;
 import sample.dao.SystemUtilsDao;
 import sample.dao.database;
 import sample.model.Product;
 import sample.utils.BarCodeService;
 import sample.utils.Barcode_pdf;
-
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 import static sample.utils.BarCodeService.numbGen;
 
 public class main implements Initializable {
 
 
-    private Connection myConn;
+    private Connection myConn = null;
     ProductDao productDao = new ProductDao();
 
     @FXML
@@ -126,7 +112,7 @@ public class main implements Initializable {
 
     }
 
-    public main() throws Exception {
+    public main() {
         try {
             myConn = database.getConnection();
         } catch (Exception e) {
@@ -136,39 +122,7 @@ public class main implements Initializable {
 
 
     private void productTable() throws SQLException {
-        Statement statement = null;
-        ResultSet resultSet = null;
-        ObservableList<Product> products = FXCollections.observableArrayList();
-        try {
-            statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM product_v ORDER BY id");
-            while (resultSet.next()) {
-
-                Product product = new Product();
-                product.setId(resultSet.getString("id"));
-                product.setUnit(resultSet.getString("unit"));
-                product.setBarcode(resultSet.getString("barcode"));
-                product.setName(resultSet.getString("name"));
-                product.setType(resultSet.getString("type"));
-                product.setCost(resultSet.getString("cost"));
-                product.setQuantity(resultSet.getString("quantity"));
-                product.setWeight(resultSet.getString("weight"));
-                product.setSuplier(resultSet.getString("suplier"));
-                product.setDate_cr(resultSet.getString("date_cr"));
-                product.setCr_by(resultSet.getString("user"));
-                product.setDescription(resultSet.getString("description"));
-                product.setWidth(resultSet.getString("width"));
-                product.setHeight(resultSet.getString("height"));
-                product.setColor(resultSet.getString("color"));
-
-                products.addAll(product);
-            }
-            AdminTable.setItems(products);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            DaoUtils.close(statement, resultSet);
-        }
+       productDao.initializeTable(AdminTable);
     }
 
     @FXML
@@ -306,10 +260,10 @@ public class main implements Initializable {
     private void AddTypeAction() {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("Components/AddType.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../components/AddType.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Tur qo'shish");
-            stage.setScene(new Scene(root, 600, 400));
+            stage.setScene(new Scene(root, 700, 400));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
             stage.show();
