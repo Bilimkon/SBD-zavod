@@ -16,6 +16,7 @@ import sample.dao.database;
 import sample.model.Product;
 import sample.utils.BarCodeService;
 import sample.utils.Barcode_pdf;
+
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +25,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 import static sample.utils.BarCodeService.numbGen;
 
 public class main implements Initializable {
@@ -68,6 +70,7 @@ public class main implements Initializable {
         initializeProductTab();
         setOzgaartirishMaxsulot();
         ComboBoxUnit.getItems().addAll("Dona", "Kg", "Litr", "Rulon");
+
         try {
             AddTypeComboboxAction();
             AddSuplierComboboxAction();
@@ -122,7 +125,7 @@ public class main implements Initializable {
 
 
     private void productTable() throws SQLException {
-       productDao.initializeTable(AdminTable);
+        productDao.initializeTable(AdminTable);
     }
 
     @FXML
@@ -162,7 +165,7 @@ public class main implements Initializable {
                     productTable();
                 } catch (Exception exc) {
                     exc.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Barcodega 13 honali son kiritilishi shart!");
+                    JOptionPane.showMessageDialog(null, "Hamma ma'lumotlarni kiritish shart!");
                 }
             }
     }
@@ -250,6 +253,8 @@ public class main implements Initializable {
     @FXML
     private void AddTypeComboboxAction() throws SQLException {
         productDao.addTypeCombobox(ComboTypeList);
+        String name = productDao.getUnitType(ComboTypeList.getValue());
+        ComboBoxUnit.setValue(name);
     }
 
     private void AddSuplierComboboxAction() throws SQLException {
@@ -260,9 +265,25 @@ public class main implements Initializable {
     private void AddTypeAction() {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("../components/AddType.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../components/views/AddType.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Tur qo'shish");
+            stage.setScene(new Scene(root, 700, 400));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void btnSuplierAction() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../components/views/Suplier.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Taminotchi qo'shish");
             stage.setScene(new Scene(root, 700, 400));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
@@ -302,8 +323,8 @@ public class main implements Initializable {
         if (!barcode.equals("") && !name.equals("")) {
             Barcode_pdf.createImage(name + ".png", barcode);
             JOptionPane.showMessageDialog(null, "Barcode yaratildi");
-        }else {
-            JOptionPane.showMessageDialog(null,"Maxsulot tanlanmagan");
+        } else {
+            JOptionPane.showMessageDialog(null, "Maxsulot tanlanmagan");
         }
     }
 

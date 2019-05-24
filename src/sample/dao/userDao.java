@@ -1,7 +1,6 @@
 package sample.dao;
 
 import sample.model.User;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

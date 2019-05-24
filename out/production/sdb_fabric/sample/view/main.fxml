@@ -35,7 +35,7 @@
                                             </columnConstraints>
                                             <rowConstraints>
                                                 <RowConstraints minHeight="10.0" prefHeight="520.0" vgrow="SOMETIMES" />
-                                                <RowConstraints maxHeight="244.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
                                                 <GridPane prefHeight="428.0" prefWidth="275.0">
@@ -145,7 +145,7 @@
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin>
                                                         </Label>
-                                                        <ComboBox fx:id="ComboBoxUnit" prefHeight="40.0" prefWidth="200.0" promptText="O'lchov birligi" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                        <ComboBox fx:id="ComboBoxUnit" disable="true" prefHeight="40.0" prefWidth="200.0" promptText="O'lchov birligi" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin>
@@ -197,22 +197,22 @@
                                                                 <RowConstraints minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
                                                             </rowConstraints>
                                                             <children>
-                                                                <Button mnemonicParsing="false" onAction="#AddTypeAction" prefHeight="86.0" prefWidth="128.0" text="Tur qo'shish" GridPane.columnIndex="1">
+                                                                <Button mnemonicParsing="false" onAction="#AddTypeAction" prefHeight="100.0" prefWidth="128.0" text="Tur qo'shish" GridPane.columnIndex="1">
                                                                     <GridPane.margin>
                                                                         <Insets bottom="3.0" left="5.0" right="7.0" top="3.0" />
                                                                     </GridPane.margin>
                                                                 </Button>
-                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="50.0" prefWidth="341.0" style="-fx-background-color: red;" text="O'chirish" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="100.0" prefWidth="341.0" style="-fx-background-color: red;" text="O'chirish" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                                     <GridPane.margin>
                                                                         <Insets bottom="3.0" left="5.0" right="7.0" top="3.0" />
                                                                     </GridPane.margin>
                                                                 </Button>
-                                                                <Button fx:id="btnAddProduct" maxHeight="100.0" mnemonicParsing="false" onAction="#btnAddProductAction" prefHeight="50.0" prefWidth="313.0" style="-fx-background-color: #6c9dfa;" text="Qo'shish">
+                                                                <Button fx:id="btnAddProduct" maxHeight="100.0" mnemonicParsing="false" onAction="#btnAddProductAction" prefHeight="100.0" prefWidth="313.0" style="-fx-background-color: #6c9dfa;" text="Qo'shish">
                                                                     <GridPane.margin>
                                                                         <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                                                                     </GridPane.margin>
                                                                 </Button>
-                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="50.0" prefWidth="323.0" text="O'zgartirish" GridPane.rowIndex="1">
+                                                                <Button maxHeight="100.0" mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="100.0" prefWidth="323.0" text="O'zgartirish" GridPane.rowIndex="1">
                                                                     <padding>
                                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                     </padding>
@@ -245,7 +245,6 @@
                                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="62.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="0.0" prefWidth="0.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="75.0" />
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="55.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="358.0" />
@@ -254,7 +253,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                                      <TextField fx:id="AdminTextSearch" prefHeight="39.0" prefWidth="503.0" promptText="Izlang..." GridPane.columnIndex="6" />
+                                                      <TextField fx:id="AdminTextSearch" prefHeight="39.0" prefWidth="503.0" promptText="Izlang..." GridPane.columnIndex="5" />
                                           <Button fx:id="btnPdfAction" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="39.0" prefWidth="94.0" text="PDF">
                                              <GridPane.margin>
                                                 <Insets bottom="2.0" left="3.0" right="3.0" top="2.0" />
@@ -270,12 +269,12 @@
                                                 <Insets bottom="2.0" left="3.0" right="3.0" top="2.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="69.0" text="Taminot" GridPane.columnIndex="4">
+                                          <Button mnemonicParsing="false" onAction="#btnSuplierAction" prefHeight="39.0" prefWidth="69.0" text="Taminot" GridPane.columnIndex="3">
                                              <GridPane.margin>
                                                 <Insets bottom="2.0" left="3.0" right="3.0" top="2.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="92.0" text="Excel" GridPane.columnIndex="5">
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="92.0" text="Excel" GridPane.columnIndex="4">
                                              <GridPane.margin>
                                                 <Insets bottom="2.0" left="3.0" right="3.0" top="2.0" />
                                              </GridPane.margin>

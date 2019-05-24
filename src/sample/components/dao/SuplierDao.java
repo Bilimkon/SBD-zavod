@@ -4,16 +4,15 @@ import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
-import sample.components.models.Type;
+import sample.components.models.Suplier;
 import sample.dao.DaoUtils;
 import sample.dao.database;
 import sample.utils.utils;
 
+public class SuplierDao {
+    Connection myConn = null;
 
-public class TypeDao {
-    private Connection myConn = null;
-
-    public TypeDao() {
+    public SuplierDao() {
         try {
             myConn = database.getConnection();
         } catch (Exception e) {
@@ -23,26 +22,27 @@ public class TypeDao {
 
     public void initializeTable(TableView tableView) throws SQLException {
 
+
         Statement statement = null;
         ResultSet resultSet = null;
 
         //List to add items
-        ObservableList<Type> types = FXCollections.observableArrayList();
+        ObservableList<Suplier> supliers = FXCollections.observableArrayList();
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM type_v ORDER BY id");
+            resultSet = statement.executeQuery("SELECT * FROM suplier ORDER BY id");
             while (resultSet.next()) {
-                Type type = new Type();
-                type.setId(resultSet.getString("id"));
-                type.setName(resultSet.getString("name"));
-                type.setUnit(resultSet.getString("unit"));
-                type.setInfo(resultSet.getString("info"));
-                type.setDate(resultSet.getString("date_cr"));
-                type.setCr_by(resultSet.getString("cr_by"));
+                Suplier suplier = new Suplier();
+                suplier.setId(resultSet.getString("id"));
+                suplier.setCompanyName(resultSet.getString("companyName"));
+                suplier.setPerson(resultSet.getString("person"));
+                suplier.setInfo(resultSet.getString("info"));
+                suplier.setDate_cr(resultSet.getString("date_cr"));
+                suplier.setCr_by(resultSet.getString("cr_by"));
 
-                types.add(type);
+                supliers.add(suplier);
             }
-            tableView.setItems(types);
+            tableView.setItems(supliers);
 
 
         } catch (Exception exc) {
@@ -52,29 +52,16 @@ public class TypeDao {
         }
     }
 
-    public void addType(String name, String type, String info) throws SQLException {
-
-        String unit_id = "1";
-        if (type.equals("Kg")) {
-            unit_id = "2";
-        } else if (type.equals("Dona")) {
-            unit_id = "1";
-        } else if (type.equals("Rulon")) {
-            unit_id = "3";
-        } else if (type.equals("Litr")) {
-            unit_id = "4";
-        }
-
+    public void addSuplier(String name, String person, String info) throws SQLException {
         PreparedStatement pr = null;
 
         try {
-
-            pr = myConn.prepareStatement("INSERT INTO type(Name,unit,info,date_cr, cr_by) VALUES (?,?,?,?,?)");
+            pr = myConn.prepareStatement("INSERT INTO suplier(companyName, person, info, date_cr, cr_by) VALUES (?,?,?,?,?)");
             pr.setString(1, name);
-            pr.setString(2, unit_id);
+            pr.setString(2, person);
             pr.setString(3, info);
             pr.setString(4, String.valueOf(utils.getCurrentDate()));
-            pr.setString(5, "1");
+            pr.setString(5, "2");
             pr.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,16 +70,16 @@ public class TypeDao {
                 pr.close();
             }
         }
-
     }
-
-    public void updateType(String name, String info, String id) throws SQLException {
+    public void updateSuplier(String name, String person, String info, String id) throws SQLException {
         PreparedStatement pr = null;
         try{
-            pr = myConn.prepareStatement("UPDATE  sbd_factory.type t set t.name=?, info=? where id=?");
+            pr = myConn.prepareStatement("UPDATE  suplier t set t.companyName=?, t.person=?, t.info=? where t.id=?");
             pr.setString(1,name);
-            pr.setString(2,info);
-            pr.setString(3,id);
+            pr.setString(2,person);
+            pr.setString(3,info);
+            pr.setString(4,id);
+
             pr.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
@@ -103,10 +90,10 @@ public class TypeDao {
         }
     }
 
-    public void deleteType(String id) throws SQLException {
+    public void deleteSuplier(String id) throws SQLException {
         PreparedStatement pr = null;
         try{
-            pr = myConn.prepareStatement("DELETE FROM sbd_factory.type  WHERE id=?");
+            pr = myConn.prepareStatement("DELETE FROM suplier WHERE id=?");
             pr.setString(1,id);
             pr.executeUpdate();
         }catch (Exception e){
@@ -116,7 +103,6 @@ public class TypeDao {
                 pr.close();
             }
         }
+
     }
-
-
 }

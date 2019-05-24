@@ -1,4 +1,4 @@
-package sample.components;
+package sample.components.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import sample.components.dao.TypeDao;
 import sample.components.models.Type;
 import sample.dao.database;
+
 import javax.swing.*;
 import java.net.URL;
 import java.sql.*;
@@ -87,26 +88,41 @@ public class AddType implements Initializable {
         }
     }
 
-    public void AddTypeSaveAction() throws Exception {
-
-        String name = TypeName.getText();
-        String info = TypeDescription.getText();
-        String unit = Unit.getValue().toString();
-        typeDao.addType(name,unit,info);
-        typeTable();
+    public void AddTypeSaveAction() {
+        try {
+            String name = TypeName.getText();
+            String info = TypeDescription.getText();
+            String unit = Unit.getValue().toString();
+            typeDao.addType(name, unit, info);
+            typeTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error", "Tur tanlanmagan!", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    public void updateType() throws Exception {
-        String id = TypeId.getText();
-        String name = TypeName.getText();
-        String info = TypeDescription.getText();
-        typeDao.updateType(name, info, id);
-        typeTable();
+    public void updateType() {
+        try {
+            String id = TypeId.getText();
+            String name = TypeName.getText();
+            String info = TypeDescription.getText();
+            typeDao.updateType(name, info, id);
+            typeTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error", "Tur tanlanmagan!", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    public void deleteType() throws Exception {
-        String id = TypeId.getText();
-        typeDao.deleteType(id);
-        typeTable();
+    public void deleteType() {
+        try {
+            String id = TypeId.getText();
+            typeDao.deleteType(id);
+            typeTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error", "Tur tanlanmagan!", JOptionPane.ERROR_MESSAGE);
+
+        }
     }
 }

@@ -57,7 +57,7 @@ public class ProductDao {
     public void addProduct(String barcode, String name, String type, String cost, String quantity, String unit, String weight, String description, String suplier, String color, String height, String width) throws SQLException {
 
         String type_id = getComboBoxId("Type", "name", type);
-        String suplier_id = getComboBoxId("suplier", "firstname", suplier);
+        String suplier_id = getComboBoxId("suplier", "companyName", suplier);
         String unit_id = "1";
         if (unit.equals("Kg")) {
             unit_id = "2";
@@ -90,7 +90,6 @@ public class ProductDao {
             pr.setString(13, color);
             pr.setString(14, height);
             pr.setString(15, width);
-
             pr.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,12 +131,12 @@ public class ProductDao {
     public void deleteProduct(String id) throws SQLException {
         PreparedStatement pr = null;
 
-        try{
-            pr= myConn.prepareStatement("DELETE  FROM product where  id="+id);
+        try {
+            pr = myConn.prepareStatement("DELETE  FROM product where  id=" + id);
             pr.executeUpdate();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (pr != null) {
                 pr.close();
             }
@@ -162,16 +161,16 @@ public class ProductDao {
         }
     }
 
-    public  void addSuplierCombobox(ComboBox<String> comboBox) throws SQLException {
+    public void addSuplierCombobox(ComboBox<String> comboBox) throws SQLException {
 
         Statement statement = null;
         ResultSet resultSet = null;
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT firstName FROM suplier");
+            resultSet = statement.executeQuery("SELECT companyName FROM suplier");
             while (resultSet.next()) {  // loop
                 // Now add the comboBox addAll statement
-                comboBox.getItems().addAll(resultSet.getString("firstname"));
+                comboBox.getItems().addAll(resultSet.getString("companyName"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -193,5 +192,23 @@ public class ProductDao {
         }
         return null;
 
+    }
+
+    public String getUnitType(String name) throws SQLException {
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            String s = "SELECT unit FROM type_v WHERE name='" + name + "'";
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery(s);
+            if (resultSet.next()) {
+                return resultSet.getString("unit");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DaoUtils.close(statement, resultSet);
+        }
+        return null;
     }
 }
