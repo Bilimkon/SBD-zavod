@@ -8,9 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import sample.Main;
 import sample.dao.userDao;
 import sample.model.User;
 
@@ -32,13 +33,23 @@ public class Login {
 
         if (isUserExists(ismText, passText)) {
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("../view/main.fxml"));
+                String nameOfModule = null;
+                if(currentUser.getUserType()==1){
+                    nameOfModule = "main.fxml";
+                }else if(currentUser.getUserType()==5){
+                    nameOfModule = "Admin.fxml";
+                }
+                Parent root = FXMLLoader.load(getClass().getResource("../view/"+nameOfModule));
                 stage.setTitle("SBD");
                 Screen screen = Screen.getPrimary();
                 Rectangle2D bounds = screen.getVisualBounds();
                 stage.setScene(new Scene(root));
                 //stage.initStyle(StageStyle.UNDECORATED);
                 stage.setFullScreen(false);
+                stage.getIcons().add(
+                        new Image(
+                                Main.class.getResourceAsStream( "bar-chart.png" )));
+
                 stage.show();
                 stage.setOnCloseRequest(e -> Platform.exit());
                 stage.setOnCloseRequest(e -> System.exit(0));
@@ -49,7 +60,8 @@ public class Login {
                 e.printStackTrace();
             }
 
-        } else {
+        }
+        else {
             JOptionPane.showMessageDialog(null, "Xatolik");
         }
     }

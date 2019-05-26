@@ -1,14 +1,193 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controller.Admin"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Admin">
+   <children>
+      <BorderPane prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="Dashboard">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane prefHeight="666.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Foydalanuvchilar">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="193.0" layoutY="79.0" prefHeight="666.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <left>
+                                    <BorderPane maxWidth="-Infinity" prefHeight="666.0" prefWidth="312.0" BorderPane.alignment="CENTER">
+                                       <center>
+                                          <GridPane prefHeight="662.0" prefWidth="344.0" BorderPane.alignment="CENTER">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="584.0" minWidth="10.0" prefWidth="528.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.0" minWidth="10.0" prefWidth="208.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints maxHeight="326.0" minHeight="10.0" prefHeight="282.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <GridPane prefHeight="297.0" prefWidth="332.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="439.0" minWidth="10.0" prefWidth="155.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <TextField fx:id="username" prefHeight="50.0" prefWidth="415.0" promptText="username">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="firstname" prefHeight="60.0" prefWidth="415.0" promptText="ism" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="lastname" prefHeight="72.0" prefWidth="415.0" promptText="familiya" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="phone" prefHeight="83.0" prefWidth="415.0" promptText="telefon" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <TextField fx:id="password" prefHeight="77.0" prefWidth="415.0" promptText="Parol" GridPane.rowIndex="4">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                   </children>
+                                                </GridPane>
+                                                <GridPane prefHeight="148.0" prefWidth="332.0" GridPane.rowIndex="1">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <ComboBox fx:id="Role" prefHeight="66.0" prefWidth="158.0" promptText="Role">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </ComboBox>
+                                                      <TextField fx:id="id" editable="false" prefHeight="57.0" prefWidth="158.0" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </TextField>
+                                                      <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveAction" prefHeight="71.0" prefWidth="158.0" text="Saqlash" GridPane.columnIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#btnUpdateAction" prefHeight="54.0" prefWidth="159.0" style="-fx-background-color: #6c9dfa;" text="O'zgartirish" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="120.0" prefWidth="158.0" style="-fx-background-color: #fa6c7b;" text="O'chirish" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                         </GridPane.margin>
+                                                      </Button>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </GridPane>
+                                       </center>
+                                       <top>
+                                          <GridPane prefHeight="224.0" prefWidth="344.0" BorderPane.alignment="CENTER">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <ImageView fitHeight="201.0" fitWidth="241.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../style/images/Person-icon.png" />
+                                                   </image>
+                                                   <GridPane.margin>
+                                                      <Insets left="53.0" />
+                                                   </GridPane.margin>
+                                                </ImageView>
+                                             </children>
+                                          </GridPane>
+                                       </top>
+                                    </BorderPane>
+                                 </left>
+                                 <center>
+                                    <TableView fx:id="userTable" prefHeight="661.0" prefWidth="739.0" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets top="5.0" />
+                                       </BorderPane.margin>
+                                    </TableView>
+                                 </center></BorderPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </center>
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
 </AnchorPane>

@@ -10,5 +10,8 @@
     <orderEntry type="library" name="controlsfx-8.40.9" level="project" />
     <orderEntry type="library" name="itextpdf-5.1.0" level="project" />
     <orderEntry type="library" name="barcode4j" level="project" />
+    <orderEntry type="library" name="gembox-spreadsheet" level="project" />
+    <orderEntry type="library" name="poi-4.1.0" level="project" />
+    <orderEntry type="library" name="poi-ooxml-4.1.0" level="project" />
   </component>
 </module>

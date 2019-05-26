@@ -1,7 +1,16 @@
 package sample.controller;
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sample.components.models.Suplier;
+import sample.dao.AdminDao;
 import sample.dao.database;
+import sample.model.UserTable;
 
 import javax.swing.*;
 import java.net.URL;
@@ -9,6 +18,25 @@ import java.sql.Connection;
 import java.util.ResourceBundle;
 
 public class Admin implements Initializable {
+
+    @FXML
+    private TextField id;
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField firstname;
+    @FXML
+    private TextField lastname;
+    @FXML
+    private TextField phone;
+    @FXML
+    private TextField password;
+    @FXML
+    private ComboBox Role;
+    @FXML
+    private TableView userTable;
+    AdminDao adminDao = new AdminDao();
+
 
     private Connection myConn = null;
 
@@ -22,6 +50,106 @@ public class Admin implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Role.getItems().addAll("Ombor","1-ish/ch","2-ish/ch","Savdo","Admin");
+        initializeTable();
+        userTable();
+        setUpdate();
+    }
+
+    private void initializeTable(){
+        TableColumn id = new TableColumn("Tartib raqami");
+        TableColumn username = new TableColumn("Username");
+        TableColumn firstname = new TableColumn("Ism");
+        TableColumn lastname = new TableColumn("Familiya");
+        TableColumn password = new TableColumn("Password");
+        TableColumn userType = new TableColumn("userType");
+        TableColumn phone = new TableColumn("Telefon");
+        userTable.getColumns().addAll(id, username, firstname, lastname, phone, password, userType);
+
+        id.setCellValueFactory(new PropertyValueFactory<UserTable, String >("id"));
+        username.setCellValueFactory(new PropertyValueFactory<UserTable, String>("username"));
+        firstname.setCellValueFactory(new PropertyValueFactory<UserTable, String>("firstname"));
+        lastname.setCellValueFactory(new PropertyValueFactory<UserTable, String>("lastname"));
+        phone.setCellValueFactory(new PropertyValueFactory<UserTable, String>("phone"));
+        userType.setCellValueFactory(new PropertyValueFactory<UserTable, String>("userType"));
+        password.setCellValueFactory(new PropertyValueFactory<UserTable, String>("password"));
+    }
+
+    private void userTable(){
+        try {
+            adminDao.userTable(userTable);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnSaveAction(){
+
+        try {
+            String username1 = username.getText();
+            String firstname1 = firstname.getText();
+            String lastname1 = lastname.getText();
+            String password1 = password.getText();
+            String phone1 = phone.getText();
+            String userType = Role.getValue().toString();
+            adminDao.addUser(username1,firstname1,lastname1,phone1,password1,userType);
+            userTable();
+        }catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Hamma ma'lumotlarni kiritishingiz shart !");
+        }
 
     }
+    private void setUpdate() {
+        try {
+            userTable.setOnMouseClicked(event -> {
+                UserTable userTable1 = (UserTable) userTable.getSelectionModel().getSelectedItem();
+                try {
+                    username.setText(userTable1.getUsername());
+                    firstname.setText(userTable1.getFisrtname());
+                    lastname.setText(userTable1.getLastname());
+                    password.setText(userTable1.getPassword());
+                    Role.setValue(userTable1.getUserType());
+                    phone.setText(userTable1.getPhone());
+                    id.setText(userTable1.getId());
+                } catch (Exception exc) {
+                }
+            });
+        } catch (Exception exc) {
+            JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    @FXML
+    private void btnUpdateAction(){
+        try {
+            String username1 = username.getText();
+            String firstname1 = firstname.getText();
+            String lastname1 = lastname.getText();
+            String password1 = password.getText();
+            String phone1 = phone.getText();
+            String userType = Role.getValue().toString();
+            String id1 = id.getText();
+            adminDao.updateUser(id1, username1, firstname1, lastname1, phone1, password1, userType);
+            userTable();
+        }catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error", "Xatolik", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    @FXML
+    private void btnDeleteAction(){
+        try {
+            String id1 = id.getText();
+            adminDao.deleteUser(id1);
+            userTable();
+        }catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error", "Xatolik", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
 }

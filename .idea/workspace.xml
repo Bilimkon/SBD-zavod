@@ -5,27 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/Suplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/Suplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/views/Suplier.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gembox_spreadsheet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/poi_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/poi_ooxml_4_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gembox-spreadsheet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/poi-4.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/poi-ooxml-4.1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/bar-chart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/dao/AdminDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/model/UserTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/style/images/Person-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/style/images/bar-chart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/view/bar-chart.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/fb27d006-d6e3-4e7a-b990-8a5c488bade7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fb27d006-d6e3-4e7a-b990-8a5c488bade7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/fb27d006-d6e3-4e7a-b990-8a5c488bade7/storage_v2/_src_/schema/sbd_factory.wM4PnQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fb27d006-d6e3-4e7a-b990-8a5c488bade7/storage_v2/_src_/schema/sbd_factory.wM4PnQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fb27d006-d6e3-4e7a-b990-8a5c488bade7/storage_v2/_staging_/schema/sbd_factory.wM4PnQ/view/product_v.JllOwQ.sql" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fb27d006-d6e3-4e7a-b990-8a5c488bade7/storage_v2/_staging_/schema/sbd_factory.wM4PnQ/view/product_v.JllOwQ.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/AddType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/AddType.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/TypeDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/TypeDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SuplierDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SuplierDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/Login.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/ProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/userDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/userDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/AddType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/views/AddType.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/AddType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/AddType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/TypeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/TypeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sdb_fabric.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sdb_fabric.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/controller/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/userDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/userDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/Admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Admin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -131,22 +141,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/dao/ProductDao.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/controller/Admin.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="92" selection-start-line="92" selection-end-line="92" />
+              <caret line="133" selection-start-line="133" selection-end-line="133" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/dao/AdminDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#408#409#0" expanded="true" />
-                <element signature="e#457#458#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/type_v">
+        <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/user">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -155,17 +172,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/view/main.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fb27d006-d6e3-4e7a-b990-8a5c488bade7/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="271" column="101" selection-start-line="271" selection-start-column="85" selection-end-line="271" selection-end-column="101" />
+            <state relative-caret-position="360">
+              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
+        <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/user_v">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -174,10 +190,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/dao/TypeDao.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/controller/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="935">
+              <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="604">
+              <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+              <folding>
+                <element signature="e#1348#1349#0" expanded="true" />
+                <element signature="e#1379#1380#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/dao/userDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -185,21 +226,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/controller/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="329" selection-start-line="329" selection-end-line="329" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#initializeProductTab#0;class#main#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Suplier.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="661">
-              <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
+            <state relative-caret-position="115">
+              <caret line="71" column="70" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -208,42 +236,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/dao/ProductDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="454">
+              <caret line="69" column="9" selection-start-line="60" selection-start-column="7" selection-end-line="69" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/models/Suplier.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-199">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="e#919#920#0" expanded="true" />
-                <element signature="e#950#951#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1090#1091#0" expanded="true" />
-                <element signature="e#1555#1556#0" expanded="true" />
-                <element signature="e#1594#1595#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/AddType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#AddType#0;class#AddType#0" />
+                <element signature="e#408#409#0" expanded="true" />
+                <element signature="e#457#458#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -274,37 +274,47 @@
         <option value="$PROJECT_DIR$/src/sample/model/User.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/database.java" />
         <option value="$PROJECT_DIR$/src/sample/style/main.css" />
-        <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/daoUtils.java" />
         <option value="$PROJECT_DIR$/src/sample/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/view/Sale.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/view/Admin.fxml" />
         <option value="$PROJECT_DIR$/src/sample/model/Product.java" />
-        <option value="$PROJECT_DIR$/src/sample/controller/Login.java" />
         <option value="$PROJECT_DIR$/src/sample/utils/BarCodeService.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/SystemDao.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/models/Type.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/fb27d006-d6e3-4e7a-b990-8a5c488bade7/console.sql" />
         <option value="$PROJECT_DIR$/src/sample/components/AddType.java" />
         <option value="$PROJECT_DIR$/src/sample/utils/utils.java" />
         <option value="$PROJECT_DIR$/src/sample/utils/Barcode_pdf.java" />
-        <option value="$PROJECT_DIR$/src/sample/controller/Admin.java" />
         <option value="$PROJECT_DIR$/src/sample/style/AdminPage.css" />
         <option value="$PROJECT_DIR$/src/sample/components/AddType.fxml" />
         <option value="$PROJECT_DIR$/src/sample/dao/userDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/dao/Suplier.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell_1" />
         <option value="$PROJECT_DIR$/src/sample/components/views/Suplier.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/controller/main.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/ProductDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/controllers/Suplier.java" />
         <option value="$PROJECT_DIR$/src/sample/components/models/Suplier.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/dao/TypeDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/controllers/AddType.java" />
         <option value="/9476efb5/fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v.sql" />
+        <option value="$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java" />
+        <option value="$PROJECT_DIR$/src/sample/controller/main.java" />
+        <option value="$PROJECT_DIR$/src/sample/core/Role.java" />
+        <option value="$PROJECT_DIR$/src/sample/core/RoleManager.java" />
+        <option value="$PROJECT_DIR$/src/Role.java" />
+        <option value="$PROJECT_DIR$/src/sample/core/RolePlayController.java" />
+        <option value="$PROJECT_DIR$/src/sample/core/roleplay.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/core/RoleVisibility.java" />
+        <option value="$PROJECT_DIR$/src/sample/view/Admin.fxml" />
         <option value="$PROJECT_DIR$/src/sample/view/main.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/dao/AdminDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/model/UserTable.java" />
+        <option value="$PROJECT_DIR$/src/sample/controller/Login.java" />
+        <option value="$PROJECT_DIR$/src/sample/controller/Admin.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell_1" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/fb27d006-d6e3-4e7a-b990-8a5c488bade7/console.sql" />
+        <option value="$PROJECT_DIR$/src/sample/dao/AdminDao.java" />
       </list>
     </option>
   </component>
@@ -315,9 +325,9 @@
     </treeState>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1832" />
+    <option name="y" value="-24" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -330,7 +340,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -354,12 +363,72 @@
               <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -375,10 +444,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558688400609" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558793992566" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/barcode4j.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/poi-ooxml-4.1.0.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -393,11 +462,11 @@
       <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\view" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\style\images" />
+      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\view" />
+      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample" />
       <recent name="E:\Humoyun\Projects\sdb_fabric\lib" />
       <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\utils" />
-      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\resources" />
-      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\style\images" />
-      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\style" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -448,6 +517,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="sdb_fabric" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -484,6 +566,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -504,12 +591,13 @@
       <workItem from="1558548566516" duration="29337000" />
       <workItem from="1558613747310" duration="4126000" />
       <workItem from="1558669209682" duration="18027000" />
-      <workItem from="1558707186198" duration="1766000" />
+      <workItem from="1558707186198" duration="11335000" />
+      <workItem from="1558779162435" duration="14609000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77399000" />
+    <option name="totallyTimeSpent" value="101577000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -521,9 +609,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.13539445" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.13646056" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -532,7 +621,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17984831" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5254605" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -554,7 +643,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.16577825" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.16577825" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="right" id="Maven" order="7" weight="0.32995737" />
@@ -575,240 +664,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/type_v" />
-    <entry file="file://$PROJECT_DIR$/src/sample/components/views/AddType.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="35" column="60" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v" />
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/suplier" />
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/com/sun/javafx/tk/quantum/GlassViewEventHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="415" selection-start-line="415" selection-end-line="415" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/views/Suplier.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-8.0.15.jar!/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/user" />
-    <entry file="file://$PROJECT_DIR$/src/sample/components/models/Type.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#879#880#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
-            <element signature="e#1096#1097#0" expanded="true" />
-            <element signature="e#1130#1131#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
-            <element signature="e#1209#1210#0" expanded="true" />
-            <element signature="e#1251#1252#0" expanded="true" />
-            <element signature="e#1288#1289#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/AddType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#AddType#0;class#AddType#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/product">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbSrc:///9476efb5/fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -823,62 +678,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/type_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/type_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/product_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/type_v">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="271" column="101" selection-start-line="271" selection-start-column="85" selection-end-line="271" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/components/models/Suplier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
+        <state relative-caret-position="-185">
           <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#919#920#0" expanded="true" />
@@ -887,27 +689,6 @@
             <element signature="e#1090#1091#0" expanded="true" />
             <element signature="e#1555#1556#0" expanded="true" />
             <element signature="e#1594#1595#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Suplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="96" column="46" selection-start-line="96" selection-start-column="46" selection-end-line="96" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/controller/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="329" selection-start-line="329" selection-end-line="329" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initializeProductTab#0;class#main#0" />
           </folding>
         </state>
       </provider>
@@ -933,21 +714,244 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/type_v">
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/com/sun/javafx/event/EventDispatchChainImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/core/RoleManager.java" />
+    <entry file="file://$PROJECT_DIR$/src/Role.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/core/RolePlayController.java" />
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="2424" selection-start-line="2424" selection-end-line="2424" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/core/Role.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/core/roleplay.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/sample/core/RoleVisibility.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-245">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/sdb_fabric/sample/style/images/bar-chart.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/main.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/style/images/Person-icon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/Admin.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="99" column="122" selection-start-line="99" selection-start-column="122" selection-end-line="99" selection-end-column="122" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controller/Sale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/model/UserTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#1029#1030#0" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#1108#1109#0" expanded="true" />
+            <element signature="e#1133#1134#0" expanded="true" />
+            <element signature="e#1169#1170#0" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="e#1235#1236#0" expanded="true" />
+            <element signature="e#1272#1273#0" expanded="true" />
+            <element signature="e#1326#1327#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+            <element signature="e#1405#1406#0" expanded="true" />
+            <element signature="e#1448#1449#0" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1577#1578#0" expanded="true" />
+            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="e#1659#1660#0" expanded="true" />
+            <element signature="e#1704#1705#0" expanded="true" />
+            <element signature="e#1739#1740#0" expanded="true" />
+            <element signature="e#1776#1777#0" expanded="true" />
+            <element signature="e#1830#1831#0" expanded="true" />
+            <element signature="e#1861#1862#0" expanded="true" />
+            <element signature="e#1909#1910#0" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#1984#1985#0" expanded="true" />
+            <element signature="e#2018#2019#0" expanded="true" />
+            <element signature="e#2069#2070#0" expanded="true" />
+            <element signature="e#2097#2098#0" expanded="true" />
+            <element signature="e#2139#2140#0" expanded="true" />
+            <element signature="e#2176#2177#0" expanded="true" />
+            <element signature="e#2211#2212#0" expanded="true" />
+            <element signature="e#2248#2249#0" expanded="true" />
+            <element signature="e#2302#2303#0" expanded="true" />
+            <element signature="e#2333#2334#0" expanded="true" />
+            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
+            <element signature="e#2459#2460#0" expanded="true" />
+            <element signature="e#2496#2497#0" expanded="true" />
+            <element signature="e#2550#2551#0" expanded="true" />
+            <element signature="e#2581#2582#0" expanded="true" />
+            <element signature="e#2629#2630#0" expanded="true" />
+            <element signature="e#2672#2673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/style/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="105" column="26" lean-forward="true" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Suplier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1621">
+          <caret line="90" column="5" lean-forward="true" selection-start-line="75" selection-start-column="3" selection-end-line="90" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1920">
+          <caret line="103" column="9" selection-start-line="92" selection-start-column="6" selection-end-line="103" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controller/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="71" column="70" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/dao/ProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="69" column="9" selection-start-line="60" selection-start-column="7" selection-end-line="69" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/dao/userDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+          <folding>
+            <element signature="e#1348#1349#0" expanded="true" />
+            <element signature="e#1379#1380#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controller/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/table/user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/ProductDao.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/fb27d006-d6e3-4e7a-b990-8a5c488bade7/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/controller/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
+          <caret line="133" selection-start-line="133" selection-end-line="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://fb27d006-d6e3-4e7a-b990-8a5c488bade7/schema/sbd_factory/view/user_v">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/dao/AdminDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#408#409#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1018,7 +1022,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>barcode4j</last-edited>
+          <last-edited>poi-ooxml-4.1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

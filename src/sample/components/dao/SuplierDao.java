@@ -44,7 +44,6 @@ public class SuplierDao {
             }
             tableView.setItems(supliers);
 
-
         } catch (Exception exc) {
             exc.printStackTrace();
         } finally {

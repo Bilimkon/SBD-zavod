@@ -16,7 +16,7 @@ import sample.dao.database;
 import sample.model.Product;
 import sample.utils.BarCodeService;
 import sample.utils.Barcode_pdf;
-
+import sample.utils.Workbookcontroller;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -293,7 +293,6 @@ public class main implements Initializable {
         }
     }
 
-
     @FXML
     private void GenerateBarcode() {
         if (textBarcode.getText().isEmpty()) {
@@ -340,6 +339,17 @@ public class main implements Initializable {
             systemUtilsDao.excellFolder(path);
             JOptionPane.showMessageDialog(null, "Rasm joyi saqlandi!");
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    public void btnExcelAction(){
+        Workbookcontroller workbookcontroller = new Workbookcontroller();
+        try {
+            workbookcontroller.datebaseToExcel("product_v");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
