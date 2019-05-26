@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
+import sample.components.dao.TypeDao;
+import sample.controller.Login;
 import sample.model.Product;
 import sample.utils.utils;
 
@@ -11,6 +13,7 @@ import java.sql.*;
 
 public class ProductDao {
 
+    String user_id = String.valueOf(Login.currentUser.getId());
     private Connection myConn;
     private String apple = String.valueOf(utils.getCurrentDate());
 
@@ -58,23 +61,13 @@ public class ProductDao {
 
         String type_id = getComboBoxId("Type", "name", type);
         String suplier_id = getComboBoxId("suplier", "companyName", suplier);
-        String unit_id = "1";
-        if (unit.equals("Kg")) {
-            unit_id = "2";
-        } else if (unit.equals("Dona")) {
-            unit_id = "1";
-        } else if (unit.equals("Rulon")) {
-            unit_id = "3";
-        } else if (unit.equals("Litr")) {
-            unit_id = "4";
-        }
-        PreparedStatement pr = null;
 
-        try {
-            pr = myConn.prepareStatement("INSERT INTO product(barcode, name, " +
-                    "type, type_id, cost,quantity, weight, cr_by, date_cr," +
-                    " unit, description, suplier_id, color, height, width) " +
-                    "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        TypeDao typeDao = new TypeDao();
+
+        try (PreparedStatement pr = myConn.prepareStatement("INSERT INTO product(barcode, name, " +
+                "type, type_id, cost,quantity, weight, cr_by, date_cr," +
+                " unit, description, suplier_id, color, height, width) " +
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
             pr.setString(1, barcode);
             pr.setString(2, name);
             pr.setString(3, type);
@@ -82,9 +75,9 @@ public class ProductDao {
             pr.setString(5, cost);
             pr.setString(6, quantity);
             pr.setString(7, weight);
-            pr.setString(8, "1");
+            pr.setString(8, user_id);
             pr.setString(9, apple);
-            pr.setString(10, unit_id);
+            pr.setString(10, typeDao.typeMaker(unit));
             pr.setString(11, description);
             pr.setString(12, suplier_id);
             pr.setString(13, color);
@@ -93,10 +86,6 @@ public class ProductDao {
             pr.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (pr != null) {
-                pr.close();
-            }
         }
     }
 

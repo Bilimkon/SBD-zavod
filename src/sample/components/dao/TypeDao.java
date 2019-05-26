@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import sample.components.models.Type;
+import sample.controller.Login;
 import sample.dao.DaoUtils;
 import sample.dao.database;
 import sample.utils.utils;
@@ -12,6 +13,7 @@ import sample.utils.utils;
 
 public class TypeDao {
     private Connection myConn = null;
+    String user_id = String.valueOf(Login.currentUser.getId());
 
     public TypeDao() {
         try {
@@ -54,27 +56,16 @@ public class TypeDao {
 
     public void addType(String name, String type, String info) throws SQLException {
 
-        String unit_id = "1";
-        if (type.equals("Kg")) {
-            unit_id = "2";
-        } else if (type.equals("Dona")) {
-            unit_id = "1";
-        } else if (type.equals("Rulon")) {
-            unit_id = "3";
-        } else if (type.equals("Litr")) {
-            unit_id = "4";
-        }
-
         PreparedStatement pr = null;
 
         try {
 
             pr = myConn.prepareStatement("INSERT INTO type(Name,unit,info,date_cr, cr_by) VALUES (?,?,?,?,?)");
             pr.setString(1, name);
-            pr.setString(2, unit_id);
+            pr.setString(2, typeMaker(type));
             pr.setString(3, info);
             pr.setString(4, String.valueOf(utils.getCurrentDate()));
-            pr.setString(5, "1");
+            pr.setString(5, user_id);
             pr.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -116,6 +107,20 @@ public class TypeDao {
                 pr.close();
             }
         }
+    }
+
+    public String typeMaker(String type){
+        String unit_id = "1";
+        if (type.equals("Kg")) {
+            unit_id = "2";
+        } else if (type.equals("Dona")) {
+            unit_id = "1";
+        } else if (type.equals("Rulon")) {
+            unit_id = "3";
+        } else if (type.equals("Litr")) {
+            unit_id = "4";
+        }
+        return unit_id;
     }
 
 

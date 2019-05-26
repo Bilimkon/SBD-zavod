@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-image:url(../style/images/logo-beta1.png) " stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Login">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-image:url(../style/images/logo-beta1.png) " stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Login">
     <children>
         <GridPane layoutX="274.0" layoutY="168.0" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
@@ -49,12 +49,12 @@
                                 <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="139.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <TextField fx:id="textIsm" prefHeight="71.0" prefWidth="218.0" promptText="Ismingizni kiriting" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <TextField fx:id="textIsm" prefHeight="71.0" prefWidth="218.0" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                     <font>
                                         <Font size="18.0" />
                                     </font></TextField>
                                 <ImageView fitHeight="61.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="903.0" text="Email" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="903.0" text="Username" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                     <font>
                                         <Font size="18.0" />
                                     </font></Label>

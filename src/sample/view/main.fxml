@@ -18,8 +18,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.image.Image?>
-
 
 <AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;" stylesheets="@../style/AdminPage.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.main">
     <children>
@@ -81,7 +79,7 @@
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <TextField id="text-red" fx:id="textId" editable="false" prefHeight="40.0" prefWidth="200.0" promptText="Id" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                        <TextField id="text-red" fx:id="textId" editable="false" prefHeight="40.0" prefWidth="200.0" promptText="Id" style="-fx-background-color: #eff0f1;" GridPane.columnIndex="1" GridPane.rowIndex="12">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
@@ -125,7 +123,7 @@
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <JFXButton mnemonicParsing="false" onAction="#GenerateBarcode" prefHeight="40.0" prefWidth="90.0"  text="Barcode">
+                                                        <JFXButton mnemonicParsing="false" onAction="#GenerateBarcode" prefHeight="40.0" prefWidth="90.0" text="Barcode">
                                                             <GridPane.margin>
                                                                 <Insets bottom="2.0" left="5.0" />
                                                             </GridPane.margin>
@@ -256,27 +254,27 @@
                                       </rowConstraints>
                                        <children>
                                                       <TextField fx:id="AdminTextSearch" prefHeight="39.0" prefWidth="503.0" promptText="Izlang..." GridPane.columnIndex="5" />
-                                          <Button fx:id="btnPdfAction" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="90.0" prefWidth="69.0"  text="PDF">
+                                          <Button fx:id="btnPdfAction" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="90.0" prefWidth="69.0" text="PDF">
                                              <GridPane.margin>
                                                 <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#btnPathImage" prefHeight="88.0" prefWidth="69.0"  text="Path" GridPane.columnIndex="1">
+                                          <Button mnemonicParsing="false" onAction="#btnPathImage" prefHeight="88.0" prefWidth="69.0" text="Path" GridPane.columnIndex="1">
                                              <GridPane.margin>
                                                 <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="69.0"  text="+" GridPane.columnIndex="2">
+                                          <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="69.0" text="+" GridPane.columnIndex="2">
                                              <GridPane.margin>
                                                 <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#btnSuplierAction" prefHeight="68.0" prefWidth="69.0"  text="Taminot" GridPane.columnIndex="3">
+                                          <Button mnemonicParsing="false" onAction="#btnSuplierAction" prefHeight="68.0" prefWidth="69.0" text="Taminot" GridPane.columnIndex="3">
                                              <GridPane.margin>
                                                 <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#btnExcelAction" prefHeight="93.0" prefWidth="69.0"  text="Excel" GridPane.columnIndex="4">
+                                          <Button mnemonicParsing="false" onAction="#btnExcelAction" prefHeight="93.0" prefWidth="69.0" text="Excel" GridPane.columnIndex="4">
                                              <GridPane.margin>
                                                 <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
                                              </GridPane.margin>
@@ -292,7 +290,7 @@
                                 </BorderPane>
                             </content>
                         </Tab>
-                  <Tab id="Main-tab2" styleClass="MainTabs" />
+                  <Tab styleClass="MainTabs" />
                     </tabs>
                     <BorderPane.margin>
                         <Insets />
@@ -312,8 +310,8 @@
                                 </Label>
                                 <GridPane prefHeight="40.0" prefWidth="744.0" styleClass="bottom-border">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="145.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="41.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="-Infinity" prefWidth="72.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="61.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -324,6 +322,13 @@
                                     <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
+                           <children>
+                              <Button id="logout" fx:id="btnClose" mnemonicParsing="false" onAction="#btnCloseAction" prefHeight="49.0" prefWidth="90.0" text="Chiqish">
+                                 <GridPane.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
                                 </GridPane>
                             </children>
                         </HBox>

@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 import sample.Main;
 import sample.dao.userDao;
 import sample.model.User;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;

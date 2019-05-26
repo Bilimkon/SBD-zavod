@@ -6,7 +6,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.components.dao.TypeDao;
 import sample.components.models.Type;
+import sample.controller.Login;
 import sample.dao.database;
+import sample.model.User;
+import sample.model.UserTable;
 
 import javax.swing.*;
 import java.net.URL;
@@ -27,6 +30,8 @@ public class AddType implements Initializable {
     TextField TypeId;
     @FXML
     TableView TypeTable;
+
+    String user_id = String.valueOf(Login.currentUser.getId());
 
     Connection myConn = null;
     TypeDao typeDao = new TypeDao();

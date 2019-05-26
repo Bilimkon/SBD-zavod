@@ -29,7 +29,6 @@ public class Workbookcontroller {
         }
     }
 
-
     static {
         SpreadsheetInfo.setLicense("FREE-LIMITED-KEY");
     }

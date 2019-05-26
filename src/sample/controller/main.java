@@ -8,8 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import sample.Main;
 import sample.dao.ProductDao;
 import sample.dao.SystemUtilsDao;
 import sample.dao.database;
@@ -25,7 +27,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
 import static sample.utils.BarCodeService.numbGen;
 
 public class main implements Initializable {
@@ -62,6 +63,8 @@ public class main implements Initializable {
     private TextField textDescription;
     @FXML
     private TextField textId;
+    @FXML
+    private Button btnClose;
     @FXML
     private ComboBox<String> comboBoxSuplier;
 
@@ -345,13 +348,50 @@ public class main implements Initializable {
 
 
     @FXML
-    public void btnExcelAction(){
+    public void btnExcelAction() {
         Workbookcontroller workbookcontroller = new Workbookcontroller();
         try {
             workbookcontroller.datebaseToExcel("product_v");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void btnCloseAction() {
+       closeAction(btnClose);
+    }
+    public void closeAction(Button btn){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Chiqish");
+        alert.setHeaderText(null);
+        alert.setContentText(" Dasturdan chiqmoqchimisiz ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent())
+            if (result.get() == ButtonType.OK) {
+
+                Parent root;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("../view/Login.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("SBD boshqaruv tizimi");
+                    stage.setScene(new Scene(root, 1080, 720));
+                    stage.setResizable(true);
+                    stage.getIcons().add(
+                            new Image(
+                                    Main.class.getResourceAsStream("bar-chart.png")));
+                    stage.show();
+                    this.btnClose.getScene().getWindow().hide();
+
+                    // Hide this current window (if this is what you want)
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
     }
 }
 

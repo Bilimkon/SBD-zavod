@@ -114,3 +114,6 @@
 #btnlLogOut{
     -fx-fit-to-width: 100px;
 }
+#logout{
+    -fx-graphic: url("./images/logout.png");
+}

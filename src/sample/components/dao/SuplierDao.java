@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import sample.components.models.Suplier;
+import sample.controller.Login;
 import sample.dao.DaoUtils;
 import sample.dao.database;
 import sample.utils.utils;
@@ -12,6 +13,7 @@ import sample.utils.utils;
 public class SuplierDao {
     Connection myConn = null;
 
+    String user_id = String.valueOf(Login.currentUser.getId());
     public SuplierDao() {
         try {
             myConn = database.getConnection();
@@ -60,7 +62,7 @@ public class SuplierDao {
             pr.setString(2, person);
             pr.setString(3, info);
             pr.setString(4, String.valueOf(utils.getCurrentDate()));
-            pr.setString(5, "2");
+            pr.setString(5, user_id);
             pr.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
