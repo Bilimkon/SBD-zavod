@@ -18,6 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
 <AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-color: white;" stylesheets="@../style/AdminPage.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.main">
     <children>
@@ -25,7 +26,7 @@
             <center>
                 <JFXTabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                     <tabs>
-                        <Tab id="Main-tab2" styleClass="MainTabs">
+                        <Tab id="Main-tab1" styleClass="MainTabs">
                             <content>
                                 <BorderPane prefHeight="200.0" prefWidth="200.0">
                                     <right>
@@ -79,7 +80,7 @@
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
-                                                        <TextField id="text-red" fx:id="textId" editable="false" prefHeight="40.0" prefWidth="200.0" promptText="Id" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                        <TextField id="text-red" fx:id="textId" editable="false" prefHeight="40.0" prefWidth="200.0" promptText="Id" style="-fx-background-color: #eff0f1;" GridPane.columnIndex="1" GridPane.rowIndex="12">
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" right="7.0" />
                                                             </GridPane.margin></TextField>
@@ -123,9 +124,9 @@
                                                             <GridPane.margin>
                                                                 <Insets left="5.0" />
                                                             </GridPane.margin></Label>
-                                                        <JFXButton mnemonicParsing="false" onAction="#GenerateBarcode" prefHeight="40.0" prefWidth="90.0" text="Barcode">
+                                                        <JFXButton mnemonicParsing="false" onAction="#GenerateBarcode" prefHeight="38.0" prefWidth="112.0" text="Barcode">
                                                             <GridPane.margin>
-                                                                <Insets bottom="2.0" left="5.0" />
+                                                                <Insets bottom="2.0" />
                                                             </GridPane.margin>
                                                         </JFXButton>
                                                         <Label alignment="CENTER" prefHeight="64.0" prefWidth="90.0" text="Taminotchi" GridPane.rowIndex="3">
@@ -183,6 +184,8 @@
                                                 <Insets left="5.0" />
                                              </GridPane.margin>
                                           </Label>
+                                          <WebView prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
+                                          <Label alignment="CENTER" layoutX="15.0" layoutY="90.0" prefHeight="85.0" prefWidth="214.0" style="-fx-background-color: #E8E8E8;" text="Taminotchi" GridPane.rowIndex="3" />
                                                     </children>
                                                 </GridPane>
                                                 <VBox prefHeight="197.0" prefWidth="275.0" GridPane.rowIndex="1">
@@ -230,7 +233,7 @@
                                     <top>
                                         <BorderPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="960.0" BorderPane.alignment="CENTER">
                                             <right>
-                                                <Button fx:id="AdminBtnSearch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="39.0" prefWidth="270.0" text="Izlash" BorderPane.alignment="CENTER">
+                                                <Button fx:id="AdminBtnSearch" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="270.0" text="Izlash" BorderPane.alignment="CENTER">
                                                     <font>
                                                         <Font name="System Bold" size="12.0" />
                                                     </font>
@@ -242,41 +245,44 @@
                                  <center>
                                     <GridPane BorderPane.alignment="CENTER">
                                       <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="358.0" />
                                       </columnConstraints>
                                       <rowConstraints>
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                                      <TextField fx:id="AdminTextSearch" prefHeight="39.0" prefWidth="503.0" promptText="Izlang..." GridPane.columnIndex="5" />
-                                          <Button fx:id="btnPdfAction" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="90.0" prefWidth="69.0" text="PDF">
+                                                      <TextField fx:id="AdminTextSearch" prefHeight="90.0" prefWidth="183.0" promptText="Izlang..." GridPane.columnIndex="5">
                                              <GridPane.margin>
-                                                <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </GridPane.margin></TextField>
+                                          <Button fx:id="btnPdfAction" mnemonicParsing="false" onAction="#btnPdfAction" prefHeight="90.0" prefWidth="100.0" text="PDF">
+                                             <GridPane.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#btnPathImage" prefHeight="88.0" prefWidth="69.0" text="Path" GridPane.columnIndex="1">
+                                          <Button mnemonicParsing="false" onAction="#btnPathImage" prefHeight="88.0" prefWidth="100.0" text="Path" GridPane.columnIndex="1">
                                              <GridPane.margin>
-                                                <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="69.0" text="+" GridPane.columnIndex="2">
+                                          <Button mnemonicParsing="false" prefHeight="84.0" prefWidth="100.0" text="+" GridPane.columnIndex="2">
                                              <GridPane.margin>
-                                                <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#btnSuplierAction" prefHeight="68.0" prefWidth="69.0" text="Taminot" GridPane.columnIndex="3">
+                                          <Button mnemonicParsing="false" onAction="#btnSuplierAction" prefHeight="68.0" prefWidth="100.0" text="Taminot" GridPane.columnIndex="3">
                                              <GridPane.margin>
-                                                <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </GridPane.margin>
                                           </Button>
-                                          <Button mnemonicParsing="false" onAction="#btnExcelAction" prefHeight="93.0" prefWidth="69.0" text="Excel" GridPane.columnIndex="4">
+                                          <Button mnemonicParsing="false" onAction="#btnExcelAction" prefHeight="93.0" prefWidth="100.0" text="Excel" GridPane.columnIndex="4">
                                              <GridPane.margin>
-                                                <Insets bottom="6.0" left="3.0" right="3.0" top="6.0" />
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                              </GridPane.margin>
                                           </Button>
                                        </children>
@@ -285,12 +291,22 @@
                                         </BorderPane>
                                     </top>
                                     <center>
-                                        <TableView fx:id="AdminTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                        <TableView fx:id="AdminTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </BorderPane.margin></TableView>
                                     </center>
                                 </BorderPane>
                             </content>
                         </Tab>
-                  <Tab styleClass="MainTabs" />
+                  <Tab id="Main-tab2" styleClass="MainTabs">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <WebView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                        </BorderPane>
+                     </content></Tab>
                     </tabs>
                     <BorderPane.margin>
                         <Insets />
@@ -300,7 +316,7 @@
             <top>
                 <VBox prefHeight="69.0" prefWidth="1080.0" BorderPane.alignment="CENTER">
                     <children>
-                        <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" style="-fx-background-color: #eaeaee;" />
+                        <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="1080.0" style="-fx-background-color: #eaeaee;" />
                         <HBox prefHeight="50.0" prefWidth="1080.0">
                             <children>
                                 <Label alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF;" text="SBD" textFill="#1ab394">
@@ -310,11 +326,9 @@
                                 </Label>
                                 <GridPane prefHeight="40.0" prefWidth="744.0" styleClass="bottom-border">
                                     <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="-Infinity" prefWidth="72.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="61.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="-Infinity" prefWidth="109.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="156.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="184.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -323,11 +337,13 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                            <children>
-                              <Button id="logout" fx:id="btnClose" mnemonicParsing="false" onAction="#btnCloseAction" prefHeight="49.0" prefWidth="90.0" text="Chiqish">
+                              <Button id="logout" fx:id="btnClose" mnemonicParsing="false" onAction="#btnCloseAction" prefHeight="46.0" prefWidth="96.0" text="Chiqish">
                                  <GridPane.margin>
                                     <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                  </GridPane.margin>
                               </Button>
+                              <Label fx:id="textFirstName" alignment="CENTER" prefHeight="84.0" prefWidth="297.0" text="Firstname" GridPane.columnIndex="1" />
+                              <Label fx:id="textLastName" alignment="CENTER" prefHeight="70.0" prefWidth="222.0" text="Lastname" GridPane.columnIndex="2" />
                            </children>
                                 </GridPane>
                             </children>

@@ -12,7 +12,9 @@ import javafx.stage.Stage;
 import sample.Main;
 import sample.dao.AdminDao;
 import sample.dao.database;
+import sample.model.User;
 import sample.model.UserTable;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +41,10 @@ public class Admin implements Initializable {
     @FXML
     private ComboBox Role;
     @FXML
+    private Label textFirstName;
+    @FXML
+    private Label textLastName;
+    @FXML
     private TableView userTable;
     AdminDao adminDao = new AdminDao();
 
@@ -59,6 +65,9 @@ public class Admin implements Initializable {
         initializeTable();
         userTable();
         setUpdate();
+        User u = Login.currentUser;
+        textFirstName.setText(u.getFirstName());
+        textLastName.setText(u.getLastname());
     }
 
     private void initializeTable() {
@@ -160,10 +169,10 @@ public class Admin implements Initializable {
 
     @FXML
     private void btnCloseAction() {
-       closeAction(btnClose);
+        closeAction(btnClose);
     }
 
-    public void closeAction(Button btn){
+    public void closeAction(Button btn) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Chiqish");
         alert.setHeaderText(null);

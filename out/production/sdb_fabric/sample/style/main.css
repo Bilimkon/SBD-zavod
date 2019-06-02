@@ -7,9 +7,8 @@
     -fx-background-color: #1ab394;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
 }
-.button:pressed {
+.button:pressed{
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
 }
 
@@ -113,7 +112,4 @@
 }
 #btnlLogOut{
     -fx-fit-to-width: 100px;
-}
-#logout{
-    -fx-graphic: url("./images/logout.png");
 }

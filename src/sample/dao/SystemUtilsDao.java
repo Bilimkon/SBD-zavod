@@ -7,28 +7,29 @@ public class SystemUtilsDao {
     Connection myConn = null;
 
 
-    public SystemUtilsDao(){
+    public SystemUtilsDao() {
         try {
             myConn = database.getConnection();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void excellFolder(String path) throws SQLException {
-        PreparedStatement pt =null;
+        PreparedStatement pt = null;
         try {
             pt = myConn.prepareStatement("UPDATE utils SET filePath=?");
             pt.setString(1, path);
             pt.executeUpdate();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (pt != null) {
                 pt.close();
             }
         }
     }
+
     public String ExcelFilePath() throws SQLException {
 
         Statement statement1 = null;
@@ -46,7 +47,7 @@ public class SystemUtilsDao {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            DaoUtils.close(statement1,resultSet1);
+            DaoUtils.close(statement1, resultSet1);
         }
         return null;
 

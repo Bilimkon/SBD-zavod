@@ -10,15 +10,15 @@ import java.sql.*;
 public class AdminDao {
     private Connection myConn = null;
 
-    public AdminDao(){
-        try{
+    public AdminDao() {
+        try {
             myConn = database.getConnection();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void  userTable(TableView tableView){
+    public void userTable(TableView tableView) {
 
         Statement statement = null;
         ResultSet resultSet = null;
@@ -53,7 +53,8 @@ public class AdminDao {
         }
 
     }
-    public void addUser( String username,String firstname, String lastname, String phone, String password, String userType){
+
+    public void addUser(String username, String firstname, String lastname, String phone, String password, String userType) {
         PreparedStatement pr = null;
 
         try {
@@ -78,10 +79,10 @@ public class AdminDao {
         }
     }
 
-    public void updateUser(String id, String username,String firstname, String lastname, String phone, String password, String userType){
+    public void updateUser(String id, String username, String firstname, String lastname, String phone, String password, String userType) {
         PreparedStatement pr = null;
         try {
-            pr = myConn.prepareStatement("update  user set username=?, firstname=?, lastname=?, password=?, userType=?, phone=? where id="+id);
+            pr = myConn.prepareStatement("update  user set username=?, firstname=?, lastname=?, password=?, userType=?, phone=? where id=" + id);
             pr.setString(1, username);
             pr.setString(2, firstname);
             pr.setString(3, lastname);
@@ -102,15 +103,15 @@ public class AdminDao {
         }
     }
 
-    public void deleteUser(String id){
+    public void deleteUser(String id) {
         PreparedStatement pr = null;
-        try{
+        try {
             pr = myConn.prepareStatement("DELETE FROM user WHERE id=?");
-            pr.setString(1,id);
+            pr.setString(1, id);
             pr.executeUpdate();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (pr != null) {
                 try {
                     pr.close();
@@ -121,7 +122,7 @@ public class AdminDao {
         }
     }
 
-    private String unitMaker(String userType){
+    private String unitMaker(String userType) {
         String unit_id = "1";
         switch (userType) {
             case "Ombor":

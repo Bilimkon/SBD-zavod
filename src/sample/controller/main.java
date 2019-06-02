@@ -16,9 +16,12 @@ import sample.dao.ProductDao;
 import sample.dao.SystemUtilsDao;
 import sample.dao.database;
 import sample.model.Product;
+import sample.model.User;
 import sample.utils.BarCodeService;
 import sample.utils.Barcode_pdf;
 import sample.utils.Workbookcontroller;
+
+import javax.jws.soap.SOAPBinding;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +30,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 import static sample.utils.BarCodeService.numbGen;
 
 public class main implements Initializable {
@@ -66,6 +70,10 @@ public class main implements Initializable {
     @FXML
     private Button btnClose;
     @FXML
+    Label textFirstName;
+    @FXML
+    Label textLastName;
+    @FXML
     private ComboBox<String> comboBoxSuplier;
 
     @Override
@@ -73,6 +81,9 @@ public class main implements Initializable {
         initializeProductTab();
         setOzgaartirishMaxsulot();
         ComboBoxUnit.getItems().addAll("Dona", "Kg", "Litr", "Rulon");
+        User u = Login.currentUser;
+        textFirstName.setText(u.getFirstName());
+        textLastName.setText(u.getLastname());
 
         try {
             AddTypeComboboxAction();
@@ -359,9 +370,10 @@ public class main implements Initializable {
 
     @FXML
     private void btnCloseAction() {
-       closeAction(btnClose);
+        closeAction(btnClose);
     }
-    public void closeAction(Button btn){
+
+    public void closeAction(Button btn) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Chiqish");
         alert.setHeaderText(null);

@@ -74,7 +74,7 @@
                                         <Insets bottom="50.0" top="50.0" />
                                     </GridPane.margin>
                                 </Button>
-                                <Label alignment="TOP_CENTER" contentDisplay="CENTER" disable="true" prefHeight="112.0" prefWidth="899.0" text="SBD" textAlignment="CENTER" textFill="#2A5AF3" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1">
+                                <Label alignment="TOP_CENTER" contentDisplay="CENTER" disable="true" prefHeight="112.0" prefWidth="899.0" text="SBD-factory" textAlignment="CENTER" textFill="#2A5AF3" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1">
                                     <font>
                                         <Font size="72.0" />
                                     </font>

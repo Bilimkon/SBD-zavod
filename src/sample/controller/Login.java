@@ -11,9 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.Main;
 import sample.dao.userDao;
 import sample.model.User;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -33,21 +35,29 @@ public class Login {
         if (isUserExists(ismText, passText)) {
             try {
                 String nameOfModule = null;
-                if(currentUser.getUserType()==1){
+                if (currentUser.getUserType() == 1) {
                     nameOfModule = "main.fxml";
-                }else if(currentUser.getUserType()==5){
+                } else if (currentUser.getUserType() == 5) {
                     nameOfModule = "Admin.fxml";
+                } else if (currentUser.getUserType() == 3) {
+                    nameOfModule = "main3.fxml";
+                } else if (currentUser.getUserType() == 2) {
+                    nameOfModule = "main2.fxml";
+                } else if (currentUser.getUserType() == 4) {
+                    nameOfModule = "sale.fxml";
                 }
-                Parent root = FXMLLoader.load(getClass().getResource("../view/"+nameOfModule));
+                Parent root = FXMLLoader.load(getClass().getResource("../view/" + nameOfModule));
                 stage.setTitle("SBD");
                 Screen screen = Screen.getPrimary();
                 Rectangle2D bounds = screen.getVisualBounds();
                 stage.setScene(new Scene(root));
                 //stage.initStyle(StageStyle.UNDECORATED);
+                stage.setMinHeight(720);
+                stage.setMinWidth(1080);
                 stage.setFullScreen(false);
                 stage.getIcons().add(
                         new Image(
-                                Main.class.getResourceAsStream( "bar-chart.png" )));
+                                Main.class.getResourceAsStream("bar-chart.png")));
 
                 stage.show();
                 stage.setOnCloseRequest(e -> Platform.exit());
@@ -59,8 +69,7 @@ public class Login {
                 e.printStackTrace();
             }
 
-        }
-        else {
+        } else {
             JOptionPane.showMessageDialog(null, "Xatolik");
         }
     }

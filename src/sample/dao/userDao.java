@@ -1,6 +1,7 @@
 package sample.dao;
 
 import sample.model.User;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,10 +16,10 @@ public class userDao {
     }
 
     public User getUser(String name, String password) throws SQLException {
-        Statement statement=null;
+        Statement statement = null;
         ResultSet res = null;
         try {
-            statement  = myConn.createStatement();
+            statement = myConn.createStatement();
             res = statement.executeQuery("select * from sbd_factory.user where user.username = '" + name + "' and user.password = '" + password + "';");
             while (res.next()) {
                 User u = new User(
@@ -33,8 +34,8 @@ public class userDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }finally {
-           DaoUtils.close(statement,res);
+        } finally {
+            DaoUtils.close(statement, res);
         }
         return null;
     }

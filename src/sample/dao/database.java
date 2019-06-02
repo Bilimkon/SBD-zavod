@@ -16,7 +16,7 @@ public class database {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DaoUtils.tableName, "java", "Bilimkon");
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DaoUtils.tableName, "root", "Bilimkon");
 
         } catch (Exception exc) {
             JOptionPane.showMessageDialog(null, "Databasega ulanishda hatolik");

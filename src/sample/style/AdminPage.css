@@ -60,8 +60,12 @@ html{
 .tab-pane{
     -fx-padding: 0 -1 -1 -1;
 }
-#Main-tab2 .tab-label {
+#Main-tab1 .tab-label {
     -fx-graphic: url("./images/ombor.png");
+}
+
+#Main-tab2 .tab-label {
+    -fx-graphic: url("./images/about.png");
 }
 
 .check-box .box {
@@ -96,7 +100,4 @@ html{
 .table-view .table-cell{
     -fx-font-size:14px;
 }
-.labelTextField{
-    -fx-text-fill: black;
-    -fx-font-size: 15px;
-}
+
