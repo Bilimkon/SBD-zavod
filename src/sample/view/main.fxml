@@ -23,7 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane minHeight="880.0" minWidth="1350.0" prefHeight="880.0" prefWidth="1350.0" style="-fx-background-color: white;" stylesheets="@../style/AdminPage1.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.main">
+<AnchorPane minHeight="880.0" minWidth="1350.0" prefHeight="880.0" prefWidth="1350.0" style="-fx-background-color: white;" stylesheets="@../style/AdminPage1.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.main">
     <children>
         <BorderPane layoutX="-6.0" layoutY="129.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -128,13 +128,14 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <GridPane GridPane.columnIndex="1">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="122.0" />
@@ -155,7 +156,7 @@
                                                          </GridPane.margin></JFXButton>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -181,7 +182,7 @@
                                                       </ComboBox>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -207,7 +208,7 @@
                                                       </ComboBox>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -233,7 +234,7 @@
                                                       </ComboBox>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -256,7 +257,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -279,7 +280,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -302,7 +303,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="8">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -325,7 +326,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="9">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -348,7 +349,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="10">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -371,7 +372,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="11">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -394,7 +395,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane prefHeight="17.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                                <GridPane prefHeight="17.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="40.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="165.0" />
@@ -416,7 +417,7 @@
                                                       </TextArea>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="12">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="125.0" />
@@ -439,7 +440,7 @@
                                                       </TextField>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="14">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="40.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="165.0" />
@@ -465,7 +466,7 @@
                                                       </Button>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="14">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="15">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="40.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="165.0" />
@@ -487,7 +488,7 @@
                                                          </GridPane.margin></Button>
                                                    </children>
                                                 </GridPane>
-                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="16">
                                                    <columnConstraints>
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="40.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="165.0" />
@@ -507,6 +508,21 @@
                                                          <GridPane.margin>
                                                             <Insets bottom="5.0" left="2.0" right="20.0" top="5.0" />
                                                          </GridPane.margin></Button>
+                                                   </children>
+                                                </GridPane>
+                                                <GridPane GridPane.columnIndex="1">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="78.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="122.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="14.0" minHeight="0.0" prefHeight="3.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="22.0" minHeight="0.0" prefHeight="5.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Label prefHeight="38.0" prefWidth="77.0" text="Invoice" textFill="WHITE" GridPane.rowIndex="1" />
+                                                      <ComboBox fx:id="comboInvoice" maxWidth="-Infinity" minWidth="-Infinity" onAction="#AddSuplierAction" onContextMenuRequested="#AddSuplierAction" onMouseClicked="#AddSuplierAction" prefHeight="25.0" prefWidth="104.0" promptText="Invoice" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                    </children>
                                                 </GridPane>
                                              </children>
@@ -590,17 +606,10 @@
                                                             </ImageView>
                                                          </graphic>
                                                       </Button>
-                                                      <Button minWidth="100.0" mnemonicParsing="false" text="+        " GridPane.columnIndex="2">
+                                                      <Button minWidth="100.0" mnemonicParsing="false" onAction="#btnInvoiceAction" prefHeight="32.0" prefWidth="100.0" text="Invoice" GridPane.columnIndex="2">
                                                          <GridPane.margin>
                                                             <Insets left="5.0" right="5.0" />
                                                          </GridPane.margin>
-                                                         <graphic>
-                                                            <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                                               <image>
-                                                                  <Image url="@../view/Icons" />
-                                                               </image>
-                                                            </ImageView>
-                                                         </graphic>
                                                       </Button>
                                                       <Button minWidth="100.0" mnemonicParsing="false" onAction="#btnSuplierAction" text="Taminot  " GridPane.columnIndex="1">
                                                          <GridPane.margin>

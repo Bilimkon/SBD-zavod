@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class Product {
 
     private SimpleStringProperty id = new SimpleStringProperty();
+    private SimpleStringProperty invoice = new SimpleStringProperty();
     private SimpleStringProperty barcode = new SimpleStringProperty();
     private SimpleStringProperty name = new SimpleStringProperty();
     private SimpleStringProperty type = new SimpleStringProperty();
@@ -21,9 +22,10 @@ public class Product {
     private SimpleStringProperty height = new SimpleStringProperty();
     private SimpleStringProperty color = new SimpleStringProperty();
 
-    public Product(SimpleStringProperty id, SimpleStringProperty barcode, SimpleStringProperty name, SimpleStringProperty type, SimpleStringProperty type_id, SimpleStringProperty cost, SimpleStringProperty quantity, SimpleStringProperty weight, SimpleStringProperty cr_by, SimpleStringProperty date_cr,  SimpleStringProperty suplier, SimpleStringProperty unit, SimpleStringProperty description,
+    public Product(SimpleStringProperty id,SimpleStringProperty invoice, SimpleStringProperty barcode, SimpleStringProperty name, SimpleStringProperty type, SimpleStringProperty type_id, SimpleStringProperty cost, SimpleStringProperty quantity, SimpleStringProperty weight, SimpleStringProperty cr_by, SimpleStringProperty date_cr,  SimpleStringProperty suplier, SimpleStringProperty unit, SimpleStringProperty description,
                    SimpleStringProperty width, SimpleStringProperty height, SimpleStringProperty color) {
         this.id = id;
+        this.invoice = invoice;
         this.barcode = barcode;
         this.name = name;
         this.type = type;
@@ -46,7 +48,17 @@ public class Product {
     }
 
 
+    public String getInvoice() {
+        return invoice.get();
+    }
 
+    public SimpleStringProperty invoiceProperty() {
+        return invoice;
+    }
+
+    public void setInvoice(String invoice) {
+        this.invoice.set(invoice);
+    }
 
     public String getId() {
         return id.get();

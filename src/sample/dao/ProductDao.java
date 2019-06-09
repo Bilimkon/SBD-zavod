@@ -32,6 +32,7 @@ public class ProductDao {
 
                 Product product = new Product();
                 product.setId(resultSet.getString("id"));
+                product.setInvoice(resultSet.getString("invoice"));
                 product.setUnit(resultSet.getString("unit"));
                 product.setBarcode(resultSet.getString("barcode"));
                 product.setName(resultSet.getString("name"));
@@ -57,32 +58,34 @@ public class ProductDao {
         }
     }
 
-    public void addProduct(String barcode, String name, String type, String cost, String quantity, String unit, String weight, String description, String suplier, String color, String height, String width) throws SQLException {
+    public void addProduct(String invoice, String barcode, String name, String type, String cost, String quantity, String unit, String weight, String description, String suplier, String color, String height, String width) throws SQLException {
 
         String type_id = getComboBoxId("Type", "name", type);
         String suplier_id = getComboBoxId("suplier", "companyName", suplier);
+        String invoice_id =  getComboBoxId("invoice", "name", invoice);
 
         TypeDao typeDao = new TypeDao();
 
-        try (PreparedStatement pr = myConn.prepareStatement("INSERT INTO product(barcode, name, " +
+        try (PreparedStatement pr = myConn.prepareStatement("INSERT INTO product(invoice_id, barcode, name, " +
                 "type, type_id, cost,quantity, weight, cr_by, date_cr," +
                 " unit, description, suplier_id, color, height, width) " +
-                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
-            pr.setString(1, barcode);
-            pr.setString(2, name);
-            pr.setString(3, type);
-            pr.setString(4, type_id);
-            pr.setString(5, cost);
-            pr.setString(6, quantity);
-            pr.setString(7, weight);
-            pr.setString(8, user_id);
-            pr.setString(9, apple);
-            pr.setString(10, typeDao.typeMaker(unit));
-            pr.setString(11, description);
-            pr.setString(12, suplier_id);
-            pr.setString(13, color);
-            pr.setString(14, height);
-            pr.setString(15, width);
+                "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+            pr.setString(1,invoice_id);
+            pr.setString(2, barcode);
+            pr.setString(3, name);
+            pr.setString(4, type);
+            pr.setString(5, type_id);
+            pr.setString(6, cost);
+            pr.setString(7, quantity);
+            pr.setString(8, weight);
+            pr.setString(9, user_id);
+            pr.setString(10, apple);
+            pr.setString(11, typeDao.typeMaker(unit));
+            pr.setString(12, description);
+            pr.setString(13, suplier_id);
+            pr.setString(14, color);
+            pr.setString(15, height);
+            pr.setString(16, width);
             pr.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -165,6 +168,28 @@ public class ProductDao {
             e.printStackTrace();
         } finally {
             DaoUtils.close(statement, resultSet);
+        }
+    }
+
+    public void addInvoceCombobox( ComboBox<String> comboBox){
+
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM invoice order by id desc limit 1");
+            while (resultSet.next()) {  // loop
+                // Now add the comboBox addAll statement
+                comboBox.getItems().addAll(resultSet.getString("name"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DaoUtils.close(statement, resultSet);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

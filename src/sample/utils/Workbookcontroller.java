@@ -33,7 +33,7 @@ public class Workbookcontroller {
         SpreadsheetInfo.setLicense("FREE-LIMITED-KEY");
     }
 
-    public void datebaseToExcel(String tableName) throws SQLException {
+    public void datebaseToExcel(String tableName, String fileName) throws SQLException {
 
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -91,7 +91,7 @@ public class Workbookcontroller {
                             Cell newpath = desRow.createCell(col);
                             newpath.setCellValue(rs.getString(col + 1));
                         }
-                        FileOutputStream fileOut = new FileOutputStream(systemUtilsDao.ExcelFilePath() + "Ombor.xls");
+                        FileOutputStream fileOut = new FileOutputStream(systemUtilsDao.ExcelFilePath() + fileName);
                         writeWorkbook.write(fileOut);
                         fileOut.close();
                     }

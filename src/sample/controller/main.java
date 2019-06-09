@@ -73,6 +73,8 @@ public class main implements Initializable {
     Label textLastName;
     @FXML
     private ComboBox<String> comboBoxSuplier;
+    @FXML
+    private ComboBox<String> comboInvoice;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -86,6 +88,7 @@ public class main implements Initializable {
         try {
             AddTypeComboboxAction();
             AddSuplierComboboxAction();
+            addInvoiceCombobox();
             productTable();
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,6 +97,7 @@ public class main implements Initializable {
 
     private void initializeProductTab() {
         TableColumn<Product, String> id = new TableColumn<>("Id");
+        TableColumn<Product, String> invoice = new TableColumn<>("invoice");
         TableColumn<Product, String> barcode = new TableColumn<>("Barcode");
         TableColumn<Product, String> name = new TableColumn<>("Nomi");
         TableColumn<Product, String> type = new TableColumn<>("Turi");
@@ -108,8 +112,9 @@ public class main implements Initializable {
         TableColumn<Product, String> width = new TableColumn<>("Eni");
         TableColumn<Product, String> height = new TableColumn<>("Bo'yi");
         TableColumn<Product, String> color = new TableColumn<>("Rangi");
-        AdminTable.getColumns().addAll(id, unit, barcode, name, type, weight, cost, quantity, suplier, date, user, description, width, height, color);
+        AdminTable.getColumns().addAll(id, invoice, unit, barcode, name, type, weight, cost, quantity, suplier, date, user, description, width, height, color);
         id.setCellValueFactory(new PropertyValueFactory<Product, String>("id"));
+        invoice.setCellValueFactory(new PropertyValueFactory<Product, String>("invoice"));
         barcode.setCellValueFactory(new PropertyValueFactory<Product, String>("barcode"));
         name.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
         type.setCellValueFactory(new PropertyValueFactory<Product, String>("type"));
@@ -153,6 +158,7 @@ public class main implements Initializable {
                 try {
                     String type = ComboTypeList.getSelectionModel().getSelectedItem();
                     String Suplier = comboBoxSuplier.getSelectionModel().getSelectedItem();
+                    String invoice = comboInvoice.getSelectionModel().getSelectedItem();
                     String barcode = textBarcode.getText();
                     String name = textName.getText();
                     String unit = ComboBoxUnit.getSelectionModel().getSelectedItem();
@@ -164,7 +170,7 @@ public class main implements Initializable {
                     String width = textWidth.getText();
                     String description = textDescription.getText();
 
-                    productDao.addProduct(barcode, name, type, cost, quantity, unit, weight, description, Suplier, color, height, width);
+                    productDao.addProduct(invoice, barcode, name, type, cost, quantity, unit, weight, description, Suplier, color, height, width);
                     textBarcode.setText("");
                     textName.setText("");
                     textQuantity.setText("");
@@ -280,6 +286,14 @@ public class main implements Initializable {
     public void AddSuplierComboboxAction() throws SQLException {
         productDao.addSuplierCombobox(comboBoxSuplier);
     }
+
+    private void addInvoiceCombobox(){
+        try {
+            productDao.addInvoceCombobox(comboInvoice);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @FXML
     private void AddSuplierAction(){
         try {
@@ -313,6 +327,22 @@ public class main implements Initializable {
             root = FXMLLoader.load(getClass().getResource("../components/views/Suplier.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Taminotchi qo'shish");
+            stage.setScene(new Scene(root, 700, 400));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnInvoiceAction(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../components/views/Invoice.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Invoice qo'shish");
             stage.setScene(new Scene(root, 700, 400));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
@@ -377,7 +407,7 @@ public class main implements Initializable {
     public void btnExcelAction() {
         Workbookcontroller workbookcontroller = new Workbookcontroller();
         try {
-            workbookcontroller.datebaseToExcel("product_v");
+            workbookcontroller.datebaseToExcel("product_v", "Ombor.xls");
         } catch (SQLException e) {
             e.printStackTrace();
         }

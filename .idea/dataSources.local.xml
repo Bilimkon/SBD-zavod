@@ -11,9 +11,5 @@
       <user-name>root</user-name>
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
-    <data-source name="new_sbd" uuid="5c266e83-0e29-4f1d-bc4a-3add3ad964a9">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
-      <auth-required>false</auth-required>
-    </data-source>
   </component>
 </project>
