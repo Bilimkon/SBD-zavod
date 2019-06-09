@@ -7,6 +7,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import sample.components.dao.TypeDao;
 import sample.components.models.Type;
 import sample.controller.Login;
+import sample.controller.main;
+import sample.dao.ProductDao;
 import sample.dao.database;
 import sample.model.User;
 import sample.model.UserTable;
@@ -99,6 +101,7 @@ public class AddType implements Initializable {
             String info = TypeDescription.getText();
             String unit = Unit.getValue().toString();
             typeDao.addType(name, unit, info);
+            ProductDao productDao = new ProductDao();
             typeTable();
         } catch (Exception e) {
             e.printStackTrace();

@@ -15,103 +15,82 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-image:url(../style/images/logo-beta1.png) " stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Login">
-    <children>
-        <GridPane layoutX="274.0" layoutY="168.0" prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <GridPane prefHeight="674.0" prefWidth="540.0" GridPane.columnIndex="1">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints maxHeight="718.0" minHeight="10.0" prefHeight="716.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="595.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <GridPane prefHeight="665.0" prefWidth="540.0">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="426.0" minWidth="10.0" prefWidth="53.00001220703126" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="433.59984130859374" />
-                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.0" minWidth="10.0" prefWidth="54.40015869140626" />
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="47.0" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="47.0" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                                <RowConstraints maxHeight="248.0" minHeight="10.0" prefHeight="139.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                            <children>
-                                <TextField fx:id="textIsm" prefHeight="71.0" prefWidth="218.0" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font></TextField>
-                                <ImageView fitHeight="61.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="903.0" text="Username" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font></Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="905.0" text="Parol" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font></Label>
-                                <PasswordField fx:id="textPassword" prefHeight="78.0" prefWidth="299.0" promptText="Parolni kiriting" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font></PasswordField>
-                                <Button fx:id="btnKirish" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#btnActionKirish" opacity="0.99" prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #2A5AF3;" text="Kirish" textFill="aliceblue" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                    <font>
-                                        <Font size="32.0" />
-                                    </font>
-                                    <GridPane.margin>
-                                        <Insets bottom="50.0" top="50.0" />
-                                    </GridPane.margin>
-                                </Button>
-                                <Label alignment="TOP_CENTER" contentDisplay="CENTER" disable="true" prefHeight="112.0" prefWidth="899.0" text="SBD-factory" textAlignment="CENTER" textFill="#2A5AF3" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1">
-                                    <font>
-                                        <Font size="72.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                        </GridPane>
-                        <GridPane prefHeight="64.0" prefWidth="540.0" GridPane.rowIndex="1">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            </columnConstraints>
-                        </GridPane>
-                    </children>
-                </GridPane>
-                <GridPane style="-fx-background-color:#2A5AF3;">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="35.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="471.0" minWidth="10.0" prefWidth="471.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="174.0" minWidth="10.0" prefWidth="24.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="458.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <ImageView fitHeight="500.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                            <image>
-                                <Image url="@../style/images/logo-beta1.png" />
-                            </image>
-                            <viewport>
-                                <Rectangle2D width="500.0" />
-                            </viewport>
-                        </ImageView>
-
-                    </children>
-                </GridPane>
-            </children>
-        </GridPane>
-    </children>
+   <children>
+      <GridPane prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <GridPane style="-fx-background-color: #1c435e;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="285.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="611.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="285.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="555.0" minHeight="10.0" prefHeight="521.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fitHeight="425.0" fitWidth="419.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../style/images/logo-beta1.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D width="500.0" />
+                     </viewport>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <GridPane prefHeight="665.0" prefWidth="540.0" GridPane.rowIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="285.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="285.0" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="285.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="0.0" prefHeight="70.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="0.0" prefHeight="70.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="109.0" valignment="TOP" vgrow="NEVER" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="textIsm" prefHeight="71.0" prefWidth="218.0" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="61.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" prefHeight="41.0" prefWidth="903.0" text="Username" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" prefHeight="41.0" prefWidth="905.0" text="Parol" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="textPassword" prefHeight="78.0" prefWidth="299.0" promptText="Parolni kiriting" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+                  <Button fx:id="btnKirish" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="50.0" maxWidth="374.0" mnemonicParsing="false" onAction="#btnActionKirish" opacity="0.99" prefHeight="50.0" prefWidth="374.0" text="Kirish" textFill="aliceblue" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="BASELINE" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="25.0" left="100.0" right="100.0" top="50.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
 </AnchorPane>

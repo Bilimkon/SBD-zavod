@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.DirectoryChooser;
@@ -21,7 +20,6 @@ import sample.utils.BarCodeService;
 import sample.utils.Barcode_pdf;
 import sample.utils.Workbookcontroller;
 
-import javax.jws.soap.SOAPBinding;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -64,7 +62,7 @@ public class main implements Initializable {
     @FXML
     private TextField textWidth;
     @FXML
-    private TextField textDescription;
+    private TextArea textDescription;
     @FXML
     private TextField textId;
     @FXML
@@ -266,13 +264,30 @@ public class main implements Initializable {
 
     @FXML
     private void AddTypeComboboxAction() throws SQLException {
-        productDao.addTypeCombobox(ComboTypeList);
-        String name = productDao.getUnitType(ComboTypeList.getValue());
-        ComboBoxUnit.setValue(name);
+       addTypeComboboxAction1();
     }
 
-    private void AddSuplierComboboxAction() throws SQLException {
+    public void addTypeComboboxAction1(){
+        try{
+            productDao.addTypeCombobox(ComboTypeList);
+            String name = productDao.getUnitType(ComboTypeList.getValue());
+            ComboBoxUnit.setValue(name);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void AddSuplierComboboxAction() throws SQLException {
         productDao.addSuplierCombobox(comboBoxSuplier);
+    }
+    @FXML
+    private void AddSuplierAction(){
+        try {
+            AddSuplierComboboxAction();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML

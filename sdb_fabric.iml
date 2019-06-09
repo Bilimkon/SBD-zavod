@@ -13,5 +13,6 @@
     <orderEntry type="library" name="gembox-spreadsheet" level="project" />
     <orderEntry type="library" name="poi-4.1.0" level="project" />
     <orderEntry type="library" name="poi-ooxml-4.1.0" level="project" />
+    <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
   </component>
 </module>

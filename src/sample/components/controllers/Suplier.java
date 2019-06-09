@@ -8,6 +8,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.components.dao.SuplierDao;
+import sample.controller.main;
+import sample.dao.ProductDao;
 
 
 import javax.swing.*;

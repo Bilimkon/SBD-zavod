@@ -1,6 +1,5 @@
 package sample.components.dao;
 
-import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
@@ -9,6 +8,8 @@ import sample.controller.Login;
 import sample.dao.DaoUtils;
 import sample.dao.database;
 import sample.utils.utils;
+
+import java.sql.*;
 
 public class SuplierDao {
     Connection myConn = null;
