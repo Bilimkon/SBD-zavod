@@ -6,16 +6,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.components.dao.TypeDao;
 import sample.components.models.Type;
-import sample.controller.Login;
-import sample.controller.main;
+import sample.Login;
 import sample.dao.ProductDao;
 import sample.dao.database;
-import sample.model.User;
-import sample.model.UserTable;
 
 import javax.swing.*;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AddType implements Initializable {
@@ -49,7 +47,7 @@ public class AddType implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Unit.getItems().addAll("Dona", "Kg", "Litr", "Rulon");
+        Unit.getItems().addAll("Dona", "Kg", "Litr", "Rulon", "m2");
 
         TableColumn id = new TableColumn("Tartib raqami");
         TableColumn name = new TableColumn("Nomi");
@@ -97,7 +95,7 @@ public class AddType implements Initializable {
 
     public void AddTypeSaveAction() {
         try {
-            String name = TypeName.getText();
+            String name = TypeName.getText().trim().replaceAll("\\s+","");
             String info = TypeDescription.getText();
             String unit = Unit.getValue().toString();
             typeDao.addType(name, unit, info);
@@ -112,7 +110,7 @@ public class AddType implements Initializable {
     public void updateType() {
         try {
             String id = TypeId.getText();
-            String name = TypeName.getText();
+            String name = TypeName.getText().trim().replaceAll("\\s+","");
             String info = TypeDescription.getText();
             typeDao.updateType(name, info, id);
             typeTable();

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-image:url(../style/images/logo-beta1.png) " stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Login">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" style="-fx-background-image:url(../style/images/logo-beta1.png) " stylesheets="@../style/main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Login">
    <children>
       <GridPane prefHeight="720.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
@@ -80,12 +80,12 @@
                         <Font size="18.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="btnKirish" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="50.0" maxWidth="374.0" mnemonicParsing="false" onAction="#btnActionKirish" opacity="0.99" prefHeight="50.0" prefWidth="374.0" text="Kirish" textFill="aliceblue" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="BASELINE" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="btnKirish" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="69.0" maxWidth="374.0" mnemonicParsing="false" onAction="#btnActionKirish" opacity="0.99" prefHeight="69.0" prefWidth="237.0" style="-fx-background-color: #1c435e;" text="Kirish" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="BASELINE" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font size="32.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="25.0" left="100.0" right="100.0" top="50.0" />
+                        <Insets bottom="100.0" top="25.0" />
                      </GridPane.margin>
                   </Button>
                </children>

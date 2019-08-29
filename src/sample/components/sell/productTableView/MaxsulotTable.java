@@ -55,9 +55,9 @@ public class MaxsulotTable extends AbstractTableModel {
             case COST_COL :
                 return  tempEmployee.getCost();
             case DATE_COL:
-                return tempEmployee.getDate_c();
+                return tempEmployee.getDate();
             case EXPIRE_DATE_COL:
-                return tempEmployee.getDate_o();
+                return tempEmployee.getDate();
             case OBJECT_COL:
                 return tempEmployee;
             default:

@@ -5,8 +5,13 @@
 
 package sample.components.sell;
 
+import com.jfoenix.controls.JFXDatePicker;
 import com.sun.istack.internal.Nullable;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -16,43 +21,56 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Screen;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
+import sample.Login;
+import sample.components.models.AllCurrencyValues;
+import sample.components.models.Exchange;
+import sample.components.sell.Core.CheckSums;
+import sample.components.sell.Core.History;
 import sample.components.sell.Core.Models.BasketItem;
 import sample.components.sell.Core.Models.CreditModel;
+import sample.components.sell.Core.Models.CustomerName;
 import sample.components.sell.Core.Models.ReceiptCheck;
-import sample.components.sell.Core.User;
 import sample.components.sell.DAO.*;
-import sample.Main;
 import sample.components.sell.Utils.PrinterService;
 import sample.components.sell.Utils.Utils;
-import sample.components.sell.productTableView.CustomerCreditTable;
+import sample.components.sell.productTableView.OperTable;
 import sample.components.sell.productTableView.ProductTable;
+import sample.components.sell.productTableView.balance;
 import sample.components.sell.views.CustomItems.CustomBasketItem.ShopItemListItem;
+import sample.dao.SystemUtilsDao;
+import sample.dao.database;
+import sample.model.Debt;
+import sample.model.User;
+import sample.utils.ComboBoxAutoComplete;
+import sample.utils.Workbookcontroller;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -60,26 +78,159 @@ import java.util.*;
  */
 public class MainPageController extends Parent implements Initializable {
     private ProductDao productDao;
-    private UtilsDao utilsDao;
-    @FXML private TextField textSampleIzlash;
+    UtilsDao utilsDao = new UtilsDao();
+    sample.dao.DaoUtils daoUtils = new sample.dao.DaoUtils();
+    @FXML
+    private TextField textSampleIzlash;
     private Connection myConn;
-    @FXML private TableView<ProductTable> tableSampleManual;
-    @FXML private VBox addedItemsList;
-    @FXML private Label totalCost;
-    @FXML private TextField scanCodeField;
-    @FXML private Label idUserName;
-    @FXML private Label idStartDate;
-    @FXML private Label ClockText;
-    @FXML private Button BtnSell;
-    @FXML private Button btnClose;
-    @FXML private Button btnLogOut;
-    @FXML private ListView<String> typeList;
+    @FXML
+    private TableView<ProductTable> tableSampleManual;
+    @FXML
+    private VBox addedItemsList;
+    @FXML
+    private Label totalCost;
+    @FXML
+    private TextField scanCodeField;
+    @FXML
+    private Label idUserName;
+    @FXML
+    private Label idStartDate;
+    @FXML
+    private Label ClockText;
+    @FXML
+    private Button BtnSell;
+    @FXML
+    private Button btnClose;
+    @FXML
+    private Button btnLogOut;
+    @FXML
+    private Button btnAccount;
+    @FXML
+    private TextField textAccount;
+    @FXML
+    private ListView<String> typeList;
+    /**
+     * Tab operations
+     */
+    @FXML
+    private ComboBox<String> operType;
+    @FXML
+    private TextField operSum;
+    @FXML
+    private ComboBox<String> operWho;
+    @FXML
+    private ComboBox<String> operCurrency;
+    @FXML
+    private TextArea operDescription;
+    @FXML
+    private TableView operTable;
+    @FXML
+    private ComboBox<String> operCustomerFilter;
+    @FXML
+    private TableView operBalanceTable;
+    @FXML
+    private Label OperDollarLabel;
+    @FXML
+    private Label CurrentIncomeSum;
+    @FXML
+    private Label CurrentIncomeDollar;
+    @FXML
+    private Label CurrentIncomeHR;
+    @FXML
+    private Label PersonHRBalance;
+    @FXML
+    private Label PersonSumBalance;
+    @FXML
+    private Label PersonDollarBalance;
+    @FXML
+    private DatePicker operDanFilter;
+    @FXML
+    private DatePicker operGachaFilter;
+    @FXML
+    private TableView HistoryTable;
+    @FXML
+    private JFXDatePicker HistoryDan;
+    @FXML
+    private JFXDatePicker HistoryGacha;
+    @FXML
+    private TableView QarzTable;
+    @FXML
+    private JFXDatePicker QarzDan;
+    @FXML
+    private JFXDatePicker QarzGacha;
+    @FXML
+    private TableView tableDebtorsOper;
+    @FXML
+    TextField text_per;
+    @FXML
+    Label labelDollar;
+    @FXML
+    Label labelHR;
+    @FXML
+    TextField operDollar;
+    @FXML
+    TextField operHR;
+    @FXML
+    ComboBox<String> operHistoryWho;
+    @FXML
+    ComboBox<String> ComboBoxBalance;
+    @FXML
+    Label text_balance_sum;
+    @FXML
+    Label text_balance_dollar;
+    @FXML
+    Label text_balance_hr;
+    @FXML
+    Label text_balance_name;
+    @FXML
+    ComboBox<String> ChangeType;
+    @FXML
+    TextField ChangeSum;
+    @FXML
+    TableView tarixCheckTable;
+    //Change tab
+    @FXML
+    private DatePicker ExchangeDan;
+    @FXML
+    private DatePicker ExchangeGacha;
+    @FXML
+    private TableView ExchangeTable;
+    //Expences
+    @FXML private Label ExpenceSum;
+    @FXML private Label ExpenceDollar;
+    @FXML private Label ExpenceHR;
+    @FXML private ComboBox<String> sellactionSelectCustomer;
+    @FXML private Label sellActionTotalQuantity;
+    @FXML private Label sellActionTotalSum;
+    @FXML private Label sellActionTotalDollar;
+    @FXML private Label sellActionTotalHr;
+    @FXML private Label ExchangeTotalQuantity;
+    @FXML private ComboBox<String> exchangeSelectName;
+    @FXML private ComboBox<String> tarixSelectName;
+    @FXML private Label tarixTotalQuantity;
+    @FXML private Label tarixTotalCost;
+
+
+
+    String user_id = String.valueOf(Login.currentUser.getId());
+    String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+
+
+    /**
+     * End of tab operations
+     */
     private ObservableList<ProductTable> productTables;
     public static List<BasketItem> basket = new ArrayList<>();
     private CreditModel credit = null;
-    Double dollar = 8500.0;
+
     Task<Void> longTaskRun;
     private HistoryDao historyDao;
+    OperDao operDao = new OperDao();
+    sample.dao.ProductDao productDao1 = new sample.dao.ProductDao();
+    printer printer = new printer();
+    PrinterService printerService = new PrinterService();
+    private boolean exit;
+    Thread clock;
 
     {
         try {
@@ -89,21 +240,234 @@ public class MainPageController extends Parent implements Initializable {
         }
     }
 
+    private void initializeExchangeTable() {
+        TableColumn id = new TableColumn("Id");
+        TableColumn name = new TableColumn("Nomi");
+        TableColumn barcode = new TableColumn("Barcode");
+        TableColumn type = new TableColumn("Turi");
+        TableColumn quantity = new TableColumn("Miqdori");
+        TableColumn comment = new TableColumn("Izox");
+        TableColumn cr_on = new TableColumn("Sana");
+        TableColumn cr_by = new TableColumn("Ishchi");
+
+        ExchangeTable.getColumns().addAll(id, cr_on, name, barcode, type, quantity, comment, cr_by);
+
+        id.setCellValueFactory(new PropertyValueFactory<Exchange, String>("id"));
+        name.setCellValueFactory(new PropertyValueFactory<Exchange, String>("name"));
+        barcode.setCellValueFactory(new PropertyValueFactory<Exchange, String>("barcode"));
+        type.setCellValueFactory(new PropertyValueFactory<Exchange, String>("type"));
+        quantity.setCellValueFactory(new PropertyValueFactory<Exchange, String>("quantity"));
+        comment.setCellValueFactory(new PropertyValueFactory<Exchange, String>("comment"));
+        cr_on.setCellValueFactory(new PropertyValueFactory<Exchange, String>("cr_on"));
+        cr_by.setCellValueFactory(new PropertyValueFactory<Exchange, String>("cr_by"));
+    }
+
+    private void initializeOperTable() {
+        TableColumn<OperTable, String> id = new TableColumn<>("Tartib raqami");
+        TableColumn<OperTable, String> type = new TableColumn<>("To'lov turi");
+        TableColumn<OperTable, String> who = new TableColumn<>("Kimga/Kimdan");
+        TableColumn<OperTable, String> sum = new TableColumn<>("So'm");
+        TableColumn<OperTable, String> dollar = new TableColumn<>("Dollar");
+        TableColumn<OperTable, String> hr = new TableColumn<>("hr");
+        TableColumn<OperTable, String> description = new TableColumn<>("Ma'lumot");
+        TableColumn<OperTable, String> cr_by = new TableColumn<>("Sotuvchi");
+        TableColumn<OperTable, String> date = new TableColumn<>("Sana");
+        TableColumn<OperTable, String> currency = new TableColumn<>("Valyuta");
+        TableColumn<OperTable, String> percentage = new TableColumn<>("%");
+        TableColumn<OperTable, String> subtotal = new TableColumn<>("% bilan");
+
+        // operTable.getColumns().addAll(id, type, who, sum, dollar, hr, cr_by, date, currency, percentage, subtotal, description);
+        operTable.getColumns().addAll(id, date, type, sum, dollar, hr, cr_by, who, description, currency, percentage, subtotal);
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        who.setCellValueFactory(new PropertyValueFactory<>("who"));
+        sum.setCellValueFactory(new PropertyValueFactory<>("sum"));
+        dollar.setCellValueFactory(new PropertyValueFactory<>("dollar"));
+        hr.setCellValueFactory(new PropertyValueFactory<>("hr"));
+        description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        cr_by.setCellValueFactory(new PropertyValueFactory<>("cr_by"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        currency.setCellValueFactory(new PropertyValueFactory<>("currency"));
+        percentage.setCellValueFactory(new PropertyValueFactory<>("percentage"));
+        subtotal.setCellValueFactory(new PropertyValueFactory<>("subtotal"));
+    }
+
+    private void intializeBalanceTable() {
+        TableColumn<balance, String> who = new TableColumn<>("Kompaniya nomi");
+        TableColumn<balance, Integer> sum_in = new TableColumn<>("Kirim So'mda");
+        TableColumn<balance, Integer> sum_out = new TableColumn<>("Chiqim So'mda");
+        TableColumn<balance, Integer> sum_balance = new TableColumn<>("Balans So'mda");
+        TableColumn<balance, Integer> dollar_in = new TableColumn<>("$ da kirim");
+        TableColumn<balance, Integer> dollar_out = new TableColumn<>("$ da chiqim");
+        TableColumn<balance, Integer> dollar_balance = new TableColumn<>(" $ da balans");
+        TableColumn<balance, Integer> hr_in = new TableColumn<>("Kirim hisib raqam");
+        TableColumn<balance, Integer> hr_out = new TableColumn<>("Chiqim hisob raqam");
+        TableColumn<balance, Integer> hr_balance = new TableColumn<>("Hisob raqam balans");
+
+
+        operBalanceTable.getColumns().addAll(who, sum_in, sum_out, sum_balance, dollar_in, dollar_out, dollar_balance, hr_in, hr_out, hr_balance);
+
+        who.setCellValueFactory(new PropertyValueFactory<>("who"));
+        sum_in.setCellValueFactory(new PropertyValueFactory<>("sum_in"));
+        sum_out.setCellValueFactory(new PropertyValueFactory<>("sum_out"));
+        sum_balance.setCellValueFactory(new PropertyValueFactory<>("sum_balance"));
+        dollar_in.setCellValueFactory(new PropertyValueFactory<>("dollar_in"));
+        dollar_out.setCellValueFactory(new PropertyValueFactory<>("dollar_out"));
+        dollar_balance.setCellValueFactory(new PropertyValueFactory<>("dollar_balance"));
+        hr_in.setCellValueFactory(new PropertyValueFactory<>("hr_in"));
+        hr_out.setCellValueFactory(new PropertyValueFactory<>("hr_out"));
+        hr_balance.setCellValueFactory(new PropertyValueFactory<>("hr_balance"));
+    }
+
+    private void initializeDebtorsTable() {
+        TableColumn<balance, String> who = new TableColumn<>("Kompaniya nomi");
+        TableColumn<balance, Integer> sum_in = new TableColumn<>("Kirim So'mda");
+        TableColumn<balance, Integer> sum_out = new TableColumn<>("Chiqim So'mda");
+        TableColumn<balance, Integer> sum_balance = new TableColumn<>("Balans So'mda");
+        TableColumn<balance, Integer> dollar_in = new TableColumn<>("$ da kirim");
+        TableColumn<balance, Integer> dollar_out = new TableColumn<>("$ da chiqim");
+        TableColumn<balance, Integer> dollar_balance = new TableColumn<>(" $ da balans");
+        TableColumn<balance, Integer> hr_in = new TableColumn<>("Kirim hisib raqam");
+        TableColumn<balance, Integer> hr_out = new TableColumn<>("Chiqim hisob raqam");
+        TableColumn<balance, Integer> hr_balance = new TableColumn<>("Hisob raqam balans");
+
+
+        tableDebtorsOper.getColumns().addAll(who, sum_in, sum_out, sum_balance, dollar_in, dollar_out, dollar_balance, hr_in, hr_out, hr_balance);
+
+        who.setCellValueFactory(new PropertyValueFactory<>("who"));
+        sum_in.setCellValueFactory(new PropertyValueFactory<>("sum_in"));
+        sum_out.setCellValueFactory(new PropertyValueFactory<>("sum_out"));
+        sum_balance.setCellValueFactory(new PropertyValueFactory<>("sum_balance"));
+        dollar_in.setCellValueFactory(new PropertyValueFactory<>("dollar_in"));
+        dollar_out.setCellValueFactory(new PropertyValueFactory<>("dollar_out"));
+        dollar_balance.setCellValueFactory(new PropertyValueFactory<>("dollar_balance"));
+        hr_in.setCellValueFactory(new PropertyValueFactory<>("hr_in"));
+        hr_out.setCellValueFactory(new PropertyValueFactory<>("hr_out"));
+        hr_balance.setCellValueFactory(new PropertyValueFactory<>("hr_balance"));
+    }
+
+    private void initializeHistoryTable() {
+        TableColumn<History, String> id = new TableColumn<>("id");
+        TableColumn<History, String> barcode = new TableColumn<>("Barcode");
+        TableColumn<History, String> p_id = new TableColumn<>("Maxsulot idsi");
+        TableColumn<History, String> name = new TableColumn<>("Nomi");
+        TableColumn<History, String> type = new TableColumn<>("Turi");
+        TableColumn<History, String> quantity = new TableColumn<>("Miqdori");
+        TableColumn<History, String> seller_id = new TableColumn<>("Sotuvchi");
+        TableColumn<History, String> cost = new TableColumn<>("Umumiy narxi");
+        TableColumn<History, String> perCost = new TableColumn<>("Narxi");
+        TableColumn<History, String> date_cr = new TableColumn<>("Sana");
+        TableColumn<History, String> customer_id = new TableColumn<>("Xaridor");
+        TableColumn<History, String> sellAction_id = new TableColumn<>("SellActionId");
+
+
+        HistoryTable.getColumns().addAll(id, date_cr, seller_id, barcode, name, type, quantity, perCost, cost, customer_id, sellAction_id);
+
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        barcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        p_id.setCellValueFactory(new PropertyValueFactory<>("p_id"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        seller_id.setCellValueFactory(new PropertyValueFactory<>("seller_id"));
+        cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        perCost.setCellValueFactory(new PropertyValueFactory<>("perCost"));
+        date_cr.setCellValueFactory(new PropertyValueFactory<>("date_cr"));
+        customer_id.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        sellAction_id.setCellValueFactory(new PropertyValueFactory<>("sellAction_id"));
+    }
+
+    private void initializeCheckTable() {
+        TableColumn<History, String> id = new TableColumn<>("id");
+        TableColumn<History, String> barcode = new TableColumn<>("Barcode");
+        TableColumn<History, String> p_id = new TableColumn<>("Maxsulot idsi");
+        TableColumn<History, String> name = new TableColumn<>("Nomi");
+        TableColumn<History, String> type = new TableColumn<>("Turi");
+        TableColumn<History, String> quantity = new TableColumn<>("Miqdori");
+        TableColumn<History, String> seller_id = new TableColumn<>("Sotuvchi");
+        TableColumn<History, String> cost = new TableColumn<>("Umumiy narxi");
+        TableColumn<History, String> perCost = new TableColumn<>("Narxi");
+        TableColumn<History, String> date_cr = new TableColumn<>("Sana");
+        TableColumn<History, String> customer_id = new TableColumn<>("Xaridor");
+        TableColumn<History, String> sellAction_id = new TableColumn<>("SellActionId");
+
+
+        tarixCheckTable.getColumns().addAll(id, date_cr, barcode, name, type, quantity, perCost, cost);
+
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        barcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        p_id.setCellValueFactory(new PropertyValueFactory<>("p_id"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        seller_id.setCellValueFactory(new PropertyValueFactory<>("seller_id"));
+        cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        perCost.setCellValueFactory(new PropertyValueFactory<>("perCost"));
+        date_cr.setCellValueFactory(new PropertyValueFactory<>("date_cr"));
+        customer_id.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        sellAction_id.setCellValueFactory(new PropertyValueFactory<>("sellAction_id"));
+    }
+
+    private void initializeSellactionTable() {
+        TableColumn<Debt, String> id = new TableColumn<>("id");
+        TableColumn<Debt, String> date = new TableColumn<>("Sana");
+        TableColumn<Debt, String> sum = new TableColumn<>("Sum");
+        TableColumn<Debt, String> dollar = new TableColumn<>("Dollar");
+        TableColumn<Debt, String> hr = new TableColumn<>("Hisob raqam");
+        TableColumn<Debt, String> psum = new TableColumn<>("T-sum");
+        TableColumn<Debt, String> pdollar = new TableColumn<>("T-dollar");
+        TableColumn<Debt, String> phr = new TableColumn<>("T-hr");
+        TableColumn<Debt, String> sale = new TableColumn<>("Chegirma");
+        TableColumn<Debt, String> companyName = new TableColumn<>("Xaridor");
+        TableColumn<Debt, String> cr_by = new TableColumn<>("Sotuvchi");
+        TableColumn<Debt, String> comment = new TableColumn<>("Izoh");
+
+
+        QarzTable.getColumns().addAll(id, date, sum, dollar, hr, psum, pdollar, phr, sale, companyName, cr_by, comment);
+
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date_cr"));
+        sum.setCellValueFactory(new PropertyValueFactory<>("sum"));
+        dollar.setCellValueFactory(new PropertyValueFactory<>("dollar"));
+        hr.setCellValueFactory(new PropertyValueFactory<>("hr"));
+        psum.setCellValueFactory(new PropertyValueFactory<>("psum"));
+        pdollar.setCellValueFactory(new PropertyValueFactory<>("pdollar"));
+        phr.setCellValueFactory(new PropertyValueFactory<>("phr"));
+        sale.setCellValueFactory(new PropertyValueFactory<>("sale"));
+        companyName.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
+        cr_by.setCellValueFactory(new PropertyValueFactory<>("cr_by"));
+        comment.setCellValueFactory(new PropertyValueFactory<>("comment"));
+
+    }
+
+    /**
+     * Initialise MainPart
+     */
     private void initializeTable() {
+
+        //initializing dollar amount
+        OperDollarLabel.setText(String.valueOf(operDao.getCurrencyRate()));
+
         TableColumn<ProductTable, String> barcode = new TableColumn<>("Barcode");
         TableColumn<ProductTable, String> name = new TableColumn<>("Nomi");
         TableColumn<ProductTable, Integer> quantity = new TableColumn<>("Miqdori");
         TableColumn<ProductTable, Double> cost = new TableColumn<>("Narxi");
+        TableColumn<ProductTable, Double> color = new TableColumn<>("Rangi");
 
-        tableSampleManual.getColumns().addAll(barcode, name, quantity, cost);
+
+        tableSampleManual.getColumns().addAll(barcode, name, quantity, cost, color);
 
         barcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        color.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         addedItemsList.getChildren().addListener((ListChangeListener<Node>) c -> {
-            totalCost.setText(Utils.ThousandDivider(calculateCurrentTotalSum()) + " sum");
+            System.out.println(calculateCurrentTotalAll());
+            totalCost.setText(Utils.ThousandDivider(calculateCurrentTotalAll().sum) + " sum");
+            labelDollar.setText("$ " + Utils.ThousandDivider(calculateCurrentTotalAll().dollar));
+            labelHR.setText(Utils.ThousandDivider(calculateCurrentTotalAll().hr) + " sum");
         });
         tableSampleManual.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
             try {
@@ -117,6 +481,9 @@ public class MainPageController extends Parent implements Initializable {
             }
         });
 
+        /**
+         * Hot keys
+         * */
         scanCodeField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -138,6 +505,21 @@ public class MainPageController extends Parent implements Initializable {
         return sum;
     }
 
+    private AllCurrencyValues calculateCurrentTotalAll() {
+        float sum = 0;
+        float dollar = 0;
+        float hr = 0;
+        for (BasketItem aBasket : basket) {
+            if (aBasket.getCurrency().equalsIgnoreCase("sum"))
+                sum += (aBasket.getCost() * aBasket.getAmount());
+            if (aBasket.getCurrency().equals("$"))
+                dollar += (aBasket.getCost() * aBasket.getAmount());
+            if (aBasket.getCurrency().equalsIgnoreCase("hr"))
+                hr += (aBasket.getCost() * aBasket.getAmount());
+        }
+        return new AllCurrencyValues(sum, dollar, hr);
+    }
+
     private boolean updateListItemAmount(BasketItem basketItem) {
         List<Node> items = addedItemsList.getChildren();
         for (Node item : items) {
@@ -151,8 +533,148 @@ public class MainPageController extends Parent implements Initializable {
         return false;
     }
 
+    public void validityCheckinteger() {
+        operSum.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
+                operSum.setText("0");
+                return;
+            }
+        });
+
+        operSum.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue ov, Boolean t, Boolean t1) {
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (operSum.isFocused() && !operSum.getText().isEmpty()) {
+                            operSum.selectAll();
+                        }
+                    }
+                });
+            }
+        });
+
+        operDollar.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
+                operDollar.setText("0");
+                return;
+            }
+        });
+
+        operDollar.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue ov, Boolean t, Boolean t1) {
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (operDollar.isFocused() && !operDollar.getText().isEmpty()) {
+                            operDollar.selectAll();
+                        }
+                    }
+                });
+            }
+        });
+
+        operHR.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
+                operHR.setText("0");
+                return;
+            }
+        });
+
+        operHR.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue ov, Boolean t, Boolean t1) {
+
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (operHR.isFocused() && !operHR.getText().isEmpty()) {
+                            operHR.selectAll();
+                        }
+                    }
+                });
+            }
+        });
+
+    }
+
+    private void setSaleCheck() {
+        try {
+            QarzTable.setOnMouseClicked(event -> {
+                if (QarzTable.getSelectionModel().getSelectedItem() != null) {
+                    Debt debt = (sample.model.Debt) QarzTable.getSelectionModel().getSelectedItem();
+                    try {
+                        productDao.checkHistory(tarixCheckTable, sellActionTotalQuantity, sellActionTotalSum, sellActionTotalDollar, sellActionTotalHr, debt.getId());
+                    } catch (Exception exc) {
+                        exc.printStackTrace();
+                    }
+                }
+            });
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    private void checkHistory() {
+        try {
+            productDao.checkHistory(tarixCheckTable,  sellActionTotalQuantity, sellActionTotalSum, sellActionTotalDollar, sellActionTotalHr, "*");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        operType.getItems().addAll("Kirim", "Chiqim");
+        ChangeType.getItems().addAll("sum-dollar", "hr-dollar", "dollar-sum", "dollar-hr", "hr-sum", "sum-hr");
+        ChangeType.getSelectionModel().selectFirst();
+        ComboBoxBalance.getItems().addAll("*");
+        ComboBoxBalance.getSelectionModel().selectFirst();
+        sellactionSelectCustomer.getItems().addAll("");
+        exchangeSelectName.getItems().addAll("");
+        tarixSelectName.getItems().addAll("");
+        operHistoryWho.getItems().addAll("");
+        operCustomerFilter.getItems().addAll("");
+
+        try {
+            setSaleCheck();
+            productDao1.addWhoCombobox(operWho);
+            productDao1.addWhoCombobox(operCustomerFilter);
+            productDao1.addWhoCombobox(operHistoryWho);
+            productDao1.addWhoCombobox(ComboBoxBalance);
+            getSellactionCompanyName();
+            getSellactionExchangeName();
+            getTarixSelectName();
+            setCurrentIncome();
+            setCurrentOutcome();
+            table();
+
+
+            //Autocomplate combobox for person table
+            ComboBoxBalance.setTooltip(new Tooltip());
+            operHistoryWho.setTooltip(new Tooltip());
+            operWho.setTooltip(new Tooltip());
+            operCustomerFilter.setTooltip(new Tooltip());
+            sellactionSelectCustomer.setTooltip(new Tooltip());
+            exchangeSelectName.setTooltip(new Tooltip());
+            tarixSelectName.setTooltip(new Tooltip());
+            new ComboBoxAutoComplete<String>(ComboBoxBalance);
+            new ComboBoxAutoComplete<String>(operHistoryWho);
+            new ComboBoxAutoComplete<String>(operWho);
+            new ComboBoxAutoComplete<String>(operCustomerFilter);
+            new ComboBoxAutoComplete<String>(sellactionSelectCustomer);
+            new ComboBoxAutoComplete<String>(exchangeSelectName);
+            new ComboBoxAutoComplete<String>(tarixSelectName);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
         /**
          * Initialising producttype listview
@@ -180,17 +702,30 @@ public class MainPageController extends Parent implements Initializable {
             }
         });
 
+        validityCheckinteger();
+        initializeExchangeTable();
+        initializeCheckTable();
+        initializeHistoryTable();
         initializeTable();
-        User u = LoginController.currentUser;
+        initializeOperTable();
+        intializeBalanceTable();
+        initializeDebtorsTable();
+        initializeSellactionTable();
+        operTable();
+        balanceTable();
+        debtorsTable();
+        QarzTable();
+        checkHistory();
+        historyTable();
+        sample.model.User u = Login.currentUser;
         if (u == null) {
-            u = new User();
-            u.setFirstName("Muhammadjon");
-            u.setLastName("Toxirov");
+            u = new sample.model.User();
+            u.setFirstName("Someone");
+            u.setLastname("Someone");
             u.setId(1);
-            LoginController.currentUser = u;
-            u.setDate(Calendar.getInstance().getTime());
+            Login.currentUser = u;
         }
-        setUserData(u);
+        setUserData1(u);
         Clock();
         Thread.currentThread();
         scanCodeField.requestFocus();
@@ -207,10 +742,91 @@ public class MainPageController extends Parent implements Initializable {
                     System.exit(0);
                 }
         });
+        setOzgaartirishMaxsulot();
+        setOzgaartirishMaxsulotQarz();
+
+
+        /**
+         *   Timer()
+         */
+        Timeline ficeSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(5), new EventHandler<javafx.event.ActionEvent>() {
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                operTable();
+                balanceTable();
+                debtorsTable();
+                // QarzTable();
+                historyTable();
+                getSellactionCompanyName();
+                getSellactionExchangeName();
+                getTarixSelectName();
+            }
+        }));
+        ficeSecondsWonder.setCycleCount(Timeline.INDEFINITE);
+        ficeSecondsWonder.play();
+        /**
+         *  End of timer()
+         *
+         */
     }
 
-    private void setUserData(User u) {
-        idUserName.setText(u.getFirstName() + " " + u.getLastName());
+    private void setOzgaartirishMaxsulot() {
+
+        try {
+            operBalanceTable.setOnMouseClicked(event -> {
+                if (operBalanceTable.getSelectionModel().getSelectedItem() != null) {
+                    balance balance = (sample.components.sell.productTableView.balance) operBalanceTable.getSelectionModel().getSelectedItem();
+                    try {
+                        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+                        symbols.setGroupingSeparator(' ');
+                        DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+                        Double s = 0.0;
+                        Double d = 0.0;
+                        Double h = 0.0;
+                        text_balance_sum.setText(balance.getSum_balance()+ " sum");
+                        text_balance_dollar.setText("$ " +balance.getDollar_balance());
+                        text_balance_hr.setText(balance.getHr_balance() + " hr sum");
+                        text_balance_name.setText(balance.getWho());
+                    } catch (Exception exc) {
+                        exc.printStackTrace();
+                    }
+                }
+            });
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    private void setOzgaartirishMaxsulotQarz() {
+
+        try {
+            tableDebtorsOper.setOnMouseClicked(event -> {
+                if (tableDebtorsOper.getSelectionModel().getSelectedItem() != null) {
+                    balance balance = (sample.components.sell.productTableView.balance) tableDebtorsOper.getSelectionModel().getSelectedItem();
+                    try {
+                        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+                        symbols.setGroupingSeparator(' ');
+                        DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+                        Double s = 0.0;
+                        Double d = 0.0;
+                        Double h = 0.0;
+                        text_balance_sum.setText(balance.getSum_balance() + " sum");
+                        text_balance_dollar.setText("$ " +balance.getDollar_balance());
+                        text_balance_hr.setText(balance.getHr_balance() + " hr sum");
+                        text_balance_name.setText(balance.getWho());
+                    } catch (Exception exc) {
+                        exc.printStackTrace();
+                    }
+                }
+            });
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+
+    public void setUserData1(User u) {
+        idUserName.setText(u.getFirstName() + " " + u.getLastname());
         idStartDate.setText(Utils.getCurrnetDateInStandardFormat());
     }
 
@@ -220,9 +836,9 @@ public class MainPageController extends Parent implements Initializable {
         FXMLLoader loader = createCustomItemLoader("AddedItemListItem", "CustomBasketItem/");
         assert loader != null;
         try {
-            BasketItem basketItem = BasketItem.getInstance();
-            basketItem.setAll(productTable.getBarcode(), productTable.getName(), Float.parseFloat(productTable.getCost()), 1, true);
             Pane p = loader.load();
+            BasketItem basketItem = BasketItem.getInstance();
+            basketItem.setAll(productTable.getBarcode(), productTable.getName(), Float.parseFloat(productTable.getCost()), 1, true, "Sum");
             p.setUserData(basketItem);
             ShopItemListItem item = loader.getController();
             item.setDetails(productTable, basketItem.isAccepted());
@@ -240,11 +856,35 @@ public class MainPageController extends Parent implements Initializable {
             TextField field = (TextField) p.lookup("#amountField");
             field.requestFocus();
             field.selectAll();
+            //
+            ComboBox<String> c = (ComboBox<String>) p.lookup("#comboCurrency");
+            c.setOnAction(Event -> {
+                DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+                symbols.setGroupingSeparator(' ');
+                DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+                String sum = String.valueOf(formatter.format(calculateCurrentTotalAll().sum));
+                String dollar = String.valueOf(formatter.format(calculateCurrentTotalAll().dollar));
+                String hr = String.valueOf(formatter.format(calculateCurrentTotalAll().hr));
+                TextField l2 = (TextField) p.lookup("#itemPrice");
+                l2.requestFocus();
+                totalCost.setText(sum + " sum");
+                labelDollar.setText("$ " + dollar);
+                labelHR.setText(hr + " sum");
+            });
+
             field.textProperty().addListener((observable, oldValue, newValue) -> {
                 try {
-                    Label l = (Label) p.lookup("#itemPrice");
+                    TextField l = (TextField) p.lookup("#itemPrice");
+                    float price = Float.parseFloat(l.getText().trim().replaceAll("\\s+", ""));
+
+                    calculateCurrentTotalAll();
+
+
+                    String currency = c.getSelectionModel().getSelectedItem();
+
                     BasketItem i = (BasketItem) p.getUserData();
                     int quantity = productDao.getQuantity(i.getBarcode());
+                    changeBasketItemPrice(i.getBarcode(), price);
 
                     if (!Utils.isNumberValid(newValue, Utils.Number.INT) || newValue.equals("")) {
 
@@ -271,11 +911,17 @@ public class MainPageController extends Parent implements Initializable {
                         Platform.runLater(() -> {
                             try {
                                 changeBasketItemAmount(i.getBarcode(), finalNewValue);
+                                changeBasketItemPrice(i.getBarcode(), price);
                                 DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+                                changeSellCurrency(i.getBarcode(), currency);
                                 symbols.setGroupingSeparator(' ');
                                 DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
-                                String app = String.valueOf(formatter.format(calculateCurrentTotalSum()));
-                                totalCost.setText(app + " sum");
+                                String sum = String.valueOf(formatter.format(calculateCurrentTotalAll().sum));
+                                String dollar = String.valueOf(formatter.format(calculateCurrentTotalAll().dollar));
+                                String hr = String.valueOf(formatter.format(calculateCurrentTotalAll().hr));
+                                totalCost.setText(sum + " sum");
+                                labelDollar.setText("$ " + dollar);
+                                labelHR.setText(hr + " sum");
                             } catch (Exception ex) {
                                 System.out.println(ex.getMessage());
                             }
@@ -311,9 +957,27 @@ public class MainPageController extends Parent implements Initializable {
         }
     }
 
+    private void changeBasketItemPrice(String barcode, float price) {
+        for (BasketItem item : basket) {
+            if (item.getBarcode().equals(barcode)) {
+                item.setCost(price);
+                return;
+            }
+        }
+    }
+
+    private void changeSellCurrency(String barcode, String currency) {
+        for (BasketItem item : basket) {
+            if (item.getBarcode().equals(barcode)) {
+                item.setCurrency(currency);
+                return;
+            }
+        }
+    }
+
     public MainPageController() {
         try {
-            myConn = Database.getConnection();
+            myConn = database.getConnection();
             productDao = new ProductDao();
         } catch (Exception exc) {
             Utils.ErrorAlert("Error", "Xatolik" + exc, "Xatolik bor shu yerda");
@@ -366,12 +1030,13 @@ public class MainPageController extends Parent implements Initializable {
         try {
             if (folder == null) folder = "";
             String path = folder + title + ".fxml";
-            return new FXMLLoader(getClass().getResource("views/CustomItems/" + path));
+            return new FXMLLoader(getClass().getResource("/sample/components/sell/views/CustomItems/" + path));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
+
 
     /**
      * Custom sellaction  dialogbox  . It works when you press sell button.
@@ -384,83 +1049,77 @@ public class MainPageController extends Parent implements Initializable {
             PopOver popOver = new PopOver(vBox);
             Button btnCancel = (Button) vBox.lookup("#btnCancel");
             Button btnOK = (Button) vBox.lookup("#discountOK");
-            TableView tableView = (TableView) vBox.lookup("#table_credit");
+            //Gird components
             TextField textFirstName = (TextField) vBox.lookup("#textFirstName");
-            TextField textLastName = (TextField) vBox.lookup("#textLastName");
+            Button btnAddCustomer = (Button) vBox.lookup("#btnAddCustomer");
             TextField textSaleSumm = (TextField) vBox.lookup("#textSaleSumm");
             TextField textSalePercent = (TextField) vBox.lookup("#textSalePercent");
-            TextField textPlastik = (TextField) vBox.lookup("#textPlastik");
-            TextField textCreditSumm = (TextField) vBox.lookup("#textCreditSumm");
-            Label LabelTotalSumm = (Label) vBox.lookup("#LabelTotalSumm");
-            Button btnAddCustomer = (Button) vBox.lookup("#btnAddCustomer");
-            ToggleButton btnTogglePlastik = (ToggleButton) vBox.lookup("#btnTogglePlastik");
-            Label labelCustomerName = (Label) vBox.lookup("#labelCustomerName");
-            Label labelCustomerId = (Label) vBox.lookup("#labelCustomerId");
-            ToggleButton btnToggleQarz = (ToggleButton) vBox.lookup("#btnToggleQarz");
-            TextField textComment = (TextField) vBox.lookup("#textComment");
-            TextField textSearch = (TextField) vBox.lookup("#textSearch");
+            ComboBox<String> SellWho = (ComboBox<String>) vBox.lookup("#SellWho");
+            TextField SellOperSumma = (TextField) vBox.lookup("#SellOperSumma");
+            Button LabelGivenSum = (Button) vBox.lookup("#LabelGivenSum");
+            TextField textHr = (TextField) vBox.lookup("#textHR");
+            TextField textDollar = (TextField) vBox.lookup("#textDollar");
+            Label sumLabel = (Label) vBox.lookup("#sumLabel");
+            Label hrLabel = (Label) vBox.lookup("#hrLabel");
             Label labelDollar = (Label) vBox.lookup("#labelDollar");
+            Label LabelTotalSumm = (Label) vBox.lookup("#LabelTotalSumm");
+            TextField textComment = (TextField) vBox.lookup("#textComment");
+            TextField TextSearchCustomer = (TextField) vBox.lookup("#TextSearchCustomer");
+            TableView TableCustomer = (TableView) vBox.lookup("#TableCustomer");
+            Label LabelCustomerName = (Label) vBox.lookup("#LabelCustomerName");
+            Label LabelCustomerId = (Label) vBox.lookup("#LabelCustomerId");
+            Label CSum = (Label) vBox.lookup("#CSum");
+            Label CDollar = (Label) vBox.lookup("#CDollar");
+            Label CHR = (Label) vBox.lookup("#CHR");
 
             /**
-             * Customer credit table
-             */
-            TableColumn<CustomerCreditTable, Integer> id = new TableColumn<>("Raqami");
-            TableColumn<CustomerCreditTable, String> firstName = new TableColumn<>("Ism");
-            TableColumn<CustomerCreditTable, String> lastName = new TableColumn<>("Familiya");
-
-            tableView.getColumns().addAll(id, firstName, lastName);
-
-            id.setCellValueFactory(new PropertyValueFactory<>("id"));
-            firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-            lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
-
-            /**
-             *  Connecting table to the database
-             */
-            Statement statement;
-            ResultSet resultSet;
-            ObservableList<CustomerCreditTable> customerCreditTables = FXCollections.observableArrayList();
-
-            //Searching customers from customer table
-            statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM main.customer ORDER BY id");
-            while (resultSet.next()) {
-                CustomerCreditTable customerCreditTable = new CustomerCreditTable();
-                customerCreditTable.setId(resultSet.getInt("id"));
-                customerCreditTable.setFirstName(resultSet.getString("firstname"));
-                customerCreditTable.setLastName(resultSet.getString("lastname"));
-                customerCreditTables.addAll(customerCreditTable);
-            }
-            tableView.setItems(customerCreditTables);
-            resultSet.close();
-            statement.close();
-            /**
-             * End of connection to database
+             * Customer table
              * */
+            TableColumn id = new TableColumn("Id");
+            TableColumn name = new TableColumn("Ism");
+            TableCustomer.getColumns().addAll(id, name);
+            id.setCellValueFactory(new PropertyValueFactory<CustomerName, String>("id"));
+            name.setCellValueFactory(new PropertyValueFactory<CustomerName, String>("name"));
+
+            productDao.customerNameDao(TableCustomer, "");
+
+            TextSearchCustomer.setOnKeyReleased(Event -> {
+                productDao.customerNameDao(TableCustomer, TextSearchCustomer.getText());
+            });
+
+            TextSearchCustomer.setOnAction(Event -> {
+                productDao.customerNameDao(TableCustomer, TextSearchCustomer.getText());
+            });
+
+            try {
+                TableCustomer.setOnMouseClicked(event -> {
+                    if (TableCustomer.getSelectionModel().getSelectedItem() != null) {
+                        CustomerName product = (CustomerName) TableCustomer.getSelectionModel().getSelectedItem();
+                        try {
+                            LabelCustomerName.setText(product.getName());
+                            LabelCustomerId.setText(product.getId());
+                            operDao.perPersonBalance(CHR ,CSum, CDollar, product.getName());
+                        } catch (Exception exc) {
+                            exc.printStackTrace();
+                        }
+                    }
+                });
+            } catch (Exception exc) {
+                exc.printStackTrace();
+            }
+
+            /**
+             * End of customer table
+             * */
+
 
             /**
              * Opreations
              * */
 
-            LabelTotalSumm.setText(Utils.ThousandDivider(calculateCurrentTotalSum()));
-            labelDollar.setText("$ " + String.valueOf(calculateCurrentTotalSum() / dollar).substring(0, 3));
-            btnTogglePlastik.setOnMouseClicked(event -> {
-                if (btnTogglePlastik.isSelected()) {
-                    textPlastik.setText(LabelTotalSumm.getText());
-                    textSaleSumm.setEditable(false);
-                } else {
-                    textPlastik.setText("");
-                    textSaleSumm.setEditable(true);
-                }
-            });
-
-            btnToggleQarz.setOnMouseClicked(event -> {
-                btnToggleQarz.setSelected(false);
-                textSaleSumm.setEditable(true);
-                textCreditSumm.setText("");
-                labelCustomerId.setText("");
-                labelCustomerName.setText("");
-            });
+            sumLabel.setText(Utils.ThousandDivider(calculateCurrentTotalAll().sum));
+            labelDollar.setText(Utils.ThousandDivider(calculateCurrentTotalAll().dollar));
+            hrLabel.setText(Utils.ThousandDivider(calculateCurrentTotalAll().hr));
 
             textSaleSumm.textProperty().addListener((observable, oldValue, newValue) -> {
                 if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
@@ -473,16 +1132,15 @@ public class MainPageController extends Parent implements Initializable {
                     @Override
                     protected Void call() {
                         Platform.runLater(() -> {
-                            if (Double.valueOf(newValue) >= calculateCurrentTotalSum()) {
-                                textSaleSumm.setText(String.valueOf(calculateCurrentTotalSum()));
+                            if (Double.valueOf(newValue) >= calculateCurrentTotalAll().sum) {
+                                textSaleSumm.setText(String.valueOf(calculateCurrentTotalAll().sum));
                             }
 
                             Double salesum = Double.valueOf(newValue);
                             Double saleQuantitySumm = (Double.valueOf(textSaleSumm.getText()));
                             double number = (Utils.isNumberInRange(Double.valueOf(newValue), 0.00, saleQuantitySumm) * 100);
-                            textSalePercent.setText((String.valueOf(number / calculateCurrentTotalSum())).substring(0, 3) + " %");
-                            LabelTotalSumm.setText(String.valueOf(calculateCurrentTotalSum() - salesum));
-                            labelDollar.setText("$ " + String.valueOf((calculateCurrentTotalSum() - salesum) / dollar).substring(0, 3));
+                            textSalePercent.setText((String.valueOf(number / calculateCurrentTotalAll().sum)).substring(0, 3) + " %");
+                            sumLabel.setText(String.valueOf(calculateCurrentTotalAll().sum - salesum));
                         });
                         return null;
                     }
@@ -491,36 +1149,85 @@ public class MainPageController extends Parent implements Initializable {
                 new Thread(longTaskRun).start();
             });
 
-            /**
-             * Sellecting customer from table.
-             * */
-            tableView.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
-                CustomerCreditTable customerCreditTable = (CustomerCreditTable) tableView.getSelectionModel().getSelectedItem();
-                labelCustomerId.setText(String.valueOf(customerCreditTable.getId()));
-                labelCustomerName.setText(customerCreditTable.getLastName());
-                textCreditSumm.setText(LabelTotalSumm.getText());
-                btnToggleQarz.setSelected(true);
-                textSaleSumm.setEditable(false);
+            SellOperSumma.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
+                    SellOperSumma.setText("0");
+                    return;
+                }
             });
 
-            /**
-             * End  of selecting table item.
-             */
+            SellOperSumma.focusedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue ov, Boolean t, Boolean t1) {
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (SellOperSumma.isFocused() && !SellOperSumma.getText().isEmpty()) {
+                                SellOperSumma.selectAll();
+                            }
+                        }
+                    });
+                }
+            });
+            textDollar.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
+                    textDollar.setText("0");
+                    return;
+                }
+            });
+
+            textDollar.focusedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue ov, Boolean t, Boolean t1) {
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (textDollar.isFocused() && !textDollar.getText().isEmpty()) {
+                                textDollar.selectAll();
+                            }
+                        }
+                    });
+                }
+            });
+            textHr.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
+                    textHr.setText("0");
+                    return;
+                }
+            });
+
+            textHr.focusedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue ov, Boolean t, Boolean t1) {
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (textHr.isFocused() && !textHr.getText().isEmpty()) {
+                                textHr.selectAll();
+                            }
+                        }
+                    });
+                }
+            });
+
 
             /**
              * btnAddCustomer button to add new customers
              * */
             btnAddCustomer.setOnAction(event -> {
                 try {
-                    if (textFirstName.getText().length() > 0 && textLastName.getText().length() > 0) {
-                        String firstname = textFirstName.getText();
-                        String lastname = textLastName.getText();
-                        btnAddCustomerAction(firstname, lastname);
+                    if (textFirstName.getText().length() > 0) {
+                        String firstname = textFirstName.getText().trim().replaceAll("\\s+", "");
+                        btnAddCustomerAction(firstname);
+                        productDao1.addWhoCombobox(operWho);
+                        productDao1.addWhoCombobox(operCustomerFilter);
+                        setCurrentIncome();
                         textFirstName.setText("");
-                        textLastName.setText("");
                     } else {
-                        textFirstName.setPromptText(" Ismni yozing!");
-                        textLastName.setPromptText(" Familiyani yozing!");
+                        textFirstName.setPromptText("Ismni yozing!");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -528,51 +1235,82 @@ public class MainPageController extends Parent implements Initializable {
             });
 
             /**
+             * Sotish oynasiga haridorning qancha pul berayotganini  ko'rsatuvchi labellarga u olgan maxsulotlarning
+             * valuta, sum, va hisob raqam summalarini belgilash.
+             * */
+            LabelGivenSum.setOnMouseClicked(Event -> {
+                String sum = sumLabel.getText().trim().replaceAll("\\s+", "");
+                String hr = hrLabel.getText().trim().replaceAll("\\s+", "");
+                String dollar = labelDollar.getText().trim().replaceAll("\\s+", "");
+                textDollar.setText(dollar);
+                textHr.setText(hr);
+                SellOperSumma.setText(sum);
+            });
+
+            /**
              * Sell action ok button pressed
              * */
             btnOK.setOnMouseClicked(event -> {
 
-                HistoryDao historyDao = new HistoryDao(myConn);
-                try {
-                    String saleSum = "0.0";
-                    if (textSaleSumm.getText() != null && textSaleSumm.getText().length() > 0) {
-                        saleSum = textSaleSumm.getText().replaceAll("\\s+", "");
-                    }
-                    String cash = "0";
-                    String plastikSum = "0";
-                    if (textPlastik.getText() != null && textPlastik.getText().length() > 0) {
-                        plastikSum = textPlastik.getText().replaceAll("\\s+", "");
-                    }
-                    //Defining credit model
-                    double creditSum = 0.0;
-                    int customerId = 0;
-                    if (textCreditSumm.getText() != null && textCreditSumm.getText().length() > 0) {
-                        creditSum = (Double.valueOf(textCreditSumm.getText().replaceAll("\\s+", "")));
-                        customerId = Integer.parseInt(labelCustomerId.getText().trim());
-                        credit = new CreditModel(creditSum, customerId);
-                    }
-                    //Defining variable sum_paid
-                    Double sum_paid = null;
-                    sum_paid = calculateCurrentTotalSum() - (creditSum + Double.valueOf(saleSum));
-                    cash = String.valueOf(Double.valueOf(LabelTotalSumm.getText().replaceAll("\\s+", "")) - Double.valueOf(plastikSum));
-                    String total = String.valueOf(calculateCurrentTotalSum());
-                    String commnet = "Empty";
-                    if (textComment.getText() == null && textComment.getText().length() > 0) {
-                        commnet = "Empty";
-                    } else {
-                        commnet = textComment.getText();
-                    }
+                String customerId = "9999";
+                Double paidSum = 0.0;
+                Double qarzsum = 0.0;
+                int sale = 0;
+                int dollar = 0;
+                int hr = 0;
+                Double percentage = 0.0;
+                String customerName = LabelCustomerId.getText();
+                if (!customerName.equals("*")) {
+                    HistoryDao historyDao = new HistoryDao(myConn);
+                    try {
+                        credit = new CreditModel(0, Integer.valueOf(LabelCustomerId.getText()));
 
-                    String user_id = String.valueOf(LoginController.currentUser.getId());
-                    historyDao.insertBasketToHistory(basket, LoginController.currentUser, credit, total, cash, plastikSum, saleSum, user_id, String.valueOf(sum_paid), commnet);
-                    btnActionIzlash();
-                    //  printAction();
-                    scanCodeField.requestFocus();
-                    popOver.hide();
-                    reset();
-                } catch (Exception e) {
-                    Utils.ErrorAlert("Xatolik", "Savdo amalga oshmadi", e.getMessage());
-                    e.printStackTrace();
+                        String commnet = "Empty";
+                        if (textComment.getText() == null && textComment.getText().length() > 0) {
+                            commnet = "Empty";
+                        } else {
+                            commnet = textComment.getText();
+                        }
+                        int Salesum = 0;
+                        if (textSaleSumm.getText() != null) {
+                            Salesum = Integer.valueOf(textSaleSumm.getText());
+                        }
+                        /**
+                         *
+                         * */
+                        String sum = SellOperSumma.getText().trim().replaceAll("\\s+", "");
+                        String hr1 = textHr.getText().trim().replaceAll("\\s+", "");
+                        String dollar1 = textDollar.getText().trim().replaceAll("\\s+", "");
+                        // Qarzga berilayotgan maxsulotlar summasi
+                        String sum2 = sumLabel.getText().trim().replaceAll("\\s+", "");
+                        String hr2 = hrLabel.getText().trim().replaceAll("\\s+", "");
+                        String dollar2 = labelDollar.getText().trim().replaceAll("\\s+", "");
+
+                        /**
+                         *
+                         * */
+
+                        operDao.addSalePaidSum1("Chiqim", customerName, sum2, dollar2, hr2, commnet, "1", "0", "0");
+
+                        operDao.addSalePaidSum2("Kirim", customerName, sum, dollar1, hr1, commnet, "1", "0", "0");
+
+                        historyDao.insertBasketToHistory(basket, Login.currentUser, credit, calculateCurrentTotalAll(), String.valueOf(Salesum), commnet, sum, dollar1, hr1);
+                        btnActionIzlash();
+                        printAction();
+                        scanCodeField.requestFocus();
+                        popOver.hide();
+                        reset();
+                        setCurrentIncome();
+                        setCurrentOutcome();
+                        callFunctions();
+
+                    } catch (Exception e) {
+                        Utils.ErrorAlert("Xatolik", "Savdo amalga oshmadi", e.getMessage());
+                        e.printStackTrace();
+                    }
+                } else {
+                    LabelCustomerName.setStyle("-fx-background-color:red; ");
+                    LabelCustomerId.setStyle("-fx-background-color:red; ");
                 }
             });
             popOver.setDetachedTitle("Savdo oynasi");
@@ -604,9 +1342,9 @@ public class MainPageController extends Parent implements Initializable {
     /**
      * btnAddCustomer action
      */
-    private void btnAddCustomerAction(String firstname, String lastname) {
+    private void btnAddCustomerAction(String firstname) {
         try {
-            historyDao.addCustomer(firstname, lastname);
+            historyDao.addCustomer(firstname);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -622,11 +1360,11 @@ public class MainPageController extends Parent implements Initializable {
     }
 
     private void Clock() {
-        Thread clock = new Thread(() -> {
-            while (sample.components.sell.Main.is_clock_alive) {
+        clock = new Thread(() -> {
+            while (!exit) {
                 Calendar cal = Calendar.getInstance();
-                int second = cal.get(Calendar.SECOND);
                 int minute = cal.get(Calendar.MINUTE);
+                int second = cal.get(Calendar.SECOND);
                 int hour = cal.get(Calendar.HOUR);
                 try {
                     Platform.runLater(() -> {
@@ -646,6 +1384,7 @@ public class MainPageController extends Parent implements Initializable {
                         ClockText.setText(hour_str + ":"
                                 + min_str + ":"
                                 + second_str);
+
                     });
                     Thread.sleep(1000);
                 } catch (Exception exe) {
@@ -657,73 +1396,497 @@ public class MainPageController extends Parent implements Initializable {
     }
 
     public void BtnUpdateAction() {
-//
-//        CloseableHttpClient client =  HttpClientBuilder.create().build();
-//        HttpPost postRequest = new HttpPost("http://localhost:6001/products/add");
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("barcode","1");
-//        jsonObject.put("name","2");
-//        jsonObject.put("type","3");
-//        StringEntity se = new StringEntity(jsonObject.toString());
-//        se.setContentType(new BasicHeader("Content-Type","application/json"));
-//        postRequest.setEntity(se);
-//
-//        HttpResponse response = (HttpResponse) client.execute(postRequest);
-
         btnActionIzlash();
     }
 
     private void printAction() throws SQLException {
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-        PrinterService printerService = new PrinterService();
-        System.out.println(printerService.getPrinters());
         ArrayList<ReceiptCheck> receiptChecks = null;
         receiptChecks = utilsDao.PerProduct();
         StringBuilder storage = new StringBuilder();
         for (ReceiptCheck item : receiptChecks) {
             storage.append(item.getName()).append("    Miqdori: ").append(item.getQuantity()).append("   Umumiy narxi: ").append(item.getPrice()).append("\n").append("----------------------------------------------\n");
         }
-        System.out.println(storage);
-        System.out.println(utilsDao.TotalSum());
-        printer printer = new printer();
+        CheckSums checkSums = utilsDao.getCheckSums();
         //print some stuff
         printerService.printString(printer.printerName(), "\n" +
-                "*********Software business development**********\n\n\n" +
-                "*********    Egamberdi ota do'koni    **********\n\n" +
+                "*********Software Business Development**********\n\n\n" +
                 storage + "\n" +
-                "Umumiy summa              " + utilsDao.TotalSum() + " sum\n\n\n" +
-                "***************" + apple + "***************\n" +
-                "***********Xaridingiz uchun raxmat!***********\n\n\n\n\n\n\n\n");
+                "******************To'lashi kerak*************\n"+
+                "Umumiy So'm                  " + checkSums.getSum() + " sum\n\n" +
+                "Umumiy Hisob raqam summasi   " + checkSums.getHr() + " sum\n\n" +
+                "Umumiy dollar               $" + checkSums.getDollar() + "\n\n" +
+                "*****************To'langan*******************\n"+
+                "So'm                "+checkSums.getPsum()+"\n\n"+
+                "Dollar              "+checkSums.getPdollar()+"\n\n"+
+                "Hisob raqam         "+checkSums.getPhr()+"\n\n"+
+                "Sotuvchi          $" + utilsDao.getSellerName() + "\n\n\n" +
+                "***************"+ apple +"*****************\n" +
+                "***********Xaridingiz uchun raxmat!***********\n\n\n");
         // cut that paper!
         byte[] cutP = new byte[]{0x1d, 'V', 1};
         printerService.printBytes(printer.printerName(), cutP);
     }
 
-    public void btnLogOutAction() {
-        Parent root = null;
-        Stage stage = new Stage();
+
+    private void operTable() {
+        try {
+            if ( operCustomerFilter.getSelectionModel().getSelectedItem() !=null && operDanFilter.getValue() != null && operGachaFilter.getValue() != null) {
+                String who = operCustomerFilter.getSelectionModel().getSelectedItem();
+                LocalDate date1 = operDanFilter.getValue();
+                LocalDate date2 = operGachaFilter.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.operTableFilter(operTable, who, sdate1, sdate2);
+            } else if(operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() != null && operGachaFilter.getValue() != null){
+                LocalDate date1 = operDanFilter.getValue();
+                LocalDate date2 = operGachaFilter.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.operTableFilter(operTable, "", sdate1, sdate2);
+            } else if ( operCustomerFilter.getSelectionModel().getSelectedItem() ==null && operDanFilter.getValue() == null && operGachaFilter.getValue() == null){
+                operDao.operTableFilter(operTable, "","","");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void balanceTable() {
+        try {
+            String name = ComboBoxBalance.getSelectionModel().getSelectedItem();
+            operDao.balanceTable(operBalanceTable, name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void debtorsTable() {
+        try {
+            operDao.tableDebtorsTable(tableDebtorsOper);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    private void btnOperAction() {
+
+        try {
+            double percentage = 0.0;
+            String type = operType.getSelectionModel().getSelectedItem();
+            percentage = Double.parseDouble(text_per.getText().trim().replaceAll("\\s+", ""));
+            String who = operWho.getSelectionModel().getSelectedItem();
+            String sum = operSum.getText().trim().replaceAll("\\s+", "");
+            String dollar = operDollar.getText().trim().replaceAll("\\s+", "");
+            String hr = operHR.getText().trim().replaceAll("\\s+", "");
+            String description = operDescription.getText();
+            operDao.addOperTable(type, who, sum, dollar, hr, description, String.valueOf(percentage), String.valueOf(Double.valueOf(sum) - ((Double.valueOf(sum) * (percentage / 100)))));
+            setCurrentIncome();
+            setCurrentOutcome();
+            operTable();
+            balanceTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            operSum.setText("");
+            operDescription.setText("");
+            operDollar.setText("");
+            operHR.setText("");
+            callFunctions();
+        }
+    }
+
+    @FXML
+    private void btnOperFilter() {
+        try {
+            operTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void operFilterAction() {
+        try {
+            productDao1.addWhoCombobox(operCustomerFilter);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnDollarAction() {
+        TextInputDialog dialog = new TextInputDialog("8500");
+        dialog.setTitle("Dollar");
+        dialog.setHeaderText("Valyuta");
+        dialog.setContentText("Iltimos valyuta kursini kiriting");
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(name -> operDao.addCurrencyRate(name));
+        OperDollarLabel.setText("$ " + operDao.getCurrencyRate());
+    }
+
+    private void setCurrentIncome() {
+        operDao.getCurrentIncomeSum(CurrentIncomeSum, CurrentIncomeDollar, CurrentIncomeHR);
+    }
+
+    private void setCurrentOutcome() {
+        operDao.getCurrentOutcome(ExpenceSum, ExpenceDollar, ExpenceHR);
+    }
+
+    // Print function
+    public void printCheck(String sum, String dollar, String hr, String outSum, String outDollar, String outHr) throws SQLException {
+
+        printerService.printString(printer.printerName(), "\n" +
+                "*********Software Business Development**********\n\n\n" +
+                "Sum             " + sum + " sum\n\n" +
+                "Dollar         $" + dollar + " \n\n" +
+                "Hisob raqam     " + hr + " sum\n\n" +
+                "*******************************************\n"+
+                "-----------------Xarajatlar----------------\n"+
+                "Sum             " + outSum + " sum\n\n" +
+                "Dollar         $" + outDollar + " \n\n" +
+                "Hisob raqam     " + outHr + " sum\n\n" +
+                "***************" + apple + "***************\n" +
+                "***********Kun yopish uchun check!***********\n\n\n\n\n\n\n\n");
+        // cut that paper!
+        byte[] cutP = new byte[]{0x1d, 'V', 1};
+        printerService.printBytes(printer.printerName(), cutP);
+    }
+
+    // Colose the working day with balance
+    @FXML
+    private void btnEndDayAction() throws SQLException {
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Chiqish");
+        alert.setTitle("Kunni yopish");
         alert.setHeaderText(null);
-        alert.setContentText("Dasturdan chiqasizmi?");
+        alert.setContentText("Bugunlik kundagi hisobni yopasizmi?");
+
         Optional<ButtonType> result = alert.showAndWait();
+
         if (result.isPresent())
-            if (result.get() == ButtonType.OK) try {
-                root = FXMLLoader.load(getClass().getResource("views/login.fxml"));
-                stage.setTitle("SBD boshqaruv tizimi");
-                stage.setResizable(true);
-                stage.setOnCloseRequest(event -> sample.components.sell.Main.is_clock_alive = false);
-                Screen screen = Screen.getPrimary();
-                Rectangle2D bounds = screen.getVisualBounds();
-                stage.setScene(new Scene(root));
-                stage.show();
-                stage.getIcons().add(new Image(Main.class.getResourceAsStream("style/Images/SBD-logo.png")));
-                myConn.close();
-                // Hide this current window (if this is what you want)
-                this.btnLogOut.getScene().getWindow().hide();
-            } catch (IOException | SQLException e) {
-                e.printStackTrace();
+            if (result.get() == ButtonType.OK) {
+                String incomeSum = CurrentIncomeSum.getText().trim().replaceAll("\\s+", "");
+                String incomeDollar = CurrentIncomeDollar.getText().trim().replaceAll("\\s+", "");
+                String incomeHR = CurrentIncomeHR.getText().trim().replaceAll("\\s+", "");
+
+                String outcomeSum = ExpenceSum.getText().trim().replaceAll("\\s+", "");
+                String outcomeDollar = ExpenceDollar.getText().trim().replaceAll("\\s+", "");
+                String outcomeHR = ExpenceHR.getText().trim().replaceAll("\\s+", "");
+
+                printCheck(incomeSum, incomeDollar, incomeHR,outcomeSum, outcomeDollar, outcomeHR );//Print the check for end  of the day
+                operDao.addToTotalBalance(incomeSum, incomeDollar, incomeHR, outcomeSum, outcomeDollar, outcomeHR);
+                setCurrentIncome();
+                setCurrentOutcome();
+                JOptionPane.showMessageDialog(null, "Kun yopildi");
+                try {
+                    daoUtils.log("Savdo", "Savdo Operatsiyasi", "123", user_id, "Kunlik kassa yopldi:" + incomeSum + "--Sum.|" + incomeDollar + "--Dollar.|" + incomeHR + "--Hisob raqam.|");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
     }
 
+    @FXML
+    private void btnPersonAction() {
+        try {
+            String who = operWho.getSelectionModel().getSelectedItem();
+            operDao.perPersonBalance(PersonHRBalance, PersonSumBalance, PersonDollarBalance, who);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnOperFilterAction() {
+        operTable();
+    }
+
+    @FXML
+    private void BtnExcellActionHistory() {
+        try {
+            if (HistoryDan.getValue() != null && HistoryGacha.getValue() != null && operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null) {
+                String customer = operHistoryWho.getSelectionModel().getSelectedItem();
+                String name = tarixSelectName.getSelectionModel().getSelectedItem();
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.excellHistoryTable(customer, name, sdate1, sdate2);
+            } else if (HistoryDan.getValue() != null && HistoryGacha.getValue() != null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.excellHistoryTable( "", "", sdate1, sdate2);
+            }
+            else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() == null && HistoryGacha.getValue() == null) {
+                operDao.HistoryTableFilter(HistoryTable, operHistoryWho.getSelectionModel().getSelectedItem(), tarixSelectName.getSelectionModel().getSelectedItem(), "", "", tarixTotalQuantity, tarixTotalCost);
+            } else if(operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() == null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.excellHistoryTable( operHistoryWho.getSelectionModel().getSelectedItem(), "", sdate1, sdate2);
+            }
+            else if(operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.excellHistoryTable( "", tarixSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2);
+            } else if(HistoryDan.getValue() == null && HistoryGacha.getValue() == null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
+                operDao.excellHistoryTable("","","","");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void historyTable() {
+
+        try {
+            if (HistoryDan.getValue() != null && HistoryGacha.getValue() != null && operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null) {
+                String customer = operHistoryWho.getSelectionModel().getSelectedItem();
+                String name = tarixSelectName.getSelectionModel().getSelectedItem();
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.HistoryTableFilter(HistoryTable, customer, name, sdate1, sdate2, tarixTotalQuantity, tarixTotalCost);
+            } else if (HistoryDan.getValue() != null && HistoryGacha.getValue() != null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.HistoryTableFilter(HistoryTable, "", "", sdate1, sdate2, tarixTotalQuantity, tarixTotalCost);
+            }
+            else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() == null && HistoryGacha.getValue() == null) {
+                operDao.HistoryTableFilter(HistoryTable, operHistoryWho.getSelectionModel().getSelectedItem(), tarixSelectName.getSelectionModel().getSelectedItem(), "", "", tarixTotalQuantity, tarixTotalCost);
+            } else if(operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() == null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.HistoryTableFilter(HistoryTable, operHistoryWho.getSelectionModel().getSelectedItem(), "", sdate1, sdate2, tarixTotalQuantity, tarixTotalCost);
+            }
+             else if(operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+                LocalDate date1 = HistoryDan.getValue();
+                LocalDate date2 = HistoryGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.HistoryTableFilter(HistoryTable, "", tarixSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2, tarixTotalQuantity, tarixTotalCost);
+            } else if(HistoryDan.getValue() == null && HistoryGacha.getValue() == null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
+                 operDao.HistoryTableFilter(HistoryTable,"","","","", tarixTotalQuantity, tarixTotalCost);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void QarzTable() {
+
+        try {
+            if (QarzDan.getValue() != null && QarzGacha.getValue() != null && sellactionSelectCustomer.getSelectionModel().getSelectedItem() != null) {
+                String name = sellactionSelectCustomer.getSelectionModel().getSelectedItem();
+                LocalDate date1 = QarzDan.getValue();
+                LocalDate date2 = QarzGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.QarzTableFilter(QarzTable, name, sdate1, sdate2);
+            } else if (QarzDan.getValue() != null && QarzGacha.getValue() != null && sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null) {
+                LocalDate date1 = QarzDan.getValue();
+                LocalDate date2 = QarzGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                operDao.QarzTableFilter(QarzTable, "", sdate1, sdate2);
+            } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() != null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
+                operDao.QarzTableFilter(QarzTable, sellactionSelectCustomer.getSelectionModel().getSelectedItem(), "", "");
+            } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
+                operDao.QarzTableFilter(QarzTable, "1", "1", "1");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    private void btnHistoryFilterAction() {
+        historyTable();
+    }
+
+    @FXML
+    private void btnQarzFilterAction() {
+        QarzTable();
+    }
+
+    @FXML
+    private void btnExchangeFilterAction() {
+        try {
+            btnFilter();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void table() throws SQLException {
+        productDao.exchangeTaleDao(ExchangeTable, "1", "1","1", ExchangeTotalQuantity);
+    }
+
+    private void btnFilter() {
+
+        try {
+            if (ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null && exchangeSelectName.getSelectionModel().getSelectedItem() != null) {
+
+                String name = exchangeSelectName.getSelectionModel().getSelectedItem();
+                LocalDate date1 = ExchangeDan.getValue();
+                LocalDate date2 = ExchangeGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.exchangeTaleDao(ExchangeTable, name, sdate1, sdate2, ExchangeTotalQuantity);
+
+            } else if (ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null && exchangeSelectName.getSelectionModel().getSelectedItem() == null) {
+
+                LocalDate date1 = ExchangeDan.getValue();
+                LocalDate date2 = ExchangeGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.exchangeTaleDao(ExchangeTable, "", sdate1, sdate2,  ExchangeTotalQuantity);
+            } else if (exchangeSelectName.getSelectionModel().getSelectedItem() != null && ExchangeDan.getValue() == null && ExchangeGacha.getValue() == null) {
+
+                productDao.exchangeTaleDao(ExchangeTable, exchangeSelectName.getSelectionModel().getSelectedItem(), "", "", ExchangeTotalQuantity);
+
+            } else if (exchangeSelectName.getSelectionModel().getSelectedItem() == null && ExchangeDan.getValue() == null && ExchangeGacha.getValue() == null) {
+                productDao.exchangeTaleDao(ExchangeTable, "1", "1", "1", ExchangeTotalQuantity);
+            } else {
+                productDao.exchangeTaleDao(ExchangeTable, "1", "1", "1", ExchangeTotalQuantity);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void callFunctions() {
+        try {
+            historyTable();
+            operTable();
+            balanceTable();
+            debtorsTable();
+            QarzTable();
+            checkHistory();
+            table();
+
+            productDao1.addWhoCombobox(operWho);
+            productDao1.addWhoCombobox(operCustomerFilter);
+            productDao1.addWhoCombobox(operHistoryWho);
+            productDao1.addWhoCombobox(ComboBoxBalance);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnSellExcellAction() {
+        try {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Excelga ko'chirasizmi");
+            alert.setHeaderText(null);
+            alert.setContentText("Excelga ko'chirish");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent())
+                if (result.get() == ButtonType.OK) {
+                    if (operDanFilter.getValue() != null && operDanFilter.getValue() != null) {
+                        String who = operCustomerFilter.getSelectionModel().getSelectedItem();
+                        LocalDate date1 = operDanFilter.getValue();
+                        LocalDate date2 = operGachaFilter.getValue();
+                        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                        String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                        String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                        operDao.excellOperTable(who, sdate1, sdate2);
+                    }
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnExcellBalanceTable() throws SQLException {
+        Workbookcontroller workbookcontroller = new Workbookcontroller();
+        workbookcontroller.datebaseToExcel("balance_v", "balance.xls");
+    }
+
+    @FXML
+    private void btnExcellFilePath() {
+        try {
+            DirectoryChooser directoryChooser = new DirectoryChooser();
+            Stage stage = null;
+            File dir = directoryChooser.showDialog(stage);
+            String path = dir.getAbsolutePath() + "\\";
+            SystemUtilsDao systemUtilsDao = new SystemUtilsDao();
+            systemUtilsDao.excellFolder(path);
+            JOptionPane.showMessageDialog(null, "Rasm joyi saqlandi!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Ayrboshlash
+     */
+    @FXML
+    public void btnChange() {
+        String who = ComboBoxBalance.getSelectionModel().getSelectedItem();
+        String type = ChangeType.getSelectionModel().getSelectedItem();
+        String sum = ChangeSum.getText().trim().replaceAll("\\s+", "");
+        operDao.exchange(who, type, sum);
+        balanceTable();
+        ChangeSum.setText("");
+        ChangeSum.setPromptText("O'zgartirildi");
+    }
+
+    private void getSellactionCompanyName() {
+        try {
+            productDao.getSellActionNameCombobox(sellactionSelectCustomer);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void getSellactionExchangeName() {
+        try {
+            productDao.getSellActionExchangeName(exchangeSelectName);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getTarixSelectName() {
+        try {
+            productDao.getTarixSelectName(tarixSelectName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
+
+

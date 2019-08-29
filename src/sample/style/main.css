@@ -1,33 +1,6 @@
-#cancelShop {
-}
-.button {
-    -fx-background-color:
-            #a6b5c9,
-            linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),
-            linear-gradient(#768aa5 0%,  #275a7e 5%,  #235477 50%,  #1f4a69 51%,  #1c435e 100%);
-    -fx-background-insets: 0 0 -1 0,0,1;
-    -fx-background-radius: 0;
-    -fx-padding: 5 10 5 10;
-    -fx-text-fill: #242d35;
-    -fx-font-family: "Helvetica";
-    -fx-font-size: 12px;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-}
-.button:pressed{
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
-}
-.button:hover{
-    -fx-background-color:
-            #a6b5c9,
-            linear-gradient(#375074 100%, #3e5577 20%, #303842 0%),
-            linear-gradient(#4a6c9b 100%, #486a9a 51%, #5877a2 50%, #849cbb 5%,  #768aa5 0%);
-}
 
-.label {
-    -fx-text-fill: grey;
-}
-.label-list-item{
+
+.label-list-item {
     -fx-text-fill: white;
 }
 .label-summ{
@@ -178,10 +151,11 @@
     -fx-background-color: transparent;
 }
 
-
-
 .table-view > .virtual-flow > .scroll-bar > .increment-button,
 .table-view > .virtual-flow > .scroll-bar > .decrement-button {
     -fx-opacity: 0;
+}
+.label {
+ -fx-font-size:18px;
 }
 

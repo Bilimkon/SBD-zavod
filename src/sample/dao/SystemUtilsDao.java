@@ -1,10 +1,9 @@
 package sample.dao;
-
 import java.sql.*;
 
 public class SystemUtilsDao {
 
-    Connection myConn = null;
+    private Connection myConn = null;
 
 
     public SystemUtilsDao() {
@@ -16,17 +15,11 @@ public class SystemUtilsDao {
     }
 
     public void excellFolder(String path) throws SQLException {
-        PreparedStatement pt = null;
-        try {
-            pt = myConn.prepareStatement("UPDATE utils SET filePath=?");
+        try (PreparedStatement pt = myConn.prepareStatement("UPDATE utils SET filePath=?")) {
             pt.setString(1, path);
             pt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (pt != null) {
-                pt.close();
-            }
         }
     }
 
@@ -37,13 +30,10 @@ public class SystemUtilsDao {
 
         try {
             statement1 = myConn.createStatement();
-
             resultSet1 = statement1.executeQuery("SELECT * FROM utils");
-
             if (resultSet1.next()) {
                 return String.valueOf(resultSet1.getString("filePath"));
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

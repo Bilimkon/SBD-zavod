@@ -9,7 +9,7 @@ import java.util.Date;
 /*
        Humoyun Qo'rg'onov  SBD  ( Software Business Development)
  */
-public class User {
+public class User extends sample.model.User {
 
     private int id;
     private String firstName;

@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class Product {
 
     private SimpleStringProperty id = new SimpleStringProperty();
+    private SimpleStringProperty operType = new SimpleStringProperty();
     private SimpleStringProperty invoice = new SimpleStringProperty();
     private SimpleStringProperty barcode = new SimpleStringProperty();
     private SimpleStringProperty name = new SimpleStringProperty();
@@ -22,9 +23,9 @@ public class Product {
     private SimpleStringProperty height = new SimpleStringProperty();
     private SimpleStringProperty color = new SimpleStringProperty();
 
-    public Product(SimpleStringProperty id,SimpleStringProperty invoice, SimpleStringProperty barcode, SimpleStringProperty name, SimpleStringProperty type, SimpleStringProperty type_id, SimpleStringProperty cost, SimpleStringProperty quantity, SimpleStringProperty weight, SimpleStringProperty cr_by, SimpleStringProperty date_cr,  SimpleStringProperty suplier, SimpleStringProperty unit, SimpleStringProperty description,
-                   SimpleStringProperty width, SimpleStringProperty height, SimpleStringProperty color) {
+    public Product(SimpleStringProperty id, SimpleStringProperty operType, SimpleStringProperty invoice, SimpleStringProperty barcode, SimpleStringProperty name, SimpleStringProperty type, SimpleStringProperty type_id, SimpleStringProperty cost, SimpleStringProperty quantity, SimpleStringProperty weight, SimpleStringProperty cr_by, SimpleStringProperty date_cr, SimpleStringProperty suplier, SimpleStringProperty unit, SimpleStringProperty description, SimpleStringProperty width, SimpleStringProperty height, SimpleStringProperty color) {
         this.id = id;
+        this.operType = operType;
         this.invoice = invoice;
         this.barcode = barcode;
         this.name = name;
@@ -37,27 +38,14 @@ public class Product {
         this.date_cr = date_cr;
         this.suplier = suplier;
         this.unit = unit;
-        this.description =description;
-        this.width=width;
-        this.height=height;
-        this.color=color;
+        this.description = description;
+        this.width = width;
+        this.height = height;
+        this.color = color;
     }
 
     public Product() {
 
-    }
-
-
-    public String getInvoice() {
-        return invoice.get();
-    }
-
-    public SimpleStringProperty invoiceProperty() {
-        return invoice;
-    }
-
-    public void setInvoice(String invoice) {
-        this.invoice.set(invoice);
     }
 
     public String getId() {
@@ -70,6 +58,30 @@ public class Product {
 
     public void setId(String id) {
         this.id.set(id);
+    }
+
+    public String getOperType() {
+        return operType.get();
+    }
+
+    public SimpleStringProperty operTypeProperty() {
+        return operType;
+    }
+
+    public void setOperType(String operType) {
+        this.operType.set(operType);
+    }
+
+    public String getInvoice() {
+        return invoice.get();
+    }
+
+    public SimpleStringProperty invoiceProperty() {
+        return invoice;
+    }
+
+    public void setInvoice(String invoice) {
+        this.invoice.set(invoice);
     }
 
     public String getBarcode() {
@@ -180,12 +192,11 @@ public class Product {
         this.date_cr.set(date_cr);
     }
 
-
     public String getSuplier() {
         return suplier.get();
     }
 
-    public SimpleStringProperty suplier_idProperty() {
+    public SimpleStringProperty suplierProperty() {
         return suplier;
     }
 
@@ -203,10 +214,6 @@ public class Product {
 
     public void setUnit(String unit) {
         this.unit.set(unit);
-    }
-
-    public SimpleStringProperty suplierProperty() {
-        return suplier;
     }
 
     public String getDescription() {

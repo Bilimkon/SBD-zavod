@@ -8,8 +8,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.components.dao.SuplierDao;
-import sample.controller.main;
-import sample.dao.ProductDao;
 
 
 import javax.swing.*;
@@ -27,6 +25,8 @@ public class Suplier implements Initializable {
     @FXML
     TextArea info;
     @FXML
+    TextField textPhone;
+    @FXML
     TableView SuplierTable;
     SuplierDao suplierDao = new SuplierDao();
 
@@ -42,13 +42,15 @@ public class Suplier implements Initializable {
     public void intializeTable() {
         TableColumn id = new TableColumn("Tartib raqami");
         TableColumn companyName = new TableColumn("Kompaniya nomi");
-        TableColumn person = new TableColumn("Masul shaxs");
+        TableColumn account = new TableColumn("Xisob raqam");
+        TableColumn phone = new TableColumn("Telefon");
         TableColumn info = new TableColumn("Ma'lumot");
-        SuplierTable.getColumns().addAll(id, companyName, person, info);
+        SuplierTable.getColumns().addAll(id, companyName, account, phone, info);
 
         id.setCellValueFactory(new PropertyValueFactory<sample.components.models.Suplier, Integer>("id"));
         companyName.setCellValueFactory(new PropertyValueFactory<sample.components.models.Suplier, Integer>("companyName"));
-        person.setCellValueFactory(new PropertyValueFactory<sample.components.models.Suplier, Integer>("person"));
+        account.setCellValueFactory(new PropertyValueFactory<sample.components.models.Suplier, Integer>("account"));
+        phone.setCellValueFactory(new PropertyValueFactory<sample.components.models.Suplier, Integer>("phone"));
         info.setCellValueFactory(new PropertyValueFactory<sample.components.models.Suplier, Integer>("info"));
     }
 
@@ -63,10 +65,11 @@ public class Suplier implements Initializable {
     @FXML
     private void btnSaveAction()  {
         try {
-            String name1 = name.getText();
-            String person1 = person.getText();
-            String info1 = info.getText();
-            suplierDao.addSuplier(name1, person1, info1);
+            String name1 = name.getText().trim().toLowerCase().replaceAll("\\s+","");
+            String account = person.getText().trim().replaceAll("\\s+","");
+            String info1 = info.getText().trim();
+            String phone = textPhone.getText().trim().replaceAll("\\s+","");
+            suplierDao.addSuplier(name1, account, info1, phone);
             SuplierTable();
         }catch (Exception e){
             e.printStackTrace();
@@ -81,7 +84,8 @@ public class Suplier implements Initializable {
                sample.components.models.Suplier suplier = (sample.components.models.Suplier) SuplierTable.getSelectionModel().getSelectedItem();
                 try {
                     name.setText(suplier.getCompanyName());
-                    person.setText(suplier.getPerson());
+                    person.setText(suplier.getAccount());
+                    textPhone.setText(suplier.getPhone());
                     info.setText(suplier.getInfo());
                     id.setText(suplier.getId());
                 } catch (Exception exc) {
@@ -95,11 +99,12 @@ public class Suplier implements Initializable {
     @FXML
     private void btnUpdateAction(){
         try {
-            String name1 = name.getText();
-            String person1 = person.getText();
+            String name1 = name.getText().trim().replaceAll("\\s+","");
+            String account = person.getText().trim().replaceAll("\\s+","");
+            String phone = textPhone.getText().trim().replaceAll("\\s+","");
             String info1 = info.getText();
-            String id1 = id.getText();
-            suplierDao.updateSuplier(name1, person1, info1, id1);
+            String id1 = id.getText().trim().replaceAll("\\s+","");
+            suplierDao.updateSuplier(name1, account, phone, info1, id1);
             SuplierTable();
         }catch (Exception e){
             e.printStackTrace();

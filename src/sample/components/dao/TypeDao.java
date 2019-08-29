@@ -1,19 +1,20 @@
 package sample.components.dao;
 
-import java.sql.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 import sample.components.models.Type;
-import sample.controller.Login;
+import sample.Login;
 import sample.dao.DaoUtils;
 import sample.dao.database;
 import sample.utils.utils;
 
+import java.sql.*;
+
 
 public class TypeDao {
     private Connection myConn = null;
-    String user_id = String.valueOf(Login.currentUser.getId());
+    private String user_id = String.valueOf(Login.currentUser.getId());
 
     public TypeDao() {
         try {
@@ -56,11 +57,8 @@ public class TypeDao {
 
     public void addType(String name, String type, String info) throws SQLException {
 
-        PreparedStatement pr = null;
+        try (PreparedStatement pr = myConn.prepareStatement("INSERT INTO type(Name,unit,info,date_cr, cr_by) VALUES (?,?,?,?,?)")) {
 
-        try {
-
-            pr = myConn.prepareStatement("INSERT INTO type(Name,unit,info,date_cr, cr_by) VALUES (?,?,?,?,?)");
             pr.setString(1, name);
             pr.setString(2, typeMaker(type));
             pr.setString(3, info);
@@ -69,56 +67,51 @@ public class TypeDao {
             pr.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (pr != null) {
-                pr.close();
-            }
         }
 
     }
 
     public void updateType(String name, String info, String id) throws SQLException {
-        PreparedStatement pr = null;
-        try{
-            pr = myConn.prepareStatement("UPDATE  sbd_factory.type t set t.name=?, info=? where id=?");
-            pr.setString(1,name);
-            pr.setString(2,info);
-            pr.setString(3,id);
+        try (PreparedStatement pr = myConn.prepareStatement("UPDATE  sbd_factory.type t set t.name=?, info=? where id=?")) {
+            pr.setString(1, name);
+            pr.setString(2, info);
+            pr.setString(3, id);
             pr.executeUpdate();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (pr != null) {
-                pr.close();
-            }
         }
     }
 
     public void deleteType(String id) throws SQLException {
-        PreparedStatement pr = null;
+      //  PreparedStatement pr = null;
         try{
-            pr = myConn.prepareStatement("DELETE FROM sbd_factory.type  WHERE id=?");
+            /*pr = myConn.prepareStatement("DELETE FROM sbd_factory.type  WHERE id=?");
             pr.setString(1,id);
-            pr.executeUpdate();
+            pr.executeUpdate();*/
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            if (pr != null) {
-                pr.close();
-            }
         }
     }
 
     public String typeMaker(String type){
         String unit_id = "1";
-        if (type.equals("Kg")) {
-            unit_id = "2";
-        } else if (type.equals("Dona")) {
-            unit_id = "1";
-        } else if (type.equals("Rulon")) {
-            unit_id = "3";
-        } else if (type.equals("Litr")) {
-            unit_id = "4";
+        switch (type) {
+            case "Kg":
+                unit_id = "2";
+                break;
+            case "Dona":
+                unit_id = "1";
+                break;
+            case "Rulon":
+                unit_id = "3";
+                break;
+            case "Litr":
+                unit_id = "4";
+                break;
+            case "m2":
+                unit_id = "5";
+                break;
         }
         return unit_id;
     }

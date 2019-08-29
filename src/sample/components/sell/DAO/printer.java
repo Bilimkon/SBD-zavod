@@ -1,14 +1,18 @@
 package sample.components.sell.DAO;
 
+import sample.dao.database;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static sample.components.sell.DAO.Database.myConn;
-
 public class printer {
 
+    private Connection myConn;
 
+    public printer(){
+        myConn = database.getConnection();
+    }
     public String printerName() throws SQLException {
 
         Statement statement = null;

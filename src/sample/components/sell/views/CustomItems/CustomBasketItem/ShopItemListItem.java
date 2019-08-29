@@ -1,11 +1,14 @@
 package sample.components.sell.views.CustomItems.CustomBasketItem;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import sample.components.sell.MainPageController;
@@ -19,9 +22,9 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
 
     @FXML private Label itemTitle;
     @FXML private Label itemType;
-    @FXML private Label itemPrice;
+    @FXML private TextField itemPrice;
     @FXML private TextField amountField;
-    @FXML private CheckBox isAccepted;
+    @FXML private ComboBox<String> comboCurrency;
     private Pane self;
     public ShopItemListItem() {
 
@@ -32,12 +35,14 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
     public void setDetails(ProductTable maxsulot, boolean isAccepted) {
         itemTitle.setText(maxsulot.getName());
         itemType.setText(maxsulot.getType());
-        itemPrice.setText(maxsulot.getCost() + " sum");
-        amountField.setText("1");
+        itemPrice.setText(maxsulot.getCost());
+        amountField.setText("0");
         barcode = maxsulot.getBarcode();
-        this.isAccepted.setSelected(isAccepted);
+        this.comboCurrency.getSelectionModel().selectFirst();
 
     }
+
+
 
     private Background paneBackground = null;
     private void setPaneBackgroundColor(int red, int green, int blue) {
@@ -57,8 +62,6 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
         }
         p.setOnMouseClicked(event -> amountField.requestFocus());
 
-
-
         p.setOnMouseExited(event -> {
             if (id != -1) {
                 if (id % 2 == 0) {
@@ -68,6 +71,15 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
                 }
             }
         });
+
+        comboCurrency.getItems().addAll("$", "Sum","Hr");
+        itemPrice.setOnAction(event -> {
+            amountField.requestFocus();
+        });
+        comboCurrency.setOnAction(event -> {
+            itemPrice.requestFocus();
+        });
+
     }
 
     @Override
@@ -84,5 +96,18 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        comboCurrency.getItems().addAll( "$","Sum","Hr");
+
+        comboCurrency.setOnAction(event -> {
+            itemPrice.requestFocus();
+        });
+        itemPrice.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    amountField.requestFocus();
+                }
+            }
+        });
     }
 }

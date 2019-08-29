@@ -1,7 +1,6 @@
 package sample.dao;
 
 import sample.model.User;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +8,7 @@ import java.sql.Statement;
 
 public class userDao {
 
-    Connection myConn;
+    private Connection myConn;
 
     public userDao() {
         myConn = database.getConnection();

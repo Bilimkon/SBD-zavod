@@ -6,19 +6,32 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class ProductTable {
     private SimpleIntegerProperty id = new SimpleIntegerProperty();
-    private SimpleStringProperty  barcode = new SimpleStringProperty();
-    private SimpleStringProperty  name = new SimpleStringProperty();
-    private SimpleStringProperty  type = new SimpleStringProperty();
-    private SimpleIntegerProperty  type_id = new SimpleIntegerProperty();
-    private SimpleStringProperty   cost = new SimpleStringProperty();
-    private SimpleIntegerProperty  quantity = new SimpleIntegerProperty();
-    private SimpleStringProperty  cost_o = new SimpleStringProperty();
-    private SimpleStringProperty  date_c = new SimpleStringProperty();
-    private SimpleStringProperty  date_o = new SimpleStringProperty();
-    private SimpleIntegerProperty  cr_by = new SimpleIntegerProperty();
-    private SimpleIntegerProperty  up_by = new SimpleIntegerProperty();
-    private SimpleStringProperty  date_cr = new SimpleStringProperty();
-    private SimpleStringProperty  date_up = new SimpleStringProperty();
+    private SimpleStringProperty barcode = new SimpleStringProperty();
+    private SimpleStringProperty type = new SimpleStringProperty();
+    private SimpleStringProperty name = new SimpleStringProperty();
+    private SimpleIntegerProperty quantity = new SimpleIntegerProperty();
+    private SimpleStringProperty cost = new SimpleStringProperty();
+    private SimpleStringProperty unit = new SimpleStringProperty();
+    private SimpleStringProperty date = new SimpleStringProperty();
+    private SimpleStringProperty username = new SimpleStringProperty();
+    private SimpleStringProperty description = new SimpleStringProperty();
+
+    public ProductTable(SimpleIntegerProperty id, SimpleStringProperty barcode, SimpleStringProperty type, SimpleStringProperty name, SimpleIntegerProperty quantity, SimpleStringProperty cost, SimpleStringProperty unit, SimpleStringProperty date, SimpleStringProperty username, SimpleStringProperty description) {
+        this.id = id;
+        this.barcode = barcode;
+        this.type = type;
+        this.name = name;
+        this.quantity = quantity;
+        this.cost = cost;
+        this.unit = unit;
+        this.date = date;
+        this.username = username;
+        this.description = description;
+    }
+
+    public ProductTable() {
+
+    }
 
     public int getId() {
         return id.get();
@@ -44,18 +57,6 @@ public class ProductTable {
         this.barcode.set(barcode);
     }
 
-    public String getName() {
-        return name.get();
-    }
-
-    public SimpleStringProperty nameProperty() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name.set(name);
-    }
-
     public String getType() {
         return type.get();
     }
@@ -68,28 +69,16 @@ public class ProductTable {
         this.type.set(type);
     }
 
-    public int getType_id() {
-        return type_id.get();
+    public String getName() {
+        return name.get();
     }
 
-    public SimpleIntegerProperty type_idProperty() {
-        return type_id;
+    public SimpleStringProperty nameProperty() {
+        return name;
     }
 
-    public void setType_id(int type_id) {
-        this.type_id.set(type_id);
-    }
-
-    public String getCost() {
-        return cost.get();
-    }
-
-    public SimpleStringProperty costProperty() {
-        return cost;
-    }
-
-    public void setCost(String cost) {
-        this.cost.set(cost);
+    public void setName(String name) {
+        this.name.set(name);
     }
 
     public int getQuantity() {
@@ -104,87 +93,63 @@ public class ProductTable {
         this.quantity.set(quantity);
     }
 
-    public String getCost_o() {
-        return cost_o.get();
+    public String getCost() {
+        return cost.get();
     }
 
-    public SimpleStringProperty cost_oProperty() {
-        return cost_o;
+    public SimpleStringProperty costProperty() {
+        return cost;
     }
 
-    public void setCost_o(String cost_o) {
-        this.cost_o.set(cost_o);
+    public void setCost(String cost) {
+        this.cost.set(cost);
     }
 
-    public String getDate_c() {
-        return date_c.get();
+    public String getUnit() {
+        return unit.get();
     }
 
-    public SimpleStringProperty date_cProperty() {
-        return date_c;
+    public SimpleStringProperty unitProperty() {
+        return unit;
     }
 
-    public void setDate_c(String date_c) {
-        this.date_c.set(date_c);
+    public void setUnit(String unit) {
+        this.unit.set(unit);
     }
 
-    public String getDate_o() {
-        return date_o.get();
+    public String getDate() {
+        return date.get();
     }
 
-    public SimpleStringProperty date_oProperty() {
-        return date_o;
+    public SimpleStringProperty dateProperty() {
+        return date;
     }
 
-    public void setDate_o(String date_o) {
-        this.date_o.set(date_o);
+    public void setDate(String date) {
+        this.date.set(date);
     }
 
-    public int getCr_by() {
-        return cr_by.get();
+    public String getUsername() {
+        return username.get();
     }
 
-    public SimpleIntegerProperty cr_byProperty() {
-        return cr_by;
+    public SimpleStringProperty usernameProperty() {
+        return username;
     }
 
-    public void setCr_by(int cr_by) {
-        this.cr_by.set(cr_by);
+    public void setUsername(String username) {
+        this.username.set(username);
     }
 
-    public int getUp_by() {
-        return up_by.get();
+    public String getDescription() {
+        return description.get();
     }
 
-    public SimpleIntegerProperty up_byProperty() {
-        return up_by;
+    public SimpleStringProperty descriptionProperty() {
+        return description;
     }
 
-    public void setUp_by(int up_by) {
-        this.up_by.set(up_by);
-    }
-
-    public String getDate_cr() {
-        return date_cr.get();
-    }
-
-    public SimpleStringProperty date_crProperty() {
-        return date_cr;
-    }
-
-    public void setDate_cr(String date_cr) {
-        this.date_cr.set(date_cr);
-    }
-
-    public String getDate_up() {
-        return date_up.get();
-    }
-
-    public SimpleStringProperty date_upProperty() {
-        return date_up;
-    }
-
-    public void setDate_up(String date_up) {
-        this.date_up.set(date_up);
+    public void setDescription(String description) {
+        this.description.set(description);
     }
 }

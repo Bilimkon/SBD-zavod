@@ -103,7 +103,7 @@ public class BarCodeService {
         }
     }
 
-//    public static void main(String[] args) {
+//    public static void main1(String[] args) {
 //    /*System.out.println((char)(Character.getNumericValue('4')+33));
 //    System.out.println((char)((int)('a')+2));
 //    System.out.println((int)'%');

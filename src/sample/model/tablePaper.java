@@ -8,13 +8,15 @@ public class tablePaper {
     SimpleStringProperty barcode = new SimpleStringProperty();
     SimpleStringProperty name = new SimpleStringProperty();
     SimpleStringProperty type = new SimpleStringProperty();
+    SimpleStringProperty color = new SimpleStringProperty();
     SimpleStringProperty quantity = new SimpleStringProperty();
 
-    public tablePaper(SimpleStringProperty id, SimpleStringProperty barcode, SimpleStringProperty name, SimpleStringProperty type, SimpleStringProperty quantity) {
+    public tablePaper(SimpleStringProperty id, SimpleStringProperty barcode, SimpleStringProperty name, SimpleStringProperty type, SimpleStringProperty color, SimpleStringProperty quantity) {
         this.id = id;
         this.barcode = barcode;
         this.name = name;
         this.type = type;
+        this.color = color;
         this.quantity = quantity;
     }
 
@@ -68,6 +70,18 @@ public class tablePaper {
 
     public void setType(String type) {
         this.type.set(type);
+    }
+
+    public String getColor() {
+        return color.get();
+    }
+
+    public SimpleStringProperty colorProperty() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color.set(color);
     }
 
     public String getQuantity() {

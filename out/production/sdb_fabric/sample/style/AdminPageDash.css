@@ -23,7 +23,7 @@ html{
     -fx-background-color: #1a3751;
 }
 .tab{
-    -fx-background-color:  #1a3751;
+    -fx-background-color:   #aed6f1;
     -fx-pref-width:111.5px;
     -fx-pref-height: 40px;
     -fx-font-family: Arial;
@@ -36,11 +36,11 @@ html{
     -fx-font-size: 12px;
 }
 .tab:hover {
-    -fx-background-color:  #214463;
+    -fx-background-color:  #5dade2;
     -fx-text-fill: black;
 }
 .tab:selected{
-    -fx-background-color: #214463;
+    -fx-background-color: #5dade2;
     -fx-text-fill: white;
 }
 .tab-header-background {
@@ -182,6 +182,10 @@ html{
         -fx-background-color: #1c435e;
    }
 
+.label-red {
+   -fx-background-color: #f1948a;
+}
+
 
 .context-menu {
     -fx-background-color: white;
@@ -189,3 +193,18 @@ html{
     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
 /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
 }
+.toggle-button{
+    -fx-background-color: #4f6b97;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
+}
+.toggle-button:selected{
+    -fx-background-color: #fa6c7b;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0) , 0,0,0,0 );
+}
+.label-text {
+-fx-background-color: #fdebd0;
+}
+

@@ -2,7 +2,7 @@ package sample.components.sell.Utils;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import sample.Main;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -17,30 +17,21 @@ import java.util.regex.Pattern;
  */
 public class Utils {
     public static Optional<ButtonType> ErrorAlert(String title, String header, String content) {
-        if (sample.components.sell.Main.isStageAlive) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            setAlertData(alert, title, header, content);
-            return alert.showAndWait();
-        }
-        return Optional.empty();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        setAlertData(alert, title, header, content);
+        return alert.showAndWait();
     }
 
     public static Optional<ButtonType> InfoAlert(String title, String header, String content) {
-        if (sample.components.sell.Main.isStageAlive) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             setAlertData(alert, title, header, content);
             return alert.showAndWait();
-        }
-        return Optional.empty();
     }
 
     public static Optional<ButtonType> WarningAlert(String title, String header, String content) {
-        if (sample.components.sell.Main.isStageAlive) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             setAlertData(alert, title, header, content);
             return alert.showAndWait();
-        }
-        return Optional.empty();
     }
 
     private static void setAlertData(Alert alert, String title, String header, String content) {
@@ -89,7 +80,7 @@ public class Utils {
                     return createMatcher(number, "^(?=.+)(?:[0-9]\\d*|0)?(?:\\.\\d+)?$").matches();
                 }
                 case DOUBLE: {
-                    return createMatcher(number, "^(?=.+)(?:[0-9]\\d*|0)?(?:\\.\\d+)?$").matches();
+                    return createMatcher(number, "\\d*(\\.\\d*)?").matches();
                 }
                 default:
                     return false;

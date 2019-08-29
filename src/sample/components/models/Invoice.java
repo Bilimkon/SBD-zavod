@@ -7,13 +7,15 @@ public class Invoice {
     SimpleStringProperty name = new SimpleStringProperty();
     SimpleStringProperty company = new SimpleStringProperty();
     SimpleStringProperty date = new SimpleStringProperty();
+    SimpleStringProperty currency = new SimpleStringProperty();
     SimpleStringProperty total_price = new SimpleStringProperty();
 
-    public Invoice(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty company, SimpleStringProperty date, SimpleStringProperty total_price) {
+    public Invoice(SimpleStringProperty id, SimpleStringProperty name, SimpleStringProperty company, SimpleStringProperty date, SimpleStringProperty currency, SimpleStringProperty total_price) {
         this.id = id;
         this.name = name;
         this.company = company;
         this.date = date;
+        this.currency = currency;
         this.total_price = total_price;
     }
 
@@ -67,6 +69,18 @@ public class Invoice {
 
     public void setDate(String date) {
         this.date.set(date);
+    }
+
+    public String getCurrency() {
+        return currency.get();
+    }
+
+    public SimpleStringProperty currencyProperty() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency.set(currency);
     }
 
     public String getTotal_price() {

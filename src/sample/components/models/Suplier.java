@@ -6,15 +6,17 @@ public class Suplier {
 
     SimpleStringProperty id = new SimpleStringProperty();
     SimpleStringProperty companyName = new SimpleStringProperty();
-    SimpleStringProperty person = new SimpleStringProperty();
+    SimpleStringProperty account = new SimpleStringProperty();
+    SimpleStringProperty phone = new SimpleStringProperty();
     SimpleStringProperty info = new SimpleStringProperty();
     SimpleStringProperty date_cr = new SimpleStringProperty();
     SimpleStringProperty cr_by = new SimpleStringProperty();
 
-    public Suplier(SimpleStringProperty id, SimpleStringProperty companyName, SimpleStringProperty person, SimpleStringProperty info, SimpleStringProperty date_cr, SimpleStringProperty cr_by) {
+    public Suplier(SimpleStringProperty id, SimpleStringProperty companyName, SimpleStringProperty account, SimpleStringProperty phone, SimpleStringProperty info, SimpleStringProperty date_cr, SimpleStringProperty cr_by) {
         this.id = id;
         this.companyName = companyName;
-        this.person = person;
+        this.account = account;
+        this.phone = phone;
         this.info = info;
         this.date_cr = date_cr;
         this.cr_by = cr_by;
@@ -48,16 +50,28 @@ public class Suplier {
         this.companyName.set(companyName);
     }
 
-    public String getPerson() {
-        return person.get();
+    public String getAccount() {
+        return account.get();
     }
 
-    public SimpleStringProperty personProperty() {
-        return person;
+    public SimpleStringProperty accountProperty() {
+        return account;
     }
 
-    public void setPerson(String person) {
-        this.person.set(person);
+    public void setAccount(String account) {
+        this.account.set(account);
+    }
+
+    public String getPhone() {
+        return phone.get();
+    }
+
+    public SimpleStringProperty phoneProperty() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone.set(phone);
     }
 
     public String getInfo() {

@@ -9,6 +9,7 @@ public class BasketItem {
     private float cost = 0;
     private int amount = 1;
     private boolean isAccepted = true;
+    private String currency;
 
     public static BasketItem getInstance() {
         return new BasketItem();
@@ -18,20 +19,22 @@ public class BasketItem {
 
     }
 
-    public void setAll(String barcode, String title, float cost, int amount, boolean isAccepted) {
+    public void setAll(String barcode, String title, float cost, int amount, boolean isAccepted, String currency) {
         this.barcode = barcode;
         this.title = title;
         this.cost = cost;
         this.amount = amount;
         this.isAccepted = isAccepted;
+        this.currency = currency;
     }
 
-    public BasketItem(String barcode, String title, float cost, int amount, boolean isAccepted) {
+    public BasketItem(String barcode, String title, float cost, int amount, boolean isAccepted, String currency) {
         this.barcode = barcode;
         this.title = title;
         this.cost = cost;
         this.amount = amount;
         this.isAccepted = isAccepted;
+        this.currency = currency;
     }
 
     public int getAmount() {
@@ -76,5 +79,13 @@ public class BasketItem {
 
     public boolean isEqual(String barcode) {
         return getBarcode().equals(barcode);
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }
