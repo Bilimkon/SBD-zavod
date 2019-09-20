@@ -93,7 +93,7 @@
                                     <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
-                                    <Button id="Main-update" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#BtnUpdateAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00CECA;" styleClass="calendar" text="Yangilash" GridPane.columnIndex="1">
+                                    <Button id="Main-update" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#BtnUpdateAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #00CECA;" styleClass="calendar" text="Yangilash" GridPane.columnIndex="1">
                                         <GridPane.margin>
                                             <Insets bottom="5.0" left="8.0" right="5.0" top="12.0" />
                                         </GridPane.margin>
@@ -101,7 +101,7 @@
                                             <Font name="System Bold" size="14.0" />
                                         </font>
                                     </Button>
-                                    <Button id="Main-cancel" fx:id="cancelShop" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancelShop" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #FF5E5B;" styleClass="calendar" text="Bekor">
+                                    <Button id="Main-cancel" fx:id="cancelShop" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#cancelShop" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #FF5E5B;" styleClass="calendar" text="Bekor">
                                         <GridPane.margin>
                                             <Insets bottom="5.0" left="8.0" right="5.0" top="12.0" />
                                         </GridPane.margin>
@@ -112,7 +112,7 @@
                                             <Font name="System Bold" size="14.0" />
                                         </font>
                                     </Button>
-                                    <Button id="Main-sell" fx:id="BtnSell" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#actionSell" prefHeight="50.0" prefWidth="200.0" text="Qo'shish" GridPane.columnIndex="2">
+                                    <Button id="Main-sell" fx:id="BtnSell" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#actionSell" prefHeight="50.0" prefWidth="200.0" text="Qo'shish" GridPane.columnIndex="2">
                                         <GridPane.margin>
                                             <Insets bottom="5.0" left="5.0" right="8.0" top="12.0" />
                                         </GridPane.margin>
@@ -133,8 +133,9 @@
                         <children>
                             <GridPane prefHeight="41.0" prefWidth="1080.0">
                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="274.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="204.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="80.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="377.0" minWidth="10.0" prefWidth="285.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="230.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="204.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="291.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="71.0" />
@@ -143,17 +144,17 @@
                                     <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                 <children>
-                                    <Label fx:id="ClockText" alignment="CENTER" maxHeight="-Infinity" prefHeight="47.0" prefWidth="258.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="Soat">
+                                    <Label fx:id="ClockText" alignment="CENTER" maxHeight="-Infinity" prefHeight="47.0" prefWidth="258.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="Soat" GridPane.columnIndex="1">
                                         <font>
                                             <Font name="Arial Black" size="32.0" />
                                         </font>
                               </Label>
-                                    <Label fx:id="idStartDate" alignment="CENTER" prefHeight="40.0" prefWidth="256.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="18:00, 04/05/2018" GridPane.columnIndex="2">
+                                    <Label fx:id="idStartDate" alignment="CENTER" prefHeight="40.0" prefWidth="256.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="18:00, 04/05/2018" GridPane.columnIndex="3">
                                         <font>
                                             <Font name="System Bold" size="18.0" />
                                         </font>
                               </Label>
-                                    <Label fx:id="idUserName" prefHeight="40.0" prefWidth="277.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="Muhammadjon Tohirov" GridPane.columnIndex="3">
+                                    <Label fx:id="idUserName" prefHeight="40.0" prefWidth="277.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="Muhammadjon Tohirov" GridPane.columnIndex="4">
                                         <font>
                                             <Font name="System Bold" size="18.0" />
                                         </font>
@@ -164,7 +165,7 @@
                                     <Insets />
                                  </GridPane.margin>
                               </Label>
-                                    <Button fx:id="btnClose" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="71.0" style="-fx-text-fill: white; -fx-background-color: #FF5E5B;" text="X" textFill="#f5f5f5f2" GridPane.columnIndex="4">
+                                    <Button fx:id="btnClose" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="71.0" style="-fx-text-fill: white; -fx-background-color: #FF5E5B;" text="X" textFill="#f5f5f5f2" GridPane.columnIndex="5">
                                         <GridPane.margin>
                                             <Insets bottom="2.0" top="2.0" />
                                         </GridPane.margin>
@@ -172,11 +173,12 @@
                                             <Font size="24.0" />
                                         </font>
                                     </Button>
-                              <Label alignment="CENTER" prefHeight="108.0" prefWidth="254.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="SBD" GridPane.columnIndex="1">
+                              <Label alignment="CENTER" prefHeight="108.0" prefWidth="254.0" style="-fx-text-fill: #B1B1B1;" styleClass="text-white" text="SBD" GridPane.columnIndex="2">
                                  <font>
                                     <Font name="System Bold" size="32.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="sell_total_quantity" alignment="CENTER" prefHeight="101.0" prefWidth="119.0" text="0" />
                                 </children>
                            <VBox.margin>
                               <Insets left="7.0" />
@@ -230,7 +232,7 @@
                                             <ColumnConstraints />
                                         </columnConstraints>
                                         <children>
-                                            <Label fx:id="totalCost" alignment="CENTER" prefHeight="51.0" prefWidth="378.0" style="-fx-text-fill: #1A946F;" styleClass="text-black" text="0.00 sum">
+                                            <Label fx:id="totalCost" alignment="CENTER" prefHeight="51.0" prefWidth="378.0" style="-fx-text-fill: #1c435e;;" styleClass="text-black" text="0.00 sum">
                                                 <GridPane.margin>
                                                     <Insets right="7.0" top="5.0" />
                                                 </GridPane.margin>
@@ -261,7 +263,7 @@
                                             </Button>
                                         </children>
                                     </GridPane>
-                                    <Label prefHeight="49.0" prefWidth="165.0" style="-fx-text-fill: #1A946F;" styleClass="text-black" text="So'm">
+                                    <Label prefHeight="49.0" prefWidth="165.0" style="-fx-text-fill: #1c435e;;" styleClass="text-black" text="So'm">
                                         <GridPane.margin>
                                             <Insets />
                                         </GridPane.margin>
@@ -274,28 +276,28 @@
                                             <Insets bottom="12.0" left="8.0" right="5.0" top="5.0" />
                                         </GridPane.margin>
                                     </Button>
-                              <Label prefHeight="52.0" prefWidth="170.0" style="-fx-text-fill: #1A946F;" text="Dollar" GridPane.rowIndex="1">
+                              <Label prefHeight="52.0" prefWidth="170.0" style="-fx-text-fill: #1c435e;;" text="Dollar" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                                  <padding>
                                     <Insets left="10.0" />
                                  </padding></Label>
-                              <Label prefHeight="54.0" prefWidth="170.0" style="-fx-text-fill: #1A946F;" text="Hisob raqam" GridPane.rowIndex="2">
+                              <Label prefHeight="54.0" prefWidth="170.0" style="-fx-text-fill: #1c435e;;" text="Hisob raqam" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                                  <padding>
                                     <Insets left="10.0" />
                                  </padding></Label>
-                              <Label fx:id="labelDollar" alignment="CENTER" prefHeight="56.0" prefWidth="385.0" style="-fx-text-fill: #1A946F;" text="\$ 0.00" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="labelDollar" alignment="CENTER" prefHeight="56.0" prefWidth="385.0" style="-fx-text-fill: #1c435e;;" text="\$ 0.00" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                                  <padding>
                                     <Insets right="37.0" />
                                  </padding></Label>
-                              <Label fx:id="labelHR" alignment="CENTER" prefHeight="32.0" prefWidth="404.0" style="-fx-text-fill: #1A946F;" text="0.00 sum" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <Label fx:id="labelHR" alignment="CENTER" prefHeight="32.0" prefWidth="404.0" style="-fx-text-fill: #1c435e;;" text="0.00 sum" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="7.0" />
                                  </GridPane.margin></Label>
@@ -328,8 +330,8 @@
                     <rowConstraints>
                         <RowConstraints maxHeight="454.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="447.0" minHeight="10.0" prefHeight="171.0" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="454.0" minHeight="10.0" prefHeight="402.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="454.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="454.0" minHeight="10.0" prefHeight="407.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="454.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <GridPane prefHeight="369.0" prefWidth="542.0" style="-fx-background-color: #d6d6d5;" GridPane.rowIndex="2">
@@ -355,7 +357,7 @@
                               </ComboBox>
                               <Label alignment="CENTER" prefHeight="100.0" prefWidth="360.0" text="Turi">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -363,7 +365,7 @@
                               </Label>
                               <Label alignment="CENTER" prefHeight="82.0" prefWidth="345.0" text="So'm" GridPane.rowIndex="2">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -376,7 +378,7 @@
                               </TextArea>
                               <Label alignment="CENTER" prefHeight="79.0" prefWidth="254.0" text="Ma'lumot" GridPane.rowIndex="6">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -414,15 +416,15 @@
                               </GridPane>
                               <Label alignment="CENTER" prefHeight="90.0" prefWidth="207.0" text="Taminotchi/Xaridor" GridPane.rowIndex="1">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="text_per" prefHeight="60.0" prefWidth="165.0" style="-fx-text-fill: red;" text="0" GridPane.rowIndex="7">
+                              <TextField fx:id="text_per" prefHeight="60.0" prefWidth="165.0" text="0" GridPane.rowIndex="7">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </TextField>
                               <ComboBox fx:id="operWho" onAction="#btnPersonAction" onMouseClicked="#btnPersonAction" prefHeight="68.0" prefWidth="378.0" promptText="Tanlang" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -432,12 +434,12 @@
                               </ComboBox>
                               <Label alignment="CENTER" prefHeight="108.0" prefWidth="303.0" text="Dollar" GridPane.rowIndex="3">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                               <Label alignment="CENTER" prefHeight="123.0" prefWidth="333.0" text="HR" GridPane.rowIndex="4">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                               <TextField fx:id="operDollar" prefHeight="62.0" prefWidth="377.0" promptText="Dollar" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -450,6 +452,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </TextField>
+                              <Label fx:id="OperWhoId" alignment="CENTER" prefHeight="104.0" prefWidth="240.0" GridPane.rowIndex="5" />
                            </children>
                            <GridPane.margin>
                               <Insets left="5.0" />
@@ -478,7 +481,7 @@
                                  <children>
                                     <Label fx:id="PersonHRBalance" alignment="CENTER" prefHeight="105.0" prefWidth="367.0" style="-fx-background-color: #d6d6d5;" text="HR balance" GridPane.columnIndex="2">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="14.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
@@ -486,7 +489,7 @@
                                     </Label>
                                     <Label fx:id="PersonSumBalance" alignment="CENTER" prefHeight="87.0" prefWidth="320.0" style="-fx-background-color: #d6d6d5;" text="Sum balance">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="14.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
@@ -494,7 +497,7 @@
                                     </Label>
                                     <Label fx:id="PersonDollarBalance" alignment="CENTER" prefHeight="136.0" prefWidth="292.0" style="-fx-background-color: #d6d6d5;" text="Dollar balance" GridPane.columnIndex="1">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="14.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets bottom="2.0" left="5.0" top="2.0" />
@@ -541,7 +544,7 @@
                                  <children>
                                     <Label fx:id="CurrentIncomeSum" alignment="CENTER" prefHeight="76.0" prefWidth="274.0" style="-fx-background-color: #fef9e7;" text="Income Sum">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="14.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
@@ -549,7 +552,7 @@
                                     </Label>
                                     <Label fx:id="CurrentIncomeDollar" alignment="CENTER" prefHeight="64.0" prefWidth="273.0" style="-fx-background-color: #fef9e7;" text="Income Dollar" GridPane.columnIndex="1">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="14.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
@@ -557,7 +560,7 @@
                                     </Label>
                                     <Label fx:id="CurrentIncomeHR" alignment="CENTER" prefHeight="74.0" prefWidth="302.0" style="-fx-background-color: #fef9e7;" text="Income HR" GridPane.columnIndex="2">
                                        <font>
-                                          <Font size="18.0" />
+                                          <Font size="14.0" />
                                        </font>
                                        <GridPane.margin>
                                           <Insets bottom="2.0" left="5.0" top="2.0" />
@@ -616,7 +619,7 @@
                                     <Insets bottom="8.0" left="7.0" right="7.0" top="7.0" />
                                  </GridPane.margin>
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                               <Button mnemonicParsing="false" onAction="#btnEndDayAction" prefHeight="30.0" prefWidth="154.0" style="-fx-background-color: #FF5E5B;" text="Kun yopish" GridPane.columnIndex="2">
@@ -640,7 +643,7 @@
                                  </GridPane.margin></Button>
                            </children>
                         </GridPane>
-                        <GridPane GridPane.rowIndex="3">
+                        <GridPane prefHeight="26.0" prefWidth="547.0" GridPane.rowIndex="3">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -652,17 +655,17 @@
                            <children>
                               <Label fx:id="ExpenceSum" alignment="CENTER" prefHeight="78.0" prefWidth="243.0" text="0">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                               <Label fx:id="ExpenceDollar" alignment="CENTER" prefHeight="130.0" prefWidth="330.0" text="0" GridPane.columnIndex="1">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                               <Label fx:id="ExpenceHR" alignment="CENTER" prefHeight="119.0" prefWidth="246.0" text="0" GridPane.columnIndex="2">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
@@ -710,10 +713,36 @@
                            </children>
                         </GridPane>
                      </top>
+                     <bottom>
+                        <GridPane BorderPane.alignment="CENTER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="labelOperSum" alignment="CENTER" prefHeight="107.0" prefWidth="336.0" text="0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="labelOperDollar" alignment="CENTER" prefHeight="119.0" prefWidth="361.0" text="0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label fx:id="labelOperHr" alignment="CENTER" prefHeight="107.0" prefWidth="304.0" text="0" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                           </children>
+                        </GridPane>
+                     </bottom>
                   </BorderPane>
                </center>
                <bottom>
-                  <Pane prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #1A946F;" BorderPane.alignment="CENTER" />
+                  <Pane prefHeight="27.0" prefWidth="1080.0" style="-fx-background-color: #1c435e;;" BorderPane.alignment="CENTER" />
                </bottom>
             </BorderPane>
          </content></Tab>
@@ -774,6 +803,7 @@
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin></TextField>
+                        <Label fx:id="LabelBalanceIdWho" alignment="CENTER" prefHeight="57.0" prefWidth="239.0" textFill="WHITE" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </top>
@@ -826,12 +856,12 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <JFXDatePicker fx:id="HistoryDan" prefHeight="24.0" prefWidth="315.0" promptText="dan" GridPane.columnIndex="2">
+                        <JFXDatePicker fx:id="HistoryDan" defaultColor="#1c435e" prefHeight="24.0" prefWidth="315.0" promptText="dan" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="5.0" right="5.0" top="15.0" />
                            </GridPane.margin>
                         </JFXDatePicker>
-                        <JFXDatePicker fx:id="HistoryGacha" prefHeight="28.0" prefWidth="287.0" promptText="gacha" GridPane.columnIndex="3">
+                        <JFXDatePicker fx:id="HistoryGacha" defaultColor="#1c435e" prefHeight="28.0" prefWidth="287.0" promptText="gacha" GridPane.columnIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="5.0" right="5.0" top="15.0" />
                            </GridPane.margin>
@@ -915,17 +945,18 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <JFXDatePicker fx:id="QarzDan" prefHeight="28.0" prefWidth="315.0" GridPane.columnIndex="1">
+                        <JFXDatePicker fx:id="QarzDan" defaultColor="#1c435e" prefHeight="28.0" prefWidth="315.0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="5.0" right="5.0" top="15.0" />
                            </GridPane.margin>
                         </JFXDatePicker>
-                        <JFXDatePicker fx:id="QarzGacha" prefHeight="28.0" prefWidth="287.0" GridPane.columnIndex="2">
+                        <JFXDatePicker fx:id="QarzGacha" defaultColor="#1c435e" prefHeight="28.0" prefWidth="287.0" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="5.0" right="5.0" top="15.0" />
                            </GridPane.margin>
@@ -940,6 +971,16 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </ComboBox>
+                        <Button mnemonicParsing="false" onAction="#CheckExcellBtnAction" prefHeight="25.0" prefWidth="245.0" text="Excell" GridPane.columnIndex="4">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#MainRevertAction" prefHeight="111.0" prefWidth="346.0" style="-fx-background-color: red;" text="Qaytarish" GridPane.columnIndex="5">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Button>
                      </children>
                   </GridPane>
                </top>
@@ -967,24 +1008,30 @@
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
                           </columnConstraints>
                           <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label prefHeight="79.0" prefWidth="305.0" text="Umumiy miqdori" />
-                              <Label fx:id="sellActionTotalQuantity" prefHeight="156.0" prefWidth="520.0" text="0" GridPane.columnIndex="1" />
-                              <Label prefHeight="86.0" prefWidth="503.0" text="Umumiy sum" GridPane.columnIndex="2" />
-                              <Label fx:id="sellActionTotalSum" prefHeight="65.0" prefWidth="216.0" text="0" GridPane.columnIndex="3" />
-                              <Label prefHeight="82.0" prefWidth="258.0" text="0" GridPane.columnIndex="4" />
-                              <Label fx:id="sellActionTotalDollar" prefHeight="73.0" prefWidth="187.0" text="0" GridPane.columnIndex="5" />
-                              <Label prefHeight="48.0" prefWidth="220.0" text="0" GridPane.columnIndex="6" />
-                              <Label fx:id="sellActionTotalHr" prefHeight="56.0" prefWidth="274.0" text="0" GridPane.columnIndex="7" />
+                              <Label alignment="CENTER" prefHeight="79.0" prefWidth="305.0" text="To'lashi kerak" GridPane.rowIndex="1" />
+                              <Label fx:id="sellsumT" prefHeight="156.0" prefWidth="520.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label alignment="CENTER" prefHeight="86.0" prefWidth="503.0" text="To'langan" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                              <Label fx:id="selldollarT" prefHeight="65.0" prefWidth="216.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label fx:id="sellhrT" prefHeight="82.0" prefWidth="258.0" text="0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="sellsumP" prefHeight="73.0" prefWidth="187.0" text="0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Label fx:id="selldollarP" prefHeight="48.0" prefWidth="220.0" text="0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                              <Label fx:id="sellhrP" prefHeight="56.0" prefWidth="274.0" text="0" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                              <Label fx:id="revertLabel_id" prefHeight="78.0" prefWidth="112.0" textFill="WHITE" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="2.0" />
+                                 </font></Label>
                            </children>
                         </GridPane>
                      </bottom>
@@ -1009,12 +1056,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <JFXDatePicker fx:id="ExchangeDan" prefHeight="28.0" prefWidth="315.0" GridPane.columnIndex="1">
+                        <JFXDatePicker fx:id="ExchangeDan" defaultColor="#1c435e" prefHeight="28.0" prefWidth="315.0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                            </GridPane.margin>
                         </JFXDatePicker>
-                        <JFXDatePicker fx:id="ExchangeGacha" prefHeight="28.0" prefWidth="287.0" GridPane.columnIndex="2">
+                        <JFXDatePicker fx:id="ExchangeGacha" defaultColor="#1c435e" prefHeight="28.0" prefWidth="287.0" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                            </GridPane.margin>

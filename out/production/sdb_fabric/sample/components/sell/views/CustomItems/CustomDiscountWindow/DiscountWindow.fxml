@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<BorderPane minWidth="-Infinity" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.sell.views.CustomItems.CustomDiscountWindow.DiscountWindow">
+<BorderPane minWidth="-Infinity" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.sell.views.CustomItems.CustomDiscountWindow.DiscountWindow">
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="839.0" spacing="8.0" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +30,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #1A946F;" text="Sotish" textFill="WHITE">
+            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #1c435e;" text="Sotish" textFill="WHITE">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -246,6 +245,6 @@
       </GridPane>
    </center>
    <top>
-      <Pane prefHeight="25.0" prefWidth="800.0" style="-fx-background-color: #1A946F;" stylesheets="@../../../style/css/mainPageStyle.css" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="25.0" prefWidth="800.0" style="-fx-background-color: #1c435e;" stylesheets="@../../../style/css/mainPageStyle.css" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>

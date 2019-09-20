@@ -1,10 +1,10 @@
 #cancelShop {
 }
 .table-view .column-header  {
-    -fx-background-color: #1A946F;
+    -fx-background-color: #1c435e;
 }
 .button {
-    -fx-background-color: #1A946F;
+    -fx-background-color: #1c435e;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
@@ -22,14 +22,14 @@
     -fx-text-fill: white;
 }
 .label-summ{
-    -fx-text-fill:  #1ab394;
+    -fx-text-fill: #1c435e;
     -fx-font-family: Arial;
     -fx-font-weight: bold;
     -fx-font-size: 20px;
 
 }
 .label-plastic{
-    -fx-text-fill: #1ab394;
+    -fx-text-fill: #1c435e;
     -fx-font-family: Arial;
     -fx-font-weight: bold;
     -fx-font-size: 16px;
@@ -37,7 +37,7 @@
 }
 
 .toggle-button{
-    -fx-background-color: #1ab394;
+    -fx-background-color: #1c435e;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
@@ -67,7 +67,7 @@
 -fx-text-fill:white;
 }
 .color-text{
-    -fx-text-fill:#1ab394;
+    -fx-text-fill:#1c435e;
 }
 .check-box .box {
 
@@ -81,19 +81,19 @@
 }
 .check-box:selected .box {
 
-    -fx-background-color: #1ab394;
+    -fx-background-color: #1c435e;
 }
 .text-white{
     -fx-text-fill: white;
 }
 .App_profile{
-    -fx-background-color:  #1ab394;
+    -fx-background-color: #1c435e;
     -fx-border-width: 2;
-    -fx-border-color: #1ab394;
+    -fx-border-color: #1c435e;
 }
 .calendar{
     -fx-border-width: 1;
-    -fx-border-color: #1ab394;
+    -fx-border-color: #1c435e;
 }
 .button:hover{
     -fx-background-color:  #20E27B;
@@ -135,7 +135,7 @@
 -fx-background-color: #f1948a;
 }
 .tab{
-    -fx-background-color: #1A946F;
+    -fx-background-color: #1c435e;
     -fx-pref-width:111.5px;
     -fx-pref-height: 30px;
     -fx-font-family: Arial;

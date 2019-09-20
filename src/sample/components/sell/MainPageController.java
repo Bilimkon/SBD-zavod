@@ -10,8 +10,6 @@ import com.sun.istack.internal.Nullable;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -40,10 +38,7 @@ import sample.components.models.AllCurrencyValues;
 import sample.components.models.Exchange;
 import sample.components.sell.Core.CheckSums;
 import sample.components.sell.Core.History;
-import sample.components.sell.Core.Models.BasketItem;
-import sample.components.sell.Core.Models.CreditModel;
-import sample.components.sell.Core.Models.CustomerName;
-import sample.components.sell.Core.Models.ReceiptCheck;
+import sample.components.sell.Core.Models.*;
 import sample.components.sell.DAO.*;
 import sample.components.sell.Utils.PrinterService;
 import sample.components.sell.Utils.Utils;
@@ -57,6 +52,7 @@ import sample.model.Debt;
 import sample.model.User;
 import sample.utils.ComboBoxAutoComplete;
 import sample.utils.Workbookcontroller;
+import sample.utils.utils;
 
 import javax.swing.*;
 import java.io.File;
@@ -79,6 +75,7 @@ import java.util.*;
 public class MainPageController extends Parent implements Initializable {
     private ProductDao productDao;
     UtilsDao utilsDao = new UtilsDao();
+    utils utils = new utils();
     sample.dao.DaoUtils daoUtils = new sample.dao.DaoUtils();
     @FXML
     private TextField textSampleIzlash;
@@ -196,20 +193,53 @@ public class MainPageController extends Parent implements Initializable {
     @FXML
     private TableView ExchangeTable;
     //Expences
-    @FXML private Label ExpenceSum;
-    @FXML private Label ExpenceDollar;
-    @FXML private Label ExpenceHR;
-    @FXML private ComboBox<String> sellactionSelectCustomer;
-    @FXML private Label sellActionTotalQuantity;
-    @FXML private Label sellActionTotalSum;
-    @FXML private Label sellActionTotalDollar;
-    @FXML private Label sellActionTotalHr;
-    @FXML private Label ExchangeTotalQuantity;
-    @FXML private ComboBox<String> exchangeSelectName;
-    @FXML private ComboBox<String> tarixSelectName;
-    @FXML private Label tarixTotalQuantity;
-    @FXML private Label tarixTotalCost;
+    @FXML
+    private Label ExpenceSum;
+    @FXML
+    private Label ExpenceDollar;
+    @FXML
+    private Label ExpenceHR;
+    @FXML
+    private ComboBox<String> sellactionSelectCustomer;
+    @FXML
+    private Label ExchangeTotalQuantity;
+    @FXML
+    private ComboBox<String> exchangeSelectName;
+    @FXML
+    private ComboBox<String> tarixSelectName;
+    @FXML
+    private Label tarixTotalQuantity;
+    @FXML
+    private Label tarixTotalCost;
+    @FXML
+    private Label labelOperSum;
+    @FXML
+    private Label labelOperDollar;
+    @FXML
+    private Label labelOperHr;
+    //
+    @FXML
+    private Label sellsumT;
+    @FXML
+    private Label selldollarT;
+    @FXML
+    private Label sellhrT;
+    @FXML
+    private Label sellsumP;
+    @FXML
+    private Label selldollarP;
+    @FXML
+    private Label sellhrP;
+    @FXML
+    private Label revertLabel_id;
+    @FXML
+    private Label OperWhoId;
+    @FXML
+    private Label LabelBalanceIdWho;
 
+
+    @FXML
+    private Label sell_total_quantity;
 
 
     String user_id = String.valueOf(Login.currentUser.getId());
@@ -414,9 +444,9 @@ public class MainPageController extends Parent implements Initializable {
         TableColumn<Debt, String> sum = new TableColumn<>("Sum");
         TableColumn<Debt, String> dollar = new TableColumn<>("Dollar");
         TableColumn<Debt, String> hr = new TableColumn<>("Hisob raqam");
-        TableColumn<Debt, String> psum = new TableColumn<>("T-sum");
-        TableColumn<Debt, String> pdollar = new TableColumn<>("T-dollar");
-        TableColumn<Debt, String> phr = new TableColumn<>("T-hr");
+        TableColumn<Debt, String> psum = new TableColumn<>("To'langan-sum");
+        TableColumn<Debt, String> pdollar = new TableColumn<>("To'langan-dollar");
+        TableColumn<Debt, String> phr = new TableColumn<>("To'langan-hr");
         TableColumn<Debt, String> sale = new TableColumn<>("Chegirma");
         TableColumn<Debt, String> companyName = new TableColumn<>("Xaridor");
         TableColumn<Debt, String> cr_by = new TableColumn<>("Sotuvchi");
@@ -464,10 +494,11 @@ public class MainPageController extends Parent implements Initializable {
         color.setCellValueFactory(new PropertyValueFactory<>("description"));
 
         addedItemsList.getChildren().addListener((ListChangeListener<Node>) c -> {
-            System.out.println(calculateCurrentTotalAll());
+
             totalCost.setText(Utils.ThousandDivider(calculateCurrentTotalAll().sum) + " sum");
             labelDollar.setText("$ " + Utils.ThousandDivider(calculateCurrentTotalAll().dollar));
             labelHR.setText(Utils.ThousandDivider(calculateCurrentTotalAll().hr) + " sum");
+
         });
         tableSampleManual.addEventHandler(MouseEvent.MOUSE_CLICKED, (EventHandler<Event>) event -> {
             try {
@@ -533,72 +564,16 @@ public class MainPageController extends Parent implements Initializable {
         return false;
     }
 
-    public void validityCheckinteger() {
-        operSum.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
-                operSum.setText("0");
-                return;
-            }
-        });
+    private void validityCheckinteger() {
 
-        operSum.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue ov, Boolean t, Boolean t1) {
-
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (operSum.isFocused() && !operSum.getText().isEmpty()) {
-                            operSum.selectAll();
-                        }
-                    }
-                });
-            }
-        });
-
-        operDollar.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
-                operDollar.setText("0");
-                return;
-            }
-        });
-
-        operDollar.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue ov, Boolean t, Boolean t1) {
-
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (operDollar.isFocused() && !operDollar.getText().isEmpty()) {
-                            operDollar.selectAll();
-                        }
-                    }
-                });
-            }
-        });
-
-        operHR.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
-                operHR.setText("0");
-                return;
-            }
-        });
-
-        operHR.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue ov, Boolean t, Boolean t1) {
-
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (operHR.isFocused() && !operHR.getText().isEmpty()) {
-                            operHR.selectAll();
-                        }
-                    }
-                });
-            }
-        });
+        utils.thousandDivider(operHR);
+        utils.thousandDivider(operDollar);
+        utils.thousandDivider(operSum);
+        utils.thousandDivider(ChangeSum);
+        utils.selectAll(operHR);
+        utils.selectAll(operDollar);
+        utils.selectAll(operSum);
+        utils.selectAll(ChangeSum);
 
     }
 
@@ -608,7 +583,8 @@ public class MainPageController extends Parent implements Initializable {
                 if (QarzTable.getSelectionModel().getSelectedItem() != null) {
                     Debt debt = (sample.model.Debt) QarzTable.getSelectionModel().getSelectedItem();
                     try {
-                        productDao.checkHistory(tarixCheckTable, sellActionTotalQuantity, sellActionTotalSum, sellActionTotalDollar, sellActionTotalHr, debt.getId());
+                        productDao.checkHistory(tarixCheckTable, debt.getId());
+                        revertLabel_id.setText(debt.getId());
                     } catch (Exception exc) {
                         exc.printStackTrace();
                     }
@@ -621,7 +597,7 @@ public class MainPageController extends Parent implements Initializable {
 
     private void checkHistory() {
         try {
-            productDao.checkHistory(tarixCheckTable,  sellActionTotalQuantity, sellActionTotalSum, sellActionTotalDollar, sellActionTotalHr, "*");
+            productDao.checkHistory(tarixCheckTable, "*");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -653,6 +629,31 @@ public class MainPageController extends Parent implements Initializable {
             setCurrentIncome();
             setCurrentOutcome();
             table();
+
+
+            tarixCheckTable.setOnMouseClicked((MouseEvent event) -> {
+                if (event.getClickCount() == 2) {
+                    sample.model.History history = (sample.model.History) tarixCheckTable.getSelectionModel().getSelectedItem();
+                    try {
+                        dialogPrint(String.valueOf(history.getSellAction_id()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            });
+
+            operTable.setOnMouseClicked((MouseEvent event) -> {
+                if (event.getClickCount() == 2) {
+                    OperTable history = (OperTable) operTable.getSelectionModel().getSelectedItem();
+                    try {
+                        dialogRevert(String.valueOf(history.getId()), history.getType(), history.getSum(), history.getDollar(), history.getHr(), history.getWho());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            });
 
 
             //Autocomplate combobox for person table
@@ -755,11 +756,13 @@ public class MainPageController extends Parent implements Initializable {
                 operTable();
                 balanceTable();
                 debtorsTable();
-                // QarzTable();
+                QarzTable();
                 historyTable();
                 getSellactionCompanyName();
                 getSellactionExchangeName();
                 getTarixSelectName();
+                setCurrentIncome();
+                setCurrentOutcome();
             }
         }));
         ficeSecondsWonder.setCycleCount(Timeline.INDEFINITE);
@@ -783,8 +786,8 @@ public class MainPageController extends Parent implements Initializable {
                         Double s = 0.0;
                         Double d = 0.0;
                         Double h = 0.0;
-                        text_balance_sum.setText(balance.getSum_balance()+ " sum");
-                        text_balance_dollar.setText("$ " +balance.getDollar_balance());
+                        text_balance_sum.setText(balance.getSum_balance() + " sum");
+                        text_balance_dollar.setText("$ " + balance.getDollar_balance());
                         text_balance_hr.setText(balance.getHr_balance() + " hr sum");
                         text_balance_name.setText(balance.getWho());
                     } catch (Exception exc) {
@@ -794,6 +797,46 @@ public class MainPageController extends Parent implements Initializable {
             });
         } catch (Exception exc) {
             exc.printStackTrace();
+        }
+    }
+
+    private void dialogRevert(String id, String operType1, String sum, String dollar, String hr, String who) {
+        try {
+            TextInputDialog dialog = new TextInputDialog(id);
+            dialog.setTitle("Operatsiya");
+            dialog.setHeaderText("Operatsiya nomeri: " + id);
+            dialog.setContentText("Operatsiyani ortga qaytarasizmi ?");
+            Optional<String> result = dialog.showAndWait();
+            // The Java 8 way to get the response value (with lambda expression).
+            result.ifPresent(name ->
+                    {
+                        operDao.revertOper(id, operType1, sum.trim().replaceAll("\\s+", ""), dollar.trim().replaceAll("\\s+", ""), hr.trim().replaceAll("\\s+", ""), who);
+                    }
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void dialogPrint(String id) {
+        try {
+            TextInputDialog dialog = new TextInputDialog(id);
+            dialog.setTitle("Check chiqarish");
+            dialog.setHeaderText("Check nomeri: " + id);
+            dialog.setContentText("Check chiqarasizmi?");
+            Optional<String> result = dialog.showAndWait();
+            // The Java 8 way to get the response value (with lambda expression).
+            result.ifPresent(name ->
+                    {
+                        try {
+                            printActionWithId(id);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -811,7 +854,7 @@ public class MainPageController extends Parent implements Initializable {
                         Double d = 0.0;
                         Double h = 0.0;
                         text_balance_sum.setText(balance.getSum_balance() + " sum");
-                        text_balance_dollar.setText("$ " +balance.getDollar_balance());
+                        text_balance_dollar.setText("$ " + balance.getDollar_balance());
                         text_balance_hr.setText(balance.getHr_balance() + " hr sum");
                         text_balance_name.setText(balance.getWho());
                     } catch (Exception exc) {
@@ -825,7 +868,7 @@ public class MainPageController extends Parent implements Initializable {
     }
 
 
-    public void setUserData1(User u) {
+    private void setUserData1(User u) {
         idUserName.setText(u.getFirstName() + " " + u.getLastname());
         idStartDate.setText(Utils.getCurrnetDateInStandardFormat());
     }
@@ -838,7 +881,7 @@ public class MainPageController extends Parent implements Initializable {
         try {
             Pane p = loader.load();
             BasketItem basketItem = BasketItem.getInstance();
-            basketItem.setAll(productTable.getBarcode(), productTable.getName(), Float.parseFloat(productTable.getCost()), 1, true, "Sum");
+            basketItem.setAll(productTable.getBarcode(), productTable.getName(), Float.parseFloat(productTable.getCost()), 1, true, "$");
             p.setUserData(basketItem);
             ShopItemListItem item = loader.getController();
             item.setDetails(productTable, basketItem.isAccepted());
@@ -866,6 +909,7 @@ public class MainPageController extends Parent implements Initializable {
                 String dollar = String.valueOf(formatter.format(calculateCurrentTotalAll().dollar));
                 String hr = String.valueOf(formatter.format(calculateCurrentTotalAll().hr));
                 TextField l2 = (TextField) p.lookup("#itemPrice");
+                utils.thousandDivider(l2);
                 l2.requestFocus();
                 totalCost.setText(sum + " sum");
                 labelDollar.setText("$ " + dollar);
@@ -875,6 +919,7 @@ public class MainPageController extends Parent implements Initializable {
             field.textProperty().addListener((observable, oldValue, newValue) -> {
                 try {
                     TextField l = (TextField) p.lookup("#itemPrice");
+
                     float price = Float.parseFloat(l.getText().trim().replaceAll("\\s+", ""));
 
                     calculateCurrentTotalAll();
@@ -902,31 +947,31 @@ public class MainPageController extends Parent implements Initializable {
                         return;
                     }
 
-                    int number = Utils.isNumberInRange(Integer.valueOf(newValue), 0, quantity);
-                    if (number != Integer.valueOf(newValue)) {
-                        field.setText(number + "");
-                        field.selectAll();
-                    } else {
-                        int finalNewValue = Integer.parseInt(newValue);
-                        Platform.runLater(() -> {
-                            try {
-                                changeBasketItemAmount(i.getBarcode(), finalNewValue);
-                                changeBasketItemPrice(i.getBarcode(), price);
-                                DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
-                                changeSellCurrency(i.getBarcode(), currency);
-                                symbols.setGroupingSeparator(' ');
-                                DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
-                                String sum = String.valueOf(formatter.format(calculateCurrentTotalAll().sum));
-                                String dollar = String.valueOf(formatter.format(calculateCurrentTotalAll().dollar));
-                                String hr = String.valueOf(formatter.format(calculateCurrentTotalAll().hr));
-                                totalCost.setText(sum + " sum");
-                                labelDollar.setText("$ " + dollar);
-                                labelHR.setText(hr + " sum");
-                            } catch (Exception ex) {
-                                System.out.println(ex.getMessage());
-                            }
-                        });
-                    }
+//                    int number = Utils.isNumberInRange(Integer.valueOf(newValue), 0, quantity);
+//                    if (number != Integer.valueOf(newValue)) {
+//                        field.setText(number + "");
+//                        field.selectAll();
+//                    } else {
+                    int finalNewValue = Integer.parseInt(newValue);
+                    Platform.runLater(() -> {
+                        try {
+                            changeBasketItemAmount(i.getBarcode(), finalNewValue);
+                            changeBasketItemPrice(i.getBarcode(), price);
+                            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+                            changeSellCurrency(i.getBarcode(), currency);
+                            symbols.setGroupingSeparator(' ');
+                            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+                            String sum = String.valueOf(formatter.format(calculateCurrentTotalAll().sum));
+                            String dollar = String.valueOf(formatter.format(calculateCurrentTotalAll().dollar));
+                            String hr = String.valueOf(formatter.format(calculateCurrentTotalAll().hr));
+                            totalCost.setText(sum + " sum");
+                            labelDollar.setText("$ " + dollar);
+                            labelHR.setText(hr + " sum");
+                        } catch (Exception ex) {
+                            System.out.println(ex.getMessage());
+                        }
+                    });
+//                    }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -1098,7 +1143,7 @@ public class MainPageController extends Parent implements Initializable {
                         try {
                             LabelCustomerName.setText(product.getName());
                             LabelCustomerId.setText(product.getId());
-                            operDao.perPersonBalance(CHR ,CSum, CDollar, product.getName());
+                            operDao.perPersonBalance(CHR, CSum, CDollar, product.getName());
                         } catch (Exception exc) {
                             exc.printStackTrace();
                         }
@@ -1149,70 +1194,13 @@ public class MainPageController extends Parent implements Initializable {
                 new Thread(longTaskRun).start();
             });
 
-            SellOperSumma.textProperty().addListener((observable, oldValue, newValue) -> {
-                if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
-                    SellOperSumma.setText("0");
-                    return;
-                }
-            });
 
-            SellOperSumma.focusedProperty().addListener(new ChangeListener<Boolean>() {
-                @Override
-                public void changed(ObservableValue ov, Boolean t, Boolean t1) {
-
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (SellOperSumma.isFocused() && !SellOperSumma.getText().isEmpty()) {
-                                SellOperSumma.selectAll();
-                            }
-                        }
-                    });
-                }
-            });
-            textDollar.textProperty().addListener((observable, oldValue, newValue) -> {
-                if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
-                    textDollar.setText("0");
-                    return;
-                }
-            });
-
-            textDollar.focusedProperty().addListener(new ChangeListener<Boolean>() {
-                @Override
-                public void changed(ObservableValue ov, Boolean t, Boolean t1) {
-
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (textDollar.isFocused() && !textDollar.getText().isEmpty()) {
-                                textDollar.selectAll();
-                            }
-                        }
-                    });
-                }
-            });
-            textHr.textProperty().addListener((observable, oldValue, newValue) -> {
-                if (!Utils.isNumberValid(newValue, Utils.Number.DOUBLE) || newValue.equals("")) {
-                    textHr.setText("0");
-                    return;
-                }
-            });
-
-            textHr.focusedProperty().addListener(new ChangeListener<Boolean>() {
-                @Override
-                public void changed(ObservableValue ov, Boolean t, Boolean t1) {
-
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (textHr.isFocused() && !textHr.getText().isEmpty()) {
-                                textHr.selectAll();
-                            }
-                        }
-                    });
-                }
-            });
-
+            utils.thousandDivider(SellOperSumma);
+            utils.thousandDivider(textDollar);
+            utils.thousandDivider(textHr);
+            utils.selectAll(SellOperSumma);
+            utils.selectAll(textDollar);
+            utils.selectAll(textHr);
 
             /**
              * btnAddCustomer button to add new customers
@@ -1252,13 +1240,6 @@ public class MainPageController extends Parent implements Initializable {
              * */
             btnOK.setOnMouseClicked(event -> {
 
-                String customerId = "9999";
-                Double paidSum = 0.0;
-                Double qarzsum = 0.0;
-                int sale = 0;
-                int dollar = 0;
-                int hr = 0;
-                Double percentage = 0.0;
                 String customerName = LabelCustomerId.getText();
                 if (!customerName.equals("*")) {
                     HistoryDao historyDao = new HistoryDao(myConn);
@@ -1290,19 +1271,26 @@ public class MainPageController extends Parent implements Initializable {
                          *
                          * */
 
-                        operDao.addSalePaidSum1("Chiqim", customerName, sum2, dollar2, hr2, commnet, "1", "0", "0");
 
-                        operDao.addSalePaidSum2("Kirim", customerName, sum, dollar1, hr1, commnet, "1", "0", "0");
+                        if (!sum.isEmpty() && !hr1.isEmpty() && !dollar1.isEmpty()) {
 
-                        historyDao.insertBasketToHistory(basket, Login.currentUser, credit, calculateCurrentTotalAll(), String.valueOf(Salesum), commnet, sum, dollar1, hr1);
-                        btnActionIzlash();
-                        printAction();
-                        scanCodeField.requestFocus();
-                        popOver.hide();
-                        reset();
-                        setCurrentIncome();
-                        setCurrentOutcome();
-                        callFunctions();
+                            historyDao.insertBasketToHistory(basket, Login.currentUser, credit, calculateCurrentTotalAll(), String.valueOf(Salesum), commnet, sum, dollar1, hr1);
+                            //
+                            //
+                            historyDao.addSalePaidSum2(sum, dollar1, hr1);
+                            btnActionIzlash();
+                            printAction();
+                            scanCodeField.requestFocus();
+                            popOver.hide();
+                            reset();
+                            setCurrentIncome();
+                            setCurrentOutcome();
+                            callFunctions();
+                        } else {
+                            SellOperSumma.setStyle("-fx-background-color:red; ");
+                            textHr.setStyle("-fx-background-color:red; ");
+                            textDollar.setStyle("-fx-background-color:red; ");
+                        }
 
                     } catch (Exception e) {
                         Utils.ErrorAlert("Xatolik", "Savdo amalga oshmadi", e.getMessage());
@@ -1404,25 +1392,58 @@ public class MainPageController extends Parent implements Initializable {
         ArrayList<ReceiptCheck> receiptChecks = null;
         receiptChecks = utilsDao.PerProduct();
         StringBuilder storage = new StringBuilder();
+        System.out.println(utilsDao.getCheckQuantity() + " ishladi");
         for (ReceiptCheck item : receiptChecks) {
-            storage.append(item.getName()).append("    Miqdori: ").append(item.getQuantity()).append("   Umumiy narxi: ").append(item.getPrice()).append("\n").append("----------------------------------------------\n");
+            storage.append(item.getName()).append("  No: ").append(item.getQuantity()).append("  Summa: ").append(item.getPrice()).append("\n").append("----------------------------------------------\n");
         }
         CheckSums checkSums = utilsDao.getCheckSums();
         //print some stuff
         printerService.printString(printer.printerName(), "\n" +
-                "*********Software Business Development**********\n\n\n" +
+                "******** Software Business Development *********\n\n\n" +
                 storage + "\n" +
-                "******************To'lashi kerak*************\n"+
+                "Mashina No:__________________________________\n\n\n\n\n" +
+                "***************** To'lashi kerak ************\n\n" +
                 "Umumiy So'm                  " + checkSums.getSum() + " sum\n\n" +
                 "Umumiy Hisob raqam summasi   " + checkSums.getHr() + " sum\n\n" +
                 "Umumiy dollar               $" + checkSums.getDollar() + "\n\n" +
-                "*****************To'langan*******************\n"+
-                "So'm                "+checkSums.getPsum()+"\n\n"+
-                "Dollar              "+checkSums.getPdollar()+"\n\n"+
-                "Hisob raqam         "+checkSums.getPhr()+"\n\n"+
+                "**************** To'langan ******************\n\n" +
+                "So'm                " + checkSums.getPsum() + "\n\n" +
+                "Dollar              " + checkSums.getPdollar() + "\n\n" +
+                "Hisob raqam         " + checkSums.getPhr() + "\n\n" +
+                "Umumiy miqdori      " + utilsDao.getCheckQuantity() + "\n\n" +
+                "Sotuvchi            " + utilsDao.getSellerName() + "\n\n\n" +
+                "************** " + apple + " ****************\n\n" +
+                "********** Xaridingiz uchun raxmat! **********\n\n\n\n\n\n\n\n\n");
+        // cut that paper!
+        byte[] cutP = new byte[]{0x1d, 'V', 1};
+        printerService.printBytes(printer.printerName(), cutP);
+    }
+
+    private void printActionWithId(String id) throws SQLException {
+        String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+        ArrayList<ReceiptCheck> receiptChecks = null;
+        receiptChecks = utilsDao.PerProduct();
+        StringBuilder storage = new StringBuilder();
+        for (ReceiptCheck item : receiptChecks) {
+            storage.append(item.getName()).append("  No: ").append(item.getQuantity()).append("  Summa: ").append(item.getPrice()).append("\n").append("----------------------------------------------\n");
+        }
+        CheckSums checkSums = utilsDao.getCheckSumsWithId(id);
+        //print some stuff
+        printerService.printString(printer.printerName(), "\n" +
+                "******** Software Business Development *********\n\n\n" +
+                storage + "\n" +
+                "Mashina No:__________________________________\n\n\n\n\n" +
+                "***************** To'lashi kerak ************\n\n" +
+                "Umumiy So'm                  " + checkSums.getSum() + " sum\n\n" +
+                "Umumiy Hisob raqam summasi   " + checkSums.getHr() + " sum\n\n" +
+                "Umumiy dollar               $" + checkSums.getDollar() + "\n\n" +
+                "**************** To'langan ******************\n\n" +
+                "So'm                " + checkSums.getPsum() + "\n\n" +
+                "Dollar              " + checkSums.getPdollar() + "\n\n" +
+                "Hisob raqam         " + checkSums.getPhr() + "\n\n" +
                 "Sotuvchi          $" + utilsDao.getSellerName() + "\n\n\n" +
-                "***************"+ apple +"*****************\n" +
-                "***********Xaridingiz uchun raxmat!***********\n\n\n");
+                "************** " + apple + " ****************\n\n" +
+                "********** Xaridingiz uchun raxmat! **********\n\n\n\n\n\n\n\n\n");
         // cut that paper!
         byte[] cutP = new byte[]{0x1d, 'V', 1};
         printerService.printBytes(printer.printerName(), cutP);
@@ -1431,23 +1452,23 @@ public class MainPageController extends Parent implements Initializable {
 
     private void operTable() {
         try {
-            if ( operCustomerFilter.getSelectionModel().getSelectedItem() !=null && operDanFilter.getValue() != null && operGachaFilter.getValue() != null) {
+            if (operCustomerFilter.getSelectionModel().getSelectedItem() != null && operDanFilter.getValue() != null && operGachaFilter.getValue() != null) {
                 String who = operCustomerFilter.getSelectionModel().getSelectedItem();
                 LocalDate date1 = operDanFilter.getValue();
                 LocalDate date2 = operGachaFilter.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.operTableFilter(operTable, who, sdate1, sdate2);
-            } else if(operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() != null && operGachaFilter.getValue() != null){
+                operDao.operTableFilter(operTable, who, sdate1, sdate2, labelOperSum, labelOperDollar, labelOperHr);
+            } else if (operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() != null && operGachaFilter.getValue() != null) {
                 LocalDate date1 = operDanFilter.getValue();
                 LocalDate date2 = operGachaFilter.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.operTableFilter(operTable, "", sdate1, sdate2);
-            } else if ( operCustomerFilter.getSelectionModel().getSelectedItem() ==null && operDanFilter.getValue() == null && operGachaFilter.getValue() == null){
-                operDao.operTableFilter(operTable, "","","");
+                operDao.operTableFilter(operTable, "", sdate1, sdate2, labelOperSum, labelOperDollar, labelOperHr);
+            } else if (operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() == null && operGachaFilter.getValue() == null) {
+                operDao.operTableFilter(operTable, "", "", "", labelOperSum, labelOperDollar, labelOperHr);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1459,6 +1480,8 @@ public class MainPageController extends Parent implements Initializable {
         try {
             String name = ComboBoxBalance.getSelectionModel().getSelectedItem();
             operDao.balanceTable(operBalanceTable, name);
+            operDao.selectOperwhoId(LabelBalanceIdWho, name);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1477,26 +1500,32 @@ public class MainPageController extends Parent implements Initializable {
     private void btnOperAction() {
 
         try {
-            double percentage = 0.0;
-            String type = operType.getSelectionModel().getSelectedItem();
-            percentage = Double.parseDouble(text_per.getText().trim().replaceAll("\\s+", ""));
-            String who = operWho.getSelectionModel().getSelectedItem();
-            String sum = operSum.getText().trim().replaceAll("\\s+", "");
-            String dollar = operDollar.getText().trim().replaceAll("\\s+", "");
-            String hr = operHR.getText().trim().replaceAll("\\s+", "");
-            String description = operDescription.getText();
-            operDao.addOperTable(type, who, sum, dollar, hr, description, String.valueOf(percentage), String.valueOf(Double.valueOf(sum) - ((Double.valueOf(sum) * (percentage / 100)))));
-            setCurrentIncome();
-            setCurrentOutcome();
-            operTable();
-            balanceTable();
+            if (operType.getSelectionModel().getSelectedItem() != null && !text_per.getText().isEmpty() && operWho.getSelectionModel().getSelectedItem() != null
+                    && !operSum.getText().isEmpty() && !operDollar.getText().isEmpty() && !operHR.getText().isEmpty()
+                    && !operDescription.getText().isEmpty()) {
+                double percentage = 0.0;
+                String type = operType.getSelectionModel().getSelectedItem();
+                percentage = Double.parseDouble(text_per.getText().trim().replaceAll("\\s", ""));
+                String who = OperWhoId.getText();
+                String sum = operSum.getText().trim().replaceAll("\\s+", "");
+                String dollar = operDollar.getText().trim().replaceAll("\\s+", "");
+                String hr = operHR.getText().trim().replaceAll("\\s+", "");
+                String description = operDescription.getText();
+                operDao.addOperTable(type, who, sum, dollar, hr, description, String.valueOf(percentage), String.valueOf(Double.valueOf(sum) - ((Double.valueOf(sum) * (percentage / 100)))));
+                setCurrentIncome();
+                setCurrentOutcome();
+                operTable();
+                balanceTable();
+            } else {
+                JOptionPane.showMessageDialog(null, "Hamma ma'lumotlarni kiriting!");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            operSum.setText("");
-            operDescription.setText("");
-            operDollar.setText("");
-            operHR.setText("");
+            operSum.setText("0");
+            operDescription.setText("0");
+            operDollar.setText("0");
+            operHR.setText("0");
             callFunctions();
         }
     }
@@ -1539,20 +1568,28 @@ public class MainPageController extends Parent implements Initializable {
     }
 
     // Print function
-    public void printCheck(String sum, String dollar, String hr, String outSum, String outDollar, String outHr) throws SQLException {
+    private void printCheck(String sum, String dollar, String hr, String outSum, String outDollar, String outHr) throws SQLException {
 
         printerService.printString(printer.printerName(), "\n" +
-                "*********Software Business Development**********\n\n\n" +
+                "******** Software Business Development *********\n\n\n" +
                 "Sum             " + sum + " sum\n\n" +
                 "Dollar         $" + dollar + " \n\n" +
                 "Hisob raqam     " + hr + " sum\n\n" +
-                "*******************************************\n"+
-                "-----------------Xarajatlar----------------\n"+
+                "*******************************************\n" +
+                "---------------- Xarajatlar ---------------\n" +
                 "Sum             " + outSum + " sum\n\n" +
                 "Dollar         $" + outDollar + " \n\n" +
                 "Hisob raqam     " + outHr + " sum\n\n" +
-                "***************" + apple + "***************\n" +
-                "***********Kun yopish uchun check!***********\n\n\n\n\n\n\n\n");
+                "************** " + apple + " **************\n" +
+                "********** Kun yopish uchun check! **********\n\n\n\n\n\n\n\n");
+        System.out.println(sum + "\n");
+        System.out.println(dollar + "\n");
+        System.out.println(hr + "\n");
+        System.out.println("\n\n\n\n\n\n");
+        System.out.println(outSum + "\n");
+        System.out.println(outDollar + "\n");
+        System.out.println(outHr + "\n");
+
         // cut that paper!
         byte[] cutP = new byte[]{0x1d, 'V', 1};
         printerService.printBytes(printer.printerName(), cutP);
@@ -1579,15 +1616,18 @@ public class MainPageController extends Parent implements Initializable {
                 String outcomeDollar = ExpenceDollar.getText().trim().replaceAll("\\s+", "");
                 String outcomeHR = ExpenceHR.getText().trim().replaceAll("\\s+", "");
 
-                printCheck(incomeSum, incomeDollar, incomeHR,outcomeSum, outcomeDollar, outcomeHR );//Print the check for end  of the day
-                operDao.addToTotalBalance(incomeSum, incomeDollar, incomeHR, outcomeSum, outcomeDollar, outcomeHR);
-                setCurrentIncome();
-                setCurrentOutcome();
-                JOptionPane.showMessageDialog(null, "Kun yopildi");
                 try {
-                    daoUtils.log("Savdo", "Savdo Operatsiyasi", "123", user_id, "Kunlik kassa yopldi:" + incomeSum + "--Sum.|" + incomeDollar + "--Dollar.|" + incomeHR + "--Hisob raqam.|");
+
+                    operDao.addToTotalBalance(incomeSum, incomeDollar, incomeHR, outcomeSum, outcomeDollar, outcomeHR);
+                    //
+                    printCheck(incomeSum, incomeDollar, incomeHR, outcomeSum, outcomeDollar, outcomeHR);
+                    //Print the check for end  of the day
+                    setCurrentIncome();
+                    setCurrentOutcome();
+
                 } catch (SQLException e) {
                     e.printStackTrace();
+
                 }
             }
     }
@@ -1597,6 +1637,7 @@ public class MainPageController extends Parent implements Initializable {
         try {
             String who = operWho.getSelectionModel().getSelectedItem();
             operDao.perPersonBalance(PersonHRBalance, PersonSumBalance, PersonDollarBalance, who);
+            operDao.selectOperwhoId(OperWhoId, who);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1625,27 +1666,25 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.excellHistoryTable( "", "", sdate1, sdate2);
-            }
-            else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() == null && HistoryGacha.getValue() == null) {
+                operDao.excellHistoryTable("", "", sdate1, sdate2);
+            } else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() == null && HistoryGacha.getValue() == null) {
                 operDao.HistoryTableFilter(HistoryTable, operHistoryWho.getSelectionModel().getSelectedItem(), tarixSelectName.getSelectionModel().getSelectedItem(), "", "", tarixTotalQuantity, tarixTotalCost);
-            } else if(operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() == null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+            } else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() == null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
                 LocalDate date1 = HistoryDan.getValue();
                 LocalDate date2 = HistoryGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.excellHistoryTable( operHistoryWho.getSelectionModel().getSelectedItem(), "", sdate1, sdate2);
-            }
-            else if(operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+                operDao.excellHistoryTable(operHistoryWho.getSelectionModel().getSelectedItem(), "", sdate1, sdate2);
+            } else if (operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
                 LocalDate date1 = HistoryDan.getValue();
                 LocalDate date2 = HistoryGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.excellHistoryTable( "", tarixSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2);
-            } else if(HistoryDan.getValue() == null && HistoryGacha.getValue() == null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
-                operDao.excellHistoryTable("","","","");
+                operDao.excellHistoryTable("", tarixSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2);
+            } else if (HistoryDan.getValue() == null && HistoryGacha.getValue() == null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
+                operDao.excellHistoryTable("", "", "", "");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1671,26 +1710,24 @@ public class MainPageController extends Parent implements Initializable {
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 operDao.HistoryTableFilter(HistoryTable, "", "", sdate1, sdate2, tarixTotalQuantity, tarixTotalCost);
-            }
-            else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() == null && HistoryGacha.getValue() == null) {
+            } else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() == null && HistoryGacha.getValue() == null) {
                 operDao.HistoryTableFilter(HistoryTable, operHistoryWho.getSelectionModel().getSelectedItem(), tarixSelectName.getSelectionModel().getSelectedItem(), "", "", tarixTotalQuantity, tarixTotalCost);
-            } else if(operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() == null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+            } else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() == null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
                 LocalDate date1 = HistoryDan.getValue();
                 LocalDate date2 = HistoryGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 operDao.HistoryTableFilter(HistoryTable, operHistoryWho.getSelectionModel().getSelectedItem(), "", sdate1, sdate2, tarixTotalQuantity, tarixTotalCost);
-            }
-             else if(operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
+            } else if (operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
                 LocalDate date1 = HistoryDan.getValue();
                 LocalDate date2 = HistoryGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 operDao.HistoryTableFilter(HistoryTable, "", tarixSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2, tarixTotalQuantity, tarixTotalCost);
-            } else if(HistoryDan.getValue() == null && HistoryGacha.getValue() == null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
-                 operDao.HistoryTableFilter(HistoryTable,"","","","", tarixTotalQuantity, tarixTotalCost);
+            } else if (HistoryDan.getValue() == null && HistoryGacha.getValue() == null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
+                operDao.HistoryTableFilter(HistoryTable, "", "", "", "", tarixTotalQuantity, tarixTotalCost);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1707,18 +1744,18 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.QarzTableFilter(QarzTable, name, sdate1, sdate2);
+                operDao.QarzTableFilter(QarzTable, name, sdate1, sdate2, sellsumT, selldollarT, sellhrT, sellsumP, selldollarP, sellhrP);
             } else if (QarzDan.getValue() != null && QarzGacha.getValue() != null && sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null) {
                 LocalDate date1 = QarzDan.getValue();
                 LocalDate date2 = QarzGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.QarzTableFilter(QarzTable, "", sdate1, sdate2);
+                operDao.QarzTableFilter(QarzTable, "", sdate1, sdate2, sellsumT, selldollarT, sellhrT, sellsumP, selldollarP, sellhrP);
             } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() != null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
-                operDao.QarzTableFilter(QarzTable, sellactionSelectCustomer.getSelectionModel().getSelectedItem(), "", "");
+                operDao.QarzTableFilter(QarzTable, sellactionSelectCustomer.getSelectionModel().getSelectedItem(), "", "", sellsumT, selldollarT, sellhrT, sellsumP, selldollarP, sellhrP);
             } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
-                operDao.QarzTableFilter(QarzTable, "1", "1", "1");
+                operDao.QarzTableFilter(QarzTable, "1", "1", "1", sellsumT, selldollarT, sellhrT, sellsumP, selldollarP, sellhrP);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1737,6 +1774,38 @@ public class MainPageController extends Parent implements Initializable {
     }
 
     @FXML
+    private void CheckExcellBtnAction() {
+        try {
+            try {
+                if (QarzDan.getValue() != null && QarzGacha.getValue() != null && sellactionSelectCustomer.getSelectionModel().getSelectedItem() != null) {
+                    String name = sellactionSelectCustomer.getSelectionModel().getSelectedItem();
+                    LocalDate date1 = QarzDan.getValue();
+                    LocalDate date2 = QarzGacha.getValue();
+                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                    String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                    String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                    operDao.getCheckExcellSheet(name, sdate1, sdate2);
+                } else if (QarzDan.getValue() != null && QarzGacha.getValue() != null && sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null) {
+                    LocalDate date1 = QarzDan.getValue();
+                    LocalDate date2 = QarzGacha.getValue();
+                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                    String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                    String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                    operDao.getCheckExcellSheet("", sdate1, sdate2);
+                } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() != null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
+                    operDao.getCheckExcellSheet(sellactionSelectCustomer.getSelectionModel().getSelectedItem(), "", "");
+                } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
+                    operDao.getCheckExcellSheet("1", "1", "1");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void btnExchangeFilterAction() {
         try {
             btnFilter();
@@ -1746,7 +1815,7 @@ public class MainPageController extends Parent implements Initializable {
     }
 
     public void table() throws SQLException {
-        productDao.exchangeTaleDao(ExchangeTable, "1", "1","1", ExchangeTotalQuantity);
+        productDao.exchangeTaleDao(ExchangeTable, "1", "1", "1", ExchangeTotalQuantity);
     }
 
     private void btnFilter() {
@@ -1769,7 +1838,7 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                productDao.exchangeTaleDao(ExchangeTable, "", sdate1, sdate2,  ExchangeTotalQuantity);
+                productDao.exchangeTaleDao(ExchangeTable, "", sdate1, sdate2, ExchangeTotalQuantity);
             } else if (exchangeSelectName.getSelectionModel().getSelectedItem() != null && ExchangeDan.getValue() == null && ExchangeGacha.getValue() == null) {
 
                 productDao.exchangeTaleDao(ExchangeTable, exchangeSelectName.getSelectionModel().getSelectedItem(), "", "", ExchangeTotalQuantity);
@@ -1813,7 +1882,7 @@ public class MainPageController extends Parent implements Initializable {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent())
                 if (result.get() == ButtonType.OK) {
-                    if (operDanFilter.getValue() != null && operDanFilter.getValue() != null) {
+                    if (operCustomerFilter.getSelectionModel().getSelectedItem() != null && operDanFilter.getValue() != null && operDanFilter.getValue() != null) {
                         String who = operCustomerFilter.getSelectionModel().getSelectedItem();
                         LocalDate date1 = operDanFilter.getValue();
                         LocalDate date2 = operGachaFilter.getValue();
@@ -1821,6 +1890,15 @@ public class MainPageController extends Parent implements Initializable {
                         String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                         String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                         operDao.excellOperTable(who, sdate1, sdate2);
+                    } else if (operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() != null && operDanFilter.getValue() != null) {
+                        LocalDate date1 = operDanFilter.getValue();
+                        LocalDate date2 = operGachaFilter.getValue();
+                        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                        String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                        String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                        operDao.excellOperTable("", sdate1, sdate2);
+                    } else if (operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() == null) {
+                        operDao.excellOperTable("", "", "");
                     }
                 }
         } catch (Exception e) {
@@ -1854,7 +1932,7 @@ public class MainPageController extends Parent implements Initializable {
      */
     @FXML
     public void btnChange() {
-        String who = ComboBoxBalance.getSelectionModel().getSelectedItem();
+        String who = LabelBalanceIdWho.getText();
         String type = ChangeType.getSelectionModel().getSelectedItem();
         String sum = ChangeSum.getText().trim().replaceAll("\\s+", "");
         operDao.exchange(who, type, sum);
@@ -1866,14 +1944,15 @@ public class MainPageController extends Parent implements Initializable {
     private void getSellactionCompanyName() {
         try {
             productDao.getSellActionNameCombobox(sellactionSelectCustomer);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     private void getSellactionExchangeName() {
         try {
             productDao.getSellActionExchangeName(exchangeSelectName);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -1886,7 +1965,35 @@ public class MainPageController extends Parent implements Initializable {
         }
     }
 
-
+    @FXML
+    private void MainRevertAction() {
+        try {
+            try {
+                TextInputDialog dialog = new TextInputDialog();
+                dialog.setTitle("Savdodan qaytarish");
+                dialog.setHeaderText("Maxsulot idsi");
+                dialog.setContentText("Qaytarasizmi ?");
+                Optional<String> result = dialog.showAndWait();
+                // The Java 8 way to get the response value (with lambda expression).
+                result.ifPresent(name ->
+                        {
+                            try {
+                                SellAction sellAction = productDao.revertProduct(revertLabel_id.getText());
+                                productDao.revertAll(sellAction.getId(), sellAction.getSum(), sellAction.getDollar(), sellAction.getHr(), sellAction.getPsum(), sellAction.getPdollar(), sellAction.getPhr(), sellAction.getSale(), sellAction.getCustomer_id(), sellAction.getCr_by(), sellAction.getDate_cr());
+                                ArrayList<ReceiptCheck> receiptChecks = null;
+                                receiptChecks = utilsDao.PerProductRevert(revertLabel_id.getText());
+                                productDao.revertPeoducrAll(receiptChecks);
+                                productDao.deleteHistory(revertLabel_id.getText());
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                );
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
-
-

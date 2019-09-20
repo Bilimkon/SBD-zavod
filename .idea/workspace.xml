@@ -8,207 +8,105 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/sample/controller" />
     <bookmark url="file://$PROJECT_DIR$/src/sample/dao/ProductDao.java" line="157" />
-    <bookmark url="file://$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" line="683" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/poi_ooxml_4_1_01.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/xmlbeans_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-collections4-4.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-compress-1.18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-math3-3.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jaxb-api-2.3.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/log4j-1.2.17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/poi-excelant-4.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/poi-ooxml-schemas-4.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/poi-scratchpad-4.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/xmlbeans-3.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/accounting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/Exchange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/Mainlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/P3History.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/p2List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/p2Tarix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/p2_xarajat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/ColorDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/ExchangeDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/ListDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/P3HistoryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/p2ListDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/p2TarixDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/p2_xarajatDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/AllCurrencyValues.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/Exchange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/ManList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/P2List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/p2Xarajat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/sell/Core/CheckSums.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/sell/Core/Models/CustomerName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/sell/productTableView/balance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/dao/accountingDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/Debt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/Dsp2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/History.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/LogTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/Marketing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/core/manList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/core/p2list.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/model/core/production3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/utils/ComboBoxAutoComplete.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/Exchange.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/MainPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/Manlist.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/P3Tarix.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/accounting.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/color.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/p2List.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/p2Tarix.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/p2_xarajat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/sdb_fabric.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/AdminOper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/balance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/AdminOperDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/balanceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/models/AdminOperModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/models/BalanceTotal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/sell/Core/Models/SellAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/model/AccountXarajat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/model/ShartnomaTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/model/TableExchangeDollar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/model/core/revert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/utils/TextFieldMoney.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/view/AdminOper.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/view/balance.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AddType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AddType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Invoice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Suplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Suplier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/InvoiceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/InvoiceDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SuplierDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SuplierDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/TypeDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/TypeDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Invoice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Suplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Suplier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/AdminPart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/BasketItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/BasketItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/ReceiptCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/ReceiptCheck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/HistoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/HistoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/OperDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/OperDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/ProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/SellerDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/UserDao.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/UtilsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/UtilsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/new_sbd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/printer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$10$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$2$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$3$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$4$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$8$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$9$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$9.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils$Number.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils$Number.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/MaxsulotTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/MaxsulotTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/ProductTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/ProductTable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/css/mainPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/css/mainPageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/AdminPart.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/Login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/MainPage.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/views/AddType.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/views/Invoice.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/views/Suplier.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/Login.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/Sale.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/main2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/controller/main3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/AdminDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/AdminDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main2Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main2Dao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main3Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main3Dao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/ProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/SystemUtilsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/SystemUtilsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/daoUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/daoUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/accountingDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/accountingDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/database.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/userDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/userDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Production3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Production3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/SimplePaperProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/SimpleProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/TableB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/TableB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/tablePaper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/tablePaper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/AdminPage1.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/AdminPage1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/AdminPageDash.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/AdminPageDash.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/Workbookcontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/Workbookcontroller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Sale.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Invoice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Invoice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/MainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/accounting.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/accounting.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdb_fabric.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sdb_fabric.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Admin1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Admin1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/accounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/accounting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/AddType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/AddType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/Suplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/Suplier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/TypeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/TypeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/models/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/models/Invoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/models/Suplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/models/Suplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/AdminPart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/Core/Models/BasketItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/Core/Models/BasketItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/Core/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/Core/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/Core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/Core/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/Core/Models/ReceiptCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/Core/Models/ReceiptCheck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/HistoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/HistoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/SellerDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/UserDao.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/UtilsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/UtilsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/new_sbd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/printer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/Utils/BarCodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/Utils/BarCodeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/Utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/Utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/productTableView/MaxsulotTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/productTableView/MaxsulotTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/productTableView/ProductTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/productTableView/ProductTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/style/css/mainPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/style/css/mainPageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/AdminPart.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/Login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/MainPage.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/views/AddType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/AddType.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/views/Invoice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Invoice.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/views/Suplier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Suplier.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controller/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controller/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controller/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controller/main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/controller/main3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/AdminDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/DaoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/DaoUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/dao/Main2Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/Main2Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/Main3Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/Main3Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/dao/accountingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/accountingDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/dao/database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/userDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/userDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/Production3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/Production3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/SimplePaperProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/core/production2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/SimpleProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/core/product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/TableB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/TableB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/tablePaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/tablePaper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style/AdminPage1.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/style/AdminPage1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style/AdminPageDash.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/style/AdminPageDash.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/style/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/style/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/main1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/main3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/Admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Admin1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/Sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Sale.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/utils/utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/utils/utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/Admin1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Admin1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/Invoice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Invoice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/MainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/accounting.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/accounting.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/view/main2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/view/main3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main3.fxml" afterDir="false" />
     </list>
@@ -323,8 +221,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/components/sell/MainPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="1692" column="25" selection-start-line="1692" selection-start-column="25" selection-end-line="1692" selection-end-column="25" />
+            <state relative-caret-position="-197">
+              <caret line="1959" column="28" selection-start-line="1959" selection-start-column="28" selection-end-line="1959" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -333,20 +231,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/view/MainPage.fxml">
+        <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/UtilsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="847" column="67" selection-start-line="847" selection-start-column="67" selection-end-line="847" selection-end-column="67" />
+            <state relative-caret-position="276">
+              <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
             </state>
           </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/main1.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/dao/database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="153" column="33" lean-forward="true" selection-start-line="143" selection-start-column="8" selection-end-line="153" selection-end-column="33" />
+            <state relative-caret-position="368">
+              <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -355,37 +252,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Invoice.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="136" column="21" selection-start-line="135" selection-start-column="11" selection-end-line="142" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/p2_xarajat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="109" column="9" selection-start-line="79" selection-start-column="8" selection-end-line="109" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/dao/p2_xarajatDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="90" column="11" lean-forward="true" selection-start-line="90" selection-start-column="11" selection-end-line="93" selection-end-column="13" />
+            <state relative-caret-position="1692">
+              <caret line="790" column="43" selection-start-line="790" selection-start-column="43" selection-end-line="790" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -393,17 +263,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="236" column="16" selection-start-line="236" selection-start-column="16" selection-end-line="236" selection-end-column="16" />
+            <state relative-caret-position="889">
+              <caret line="469" column="53" selection-start-line="469" selection-start-column="53" selection-end-line="469" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/HistoryDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-92">
+              <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/main2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="425" column="45" lean-forward="true" selection-start-line="425" selection-start-column="45" selection-end-line="425" selection-end-column="45" />
+              <folding>
+                <element signature="e#20504#20505#0" expanded="true" />
+                <element signature="e#20541#20542#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/dao/Main2Dao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6890">
+              <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="196" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/components/dao/p2_xarajatDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="167" column="86" selection-start-line="167" selection-start-column="86" selection-end-line="167" selection-end-column="86" />
+            <state relative-caret-position="415">
+              <caret line="65" column="95" selection-start-line="65" selection-start-column="95" selection-end-line="65" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/components/dao/ExchangeDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -420,40 +333,42 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SellOper</find>
-      <find>tabpane</find>
-      <find>datePicker</find>
-      <find>btnu</find>
-      <find>operFilterAction</find>
-      <find>totalC</find>
-      <find>btnSellExcellAction</find>
-      <find>ComboboxColor</find>
-      <find>comboCurrency</find>
-      <find>btnRevertAction</find>
-      <find>btnmain2</find>
-      <find>operHistoryWho</find>
-      <find>text_balan</find>
-      <find>btnPaperAction</find>
-      <find>btnExcellBalanceTable</find>
-      <find>btnOkAction</find>
-      <find>btnUpdateAction</find>
       <find>btnDspAction</find>
-      <find>balanceTable</find>
       <find>SellWho</find>
-      <find>btnPersonAction</find>
       <find>invo</find>
       <find>button</find>
       <find>btnP2ListAction</find>
       <find>btnOk</find>
-      <find>btnQarzFilterAction</find>
       <find>btnExchangeFilterAction</find>
       <find>exchangeSelectName</find>
       <find>btnHistoryFilterAction</find>
       <find>operCustomerFilter</find>
+      <find>btnQarzFilterAction</find>
+      <find>btnUpdateAction</find>
+      <find>btnExchangeAction</find>
+      <find>btnOperFilterAction</find>
+      <find>btnAccExchangeAction</find>
+      <find>btnAddAction</find>
+      <find>MainRevertAction</find>
+      <find>btnPersonAction</find>
+      <find>btnOperAction</find>
+      <find>text_per</find>
+      <find>operSum</find>
+      <find>ChangeSum</find>
+      <find>itemPrice</find>
+      <find>btnChange</find>
+      <find>operation</find>
+      <find>TextFiled</find>
+      <find>TextField</find>
+      <find>TextFieldMoney</find>
+      <find>TextFieldMOney</find>
+      <find>balanceTable</find>
     </findStrings>
     <replaceStrings>
       <replace>omborDan</replace>
       <replace>omborGacha</replace>
+      <replace>TextFiled</replace>
+      <replace>TextField</replace>
     </replaceStrings>
   </component>
   <component name="FindManager">
@@ -467,43 +382,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sample/view/main3.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/view/MainPage.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/style/css/mainPageStyle.css" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/components/models/Exchange.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/Exchange/Exchange.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/Exchange/Exchange.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/Exchange/ExchangeDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/Exchange2.java" />
-        <option value="$PROJECT_DIR$/src/sample/view/Exchange2.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/Core/Models/CustomerName.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/DAO/HistoryDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/model/Debt.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/Core/CheckSums.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/DAO/UtilsDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/view/Invoice.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/style/AdminPage1.css" />
-        <option value="$PROJECT_DIR$/src/sample/Admin1.java" />
-        <option value="$PROJECT_DIR$/src/sample/view/Exchange.fxml" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/p2List.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/p2_xarajat.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/Exchange.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/Invoice.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/Mainlist.java" />
-        <option value="$PROJECT_DIR$/src/sample/dao/database.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/P3History.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/controllers/p2Tarix.java" />
-        <option value="$PROJECT_DIR$/src/sample/main2.java" />
-        <option value="$PROJECT_DIR$/src/sample/dao/Main3Dao.java" />
-        <option value="$PROJECT_DIR$/src/sample/dao/DaoUtils.java" />
-        <option value="$PROJECT_DIR$/src/sample/dao/Main2Dao.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/dao/ColorDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/dao/ListDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/dao/p2ListDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/dao/TypeDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/dao/p2_xarajatDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/dao/P3HistoryDao.java" />
@@ -511,13 +390,49 @@
         <option value="$PROJECT_DIR$/src/sample/components/dao/ExchangeDao.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/userDao.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/dao/accountingDao.java" />
         <option value="$PROJECT_DIR$/src/sample/dao/ProductDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/main1.java" />
         <option value="$PROJECT_DIR$/src/sample/main3.java" />
+        <option value="$PROJECT_DIR$/src/sample/main1.java" />
+        <option value="$PROJECT_DIR$/src/sample/model/ShartnomaTable.java" />
+        <option value="$PROJECT_DIR$/src/sample/model/AccountXarajat.java" />
+        <option value="$PROJECT_DIR$/src/sample/model/TableExchangeDollar.java" />
+        <option value="$PROJECT_DIR$/src/sample/model/core/revert.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/models/AdminOperModel.java" />
+        <option value="$PROJECT_DIR$/src/sample/dao/AdminDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/dao/AdminOperDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/Core/Models/SellAction.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/Core/Models/ReceiptCheck.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/DAO/UtilsDao.java" />
         <option value="$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java" />
-        <option value="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/DAO/HistoryDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/utils/TextFieldMoney.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/controllers/AddType.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/dao/Main2Dao.java" />
+        <option value="$PROJECT_DIR$/src/sample/main2.java" />
+        <option value="$PROJECT_DIR$/src/sample/view/balance.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/components/models/BalanceTotal.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/controllers/balance.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/dao/balanceDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/view/accounting.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/view/MainPage.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Admin1.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/controllers/AdminOper.java" />
+        <option value="$PROJECT_DIR$/src/sample/view/Admin1.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/view/AdminOper.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/view/Invoice.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/utils/utils.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/controllers/Invoice.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.java" />
+        <option value="$PROJECT_DIR$/src/sample/dao/accountingDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/accounting.java" />
         <option value="$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" />
+        <option value="$PROJECT_DIR$/src/sample/dao/database.java" />
+        <option value="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" />
       </list>
     </option>
   </component>
@@ -529,10 +444,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="192" />
-    <option name="y" value="105" />
-    <option name="width" value="923" />
-    <option name="height" value="496" />
+    <option name="x" value="240" />
+    <option name="y" value="130" />
+    <option name="width" value="1440" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -543,7 +458,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -551,6 +465,11 @@
             <path>
               <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
               <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
@@ -584,6 +503,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="sell" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -600,12 +527,56 @@
               <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomItems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomItems" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomBasketItem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="sell" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomItems" type="462c0819:PsiDirectoryNode" />
+              <item name="CustomDiscountWindow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdb_fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdb_fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -634,11 +605,21 @@
     <property name="project.structure.side.proportion" value="0.2678161" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Humoyun\Projects\SBD-factory\sdb_fabric\src\sample\view" />
+      <recent name="D:\Humoyun\Projects\SBD-factory\sdb_fabric\src\sample\resources" />
+      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\components\views" />
+      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\components\models\views" />
+      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\view" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="sample" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="sample.components.sell.views.CustomItems.Exchange" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Humoyun\Projects\SBD-factory\sdb_fabric\src\sample\components\sell\views\CustomItems\Exchange" />
@@ -646,16 +627,6 @@
       <recent name="D:\Humoyun\Projects\SBD-factory\sdb_fabric\src\sample\style\images" />
       <recent name="$PROJECT_DIR$/src/sample/view" />
       <recent name="$PROJECT_DIR$/src/sample/style" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="sample.components.sell.views.CustomItems.Exchange" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Humoyun\Projects\SBD-factory\sdb_fabric\src\sample\view" />
-      <recent name="D:\Humoyun\Projects\SBD-factory\sdb_fabric\src\sample\resources" />
-      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\components\views" />
-      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\components\models\views" />
-      <recent name="E:\Humoyun\Projects\sdb_fabric\src\sample\view" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -837,9 +808,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.13432837" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17004265" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32995737" />
       <window_info id="Designer" order="3" />
@@ -849,22 +820,22 @@
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.57529795" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30227518" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.44192636" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5232936" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4409534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32946146" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32719547" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3101983" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.30877572" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="16" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="17" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="17" weight="0.32719547" />
       <window_info anchor="bottom" id="SQL Generator" order="18" weight="0.82990247" />
       <window_info anchor="bottom" id="Duplicate detector" order="19" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -881,7 +852,7 @@
       <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.141258" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19083156" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32995737" />
       <window_info id="Designer" order="3" />
@@ -890,23 +861,23 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Learn" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.08923513" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6251354" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.14872521" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.57529795" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.58504874" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.44192636" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32946146" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32719547" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.31852654" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.30877572" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="16" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="17" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" order="17" weight="0.32719547" />
       <window_info anchor="bottom" id="SQL Generator" order="18" weight="0.82990247" />
       <window_info anchor="bottom" id="Duplicate detector" order="19" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -960,295 +931,401 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/UtilsDao.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/AddType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Color.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <caret line="75" column="61" lean-forward="true" selection-start-line="75" selection-start-column="61" selection-end-line="75" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/HistoryDao.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="76">
+          <caret line="383" column="25" selection-start-line="383" selection-start-column="25" selection-end-line="383" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/model/Debt.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/components/models/BalanceTotal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+        <state relative-caret-position="575">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
+            <element signature="e#1205#1206#0" expanded="true" />
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+            <element signature="e#1370#1371#0" expanded="true" />
+            <element signature="e#1411#1412#0" expanded="true" />
+            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="e#1471#1472#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1580#1581#0" expanded="true" />
+            <element signature="e#1611#1612#0" expanded="true" />
+            <element signature="e#1640#1641#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1719#1720#0" expanded="true" />
             <element signature="e#1744#1745#0" expanded="true" />
-            <element signature="e#1792#1793#0" expanded="true" />
-            <element signature="e#1817#1818#0" expanded="true" />
-            <element signature="e#1853#1854#0" expanded="true" />
-            <element signature="e#1884#1885#0" expanded="true" />
-            <element signature="e#1914#1915#0" expanded="true" />
-            <element signature="e#1946#1947#0" expanded="true" />
-            <element signature="e#1995#1996#0" expanded="true" />
-            <element signature="e#2021#2022#0" expanded="true" />
-            <element signature="e#2059#2060#0" expanded="true" />
-            <element signature="e#2092#2093#0" expanded="true" />
-            <element signature="e#2125#2126#0" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2212#2213#0" expanded="true" />
-            <element signature="e#2241#2242#0" expanded="true" />
-            <element signature="e#2285#2286#0" expanded="true" />
-            <element signature="e#2324#2325#0" expanded="true" />
-            <element signature="e#2353#2354#0" expanded="true" />
+            <element signature="e#1780#1781#0" expanded="true" />
+            <element signature="e#1811#1812#0" expanded="true" />
+            <element signature="e#1842#1843#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+            <element signature="e#1925#1926#0" expanded="true" />
+            <element signature="e#1952#1953#0" expanded="true" />
+            <element signature="e#1992#1993#0" expanded="true" />
+            <element signature="e#2027#2028#0" expanded="true" />
+            <element signature="e#2057#2058#0" expanded="true" />
+            <element signature="e#2089#2090#0" expanded="true" />
+            <element signature="e#2138#2139#0" expanded="true" />
+            <element signature="e#2164#2165#0" expanded="true" />
+            <element signature="e#2202#2203#0" expanded="true" />
+            <element signature="e#2235#2236#0" expanded="true" />
+            <element signature="e#2268#2269#0" expanded="true" />
+            <element signature="e#2303#2304#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
             <element signature="e#2384#2385#0" expanded="true" />
-            <element signature="e#2432#2433#0" expanded="true" />
-            <element signature="e#2457#2458#0" expanded="true" />
-            <element signature="e#2493#2494#0" expanded="true" />
-            <element signature="e#2524#2525#0" expanded="true" />
-            <element signature="e#2555#2556#0" expanded="true" />
-            <element signature="e#2588#2589#0" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-            <element signature="e#2665#2666#0" expanded="true" />
-            <element signature="e#2705#2706#0" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2774#2775#0" expanded="true" />
-            <element signature="e#2810#2811#0" expanded="true" />
-            <element signature="e#2863#2864#0" expanded="true" />
-            <element signature="e#2893#2894#0" expanded="true" />
-            <element signature="e#2939#2940#0" expanded="true" />
-            <element signature="e#2980#2981#0" expanded="true" />
-            <element signature="e#3010#3011#0" expanded="true" />
-            <element signature="e#3042#3043#0" expanded="true" />
-            <element signature="e#3091#3092#0" expanded="true" />
-            <element signature="e#3117#3118#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
-            <element signature="e#3188#3189#0" expanded="true" />
-            <element signature="e#3219#3220#0" expanded="true" />
-            <element signature="e#3252#3253#0" expanded="true" />
-            <element signature="e#3302#3303#0" expanded="true" />
-            <element signature="e#3329#3330#0" expanded="true" />
-            <element signature="e#3369#3370#0" expanded="true" />
-            <element signature="e#3404#3405#0" expanded="true" />
-            <element signature="e#3439#3440#0" expanded="true" />
-            <element signature="e#3476#3477#0" expanded="true" />
-            <element signature="e#3530#3531#0" expanded="true" />
-            <element signature="e#3561#3562#0" expanded="true" />
-            <element signature="e#3609#3610#0" expanded="true" />
-            <element signature="e#3652#3653#0" expanded="true" />
-            <element signature="e#3690#3691#0" expanded="true" />
-            <element signature="e#3730#3731#0" expanded="true" />
-            <element signature="e#3787#3788#0" expanded="true" />
-            <element signature="e#3821#3822#0" expanded="true" />
-            <element signature="e#3875#3876#0" expanded="true" />
-            <element signature="e#3924#3925#0" expanded="true" />
-            <element signature="e#3956#3957#0" expanded="true" />
-            <element signature="e#3990#3991#0" expanded="true" />
-            <element signature="e#4041#4042#0" expanded="true" />
-            <element signature="e#4069#4070#0" expanded="true" />
-            <element signature="e#4111#4112#0" expanded="true" />
-            <element signature="e#4148#4149#0" expanded="true" />
-            <element signature="e#4182#4183#0" expanded="true" />
-            <element signature="e#4218#4219#0" expanded="true" />
-            <element signature="e#4271#4272#0" expanded="true" />
-            <element signature="e#4301#4302#0" expanded="true" />
-            <element signature="e#4347#4348#0" expanded="true" />
-            <element signature="e#4388#4389#0" expanded="true" />
-            <element signature="e#4422#4423#0" expanded="true" />
-            <element signature="e#4458#4459#0" expanded="true" />
-            <element signature="e#4511#4512#0" expanded="true" />
-            <element signature="e#4541#4542#0" expanded="true" />
-            <element signature="e#4587#4588#0" expanded="true" />
-            <element signature="e#4628#4629#0" expanded="true" />
+            <element signature="e#2428#2429#0" expanded="true" />
+            <element signature="e#2467#2468#0" expanded="true" />
+            <element signature="e#2496#2497#0" expanded="true" />
+            <element signature="e#2527#2528#0" expanded="true" />
+            <element signature="e#2575#2576#0" expanded="true" />
+            <element signature="e#2600#2601#0" expanded="true" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2667#2668#0" expanded="true" />
+            <element signature="e#2697#2698#0" expanded="true" />
+            <element signature="e#2729#2730#0" expanded="true" />
+            <element signature="e#2778#2779#0" expanded="true" />
+            <element signature="e#2804#2805#0" expanded="true" />
+            <element signature="e#2842#2843#0" expanded="true" />
+            <element signature="e#2875#2876#0" expanded="true" />
+            <element signature="e#2911#2912#0" expanded="true" />
+            <element signature="e#2949#2950#0" expanded="true" />
+            <element signature="e#3004#3005#0" expanded="true" />
+            <element signature="e#3036#3037#0" expanded="true" />
+            <element signature="e#3086#3087#0" expanded="true" />
+            <element signature="e#3131#3132#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/style/AdminPage.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/model/Product.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/balance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/style/AdminPage1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Admin1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="245" column="33" selection-start-line="245" selection-start-column="33" selection-end-line="245" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/accounting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-499">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Sale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/Invoice.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="76" column="44" lean-forward="true" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/Exchange.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="12" selection-start-line="38" selection-start-column="47" selection-end-line="41" selection-end-column="14" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/main2.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/p2List.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/p2List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="112" column="23" selection-start-line="112" selection-start-column="23" selection-end-line="112" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Exchange.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+        <state relative-caret-position="530">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/model/TableB.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/control/ComboBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="191" column="13" selection-start-line="191" selection-start-column="13" selection-end-line="191" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/balanceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/productTableView/balance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/Core/Xisoblar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/p2_xarajat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/regex/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="1026" column="26" selection-start-line="1026" selection-start-column="26" selection-end-line="1026" selection-end-column="26" />
+          <folding>
+            <element signature="e#48487#48488#0" expanded="true" />
+            <element signature="e#48531#48532#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/main1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="247" column="64" selection-start-line="247" selection-start-column="64" selection-end-line="247" selection-end-column="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-738">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4303">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/javafx-src.zip!/javafx/scene/control/TextField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/AddType.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/Admin1.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/bar-chart.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/balance.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/color.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/Exchange.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/Dashboard.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1449" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Character.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="122" column="6" selection-start-line="122" selection-start-column="6" selection-end-line="122" selection-end-column="6" />
+          <folding>
+            <element signature="e#197464#197465#0" expanded="true" />
+            <element signature="e#197503#197504#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/Invoice.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/utils/utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="40" column="80" selection-start-line="40" selection-start-column="80" selection-end-line="40" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/MainPage.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/Suplier.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1265">
+          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/AdminOper.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="30" />
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/main3.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="75" column="35" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Invoice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="66" column="44" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="103" column="39" selection-start-line="103" selection-start-column="39" selection-end-line="103" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Admin1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18423">
+          <caret line="860" column="84" selection-start-line="860" selection-start-column="84" selection-end-line="860" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/AdminOper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3772">
+          <caret line="164" column="36" selection-start-line="164" selection-start-column="36" selection-end-line="164" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/accounting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5221">
+          <caret line="229" column="40" selection-start-line="229" selection-start-column="40" selection-end-line="229" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/view/accounting.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/P3History.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2806">
-          <caret line="139" column="26" selection-start-line="139" selection-start-column="26" selection-end-line="139" selection-end-column="26" />
+        <state relative-caret-position="7613">
+          <caret line="331" column="97" selection-start-line="331" selection-start-column="97" selection-end-line="331" selection-end-column="97" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/p2Tarix.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Exchange.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="102" column="28" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
+        <state relative-caret-position="1334">
+          <caret line="74" column="48" selection-start-line="74" selection-start-column="48" selection-end-line="74" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Mainlist.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/dao/accountingDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2093">
-          <caret line="100" column="27" selection-start-line="100" selection-start-column="27" selection-end-line="100" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/P3Tarix.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="38" column="65" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/Login.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="193" column="24" selection-start-line="193" selection-start-column="24" selection-end-line="193" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/TypeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/P3HistoryDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="99" column="32" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/p2TarixDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1473">
-          <caret line="101" column="30" lean-forward="true" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/p2ListDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/ListDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1609">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="829">
+          <caret line="393" column="24" selection-start-line="393" selection-start-column="24" selection-end-line="393" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/components/dao/ExchangeDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        <state relative-caret-position="138">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/ColorDao.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1334">
-          <caret line="65" column="41" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state relative-caret-position="889">
+          <caret line="469" column="53" selection-start-line="469" selection-start-column="53" selection-end-line="469" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1692">
+          <caret line="790" column="43" selection-start-line="790" selection-start-column="43" selection-end-line="790" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/dao/database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
+        <state relative-caret-position="368">
           <caret line="16" column="72" selection-start-line="16" selection-start-column="72" selection-end-line="16" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1256,87 +1333,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/Main3Dao.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/UtilsDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10902">
-          <caret line="489" selection-start-line="489" selection-end-line="489" />
+        <state relative-caret-position="276">
+          <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/MainPageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-197">
+          <caret line="1959" column="28" selection-start-line="1959" selection-start-column="28" selection-end-line="1959" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/AdminDao.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/HistoryDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="-92">
+          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/DaoUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/main2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-469">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/userDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="552">
+          <caret line="425" column="45" lean-forward="true" selection-start-line="425" selection-start-column="45" selection-end-line="425" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/accountingDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/dao/ProductDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2174">
-          <caret line="228" column="56" lean-forward="true" selection-start-line="228" selection-start-column="56" selection-end-line="228" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/main3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1776">
-          <caret line="416" column="94" selection-start-line="416" selection-start-column="94" selection-end-line="416" selection-end-column="94" />
-          <folding>
-            <element signature="e#16537#16538#0" expanded="true" />
-            <element signature="e#21788#21789#0" expanded="true" />
+            <element signature="e#20504#20505#0" expanded="true" />
+            <element signature="e#20541#20542#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/dao/Main2Dao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="365" column="2" lean-forward="true" selection-start-line="365" selection-start-column="2" selection-end-line="380" selection-end-column="5" />
+        <state relative-caret-position="-6890">
+          <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="196" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1345,71 +1380,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/components/dao/p2_xarajatDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="90" column="11" lean-forward="true" selection-start-line="90" selection-start-column="11" selection-end-line="93" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/p2_xarajat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="109" column="9" selection-start-line="79" selection-start-column="8" selection-end-line="109" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="136" column="21" selection-start-line="135" selection-start-column="11" selection-end-line="142" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/controllers/Invoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/main1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="153" column="33" lean-forward="true" selection-start-line="143" selection-start-column="8" selection-end-line="153" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="236" column="16" selection-start-line="236" selection-start-column="16" selection-end-line="236" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/view/MainPage.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="847" column="67" selection-start-line="847" selection-start-column="67" selection-end-line="847" selection-end-column="67" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/MainPageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="1692" column="25" selection-start-line="1692" selection-start-column="25" selection-end-line="1692" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="167" column="86" selection-start-line="167" selection-start-column="86" selection-end-line="167" selection-end-column="86" />
+        <state relative-caret-position="415">
+          <caret line="65" column="95" selection-start-line="65" selection-start-column="95" selection-end-line="65" selection-end-column="95" />
         </state>
       </provider>
     </entry>
@@ -1424,6 +1396,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2678161" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

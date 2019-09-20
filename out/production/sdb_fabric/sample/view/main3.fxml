@@ -181,7 +181,7 @@
                               <RowConstraints maxHeight="22.0" minHeight="0.0" prefHeight="5.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextField fx:id="textDsp" prefHeight="39.0" prefWidth="878.0" promptText="Dsp" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <TextField fx:id="textDsp" prefHeight="39.0" prefWidth="878.0" promptText="Dsp" style="-fx-background-color: #F7DCD7;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="6.0" />
                                  </GridPane.margin>
@@ -204,7 +204,7 @@
                               <RowConstraints maxHeight="22.0" minHeight="0.0" prefHeight="5.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextField fx:id="textPaper" prefHeight="39.0" prefWidth="113.0" promptText="Qog'oz" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <TextField fx:id="textPaper" prefHeight="39.0" prefWidth="113.0" promptText="Qog'oz" style="-fx-background-color: #F7DCD7;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" right="5.0" />
                                  </GridPane.margin>

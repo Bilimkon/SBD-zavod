@@ -16,7 +16,7 @@ public class database {
             Class.forName("com.mysql.cj.jdbc.Driver");
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DaoUtils.tableName, "Humoyun", "Bilimkon@1540937");
         } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Databasega ulanishda xatolik");
+            JOptionPane.showMessageDialog(null, "Serverga ulanishda xatolik");
             exc.printStackTrace();
         }
         return myConn;
