@@ -23,7 +23,7 @@ html{
     -fx-background-color: #1a3751;
 }
 .tab{
-    -fx-background-color:   #aed6f1;
+    -fx-background-color: #214463;
     -fx-pref-width:111.5px;
     -fx-pref-height: 40px;
     -fx-font-family: Arial;
@@ -36,12 +36,12 @@ html{
     -fx-font-size: 12px;
 }
 .tab:hover {
-    -fx-background-color:  #5dade2;
+    -fx-background-color:  #2d6497;
     -fx-text-fill: black;
 }
 .tab:selected{
-    -fx-background-color: #5dade2;
-    -fx-text-fill: white;
+    -fx-background-color: #40515f;
+    -fx-text-fill: rgb(3, 3, 3);
 }
 .tab-header-background {
     -fx-background-color:  transparent;
@@ -207,4 +207,3 @@ html{
 .label-text {
 -fx-background-color: #fdebd0;
 }
-

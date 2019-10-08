@@ -11,6 +11,8 @@ import sample.components.sell.Core.Product;
 import sample.components.sell.productTableView.ProductTable;
 import sample.dao.database;
 import sample.model.History;
+import sample.model.Report;
+import sample.utils.Workbookcontroller;
 
 import javax.swing.*;
 import java.sql.*;
@@ -397,6 +399,24 @@ public class ProductDao {
         }
     }
 
+    public void ReportSelectName(ComboBox<String> comboBox) throws SQLException {
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT companyName from person order by companyName ");
+            while (resultSet.next()) {  // loop
+                // Now add the comboBox addAll statement
+                comboBox.getItems().addAll(resultSet.getString("companyName"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sample.dao.DaoUtils.close(statement, resultSet);
+        }
+    }
+
+
     public SellAction revertProduct(String id) throws SQLException {
 
         Statement statement = null;
@@ -488,6 +508,151 @@ public class ProductDao {
             e.printStackTrace();
         }
         JOptionPane.showMessageDialog(null, "Operatsiya yakunlandi");
+    }
+
+    public void ReportTableDao(TableView tableView, String name, String dan, String gacha) throws SQLException {
+
+        Statement statement = null;
+        ResultSet resultSet = null;
+        PreparedStatement pr = null;
+        ResultSet myRs = null;
+
+        //List to add items
+        ObservableList<Report> tableBS = FXCollections.observableArrayList();
+
+        if (!name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V where who='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+
+//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1 where who='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+//            myRs = pr.executeQuery();
+        } else if (name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+
+//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1 where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+//            myRs = pr.executeQuery();
+        } else if (!name.isEmpty() && dan.isEmpty() && gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V where who='" + name + "'");
+
+//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1 where who='" + name + "'");
+//            myRs = pr.executeQuery();
+        } else if (name.equals("1") || dan.equals("1") || gacha.equals("1")) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V ORDER BY id desc limit 500");
+
+//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1");
+//            myRs = pr.executeQuery();
+        }
+
+        try {
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    Report tableB = new Report();
+                    tableB.setId(resultSet.getString("id"));
+                    tableB.setType(resultSet.getString("type"));
+                    tableB.setWho(resultSet.getString("who"));
+                    tableB.setSum(resultSet.getString("sum"));
+                    tableB.setDollar(resultSet.getString("dollar"));
+                    tableB.setHr(resultSet.getString("hr"));
+                    tableB.setPsum(resultSet.getString("psum"));
+                    tableB.setPdollar(resultSet.getString("pdollar"));
+                    tableB.setPhr(resultSet.getString("phr"));
+                    tableB.setSale(resultSet.getString("sale"));
+                    tableB.setProduct(resultSet.getString("product"));
+                    tableB.setComment(resultSet.getString("comment"));
+                    tableB.setCr_on(resultSet.getString("cr_on"));
+                    tableB.setS_id(resultSet.getString("s_id"));
+                    tableBS.add(tableB);
+                }
+            }
+
+
+            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+            symbols.setGroupingSeparator(' ');
+            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+
+//            if (myRs != null && myRs.next()) {
+//                quantity.setText(formatter.format(myRs.getDouble("outt")));
+//
+//            }
+
+            tableView.setItems(tableBS);
+
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            try {
+                sample.dao.DaoUtils.close(statement, resultSet);
+                if (pr != null) {
+                    pr.close();
+                }
+                if (myRs != null) {
+                    myRs.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public void ReportExcellDao(TableView tableView, String name, String dan, String gacha) throws SQLException {
+        Statement statement = null;
+        ResultSet resultSet = null;
+        PreparedStatement pr = null;
+        ResultSet myRs = null;
+
+        //List to add items
+        ObservableList<Report> tableBS = FXCollections.observableArrayList();
+
+        if (!name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V where who='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+
+
+        } else if (name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+
+
+        } else if (!name.isEmpty() && dan.isEmpty() && gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V where who='" + name + "'");
+
+        } else if (name.equals("1") || dan.equals("1") || gacha.equals("1")) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM report1_V ORDER BY id desc limit 500");
+
+        }
+
+        try {
+            if (resultSet != null) {
+                Workbookcontroller workbookcontroller = new Workbookcontroller();
+                workbookcontroller.datebaseToExcelResultset("report1_v", "Hisobot.xls", resultSet);
+            }
+
+            tableView.setItems(tableBS);
+
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            try {
+                sample.dao.DaoUtils.close(statement, resultSet);
+                if (pr != null) {
+                    pr.close();
+                }
+                if (myRs != null) {
+                    myRs.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }
 

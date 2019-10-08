@@ -49,6 +49,7 @@ import sample.components.sell.views.CustomItems.CustomBasketItem.ShopItemListIte
 import sample.dao.SystemUtilsDao;
 import sample.dao.database;
 import sample.model.Debt;
+import sample.model.Report;
 import sample.model.User;
 import sample.utils.ComboBoxAutoComplete;
 import sample.utils.Workbookcontroller;
@@ -236,6 +237,15 @@ public class MainPageController extends Parent implements Initializable {
     private Label OperWhoId;
     @FXML
     private Label LabelBalanceIdWho;
+    @FXML
+    private ComboBox<String> ReportSelectName;
+    @FXML
+    private DatePicker ReportDan;
+    @FXML
+    private DatePicker ReportGacha;
+    @FXML
+    private TableView ReportTable;
+
 
 
     @FXML
@@ -470,6 +480,44 @@ public class MainPageController extends Parent implements Initializable {
 
     }
 
+    private void initializeReportTable(){
+        TableColumn<Report, String> id = new TableColumn<>("Id");
+        TableColumn<Report, String> type  = new TableColumn<>("Turi");
+        TableColumn<Report, String> who = new TableColumn<>("Haridor");
+        TableColumn<Report, String> sum = new TableColumn<>("So'm");
+        TableColumn<Report, String> dollar = new TableColumn<>("Dollar");
+        TableColumn<Report, String> hr = new TableColumn<>("Hr");
+        TableColumn<Report, String> psum = new TableColumn<>("To'langan so'm");
+        TableColumn<Report, String> pdollar = new TableColumn<>("To'langan dollar");
+        TableColumn<Report, String> phr = new TableColumn<>("To'langan hr");
+        TableColumn<Report, String> sale = new TableColumn<>("Chegirma");
+        TableColumn<Report, String> product = new TableColumn<>("Maxsulotlar");
+        TableColumn<Report, String> comment = new TableColumn<>("Izoh");
+        TableColumn<Report, String> cr_on = new TableColumn<>("Sana");
+        TableColumn<Report, String> cr_by = new TableColumn<>("Ishchi");
+        TableColumn<Report, String> s_id = new TableColumn<>("Check No");
+
+
+        ReportTable.getColumns().addAll(cr_on, type, who, sum, dollar, hr, psum, pdollar, phr, product, sale, comment);
+
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        who.setCellValueFactory(new PropertyValueFactory<>("who"));
+        sum.setCellValueFactory(new PropertyValueFactory<>("sum"));
+        dollar.setCellValueFactory(new PropertyValueFactory<>("dollar"));
+        hr.setCellValueFactory(new PropertyValueFactory<>("hr"));
+        psum.setCellValueFactory(new PropertyValueFactory<>("psum"));
+        pdollar.setCellValueFactory(new PropertyValueFactory<>("pdollar"));
+        phr.setCellValueFactory(new PropertyValueFactory<>("phr"));
+        sale.setCellValueFactory(new PropertyValueFactory<>("sale"));
+        product.setCellValueFactory(new PropertyValueFactory<>("product"));
+        comment.setCellValueFactory(new PropertyValueFactory<>("comment"));
+        cr_on.setCellValueFactory(new PropertyValueFactory<>("cr_on"));
+        cr_by.setCellValueFactory(new PropertyValueFactory<>("cr_by"));
+        s_id.setCellValueFactory(new PropertyValueFactory<>("s_id"));
+
+    }
+
     /**
      * Initialise MainPart
      */
@@ -616,6 +664,8 @@ public class MainPageController extends Parent implements Initializable {
         tarixSelectName.getItems().addAll("");
         operHistoryWho.getItems().addAll("");
         operCustomerFilter.getItems().addAll("");
+        ReportSelectName.getItems().addAll("");
+
 
         try {
             setSaleCheck();
@@ -626,9 +676,11 @@ public class MainPageController extends Parent implements Initializable {
             getSellactionCompanyName();
             getSellactionExchangeName();
             getTarixSelectName();
+            getReportCompanyName();
             setCurrentIncome();
             setCurrentOutcome();
             table();
+            reportTable();
 
 
             tarixCheckTable.setOnMouseClicked((MouseEvent event) -> {
@@ -712,6 +764,7 @@ public class MainPageController extends Parent implements Initializable {
         intializeBalanceTable();
         initializeDebtorsTable();
         initializeSellactionTable();
+        initializeReportTable();
         operTable();
         balanceTable();
         debtorsTable();
@@ -763,6 +816,7 @@ public class MainPageController extends Parent implements Initializable {
                 getTarixSelectName();
                 setCurrentIncome();
                 setCurrentOutcome();
+                reportTable();
             }
         }));
         ficeSecondsWonder.setCycleCount(Timeline.INDEFINITE);
@@ -1088,9 +1142,11 @@ public class MainPageController extends Parent implements Initializable {
      */
     private void onBtnDiscountClicked() {
         try {
+
             FXMLLoader loader = createCustomItemLoader("DiscountWindow", "CustomDiscountWindow/");
             assert loader != null;
             BorderPane vBox = loader.load();
+            vBox.centerProperty();
             PopOver popOver = new PopOver(vBox);
             Button btnCancel = (Button) vBox.lookup("#btnCancel");
             Button btnOK = (Button) vBox.lookup("#discountOK");
@@ -1927,6 +1983,82 @@ public class MainPageController extends Parent implements Initializable {
         }
     }
 
+    private void reportTable(){
+        try {
+            if (ReportDan.getValue() != null && ReportGacha.getValue() != null && ReportSelectName.getSelectionModel().getSelectedItem() != null) {
+
+                String name = ReportSelectName.getSelectionModel().getSelectedItem();
+                LocalDate date1 = ReportDan.getValue();
+                LocalDate date2 = ReportGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.ReportTableDao(ReportTable, name, sdate1, sdate2);
+
+            } else if (ReportDan.getValue() != null && ReportGacha.getValue() != null && ReportSelectName.getSelectionModel().getSelectedItem() == null) {
+
+                LocalDate date1 = ReportDan.getValue();
+                LocalDate date2 = ReportGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.ReportTableDao(ReportTable, "", sdate1, sdate2);
+            } else if (ReportSelectName.getSelectionModel().getSelectedItem() != null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
+
+                productDao.ReportTableDao(ReportTable, ReportSelectName.getSelectionModel().getSelectedItem(), "", "");
+
+            } else if (ReportSelectName.getSelectionModel().getSelectedItem() == null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
+                productDao.ReportTableDao(ReportTable, "1", "1", "1");
+            } else {
+                productDao.ReportTableDao(ReportTable, "1", "1", "1");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void btnReportAction(){
+        reportTable();
+    }
+
+    @FXML
+    private void btnReportExcellAction() {
+        try {
+            if (ReportDan.getValue() != null && ReportGacha.getValue() != null && ReportSelectName.getSelectionModel().getSelectedItem() != null) {
+
+                String name = ReportSelectName.getSelectionModel().getSelectedItem();
+                LocalDate date1 = ReportDan.getValue();
+                LocalDate date2 = ReportGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.ReportExcellDao(ReportTable, name, sdate1, sdate2);
+
+            } else if (ReportDan.getValue() != null && ReportGacha.getValue() != null && ReportSelectName.getSelectionModel().getSelectedItem() == null) {
+
+                LocalDate date1 = ReportDan.getValue();
+                LocalDate date2 = ReportGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.ReportExcellDao(ReportTable, "", sdate1, sdate2);
+            } else if (ReportSelectName.getSelectionModel().getSelectedItem() != null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
+
+                productDao.ReportExcellDao(ReportTable, ReportSelectName.getSelectionModel().getSelectedItem(), "", "");
+
+            } else if (ReportSelectName.getSelectionModel().getSelectedItem() == null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
+                productDao.ReportExcellDao(ReportTable, "1", "1", "1");
+            } else {
+                productDao.ReportExcellDao(ReportTable, "1", "1", "1");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     /**
      * Ayrboshlash
      */
@@ -1952,6 +2084,14 @@ public class MainPageController extends Parent implements Initializable {
     private void getSellactionExchangeName() {
         try {
             productDao.getSellActionExchangeName(exchangeSelectName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getReportCompanyName(){
+        try {
+            productDao.ReportSelectName(ReportSelectName);
         } catch (Exception e) {
             e.printStackTrace();
         }

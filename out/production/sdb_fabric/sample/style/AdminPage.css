@@ -151,4 +151,31 @@ html{
 .table-view > .virtual-flow > .scroll-bar > .decrement-button {
     -fx-opacity: 0;
 }
+.tab{
+    -fx-background-color: #b9b9b7;
+    -fx-pref-width:111.5px;
+    -fx-pref-height: 30px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.tab-label{
+    -fx-text-fill: white;
+    -fx-rotate: 0;
+    -fx-font-size: 12px;
+}
+.tab:hover {
+    -fx-background-color: #d1d1ce;
+    -fx-text-fill: black;
+}
+.tab:selected{
+    -fx-background-color: #a3a3a0;
+    -fx-text-fill: white;
+}
+.tab-header-background {
+    -fx-background-color:  transparent;
+
+}
+.tab-pane{
+    -fx-padding: 0 -1 -1 -1;
+}
 

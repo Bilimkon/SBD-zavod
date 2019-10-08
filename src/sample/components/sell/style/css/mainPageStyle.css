@@ -1,10 +1,10 @@
 #cancelShop {
 }
-.table-view .column-header  {
-    -fx-background-color: #1c435e;
-}
+/* .table-view .column-header  {
+    -fx-background-color: #b9b9b7;
+} */
 .button {
-    -fx-background-color: #1c435e;
+    -fx-background-color: #50baeb;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 );
@@ -61,11 +61,11 @@
     -fx-background-color:   #eaeaee;
 }
 .table-row-cell:selected {
-    -fx-background-color:  #B1B1B1;
+    -fx-background-color: #fa6c7b;
 }
-.table-header{
--fx-text-fill:white;
-}
+/* .table-header{
+-fx-text-fill:rgb(255, 255, 255);
+} */
 .color-text{
     -fx-text-fill:#1c435e;
 }
@@ -91,12 +91,8 @@
     -fx-border-width: 2;
     -fx-border-color: #1c435e;
 }
-.calendar{
-    -fx-border-width: 1;
-    -fx-border-color: #1c435e;
-}
 .button:hover{
-    -fx-background-color:  #20E27B;
+    -fx-background-color: #50baeb;
 }
 .table-view .table-cell{
     -fx-font-size:14px;
@@ -105,10 +101,10 @@
     -fx-background-color: linear-gradient(#131313 0%, #424141 100%);
 }
 
-.table-view .column-header-background .label{
+/* .table-view .column-header-background .label{
     -fx-background-color: transparent;
-    -fx-text-fill: white;
-}
+    -fx-text-fill: rgb(252, 248, 248);
+} */
 .list-view{
     -fx-text-fill: white;
     -fx-font-size: 20px;
@@ -117,7 +113,7 @@
     -fx-fill-height: 100px;
 }
 .list-cell:selected{
-    -fx-background-color: #FF5E5B;
+    -fx-background-color: #ef7b33;
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
@@ -135,7 +131,7 @@
 -fx-background-color: #f1948a;
 }
 .tab{
-    -fx-background-color: #1c435e;
+    -fx-background-color: #b9b9b7;
     -fx-pref-width:111.5px;
     -fx-pref-height: 30px;
     -fx-font-family: Arial;
@@ -147,11 +143,11 @@
     -fx-font-size: 12px;
 }
 .tab:hover {
-    -fx-background-color: #20E27B;
+    -fx-background-color: #d1d1ce;
     -fx-text-fill: black;
 }
 .tab:selected{
-    -fx-background-color: #20E27B;
+    -fx-background-color: #a3a3a0;
     -fx-text-fill: white;
 }
 .tab-header-background {
@@ -224,4 +220,7 @@
 
 .combo-box-base:disabled {
     -fx-opacity: .4;
+}
+.date-picker {
+    -fx-text-fill: #ef7b33;
 }

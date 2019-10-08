@@ -502,23 +502,17 @@
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
                                                       <ColumnConstraints hgrow="SOMETIMES" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="41.0" />
-                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="203.0" />
                                                    </columnConstraints>
                                                    <rowConstraints>
                                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                    </rowConstraints>
                                                    <children>
-                                                      <TextField fx:id="AdminTextSearch" minWidth="100.0" prefHeight="28.0" prefWidth="207.0" promptText="Izlang..." GridPane.columnIndex="8">
-                                                         <GridPane.margin>
-                                                            <Insets left="5.0" right="5.0" />
-                                                         </GridPane.margin>
-                                                      </TextField>
-                                                      <Button fx:id="btnPdfAction" minWidth="100.0" mnemonicParsing="false" onAction="#btnPdfAction" text="PDF     " GridPane.columnIndex="3">
+                                                      <Button fx:id="btnPdfAction" minWidth="100.0" mnemonicParsing="false" onAction="#btnPdfAction" text="PDF     " GridPane.columnIndex="4">
                                                          <GridPane.margin>
                                                             <Insets left="5.0" right="5.0" />
                                                          </GridPane.margin>
@@ -530,7 +524,7 @@
                                                             </ImageView>
                                                          </graphic>
                                                       </Button>
-                                                      <Button minWidth="100.0" mnemonicParsing="false" onAction="#btnPathImage" text="Path " GridPane.columnIndex="5">
+                                                      <Button minWidth="100.0" mnemonicParsing="false" onAction="#btnPathImage" text="Path " GridPane.columnIndex="6">
                                                          <GridPane.margin>
                                                             <Insets left="5.0" right="5.0" />
                                                          </GridPane.margin>
@@ -559,7 +553,7 @@
                                                             </ImageView>
                                                          </graphic>
                                                       </Button>
-                                                      <Button minWidth="100.0" mnemonicParsing="false" onAction="#btnExcelAction" text="Excel " GridPane.columnIndex="4">
+                                                      <Button minWidth="100.0" mnemonicParsing="false" onAction="#btnExcelAction" text="Excel " GridPane.columnIndex="5">
                                                          <GridPane.margin>
                                                             <Insets left="5.0" right="5.0" />
                                                          </GridPane.margin>
@@ -571,7 +565,7 @@
                                                             </ImageView>
                                                          </graphic>
                                                       </Button>
-                                                      <Button fx:id="AdminBtnSearch" minHeight="32.0" minWidth="100.0" mnemonicParsing="false" onAction="#btnColorAction" text="Ranglar " GridPane.columnIndex="6">
+                                                      <Button fx:id="AdminBtnSearch" minHeight="32.0" minWidth="100.0" mnemonicParsing="false" onAction="#btnColorAction" text="Ranglar " GridPane.columnIndex="7">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -591,14 +585,11 @@
                                                             </ImageView>
                                                          </graphic>
                                                       </Button>
-                                                      <ImageView fitHeight="40.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7">
-                                                         <image>
-                                                            <Image url="@../view/Icons/Search.png" />
-                                                         </image>
+                                                      <Button mnemonicParsing="false" onAction="#invoiceLogBtnAction" prefHeight="32.0" prefWidth="100.0" text="Invoice log" GridPane.columnIndex="3">
                                                          <GridPane.margin>
-                                                            <Insets left="5.0" right="5.0" />
+                                                            <Insets right="5.0" />
                                                          </GridPane.margin>
-                                                      </ImageView>
+                                                      </Button>
                                                    </children>
                                                 </GridPane>
                                              </children>
@@ -627,7 +618,7 @@
                                  <center>
                                     <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                                        <center>
-                                          <TableView fx:id="AdminTable" prefHeight="635.0" prefWidth="783.0" style="-fx-background-color: white;" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
+                                          <TableView fx:id="AdminTable" onSort="#invoiceLogBtnAction" prefHeight="635.0" prefWidth="783.0" style="-fx-background-color: white;" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                              </columnResizePolicy></TableView>

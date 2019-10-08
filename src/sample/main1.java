@@ -175,7 +175,7 @@ public class main1 implements Initializable {
         TableColumn<Product, String> description = new TableColumn<>("Ma'lumot");
         TableColumn<Product, String> color = new TableColumn<>("Rangi");
 
-        AdminTable.getColumns().addAll(barcode, type, name, quantity, cost, invoice, suplier, unit, date, user, color, description, id);
+        AdminTable.getColumns().addAll(barcode, type, name, quantity, cost, invoice, suplier, unit, date, user, color, description);
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         invoice.setCellValueFactory(new PropertyValueFactory<>("invoice"));
@@ -666,6 +666,22 @@ public class main1 implements Initializable {
             root = FXMLLoader.load(getClass().getResource("view/Invoice.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Invoice qo'shish");
+            stage.setScene(new Scene(root, 1000, 700));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void invoiceLogBtnAction() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("view/invoicelog.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Invoice log");
             stage.setScene(new Scene(root, 1000, 700));
             stage.setResizable(false);
             stage.isAlwaysOnTop();

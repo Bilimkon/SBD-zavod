@@ -185,3 +185,30 @@ html{
     -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
 /*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
 }
+.tab{
+    -fx-background-color: #b9b9b7;
+    -fx-pref-width:111.5px;
+    -fx-pref-height: 30px;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+}
+.tab-label{
+    -fx-text-fill: white;
+    -fx-rotate: 0;
+    -fx-font-size: 12px;
+}
+.tab:hover {
+    -fx-background-color: #d1d1ce;
+    -fx-text-fill: black;
+}
+.tab:selected{
+    -fx-background-color: #a3a3a0;
+    -fx-text-fill: white;
+}
+.tab-header-background {
+    -fx-background-color:  transparent;
+
+}
+.tab-pane{
+    -fx-padding: 0 -1 -1 -1;
+}

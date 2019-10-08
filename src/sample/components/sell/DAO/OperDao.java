@@ -672,7 +672,7 @@ public class OperDao {
         }
         try (PreparedStatement preparedStatement = myConn.prepareStatement("Update balance set  sum_in=0, sum_out=0, dollar_in=0, dollar_out=0, hr_in=0, hr_out=0 where who=99999")) {
             preparedStatement.executeUpdate();
-            log("Admin", "Savdoni yopish", SumIn, user_id, "Sum: " + SumIn + " Dollar: " + DollarIn + " HR:" + hrIn + " Chiqim sum: " + sumOut + " Chiqim dollar: " + dollarOut + " Chiqim Hr: " + hrOut);
+            log("Admin", "Kun yopish", SumIn,  DollarIn, hrIn , sumOut , dollarOut , hrOut, user_id);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -849,16 +849,20 @@ public class OperDao {
 
     }
 
-    private void log(String module, String type, String cost, String cr_by, String comment) throws SQLException {
+    private void log(String module, String type, String ksum, String kdollar, String khr, String csum, String cdollar, String chr, String cr_by) throws SQLException {
 
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-        try (PreparedStatement pr = myConn.prepareStatement("insert into log ( module, type, cost, cr_by, date , comment) values (?,?,?,?,?,?)")) {
+        try (PreparedStatement pr = myConn.prepareStatement("insert into admin_log_table ( module, type, ksum, kdollar, khr, csum, cdollar, chr, cr_by, date) values (?,?,?,?,?,?,?,?,?,?)")) {
             pr.setString(1, module);
             pr.setString(2, type);
-            pr.setString(3, cost);
-            pr.setString(4, cr_by);
-            pr.setString(5, apple);
-            pr.setString(6, comment);
+            pr.setString(3, ksum);
+            pr.setString(4, kdollar);
+            pr.setString(5, khr);
+            pr.setString(6, csum);
+            pr.setString(7, cdollar);
+            pr.setString(8, chr);
+            pr.setString(9, cr_by);
+            pr.setString(10, apple);
             pr.execute();
 
         } catch (Exception e) {

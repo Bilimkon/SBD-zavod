@@ -25,16 +25,13 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import sample.components.sell.Core.History;
 import sample.components.sell.DAO.UtilsDao;
 import sample.components.sell.Utils.Utils;
-import sample.components.sell.productTableView.OperTable;
 import sample.dao.AdminDao;
 import sample.dao.DaoUtils;
 import sample.dao.ProductDao;
 import sample.dao.database;
 import sample.model.Marketing;
-import sample.model.Product;
 import sample.model.UserTable;
 import sample.utils.Workbookcontroller;
 import sample.utils.utils;
@@ -96,14 +93,6 @@ public class Admin1 implements Initializable {
     @FXML
     private ComboBox<String> ColorFilter;
     @FXML
-    private ComboBox<String> NameFilter;
-    @FXML
-    private ComboBox<String> CompanyFilter;
-    @FXML
-    private Label TotalDollarSum;
-    @FXML
-    private Label TotalSum;
-    @FXML
     private Label LabelSumTotal;
     @FXML
     private Label LabelDollarTotal;
@@ -117,34 +106,7 @@ public class Admin1 implements Initializable {
     private TextField ExchangeSumma;
     @FXML
     private TextField DollarRate;
-    @FXML
-    private Label LabelExchangeMoney;
 
-    // tab ombor
-    @FXML
-    private TableView tableA_ombor;
-    @FXML
-    private JFXDatePicker danOmborLog;
-    @FXML
-    private JFXDatePicker gachaOmborLog;
-    @FXML
-    private TableView tableOmborLog;
-    // end of tab ombor
-
-    // tab 1-ish/ch
-    @FXML
-    private JFXDatePicker danMain1;
-    @FXML
-    private JFXDatePicker gachaMain1;
-    @FXML
-    TableView tableMain1;
-    // tab 2-ish/ch
-    @FXML
-    private JFXDatePicker danMain2;
-    @FXML
-    private JFXDatePicker gachaMain2;
-    @FXML
-    private TableView tableMain2;
     // tab admin
     @FXML
     private JFXDatePicker danAdmin;
@@ -153,6 +115,11 @@ public class Admin1 implements Initializable {
     @FXML
     private TableView tableAdminLog;
 
+    // tab admin
+    @FXML
+    private JFXDatePicker danAdmin1;
+    @FXML
+    private JFXDatePicker gachaAdmin1;
     // chart
     @FXML
     private JFXDatePicker danChart;
@@ -160,21 +127,8 @@ public class Admin1 implements Initializable {
     private JFXDatePicker gachaChart;
     @FXML
     private AreaChart chartAdminSale;
-
-    // Savdo
     @FXML
-    private JFXDatePicker danOper;
-    @FXML
-    private JFXDatePicker gachaOper;
-    @FXML
-    private TableView tableOperAdmin;
-
-    @FXML
-    private JFXDatePicker danSaleHistory;
-    @FXML
-    private JFXDatePicker gachaSaleHistoty;
-    @FXML
-    private TableView tableSaleHistory;
+    private TableView table_log;
 
     String user_id = String.valueOf(Login.currentUser.getId());
     String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
@@ -196,32 +150,22 @@ public class Admin1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Role.getItems().addAll("Ombor", "1-ish/ch", "2-ish/ch", "Savdo", "Admin1","Accounting");
+        Role.getItems().addAll("Ombor", "1-ish/ch", "2-ish/ch", "Savdo", "Admin1", "Accounting");
         ExchangeCombobox.getItems().addAll("Sum-Dollar", "HR-Dollar", "Dollar-Sum", "Sum-Hr", "Hr-Sum");
         initializeTable();
         initializeMarketingTable();
-        initializeProductTab();
-        initializeOmborLogTable();
-        initialize1ishchLogTable();
-        initialize2ischLogTable();
         intitializeAdminlogTable();
-        initializeHistoryTable();
-        initializeOperTable();
         userTable();
         marketingTable();
-        omborATable();
         chart();
-        LogTable();
-        main1Table();
-        main2Table();
         AdminLogTable();
-        SaleOperTable();
-        SaleTarixTable();
         setUpdate();
         setUpdateMarketing();
         AddCompanyCombobox();
         colorCombobox();
+        InitializeLogTable();
         total_Sum();
+        AdminLog();
         utils.thousandDivider(ExchangeSumma);
         utils.thousandDivider(DollarRate);
 
@@ -233,14 +177,9 @@ public class Admin1 implements Initializable {
             public void handle(ActionEvent event) {
                 userTable();
                 marketingTable();
-                omborATable();
-                LogTable();
-                main1Table();
-                main2Table();
                 AdminLogTable();
-                SaleOperTable();
-                SaleTarixTable();
                 total_Sum();
+
             }
         }));
         ficeSecondsWonder.setCycleCount(Timeline.INDEFINITE);
@@ -291,192 +230,63 @@ public class Admin1 implements Initializable {
 
     }
 
-    private void initializeOmborLogTable() {
-        TableColumn id = new TableColumn("Id");
-        TableColumn module = new TableColumn("Modul");
-        TableColumn type = new TableColumn("Turi");
-        TableColumn cost = new TableColumn("Narxi");
-        TableColumn cr_by = new TableColumn("Ishchi");
-        TableColumn date = new TableColumn("Sana");
-        TableColumn comment = new TableColumn("Ma'lumot");
-        tableOmborLog.getColumns().addAll(id, module, type, cost, cr_by, date, comment);
-
-        id.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("id"));
-        module.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("module"));
-        type.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("type"));
-        cost.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cost"));
-        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cr_by"));
-        date.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("date"));
-        comment.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("comment"));
-    }
-
-    // initialize ombor table
-
-    private void initializeProductTab() {
-        TableColumn<Product, String> id = new TableColumn<>("Id");
-        TableColumn<Product, String> invoice = new TableColumn<>("invoice");
-        TableColumn<Product, String> barcode = new TableColumn<>("Barcode");
-        TableColumn<Product, String> name = new TableColumn<>("Nomi");
-        TableColumn<Product, String> type = new TableColumn<>("Turi");
-        TableColumn<Product, String> cost = new TableColumn<>("Narxi");
-        TableColumn<Product, String> quantity = new TableColumn<>("Miqdori");
-        TableColumn<Product, String> user = new TableColumn<>("Ishchi");
-        TableColumn<Product, String> date = new TableColumn<>("Sana");
-        TableColumn<Product, String> suplier = new TableColumn<>("Taminotchi");
-        TableColumn<Product, String> unit = new TableColumn<>("Birlik");
-        TableColumn<Product, String> description = new TableColumn<>("Ma'lumot");
-        TableColumn<Product, String> color = new TableColumn<>("Rangi");
-        tableA_ombor.getColumns().addAll(id, invoice, unit, barcode, name, type, cost, quantity, suplier, date, user,color, description);
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        invoice.setCellValueFactory(new PropertyValueFactory<>("invoice"));
-        barcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
-        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
-        quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        user.setCellValueFactory(new PropertyValueFactory<>("cr_by"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date_cr"));
-        suplier.setCellValueFactory(new PropertyValueFactory<>("suplier_id"));
-        unit.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        description.setCellValueFactory(new PropertyValueFactory<>("description"));
-        color.setCellValueFactory(new PropertyValueFactory<>("color"));
-
-    }
-    // end of initializing ombor table
-
-    //initializing table for 1-ish/ch
-    private void initialize1ishchLogTable() {
-        TableColumn id = new TableColumn("Id");
-        TableColumn module = new TableColumn("Modul");
-        TableColumn type = new TableColumn("Turi");
-        TableColumn cost = new TableColumn("Narxi");
-        TableColumn cr_by = new TableColumn("Ishchi");
-        TableColumn date = new TableColumn("Sana");
-        TableColumn comment = new TableColumn("Ma'lumot");
-        tableMain1.getColumns().addAll(id, module, type, cost, cr_by, date, comment);
-
-        id.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("id"));
-        module.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("module"));
-        type.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("type"));
-        cost.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cost"));
-        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cr_by"));
-        date.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("date"));
-        comment.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("comment"));
-    }
-
-    // Initializing table for 2-ish/ch
-    private void initialize2ischLogTable() {
-        TableColumn id = new TableColumn("Id");
-        TableColumn module = new TableColumn("Modul");
-        TableColumn type = new TableColumn("Turi");
-        TableColumn cost = new TableColumn("Narxi");
-        TableColumn cr_by = new TableColumn("Ishchi");
-        TableColumn date = new TableColumn("Sana");
-        TableColumn comment = new TableColumn("Ma'lumot");
-        tableMain2.getColumns().addAll(id, module, type, cost, cr_by, date, comment);
-
-        id.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("id"));
-        module.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("module"));
-        type.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("type"));
-        cost.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cost"));
-        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cr_by"));
-        date.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("date"));
-        comment.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("comment"));
-    }
-
     // initializing table AdminLog
     private void intitializeAdminlogTable() {
         TableColumn id = new TableColumn("Id");
         TableColumn module = new TableColumn("Modul");
         TableColumn type = new TableColumn("Turi");
+        TableColumn ksum = new TableColumn("Kirim so'm");
+        TableColumn kdollar = new TableColumn("Kirim dollar");
+        TableColumn khr = new TableColumn("Kirim hr");
+        TableColumn csum = new TableColumn("Chiqim so'm");
+        TableColumn cdollar = new TableColumn("Chiqim dollar");
+        TableColumn chr = new TableColumn("Chiqim hr");
+        TableColumn cr_by = new TableColumn("Ishchi");
+        TableColumn date = new TableColumn("Sana");
+        TableColumn comment = new TableColumn("Ma'lumot");
+        tableAdminLog.getColumns().addAll(date, module, type, ksum, kdollar, khr, csum, cdollar, chr, cr_by);
+
+        id.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("id"));
+        module.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("module"));
+        type.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("type"));
+        ksum.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("ksum"));
+        kdollar.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("kdollar"));
+        khr.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("khr"));
+        csum.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("csum"));
+        cdollar.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("cdollar"));
+        chr.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("chr"));
+        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("cr_by"));
+        date.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("date"));
+        comment.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("comment"));
+    }
+
+    private void InitializeLogTable() {
+        TableColumn id = new TableColumn("Id");
+        TableColumn module = new TableColumn("Modul");
+        TableColumn type = new TableColumn("Turi");
         TableColumn cost = new TableColumn("Narxi");
         TableColumn cr_by = new TableColumn("Ishchi");
         TableColumn date = new TableColumn("Sana");
         TableColumn comment = new TableColumn("Ma'lumot");
-        tableAdminLog.getColumns().addAll(id, module, type, cost, cr_by, date, comment);
+        table_log.getColumns().addAll(date, module, type, cr_by, comment);
 
-        id.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("id"));
-        module.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("module"));
-        type.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("type"));
-        cost.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cost"));
-        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cr_by"));
-        date.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("date"));
-        comment.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("comment"));
-    }
-
-    // InitializeSaleOperTable
-    private void initializeOperTable() {
-        TableColumn<OperTable, String> id = new TableColumn<>("Tartib raqami");
-        TableColumn<OperTable, String> type = new TableColumn<>("To'lov turi");
-        TableColumn<OperTable, String> who = new TableColumn<>("Kimga/Kimdan");
-        TableColumn<OperTable, String> sum = new TableColumn<>("Summa");
-        TableColumn<OperTable, String> sum_eqv = new TableColumn<>("Ekvivalent summa");
-        TableColumn<OperTable, String> description = new TableColumn<>("Ma'lumot");
-        TableColumn<OperTable, String> cr_by = new TableColumn<>("Sotuvchi");
-        TableColumn<OperTable, String> date = new TableColumn<>("Sana");
-        TableColumn<OperTable, String> currency = new TableColumn<>("Valyuta");
-
-        tableOperAdmin.getColumns().addAll(id, type, who, sum, sum_eqv, cr_by, date, currency, description);
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        who.setCellValueFactory(new PropertyValueFactory<>("who"));
-        sum.setCellValueFactory(new PropertyValueFactory<>("sum"));
-        sum_eqv.setCellValueFactory(new PropertyValueFactory<>("sum_eqv"));
-        description.setCellValueFactory(new PropertyValueFactory<>("description"));
-        cr_by.setCellValueFactory(new PropertyValueFactory<>("cr_by"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date"));
-        currency.setCellValueFactory(new PropertyValueFactory<>("currency"));
-    }
-
-    //initialize admin history table
-    private void initializeHistoryTable() {
-        TableColumn<History, String> id = new TableColumn<>("id");
-        TableColumn<History, String> barcode = new TableColumn<>("Barcode");
-        TableColumn<History, String> p_id = new TableColumn<>("Maxsulot idsi");
-        TableColumn<History, String> name = new TableColumn<>("Nomi");
-        TableColumn<History, String> type = new TableColumn<>("Turi");
-        TableColumn<History, String> quantity = new TableColumn<>("Miqdori");
-        TableColumn<History, String> seller_id = new TableColumn<>("Sotuvchi");
-        TableColumn<History, String> cost = new TableColumn<>("Narxi");
-        TableColumn<History, String> date_cr = new TableColumn<>("Sana");
-        TableColumn<History, String> cr_by = new TableColumn<>("Sotuvchi");
-        TableColumn<History, String> customer_id = new TableColumn<>("Xaridor");
-        TableColumn<History, String> sellAction_id = new TableColumn<>("SellActionId");
-
-
-        tableSaleHistory.getColumns().addAll(id, barcode, p_id, name, type, quantity, seller_id, cost, date_cr, cr_by, customer_id, sellAction_id);
-
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        barcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
-        p_id.setCellValueFactory(new PropertyValueFactory<>("p_id"));
-        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        type.setCellValueFactory(new PropertyValueFactory<>("type"));
-        quantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        seller_id.setCellValueFactory(new PropertyValueFactory<>("seller_id"));
-        cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
-        date_cr.setCellValueFactory(new PropertyValueFactory<>("date_cr"));
-        cr_by.setCellValueFactory(new PropertyValueFactory<>("cr_by"));
-        customer_id.setCellValueFactory(new PropertyValueFactory<>("customer_id"));
-        sellAction_id.setCellValueFactory(new PropertyValueFactory<>("sellAction_id"));
+        id.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("id"));
+        module.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("module"));
+        type.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("type"));
+        cost.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("cost"));
+        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("cr_by"));
+        date.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("date"));
+        comment.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("comment"));
     }
 
 
     // This function updates all the controls
     private void functionUpdate() {
-        omborATable();
         AdminLogTable();
-        main2Table();
         marketingTable();
-        main1Table();
-        LogTable();
         userTable();
         marketingTable();
-        LogTable();
-        main1Table();
-        main2Table();
         AdminLogTable();
-        SaleOperTable();
-        SaleTarixTable();
         AddCompanyCombobox();
         colorCombobox();
     }
@@ -508,14 +318,6 @@ public class Admin1 implements Initializable {
     }
 
 
-    private void omborATable() {
-        try {
-            adminDao.omborATable(tableA_ombor);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     private void userTable() {
         try {
             adminDao.userTable(userTable);
@@ -538,58 +340,6 @@ public class Admin1 implements Initializable {
         }
     }
 
-    private void LogTable() {
-
-        try {
-            if (danOmborLog.getValue() != null && gachaOmborLog.getValue() != null) {
-                LocalDate date1 = danOmborLog.getValue();
-                LocalDate date2 = gachaOmborLog.getValue();
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                adminDao.productHistoryTable(tableOmborLog, sdate1, sdate2);
-            } else {
-                adminDao.productHistoryTable(tableOmborLog, "1", "1");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void main1Table() {
-
-        try {
-            if (danMain1.getValue() != null && gachaMain1.getValue() != null) {
-                LocalDate date1 = danMain1.getValue();
-                LocalDate date2 = gachaMain1.getValue();
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                adminDao.main1Table(tableMain1, sdate1, sdate2);
-            } else {
-                adminDao.main1Table(tableMain1, "1", "1");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void main2Table() {
-        try {
-            if (danMain2.getValue() != null && gachaMain2.getValue() != null) {
-                LocalDate date1 = danMain2.getValue();
-                LocalDate date2 = gachaMain2.getValue();
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                adminDao.main2Table(tableMain2, sdate1, sdate2);
-            } else {
-                adminDao.main2Table(tableMain2, "1", "1");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     private void AdminLogTable() {
         try {
@@ -608,39 +358,24 @@ public class Admin1 implements Initializable {
         }
     }
 
-    private void SaleOperTable(){
+    private void AdminLog() {
         try {
-            if (danOper.getValue() != null && gachaOper.getValue() != null) {
-                LocalDate date1 = danOper.getValue();
-                LocalDate date2 = gachaOper.getValue();
+            if (danAdmin1.getValue() != null && gachaAdmin1.getValue() != null) {
+                LocalDate date1 = danAdmin1.getValue();
+                LocalDate date2 = gachaAdmin1.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                adminDao.operTableFilter(tableOperAdmin, sdate1, sdate2);
+                adminDao.adminLog(table_log, sdate1, sdate2);
             } else {
-                adminDao.operTableFilter(tableOperAdmin, "1", "1");
+                adminDao.adminLog(table_log, "1", "1");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void SaleTarixTable() {
-        try {
-            if (danSaleHistory.getValue() != null && gachaSaleHistoty.getValue() != null) {
-                LocalDate date1 = danSaleHistory.getValue();
-                LocalDate date2 = gachaSaleHistoty.getValue();
-                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                adminDao.HistoryTableFilter(tableSaleHistory, sdate1, sdate2);
-            } else {
-                adminDao.HistoryTableFilter(tableSaleHistory, "1", "1");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @FXML
     private void btnSaveAction() {
@@ -667,7 +402,7 @@ public class Admin1 implements Initializable {
                 UserTable userTable1 = (UserTable) userTable.getSelectionModel().getSelectedItem();
                 try {
                     username.setText(userTable1.getUsername());
-                    firstname.setText(userTable1.getFisrtname());
+                    firstname.setText(userTable1.getFirstname());
                     lastname.setText(userTable1.getLastname());
                     password.setText(userTable1.getPassword());
                     Role.setValue(userTable1.getUserType());
@@ -863,7 +598,7 @@ public class Admin1 implements Initializable {
             switch (oper) {
                 case "Sum-Dollar": {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Dollardagi qiymati: " +sum / dollar);
+                    alert.setTitle("Dollardagi qiymati: " + sum / dollar);
                     alert.setHeaderText(null);
                     alert.setContentText("Valyuta almashtirasizmi ?");
                     Optional<ButtonType> result = alert.showAndWait();
@@ -925,7 +660,8 @@ public class Admin1 implements Initializable {
 
                         }
                     break;
-                }case "Sum-Hr": {
+                }
+                case "Sum-Hr": {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("So'mdagi qiymati: " + String.valueOf(dollar * sum));
                     alert.setHeaderText(null);
@@ -946,7 +682,8 @@ public class Admin1 implements Initializable {
 
                         }
                     break;
-                }case "Hr-Sum": {
+                }
+                case "Hr-Sum": {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("So'mdagi qiymati: " + String.valueOf(dollar * sum));
                     alert.setHeaderText(null);
@@ -956,7 +693,7 @@ public class Admin1 implements Initializable {
                         if (result.get() == ButtonType.OK) {
 
                             pr = myConn.prepareStatement("update total_balance set sum=(sum+?) where id =1 ");
-                            pr.setString(1, String.valueOf( sum));
+                            pr.setString(1, String.valueOf(sum));
                             pr.executeUpdate();
                             pr1 = myConn.prepareStatement("update total_balance set hr=(hr-?) where id =1 ");
                             pr1.setString(1, String.valueOf(sum));
@@ -990,37 +727,23 @@ public class Admin1 implements Initializable {
         }
     }
 
-    @FXML
-    private void btnSaralashOmborLog() {
-        LogTable();
-    }
-
-    @FXML
-    private void btnMain1SaralashAction() {
-        main1Table();
-    }
-
-    @FXML
-    private void btnMain2Saralash() {
-        main2Table();
-    }
 
     @FXML
     private void btnAdminSaralashAction() {
         AdminLogTable();
     }
 
-    @FXML
-    private void btnOperAdminSaralashAction(){
-       SaleOperTable();
+    @FXML private void btnAdminSaralashActionLog() {
+        try {
+            AdminLog();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-    @FXML private void btnSaleHistoryFilterAction(){
-        SaleTarixTable();
-    }
 
     @FXML
-    private void btnPrinterNameAction(){
+    private void btnPrinterNameAction() {
         try {
 
             UtilsDao utilsDao = new UtilsDao();
@@ -1037,7 +760,7 @@ public class Admin1 implements Initializable {
                 }
             });
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -1138,13 +861,13 @@ public class Admin1 implements Initializable {
     }
 
     @FXML
-    private void btnLaminantActionHistory() {
+    private void btnLaminantishChiqrish() {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("view/p3Tarix.fxml"));
+            root = FXMLLoader.load(getClass().getResource("view/P3Tarix.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Laminant sex ishlab chiqarish tarixi");
-            stage.setScene(new Scene(root, 1000, 700));
+            stage.setScene(new Scene(root, 1000, 600));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
             stage.show();

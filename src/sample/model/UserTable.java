@@ -6,16 +6,16 @@ public class UserTable {
 
     SimpleStringProperty id = new SimpleStringProperty();
     SimpleStringProperty username = new SimpleStringProperty();
-    SimpleStringProperty fisrtname = new SimpleStringProperty();
+    SimpleStringProperty firstname = new SimpleStringProperty();
     SimpleStringProperty lastname = new SimpleStringProperty();
     SimpleStringProperty phone = new SimpleStringProperty();
     SimpleStringProperty password = new SimpleStringProperty();
     SimpleStringProperty userType = new SimpleStringProperty();
 
-    public UserTable(SimpleStringProperty id, SimpleStringProperty username, SimpleStringProperty fisrtname, SimpleStringProperty lastname, SimpleStringProperty phone, SimpleStringProperty password, SimpleStringProperty userType) {
+    public UserTable(SimpleStringProperty id, SimpleStringProperty username, SimpleStringProperty firstname, SimpleStringProperty lastname, SimpleStringProperty phone, SimpleStringProperty password, SimpleStringProperty userType) {
         this.id = id;
         this.username = username;
-        this.fisrtname = fisrtname;
+        this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
         this.password = password;
@@ -50,16 +50,16 @@ public class UserTable {
         this.username.set(username);
     }
 
-    public String getFisrtname() {
-        return fisrtname.get();
+    public String getFirstname() {
+        return firstname.get();
     }
 
-    public SimpleStringProperty fisrtnameProperty() {
-        return fisrtname;
+    public SimpleStringProperty firstnameProperty() {
+        return firstname;
     }
 
-    public void setFisrtname(String fisrtname) {
-        this.fisrtname.set(fisrtname);
+    public void setFirstname(String firstname) {
+        this.firstname.set(firstname);
     }
 
     public String getLastname() {

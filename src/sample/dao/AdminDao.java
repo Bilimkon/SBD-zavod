@@ -8,14 +8,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import sample.Login;
-import sample.components.sell.productTableView.OperTable;
 import sample.model.*;
 
 import java.sql.*;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
-public class AdminDao {
+public class
+AdminDao {
     private Connection myConn = null;
     DaoUtils daoUtils = new DaoUtils();
     User u = Login.currentUser;
@@ -28,43 +28,6 @@ public class AdminDao {
         }
     }
 
-    public void omborATable(TableView tableView) {
-        Statement statement = null;
-        ResultSet resultSet = null;
-        ObservableList<Product> products = FXCollections.observableArrayList();
-        try {
-            statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM product_v ORDER BY id");
-            while (resultSet.next()) {
-
-                Product product = new Product();
-                product.setId(resultSet.getString("id"));
-                product.setInvoice(resultSet.getString("invoice"));
-                product.setUnit(resultSet.getString("unit"));
-                product.setBarcode(resultSet.getString("barcode"));
-                product.setName(resultSet.getString("name"));
-                product.setType(resultSet.getString("type"));
-                product.setCost(resultSet.getString("cost"));
-                product.setQuantity(resultSet.getString("quantity"));
-                product.setSuplier(resultSet.getString("suplier"));
-                product.setDate_cr(resultSet.getString("date_cr"));
-                product.setCr_by(resultSet.getString("user"));
-                product.setDescription(resultSet.getString("description"));
-                product.setColor(resultSet.getString("color"));
-
-                products.addAll(product);
-            }
-            tableView.setItems(products);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                DaoUtils.close(statement, resultSet);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     public void userTable(TableView tableView) {
 
@@ -80,7 +43,7 @@ public class AdminDao {
                 UserTable userTable = new UserTable();
                 userTable.setId(resultSet.getString("id"));
                 userTable.setUsername(resultSet.getString("username"));
-                userTable.setFisrtname(resultSet.getString("firstname"));
+                userTable.setFirstname(resultSet.getString("firstname"));
                 userTable.setLastname(resultSet.getString("lastname"));
                 userTable.setPhone(resultSet.getString("phone"));
                 userTable.setPassword(resultSet.getString("password"));
@@ -139,267 +102,43 @@ public class AdminDao {
         }
     }
 
-    public void productHistoryTable(TableView tableView, String dan, String gacha) {
-
-        Statement statement = null;
-        ResultSet resultSet = null;
-        PreparedStatement pr = null;
-        try {
-            ObservableList<LogTable> marketings = FXCollections.observableArrayList();
-
-            if (!dan.equals("1") && !gacha.equals("1")) {
-                pr = myConn.prepareStatement("SELECT * FROM product_history_v WHERE substr(date,7,10) BETWEEN ? AND ?");
-                pr.setString(1, dan);
-                pr.setString(2, gacha);
-                resultSet = pr.executeQuery();
-            } else {
-                statement = myConn.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM product_history_v ORDER BY id limit 100");
-            }
-
-            while (resultSet.next()) {
-                LogTable marketing = new LogTable();
-                marketing.setId(resultSet.getString("id"));
-                marketing.setModule(resultSet.getString("module"));
-                marketing.setType(resultSet.getString("type"));
-                marketing.setCost(resultSet.getString("cost"));
-                marketing.setCr_by(resultSet.getString("cr_by"));
-                marketing.setDate(resultSet.getString("date"));
-                marketing.setComment(resultSet.getString("comment"));
-                marketings.add(marketing);
-            }
-            tableView.setItems(marketings);
-
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        } finally {
-            try {
-                DaoUtils.close(statement, resultSet);
-                if (pr != null) {
-                    pr.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void main1Table(TableView tableView, String dan, String gacha) {
-
-        Statement statement = null;
-        ResultSet resultSet = null;
-        PreparedStatement pr = null;
-        try {
-            ObservableList<LogTable> marketings = FXCollections.observableArrayList();
-
-            if (!dan.equals("1") && !gacha.equals("1")) {
-                pr = myConn.prepareStatement("SELECT * FROM main1_history_v WHERE substr(date,7,10) BETWEEN ? AND ?");
-                pr.setString(1, dan);
-                pr.setString(2, gacha);
-                resultSet = pr.executeQuery();
-            } else {
-                statement = myConn.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM main1_history_v ORDER BY id limit 100");
-            }
-
-            while (resultSet.next()) {
-                LogTable marketing = new LogTable();
-                marketing.setId(resultSet.getString("id"));
-                marketing.setModule(resultSet.getString("module"));
-                marketing.setType(resultSet.getString("type"));
-                marketing.setCost(resultSet.getString("cost"));
-                marketing.setCr_by(resultSet.getString("cr_by"));
-                marketing.setDate(resultSet.getString("date"));
-                marketing.setComment(resultSet.getString("comment"));
-                marketings.add(marketing);
-            }
-            tableView.setItems(marketings);
-
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        } finally {
-            try {
-                DaoUtils.close(statement, resultSet);
-                if (pr != null) {
-                    pr.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void main2Table(TableView tableView, String dan, String gacha) {
-
-        Statement statement = null;
-        ResultSet resultSet = null;
-        PreparedStatement pr = null;
-        try {
-            ObservableList<LogTable> marketings = FXCollections.observableArrayList();
-
-            if (!dan.equals("1") && !gacha.equals("1")) {
-                pr = myConn.prepareStatement("SELECT * FROM main2_history_v WHERE substr(date,7,10) BETWEEN ? AND ?");
-                pr.setString(1, dan);
-                pr.setString(2, gacha);
-                resultSet = pr.executeQuery();
-            } else {
-                statement = myConn.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM main2_history_v ORDER BY id limit 100");
-            }
-
-            while (resultSet.next()) {
-                LogTable marketing = new LogTable();
-                marketing.setId(resultSet.getString("id"));
-                marketing.setModule(resultSet.getString("module"));
-                marketing.setType(resultSet.getString("type"));
-                marketing.setCost(resultSet.getString("cost"));
-                marketing.setCr_by(resultSet.getString("cr_by"));
-                marketing.setDate(resultSet.getString("date"));
-                marketing.setComment(resultSet.getString("comment"));
-                marketings.add(marketing);
-            }
-            tableView.setItems(marketings);
-
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        } finally {
-            try {
-                DaoUtils.close(statement, resultSet);
-                if (pr != null) {
-                    pr.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     public void adminLogTable(TableView tableView, String dan, String gacha) {
-
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+        symbols.setGroupingSeparator(' ');
+        DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
         Statement statement = null;
         ResultSet resultSet = null;
         PreparedStatement pr = null;
         try {
-            ObservableList<LogTable> marketings = FXCollections.observableArrayList();
+            ObservableList<AdminLogTable> marketings = FXCollections.observableArrayList();
 
             if (!dan.equals("1") && !gacha.equals("1")) {
-                pr = myConn.prepareStatement("SELECT * FROM admin_history_v WHERE substr(date,7,10) BETWEEN ? AND ?");
+                pr = myConn.prepareStatement("SELECT * FROM admin_log_table WHERE substr(date,7,10) BETWEEN ? AND ?");
                 pr.setString(1, dan);
                 pr.setString(2, gacha);
                 resultSet = pr.executeQuery();
             } else {
                 statement = myConn.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM admin_history_v ORDER BY id limit 100");
+                resultSet = statement.executeQuery("SELECT * FROM admin_log_table ORDER BY id limit 100");
             }
 
             while (resultSet.next()) {
-                LogTable marketing = new LogTable();
+                AdminLogTable marketing = new AdminLogTable();
                 marketing.setId(resultSet.getString("id"));
                 marketing.setModule(resultSet.getString("module"));
                 marketing.setType(resultSet.getString("type"));
-                marketing.setCost(resultSet.getString("cost"));
+                marketing.setKsum(formatter.format(resultSet.getDouble("ksum")));
+                marketing.setKdollar(formatter.format(resultSet.getDouble("kdollar")));
+                marketing.setKhr(formatter.format(resultSet.getDouble("khr")));
+                marketing.setCsum(formatter.format(resultSet.getDouble("csum")));
+                marketing.setCdollar(formatter.format(resultSet.getDouble("cdollar")));
+                marketing.setChr(formatter.format(resultSet.getDouble("chr")));
                 marketing.setCr_by(resultSet.getString("cr_by"));
                 marketing.setDate(resultSet.getString("date"));
-                marketing.setComment(resultSet.getString("comment"));
                 marketings.add(marketing);
             }
             tableView.setItems(marketings);
-
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        } finally {
-            try {
-                DaoUtils.close(statement, resultSet);
-                if (pr != null) {
-                    pr.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    public void operTableFilter(TableView tableView, String dan, String gacha) {
-
-        Statement statement = null;
-        ResultSet resultSet = null;
-        PreparedStatement pr = null;
-        try {
-            //List to add items
-            ObservableList<OperTable> userTables = FXCollections.observableArrayList();
-            if (!dan.equals("1") && !gacha.equals("1")) {
-                pr = myConn.prepareStatement("SELECT * FROM sale_balance_v WHERE substr(date,7,10) BETWEEN ? AND ?");
-                pr.setString(1, dan);
-                pr.setString(2, gacha);
-                resultSet = pr.executeQuery();
-            } else {
-                statement = myConn.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM sale_balance_v ORDER BY id limit 100");
-            }
-            while (resultSet.next()) {
-                OperTable operTable = new OperTable();
-                operTable.setId(resultSet.getString("id"));
-                operTable.setType(resultSet.getString("type"));
-                operTable.setWho(resultSet.getString("who"));
-                operTable.setSum(resultSet.getString("sum"));
-                operTable.setDollar(resultSet.getString("dollar"));
-                operTable.setHr(resultSet.getString("hr"));
-                operTable.setDescription(resultSet.getString("description"));
-                operTable.setCr_by(resultSet.getString("cr_by"));
-                operTable.setDate(resultSet.getString("date"));
-                operTable.setCurrency(resultSet.getString("currency"));
-
-                userTables.add(operTable);
-            }
-            tableView.setItems(userTables);
-
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        } finally {
-            try {
-                DaoUtils.close(statement, resultSet);
-                if (pr != null) {
-                    pr.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
-    public void HistoryTableFilter(TableView tableView, String dan, String gacha) {
-
-        Statement statement = null;
-        ResultSet resultSet = null;
-        PreparedStatement pr = null;
-        try {
-            //List to add items
-            ObservableList<History> userTables = FXCollections.observableArrayList();
-            if (!dan.equals("1") && !gacha.equals("1")) {
-                pr = myConn.prepareStatement("SELECT * FROM history_v WHERE substr(date_cr,7,10) BETWEEN ? AND ?");
-                pr.setString(1, dan);
-                pr.setString(2, gacha);
-                resultSet = pr.executeQuery();
-            } else {
-                statement = myConn.createStatement();
-                resultSet = statement.executeQuery("SELECT * FROM history_v ORDER BY id limit 100");
-            }
-            while (resultSet.next()) {
-                History operTable = new History();
-                operTable.setId(resultSet.getString("id"));
-                operTable.setBarcode(resultSet.getString("barcode"));
-                operTable.setP_id(resultSet.getString("p_id"));
-                operTable.setName(resultSet.getString("name"));
-                operTable.setType(resultSet.getString("type"));
-                operTable.setQuantity(resultSet.getString("quantity"));
-                operTable.setSeller_id(resultSet.getString("seller_id"));
-                operTable.setCost(resultSet.getString("cost"));
-                operTable.setDate_cr(resultSet.getString("date_cr"));
-                operTable.setCustomer_id(resultSet.getString("customer_id"));
-                operTable.setSellAction_id(resultSet.getString("sellAction_id"));
-                userTables.add(operTable);
-            }
-            tableView.setItems(userTables);
 
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -615,6 +354,9 @@ public class AdminDao {
             case "Admin1":
                 unit_id = "5";
                 break;
+            case "Accounting":
+                unit_id = "6";
+                break;
         }
         return unit_id;
     }
@@ -683,13 +425,13 @@ public class AdminDao {
              * End of XYChart
              *
              */
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     //Inserting into balance table to with excell sheet
-    public void InsertRowInDB(String who,  String sum_in, String sum_out, String dollar_in, String dollar_out, String hr_in, String hr_out) throws SQLException {
+    public void InsertRowInDB(String who, String sum_in, String sum_out, String dollar_in, String dollar_out, String hr_in, String hr_out) throws SQLException {
         PreparedStatement pr = null;
         try {
             String sql = "INSERT INTO balance (who, sum_in, sum_out, dollar_in, dollar_out, hr_in, hr_out) VALUES (?,?,?,?,?,?,?)";
@@ -708,6 +450,54 @@ public class AdminDao {
         } finally {
             if (pr != null) {
                 pr.close();
+            }
+        }
+    }
+
+    public void adminLog(TableView table_log, String dan, String gacha) {
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+        symbols.setGroupingSeparator(' ');
+        DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+
+        Statement statement = null;
+        ResultSet resultSet = null;
+        PreparedStatement pr = null;
+        try {
+            ObservableList<LogTable> marketings = FXCollections.observableArrayList();
+
+            if (!dan.equals("1") && !gacha.equals("1")) {
+                pr = myConn.prepareStatement("SELECT * FROM admin_history_v WHERE substr(date,7,10) BETWEEN ? AND ?");
+                pr.setString(1, dan);
+                pr.setString(2, gacha);
+                resultSet = pr.executeQuery();
+            } else {
+                statement = myConn.createStatement();
+                resultSet = statement.executeQuery("SELECT * FROM admin_history_v ORDER BY id limit 100");
+            }
+
+            while (resultSet.next()) {
+                LogTable marketing = new LogTable();
+                marketing.setId(resultSet.getString("id"));
+                marketing.setModule(resultSet.getString("module"));
+                marketing.setType(resultSet.getString("type"));
+                marketing.setCost(resultSet.getString("cost"));
+                marketing.setCr_by(resultSet.getString("cr_by"));
+                marketing.setDate(resultSet.getString("date"));
+                marketing.setComment(resultSet.getString("comment"));
+                marketings.add(marketing);
+            }
+            table_log.setItems(marketings);
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            try {
+                DaoUtils.close(statement, resultSet);
+                if (pr != null) {
+                    pr.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
     }

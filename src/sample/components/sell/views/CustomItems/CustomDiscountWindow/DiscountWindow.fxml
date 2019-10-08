@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+
 <BorderPane minWidth="-Infinity" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.components.sell.views.CustomItems.CustomDiscountWindow.DiscountWindow">
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="839.0" spacing="8.0" BorderPane.alignment="CENTER">
@@ -22,7 +23,7 @@
                   <Insets bottom="5.0" left="5.0" right="2.0" top="5.0" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="btnCancel" minWidth="100.0" mnemonicParsing="false" onAction="#onDispose" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #FF5E5B;" text="Bekor" textFill="WHITE">
+            <Button fx:id="btnCancel" minWidth="100.0" mnemonicParsing="false" onAction="#onDispose" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #ef7b33;" text="Bekor" textFill="WHITE">
                <HBox.margin>
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -30,7 +31,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #1c435e;" text="Sotish" textFill="WHITE">
+            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #50baeb;" text="Sotish" textFill="WHITE">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
@@ -90,7 +91,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="btnAddCustomer" defaultButton="true" mnemonicParsing="false" prefHeight="43.0" prefWidth="494.0" stylesheets="@../../../style/css/mainPageStyle.css" text="Haridor +" GridPane.rowIndex="3">
+                  <Button fx:id="btnAddCustomer" defaultButton="true" mnemonicParsing="false" prefHeight="43.0" prefWidth="494.0" stylesheets="@../../../style/css/mainPageStyle.css" text="Haridor qo'shish" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="7.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -180,7 +181,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="LabelGivenSum" mnemonicParsing="false" prefHeight="99.0" prefWidth="210.0" text="So'm" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="LabelGivenSum" mnemonicParsing="false" prefHeight="99.0" prefWidth="210.0" style="-fx-background-color: #d6d6d5; -fx-text-fill: black;" text="So'm" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -195,12 +196,12 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" prefHeight="76.0" prefWidth="161.0" text="Hisob raqam" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" prefHeight="76.0" prefWidth="161.0" style="-fx-background-color: #d6d6d5; -fx-text-fill: black;" text="Hisob raqam" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="116.0" prefWidth="166.0" text="Dollar" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" prefHeight="116.0" prefWidth="166.0" style="-fx-background-color: #d6d6d5; -fx-text-fill: black;" text="Dollar" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
@@ -245,6 +246,6 @@
       </GridPane>
    </center>
    <top>
-      <Pane prefHeight="25.0" prefWidth="800.0" style="-fx-background-color: #1c435e;" stylesheets="@../../../style/css/mainPageStyle.css" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="25.0" prefWidth="800.0" style="-fx-background-color: #b9b9b7;" stylesheets="@../../../style/css/mainPageStyle.css" BorderPane.alignment="CENTER" />
    </top>
 </BorderPane>

@@ -150,10 +150,10 @@ public class AdminOperDao {
                         AdminOperModel invoice = new AdminOperModel();
                         invoice.setId(resultSet.getString("id"));
                         invoice.setType(resultSet.getString("type"));
-                        invoice.setSum(resultSet.getString("sum"));
-                        invoice.setDollar(resultSet.getString("dollar"));
-                        invoice.setHr(resultSet.getString("hr"));
-                        invoice.setVhr(resultSet.getString("vhr"));
+                        invoice.setSum(formatter.format(resultSet.getDouble("sum")));
+                        invoice.setDollar(formatter.format(resultSet.getDouble("dollar")));
+                        invoice.setHr(formatter.format(resultSet.getDouble("hr")));
+                        invoice.setVhr(formatter.format(resultSet.getDouble("vhr")));
                         invoice.setComment(resultSet.getString("comment"));
                         invoice.setCr_on(resultSet.getString("cr_on"));
 
