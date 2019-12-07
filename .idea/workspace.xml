@@ -7,123 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Anchadan beri ancha kop o'zgarish qilmagan edim">
-      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/SavdoOmbor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/SavdoOmborDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/ProductName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/SavdoOmbori.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/TypeList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/components/models/omborReport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/view/SavdoOmbor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/accounting$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/accounting$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/accounting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/accounting.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AdminOper$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AdminOper$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AdminOper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AdminOper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/P3History.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/P3History.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Suplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Suplier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/balance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/balance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/invoicelog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/invoicelog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/p2Tarix.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/p2Tarix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/p2_xarajat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/p2_xarajat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/AdminOperDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/AdminOperDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/InvoiceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/InvoiceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SuplierDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SuplierDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/balanceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/balanceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/invoicelogDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/invoicelogDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/AdminOperModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/AdminOperModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/BalanceTotal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/BalanceTotal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/OperDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/OperDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/ProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/css/mainPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/css/mainPageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/AdminDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/AdminDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main3Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main3Dao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/ProductDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/SystemUtilsDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/SystemUtilsDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/accountingDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/accountingDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/daoUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/daoUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/LogTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/LogTable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/ComboBoxAutoComplete.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/ComboBoxAutoComplete.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/Workbookcontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/Workbookcontroller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/AdminOper.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/AdminOper.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/MainPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/P3Tarix.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/P3Tarix.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Suplier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Suplier.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/accounting.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/accounting.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/balance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/balance.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/invoicelog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/invoicelog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/p2Tarix.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/p2Tarix.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/p2_xarajat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/p2_xarajat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sdb_fabric.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sdb_fabric.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Admin1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Admin1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/accounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/accounting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/AdminOper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/AdminOper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/P3History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/P3History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/Suplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/Suplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/balance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/balance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/invoicelog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/invoicelog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/p2Tarix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/p2Tarix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/p2_xarajat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/p2_xarajat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/AdminOperDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/AdminOperDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/balanceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/balanceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/invoicelogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/invoicelogDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/models/AdminOperModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/models/AdminOperModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/models/BalanceTotal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/models/BalanceTotal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/style/css/mainPageStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/style/css/mainPageStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/AdminDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/DaoUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/DaoUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/Main3Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/Main3Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/SystemUtilsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/dao/accountingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/accountingDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/main1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/main3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/LogTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/LogTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/model/core/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/core/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/utils/ComboBoxAutoComplete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/utils/ComboBoxAutoComplete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/utils/Workbookcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/Admin1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Admin1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/AdminOper.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/AdminOper.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/MainPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/P3Tarix.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/P3Tarix.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/Suplier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Suplier.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/accounting.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/accounting.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/balance.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/balance.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/invoicelog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/invoicelog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/main2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/main3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/p2Tarix.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/p2Tarix.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/view/p2_xarajat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/p2_xarajat.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -468,6 +352,14 @@
       <workItem from="1560663885674" duration="419000" />
       <workItem from="1560746213591" duration="141000" />
     </task>
+    <task id="LOCAL-00001" summary="Anchadan beri ancha kop o'zgarish qilmagan edim">
+      <created>1575733933028</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575733933028</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
