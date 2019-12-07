@@ -32,6 +32,9 @@ public class InvoiceDao {
         try {
             Statement statement = null;
             ResultSet resultSet = null;
+            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+            symbols.setGroupingSeparator(' ');
+            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
 
             //List to add items
             ObservableList<Invoice> invoices = FXCollections.observableArrayList();
@@ -61,7 +64,7 @@ public class InvoiceDao {
                         invoice.setName(resultSet.getString("name"));
                         invoice.setCompany(resultSet.getString("company"));
                         invoice.setCurrency(resultSet.getString("currency"));
-                        invoice.setTotal_price(resultSet.getString("total_price"));
+                        invoice.setTotal_price(formatter.format(resultSet.getDouble("total_price")));
                         invoice.setDate(resultSet.getString("date"));
 
                         invoices.add(invoice);
@@ -99,7 +102,7 @@ public class InvoiceDao {
                     e.printStackTrace();
                 }
             } else if(i>0 && currency.equals("Sum")){
-                try(PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance SET sum_out =(sum_out+?) WHERE who=? ")){
+                try(PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance SET hr_out =(hr_out+?) WHERE who=? ")){
                     preparedStatement.setString(1, price);
                     preparedStatement.setString(2, who);
                     preparedStatement.executeUpdate();
@@ -118,6 +121,9 @@ public class InvoiceDao {
         ObservableList<Product> products = FXCollections.observableArrayList();
         PreparedStatement pr = null;
         ResultSet myRs = null;
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+        symbols.setGroupingSeparator(' ');
+        DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
         try {
 
             if (!id.equals("*")) {
@@ -141,7 +147,7 @@ public class InvoiceDao {
                 product.setBarcode(resultSet.getString("barcode"));
                 product.setName(resultSet.getString("name"));
                 product.setType(resultSet.getString("type"));
-                product.setCost(resultSet.getString("cost"));
+                product.setCost(formatter.format(resultSet.getDouble("cost")));
                 product.setQuantity(resultSet.getString("quantity"));
                 product.setSuplier(resultSet.getString("suplier"));
                 product.setDate_cr(resultSet.getString("date_cr"));
@@ -151,9 +157,7 @@ public class InvoiceDao {
 
                 products.addAll(product);
             }
-            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
-            symbols.setGroupingSeparator(' ');
-            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
+
             if (myRs != null && myRs.next()) {
                 quantity.setText(formatter.format(myRs.getDouble("total_quantity")));
                 price.setText(formatter.format(myRs.getDouble("total_cost")));

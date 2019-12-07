@@ -18,7 +18,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class p2_xarajat implements Initializable {
-
+    @FXML
+    public Button btnExcell;
     @FXML private TableView p2_xTable;
     @FXML private ComboBox<String> p2XarajatSelectName;
     @FXML private DatePicker dan;

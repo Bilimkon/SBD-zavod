@@ -102,9 +102,9 @@
                                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                             </columnConstraints>
                                             <rowConstraints>
-                                              <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
-                                              <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
                                                 <Button mnemonicParsing="false" onAction="#AddSuplier" prefHeight="62.0" prefWidth="100.0" text="+" GridPane.rowIndex="1">
@@ -112,12 +112,12 @@
                                                       <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" prefHeight="71.0" prefWidth="62.0">
+                                                <Button mnemonicParsing="false" onAction="#btnExcellPathAction" prefHeight="71.0" prefWidth="62.0" text="Path">
                                                    <GridPane.margin>
                                                       <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
                                                    </GridPane.margin>
                                                 </Button>
-                                                <Button mnemonicParsing="false" prefHeight="69.0" prefWidth="62.0" GridPane.rowIndex="2">
+                                                <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="55.0" GridPane.rowIndex="2">
                                                    <GridPane.margin>
                                                       <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
                                                    </GridPane.margin>
@@ -291,9 +291,6 @@
                                              <BorderPane.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" />
                                              </BorderPane.margin>
-                                             <columnResizePolicy>
-                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                             </columnResizePolicy>
                                           </TableView>
                                        </center>
                                        <top>
@@ -329,7 +326,7 @@
                                                       <Insets left="5.0" right="5.0" />
                                                    </GridPane.margin>
                                                 </DatePicker>
-                                                <Button mnemonicParsing="false" onAction="#btnExcellAction" prefHeight="25.0" prefWidth="265.0" text="Excell" GridPane.columnIndex="4">
+                                                <Button fx:id="btnExcell" mnemonicParsing="false" onAction="#btnExcellAction" prefHeight="25.0" prefWidth="265.0" text="Excell" GridPane.columnIndex="4">
                                                    <GridPane.margin>
                                                       <Insets right="5.0" />
                                                    </GridPane.margin>

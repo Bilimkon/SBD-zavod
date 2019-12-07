@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class AdminOperModel {
     SimpleStringProperty id = new SimpleStringProperty();
     SimpleStringProperty type = new SimpleStringProperty();
+    SimpleStringProperty who = new SimpleStringProperty();
     SimpleStringProperty sum = new SimpleStringProperty();
     SimpleStringProperty dollar = new SimpleStringProperty();
     SimpleStringProperty hr = new SimpleStringProperty();
@@ -12,9 +13,10 @@ public class AdminOperModel {
     SimpleStringProperty comment = new SimpleStringProperty();
     SimpleStringProperty cr_on = new SimpleStringProperty();
 
-    public AdminOperModel(SimpleStringProperty id, SimpleStringProperty type, SimpleStringProperty sum, SimpleStringProperty dollar, SimpleStringProperty hr, SimpleStringProperty vhr, SimpleStringProperty comment, SimpleStringProperty cr_on) {
+    public AdminOperModel(SimpleStringProperty id, SimpleStringProperty type, SimpleStringProperty who, SimpleStringProperty sum, SimpleStringProperty dollar, SimpleStringProperty hr, SimpleStringProperty vhr, SimpleStringProperty comment, SimpleStringProperty cr_on) {
         this.id = id;
         this.type = type;
+        this.who = who;
         this.sum = sum;
         this.dollar = dollar;
         this.hr = hr;
@@ -25,6 +27,18 @@ public class AdminOperModel {
 
     public AdminOperModel() {
 
+    }
+
+    public String getWho() {
+        return who.get();
+    }
+
+    public SimpleStringProperty whoProperty() {
+        return who;
+    }
+
+    public void setWho(String who) {
+        this.who.set(who);
     }
 
     public String getId() {

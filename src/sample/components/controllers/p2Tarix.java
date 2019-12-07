@@ -104,8 +104,7 @@ public class p2Tarix implements Initializable {
         }
     }
 
-    public void btnExcell(ActionEvent actionEvent) {
-    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -129,5 +128,8 @@ public class p2Tarix implements Initializable {
         }catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void btnExcellAction(ActionEvent actionEvent) {
     }
 }

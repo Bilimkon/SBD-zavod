@@ -31,7 +31,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" style="-fx-background-color: #50baeb;" text="Sotish" textFill="WHITE">
+            <Button fx:id="discountOK" defaultButton="true" minWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="216.0" stylesheets="@../../../style/css/mainPageStyle.css" text="Sotish" textFill="WHITE">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>

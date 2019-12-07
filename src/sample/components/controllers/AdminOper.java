@@ -12,7 +12,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import sample.components.dao.AdminOperDao;
 import sample.components.models.AdminOperModel;
-import sample.model.Product;
 import sample.utils.utils;
 
 import java.net.URL;
@@ -26,6 +25,7 @@ import java.util.ResourceBundle;
 
 public class AdminOper implements Initializable {
 
+    public Button btnExcell;
     @FXML
     ComboBox<String> AdminOperSelectName;
     @FXML
@@ -34,8 +34,6 @@ public class AdminOper implements Initializable {
     TextField AdminOperDollar;
     @FXML
     TextField AdminOperHr;
-    @FXML
-    TextField AdminOperVhr;
     @FXML
     TextArea AdminOperIzoh;
     @FXML
@@ -54,6 +52,9 @@ public class AdminOper implements Initializable {
     @FXML Label total_dollar;
     @FXML Label total_hr;
     @FXML Label total_vhr;
+    @FXML ComboBox<String> ComboWho;
+    @FXML Label LabelWho;
+
 
     //AdminOperDao
     AdminOperDao adminOperDao = new AdminOperDao();
@@ -69,17 +70,17 @@ public class AdminOper implements Initializable {
         utils.thousandDivider(AdminOperSum);
         utils.thousandDivider(AdminOperDollar);
         utils.thousandDivider(AdminOperHr);
-        utils.thousandDivider(AdminOperVhr);
         utils.selectAll(AdminOperSum);
         utils.selectAll(AdminOperDollar);
         utils.selectAll(AdminOperHr);
-        utils.selectAll(AdminOperVhr);
+        adminOperDao.GetPerson(ComboWho);
+
 
         AdminOperTable.setOnMouseClicked((MouseEvent event) -> {
             if (event.getClickCount() == 2) {
                 AdminOperModel history = (AdminOperModel) AdminOperTable.getSelectionModel().getSelectedItem();
                 try {
-                    dialogRevert(String.valueOf(history.getId()), history.getType(), history.getSum(), history.getDollar(), history.getHr(), history.getVhr());
+                    dialogRevert(String.valueOf(history.getId()), history.getType(), history.getWho(), history.getSum(), history.getDollar(), history.getHr());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -109,25 +110,28 @@ public class AdminOper implements Initializable {
     }
 
     private void initializeAdminOperTable() {
-        TableColumn<Product, String> id = new TableColumn<>("Id");
-        TableColumn<Product, String> type = new TableColumn<>("Turi");
-        TableColumn<Product, String> sum = new TableColumn<>("Sum");
-        TableColumn<Product, String> dollar = new TableColumn<>("Dollar");
-        TableColumn<Product, String> hr = new TableColumn<>("Hisob raqam");
-        TableColumn<Product, String> vhr = new TableColumn<>("Valyuta hr");
-        TableColumn<Product, String> comment = new TableColumn<>("Izoh");
-        TableColumn<Product, String> cr_on = new TableColumn<>("Sana");
+        TableColumn<AdminOperModel, String> id = new TableColumn<>("Id");
+        TableColumn<AdminOperModel, String> type = new TableColumn<>("Turi");
+        TableColumn<AdminOperModel, String> who = new TableColumn<>("Kim");
+        TableColumn<AdminOperModel, String> sum = new TableColumn<>("Sum");
+        TableColumn<AdminOperModel, String> dollar = new TableColumn<>("Dollar");
+        TableColumn<AdminOperModel, String> hr = new TableColumn<>("Hisob raqam");
+        TableColumn<AdminOperModel, String> vhr = new TableColumn<>("Valyuta hr");
+        TableColumn<AdminOperModel, String> comment = new TableColumn<>("Izoh");
+        TableColumn<AdminOperModel, String> cr_on = new TableColumn<>("Sana");
 
-        AdminOperTable.getColumns().addAll(type, sum, dollar, hr, vhr, comment, cr_on);
+        AdminOperTable.getColumns().addAll(type, who, sum, dollar, hr,  comment, cr_on);
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        who.setCellValueFactory(new PropertyValueFactory<>("who"));
         sum.setCellValueFactory(new PropertyValueFactory<>("sum"));
         dollar.setCellValueFactory(new PropertyValueFactory<>("dollar"));
         hr.setCellValueFactory(new PropertyValueFactory<>("hr"));
         vhr.setCellValueFactory(new PropertyValueFactory<>("vhr"));
         comment.setCellValueFactory(new PropertyValueFactory<>("comment"));
         cr_on.setCellValueFactory(new PropertyValueFactory<>("cr_on"));
+
 
     }
 
@@ -154,36 +158,38 @@ public class AdminOper implements Initializable {
     }
 
     @FXML
+    private void btnLabelWhoAction(){
+        try {
+            adminOperDao.getWhoName(ComboWho.getSelectionModel().getSelectedItem(), LabelWho);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void addExpence() {
-        if (AdminOperSelectName.getSelectionModel().getSelectedItem() != null && !AdminOperSum.getText().isEmpty()
-                && !AdminOperDollar.getText().isEmpty() && !AdminOperHr.getText().isEmpty() && !AdminOperVhr.getText().isEmpty() && !AdminOperIzoh.getText().isEmpty()) {
+        if (AdminOperSelectName.getSelectionModel().getSelectedItem() != null && ComboWho.getSelectionModel().getSelectedItem()!= null && !AdminOperSum.getText().isEmpty()
+                && !AdminOperDollar.getText().isEmpty() && !AdminOperHr.getText().isEmpty() &&  !AdminOperIzoh.getText().isEmpty()) {
 
             //Addig Eexpence
                 String sum = AdminOperSum.getText().trim().replaceAll("\\s+", "");
                 String dollar = AdminOperDollar.getText().trim().replaceAll("\\s+", "");
                 String hr = AdminOperHr.getText().trim().replaceAll("\\s+", "");
-                String vhr = AdminOperVhr.getText().trim().replaceAll("\\s+", "");
-            if(AdminOperSelectName.getSelectionModel().getSelectedItem().equals("Kirim")) {
-                adminOperDao.addExpenceDao(AdminOperSelectName.getSelectionModel().getSelectedItem(), sum,
-                        dollar, hr, vhr, AdminOperIzoh.getText());
 
-            } else if(AdminOperSelectName.getSelectionModel().getSelectedItem().equals("Chiqim"))
-            {
-            adminOperDao.addExpenceDaoChiqim(AdminOperSelectName.getSelectionModel().getSelectedItem(), sum,
-                    dollar, hr, vhr, AdminOperIzoh.getText());
-            }
+            adminOperDao.addExpenceDaoChiqim(AdminOperSelectName.getSelectionModel().getSelectedItem(), LabelWho.getText(), sum,
+                    dollar, hr,  AdminOperIzoh.getText());
+
             AdminOperSelectName.setValue("");
             AdminOperSum.setText("");
             AdminOperDollar.setText("");
             AdminOperHr.setText("");
-            AdminOperVhr.setText("");
             AdminOperIzoh.setText("");
+            setSums();
         } else {
             AdminOperSelectName.setStyle("-fx-background-color:red; ");
             AdminOperSum.setStyle("-fx-background-color:red; ");
             AdminOperDollar.setStyle("-fx-background-color:red; ");
             AdminOperHr.setStyle("-fx-background-color:red; ");
-            AdminOperVhr.setStyle("-fx-background-color:red; ");
             AdminOperIzoh.setStyle("-fx-background-color:red; ");
         }
 
@@ -203,16 +209,16 @@ public class AdminOper implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date11.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date22.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                adminOperDao.adminTableExcell(sdate1, sdate2, AdminOperTable);
+                adminOperDao.adminTableExcell(btnExcell,sdate1, sdate2, AdminOperTable);
 
             } else {
-                adminOperDao.adminTableExcell("", "", AdminOperTable);
+                adminOperDao.adminTableExcell(btnExcell,"", "", AdminOperTable);
             }
         } catch (Exception e){
             e.printStackTrace();
         }
     }
-    private void dialogRevert(String id, String operType1, String sum, String dollar,String  hr,String vhr) {
+    private void dialogRevert(String id, String operType1, String who, String sum, String dollar,String  hr) {
         try {
             TextInputDialog dialog = new TextInputDialog(id);
             dialog.setTitle("Operatsiya");
@@ -222,15 +228,7 @@ public class AdminOper implements Initializable {
             // The Java 8 way to get the response value (with lambda expression).
             result.ifPresent(name ->
                     {
-                        if(operType1.equals("Kirim"))
-                        {
-                            adminOperDao.revertOperKirim(id, sum.trim().replaceAll("\\s+", ""), dollar.trim().replaceAll("\\s+", ""), hr.trim().replaceAll("\\s+", ""), vhr.trim().replaceAll("\\s+", ""));
-
-                        } else if(operType1.equals("Chiqim")){
-
-                            adminOperDao.revertOperChiqim(id, sum.trim().replaceAll("\\s+", ""), dollar.trim().replaceAll("\\s+", ""), hr.trim().replaceAll("\\s+", ""), vhr.trim().replaceAll("\\s+", ""));
-
-                        }
+                            adminOperDao.revertOperKirim(id, operType1, who, sum.trim().replaceAll("\\s+", ""), dollar.trim().replaceAll("\\s+", ""), hr.trim().replaceAll("\\s+", ""));
                     }
             );
         } catch (Exception e) {

@@ -2,6 +2,7 @@ package sample.dao;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -69,6 +70,7 @@ public class accountingDao {
     }
 
     public void addHarajat(String schot, String schotSana, String firma, String shartnoma, String hr, String dollar, String izoh) {
+        int i =0;
         try {
             try (PreparedStatement preparedStatement = myConn.prepareStatement("Insert into accountExpense (schot, schotDate, firmaName, shartnoma, hr, dollar, izoh, shartnomaDate) values(?,?,?,?,?,?,?,?)")) {
                 preparedStatement.setString(1, schot);
@@ -79,20 +81,12 @@ public class accountingDao {
                 preparedStatement.setString(6, dollar);
                 preparedStatement.setString(7, izoh);
                 preparedStatement.setString(8, apple);
-                preparedStatement.executeUpdate();
+                i =preparedStatement.executeUpdate();
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE  total_balance set hr=(hr-?), vhr=(vhr-?) where id=1 ")) {
-                preparedStatement.setString(1, hr);
-                preparedStatement.setString(2, dollar);
-                preparedStatement.executeUpdate();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -116,7 +110,7 @@ public class accountingDao {
         ResultSet resultSet = null;
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT companyName FROM person where type=1");
+            resultSet = statement.executeQuery("SELECT companyName FROM person order by companyName");
             while (resultSet.next()) {  // loop
                 // Now add the comboBox addAll statement
                 comboBox.getItems().addAll(resultSet.getString("companyName"));
@@ -152,7 +146,7 @@ public class accountingDao {
         ResultSet resultSet = null;
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT companyName FROM person where type=1 order by companyName ");
+            resultSet = statement.executeQuery("SELECT companyName FROM person  ");
             while (resultSet.next()) {  // loop
                 // Now add the comboBox addAll statement
                 comboBox.getItems().addAll(resultSet.getString("companyName"));
@@ -204,23 +198,37 @@ public class accountingDao {
 
     }
 
-    public void deleteXarajat(String id, String hr, String dollar) {
+    public void deleteXarajat(String id, String firma, String hr, String dollar) {
+        int i = 0;
         try (PreparedStatement preparedStatement = myConn.prepareStatement(" UPDATE total_balance set hr=(hr+?),  vhr=(vhr+?) where id=1")) {
             preparedStatement.setString(1, hr);
             preparedStatement.setString(2, dollar);
-            preparedStatement.executeUpdate();
+            i =  preparedStatement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        try (PreparedStatement preparedStatement = myConn.prepareStatement(" Delete from accountExpense where id='" + id + "' ")) {
-            preparedStatement.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        if(i>0) {
+            int ii =0;
+            try (PreparedStatement preparedStatement = myConn.prepareStatement(" Delete from accountExpense where id=" + id + " ")) {
+              ii=  preparedStatement.executeUpdate();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            if(ii>0) {
+                try (PreparedStatement preparedStatement = myConn.prepareStatement("Update balance set dollar_in=(dollar_in-?), hr_in=(hr_in-?) where who=(select firmaname from accountexpense where id = "+id+")")) {
+                    preparedStatement.setString(1, dollar);
+                    preparedStatement.setString(2, hr);
+                    preparedStatement.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
 
     }
 
-    public void xarajatTableDao(TableView tablleAccountHarajat, String company, String sdate1, String sdate2, Label accountingTotalHr, Label accountingTotalDollar) {
+    public void xarajatTableDao(TableView tablleAccountHarajat, String company, String date1, String date2, Label accountingTotalHr, Label accountingTotalDollar) {
 
         try {
             Statement statement = null;
@@ -235,16 +243,16 @@ public class accountingDao {
                 symbols.setGroupingSeparator(' ');
                 DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
 
-                if (!company.isEmpty() && !sdate1.isEmpty() && !sdate2.isEmpty()) {
+                if (!company.isEmpty() && !date1.isEmpty() && !date2.isEmpty()) {
                     statement = myConn.createStatement();
-                    resultSet = statement.executeQuery("Select * from accountexpense_v where firmaName ='" + company + "' and substr(shartnomaDate,7,10) between '" + sdate1 + "' and '" + sdate1 + "'  ");
-                    pr = myConn.prepareStatement("Select sum(hr) total_hr, sum(dollar) total_dollar from accountexpense_v where firmaName ='" + company + "' and substr(shartnomaDate,7,10) between '" + sdate1 + "' and '" + sdate1 + "' ");
+                    resultSet = statement.executeQuery("Select * from accountexpense_v where firmaName ='" + company + "' and substr(shartnomaDate,7,10) between '" + date1 + "' and '" + date2 + "'  ");
+                    pr = myConn.prepareStatement("Select sum(hr) total_hr, sum(dollar) total_dollar from accountexpense_v where firmaName ='" + company + "' and substr(shartnomaDate,7,10) between '" + date1 + "' and '" + date2 + "' ");
                     myRs = pr.executeQuery();
-                } else if (company.equals("") && !sdate1.isEmpty() && !sdate2.isEmpty()) {
+                } else if (company.isEmpty() && !date1.isEmpty() && !date2.isEmpty()) {
                     statement = myConn.createStatement();
-                    resultSet = statement.executeQuery("Select * from accountexpense_v where substr(shartnomaDate,7,10) between '" + sdate1 + "' and '" + sdate1 + "' ");
+                    resultSet = statement.executeQuery("Select * from accountexpense_v where substr(shartnomaDate,7,10) between '" + date1 + "' and '" + date2 + "' ");
 
-                    pr = myConn.prepareStatement("Select sum(hr) total_hr, sum(dollar) total_dollar from accountexpense_v where substr(shartnomaDate,7,10) between '" + sdate1 + "' and '" + sdate1 + "' ");
+                    pr = myConn.prepareStatement("Select sum(hr) total_hr, sum(dollar) total_dollar from accountexpense_v where substr(shartnomaDate,7,10) between '" + date1 + "' and '" + date2 + "' ");
                     myRs = pr.executeQuery();
                 } else {
                     statement = myConn.createStatement();
@@ -391,36 +399,35 @@ public class accountingDao {
         }
     }
 
-    public void xarajatExcellTableDao( String company, String sdate1, String sdate2) {
+    public void xarajatExcellTableDao(Button button, String company, String date1, String date2) {
 
         try {
             Statement statement = null;
             ResultSet resultSet = null;
-
             //List to add items
             try {
-
-
-                if (!company.isEmpty() && !sdate1.isEmpty() && !sdate2.isEmpty()) {
+                if (!company.isEmpty() && !date1.isEmpty() && !date2.isEmpty()) {
                     statement = myConn.createStatement();
-                    resultSet = statement.executeQuery("Select * from accountexpense_v where firmaName ='" + company + "' and substr(shartnomaDate,7,10) between '" + sdate1 + "' and '" + sdate1 + "'  ");
-
-                } else if (company.equals("") && !sdate1.isEmpty() && !sdate2.isEmpty()) {
+                    resultSet = statement.executeQuery("Select * from accountexpense_v where firmaName ='" + company + "' and substr(shartnomaDate,7,10) between '" + date1 + "' and '" + date2 + "'  ");
+                    if(resultSet.next()){
+                        Workbookcontroller workbookcontroller = new Workbookcontroller();
+                        workbookcontroller.datebaseToExcelResultset("accountexpense_v","Buhgalteriya.xls", resultSet);
+                    }
+                } else if (company.equals("") && !date1.isEmpty() && !date2.isEmpty()) {
                     statement = myConn.createStatement();
-                    resultSet = statement.executeQuery("Select * from accountexpense_v where substr(shartnomaDate,7,10) between '" + sdate1 + "' and '" + sdate1 + "' ");
-
-
+                    resultSet = statement.executeQuery("Select * from accountexpense_v where substr(shartnomaDate,7,10) between '" + date1 + "' and '" + date2 + "' ");
+                    if(resultSet.next()){
+                        Workbookcontroller workbookcontroller = new Workbookcontroller();
+                        workbookcontroller.datebaseToExcelResultset("accountexpense_v","Buhgalteriya.xls", resultSet);
+                    }
                 } else {
                     statement = myConn.createStatement();
                     resultSet = statement.executeQuery("SELECT * FROM accountexpense_v ORDER BY id limit 300 ");
-
-
+                    if(resultSet.next()){
+                        Workbookcontroller workbookcontroller = new Workbookcontroller();
+                        workbookcontroller.datebaseToExcelResultset("accountexpense_v","Buhgalteriya.xls", resultSet);
+                    }
                 }
-                 if(resultSet.next()){
-                     Workbookcontroller workbookcontroller = new Workbookcontroller();
-                     workbookcontroller.datebaseToExcelResultset("accountexpense_v","Buhgalteriya.xls", resultSet);
-                 }
-
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -34,16 +34,17 @@ public class DaoUtils {
         close(null, myStmt, myRs);
     }
 
-    public  void log(String module, String type, String cost, String cr_by, String comment) throws SQLException {
+    public  void log(String module, String type, String cost, String cr_by, String comment, String summa) throws SQLException {
 
         String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-        try (PreparedStatement pr = myConn.prepareStatement("insert into log ( module, type, cost, cr_by, date , comment) values (?,?,?,?,?,?)")) {
+        try (PreparedStatement pr = myConn.prepareStatement("insert into log ( module, type, cost, cr_by, date , comment, summa) values (?,?,?,?,?,?,?)")) {
             pr.setString(1, module);
             pr.setString(2, type);
             pr.setString(3, cost);
             pr.setString(4, cr_by);
             pr.setString(5, apple);
             pr.setString(6, comment);
+            pr.setString(7, summa);
             pr.execute();
 
         } catch (Exception e) {
@@ -51,4 +52,21 @@ public class DaoUtils {
         }
     }
 
+        public void log1 (String module, String type, String cost, String cr_by, String comment) throws SQLException
+        {
+
+            String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+            try (PreparedStatement pr = myConn.prepareStatement("insert into log ( module, type, cost, cr_by, date , comment) values (?,?,?,?,?,?)")) {
+                pr.setString(1, module);
+                pr.setString(2, type);
+                pr.setString(3, cost);
+                pr.setString(4, cr_by);
+                pr.setString(5, apple);
+                pr.setString(6, comment);
+                pr.execute();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 }

@@ -2,6 +2,7 @@ package sample.components.sell.DAO;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import sample.Login;
@@ -24,16 +25,17 @@ import java.text.DecimalFormatSymbols;
 public class OperDao {
 
     User u = Login.currentUser;
+    String user_id = String.valueOf(Login.currentUser.getId());
     private Connection myConn = null;
     sample.dao.ProductDao productDao = new ProductDao();
-    String user_id = String.valueOf(Login.currentUser.getId());
+
     Workbookcontroller workbookcontroller = new Workbookcontroller();
 
     public OperDao() {
         myConn = database.getConnection();
     }
 
-    public void excellOperTable(String who, String dan, String gacha) {
+    public void excellOperTable(Button button, String who, String dan, String gacha) {
         Statement statement = null;
         ResultSet resultSet = null;
         PreparedStatement pr = null;
@@ -153,7 +155,7 @@ public class OperDao {
 
     }
 
-    public void excellHistoryTable(String who, String name, String dan, String gacha) {
+    public void excellHistoryTable(Button button, String who, String name, String dan, String gacha) {
         Statement statement = null;
         ResultSet resultSet = null;
 
@@ -372,7 +374,7 @@ public class OperDao {
         }
     }
 
-    public void getCheckExcellSheet(String name, String dan, String gacha) {
+    public void getCheckExcellSheet(Button button, String name, String dan, String gacha) {
         Statement statement = null;
         ResultSet resultSet = null;
 
@@ -419,6 +421,7 @@ public class OperDao {
         String sum_out = "0";
         String hr_in = "0";
         String hr_out = "0";
+        int i = 0;
         if (type.equals("Kirim")) {
             sum_in = sum;
             dollar_in = dollar;
@@ -442,49 +445,35 @@ public class OperDao {
             preparedStatement.setString(9, "1");
             preparedStatement.setString(10, percentage);
             preparedStatement.setString(11, subtotal);
-            preparedStatement.executeUpdate();
+            i = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        try (PreparedStatement preparedStatement = myConn.prepareStatement("update balance set  sum_in=(sum_in+?), sum_out=(sum_out+?), " +
-                "dollar_in=(dollar_in+?), dollar_out=(dollar_out+?), hr_in=(hr_in+?), hr_out=(hr_out+?) where who=99999")) {
-            //inserting into company balance where company who=99999
-            preparedStatement.setString(1, sum_in);
-            preparedStatement.setString(2, sum_out);
-            preparedStatement.setString(3, dollar_in);
-            preparedStatement.setString(4, dollar_out);
-            preparedStatement.setString(5, hr_in);
-            preparedStatement.setString(6, hr_out);
-            preparedStatement.executeUpdate();
-        } catch (Exception a) {
-            a.printStackTrace();
-        }
-
-        try (PreparedStatement preparedStatement = myConn.prepareStatement("update balance set sum_in=(sum_in+?), sum_out=(sum_out+?)," +
-                "dollar_in=(dollar_in+?), dollar_out=(dollar_out+?), hr_in=(hr_in+?), hr_out=(hr_out+?) where who=?")) {
-            //inserting into balance table
-            preparedStatement.setString(1, sum_out);
-            preparedStatement.setString(2, sum_in);
-            preparedStatement.setString(3, dollar_out);
-            preparedStatement.setString(4, dollar_in);
-            preparedStatement.setString(5, hr_out);
-            preparedStatement.setString(6, hr_in);
-            preparedStatement.setString(7, who);
-            preparedStatement.executeUpdate();
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
-
-
-        if (type.equals("Chiqim")) {
-            try (PreparedStatement preparedStatement = myConn.prepareStatement("update balance set sum_in=(sum_in-?), dollar_in=(dollar_in-?), hr_in=(hr_in-?) where who=99999")) {
-                preparedStatement.setString(1, sum_out);
-                preparedStatement.setString(2, dollar_out);
-                preparedStatement.setString(3, hr_out);
+        if(i>0) {
+            try (PreparedStatement preparedStatement = myConn.prepareStatement("update balance set  sum_in=(sum_in+?), sum_out=(sum_out+?), " +
+                    "dollar_in=(dollar_in+?), dollar_out=(dollar_out+?), hr_in=(hr_in+?), hr_out=(hr_out+?) where who=99999")) {
+                //inserting into company balance where company who=99999
+                preparedStatement.setString(1, sum_in);
+                preparedStatement.setString(2, sum_out);
+                preparedStatement.setString(3, dollar_in);
+                preparedStatement.setString(4, dollar_out);
+                preparedStatement.setString(5, hr_in);
+                preparedStatement.setString(6, hr_out);
                 preparedStatement.executeUpdate();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception a) {
+                a.printStackTrace();
+            }
+
+            if (type.equals("Chiqim")) {
+                try (PreparedStatement preparedStatement = myConn.prepareStatement("update balance set sum_in=(sum_in-?), dollar_in=(dollar_in-?), hr_in=(hr_in-?) where who=99999")) {
+                    preparedStatement.setString(1, sum_out);
+                    preparedStatement.setString(2, dollar_out);
+                    preparedStatement.setString(3, hr_out);
+                    preparedStatement.executeUpdate();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
         }
     }
@@ -662,20 +651,28 @@ public class OperDao {
     }
 
     public void addToTotalBalance(String SumIn, String DollarIn, String hrIn, String sumOut, String dollarOut, String hrOut) {
-        try (PreparedStatement preparedStatement = myConn.prepareStatement("update total_balance set  sum=(sum+?), dollar=(dollar+?), hr=(hr+?) where id=1 ")) {
-            preparedStatement.setString(1, SumIn);
-            preparedStatement.setString(2, DollarIn);
-            preparedStatement.setString(3, hrIn);
-            preparedStatement.executeUpdate();
+
+        String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
+        try (PreparedStatement pr = myConn.prepareStatement("insert into admin_log_table ( module, type, ksum, kdollar, khr, csum, cdollar, chr, cr_by, date) values (?,?,?,?,?,?,?,?,?,?)")) {
+            pr.setString(1, "Admin");
+            pr.setString(2, "Kun yopish");
+            pr.setString(3, SumIn);
+            pr.setString(4, DollarIn);
+            pr.setString(5, hrIn);
+            pr.setString(6, sumOut);
+            pr.setString(7, dollarOut);
+            pr.setString(8, hrOut);
+            pr.setString(9, user_id);
+            pr.setString(10, apple);
+        int i =    pr.executeUpdate();
+        if(i>0){
+            JOptionPane.showMessageDialog(null, "Kun yopildi");
+        }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        try (PreparedStatement preparedStatement = myConn.prepareStatement("Update balance set  sum_in=0, sum_out=0, dollar_in=0, dollar_out=0, hr_in=0, hr_out=0 where who=99999")) {
-            preparedStatement.executeUpdate();
-            log("Admin", "Kun yopish", SumIn,  DollarIn, hrIn , sumOut , dollarOut , hrOut, user_id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void perPersonBalance(Label hr, Label sum, Label dollar, String who) {
@@ -845,8 +842,6 @@ public class OperDao {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     private void log(String module, String type, String ksum, String kdollar, String khr, String csum, String cdollar, String chr, String cr_by) throws SQLException {
@@ -873,79 +868,106 @@ public class OperDao {
     public void revertOper(String id, String operType, String sum, String dollar, String hr, String who) {
 
         try {
-           String name= getComboBoxId("person", "companyName",who);
-
+           String name= getComboBoxId("sale_balance", "id",id);
+             int i = 0;
+             int ii = 0;
+             int iii = 0;
+             int b = 0;
+             int bb = 0;
+             int bbb = 0;
+             int bbbb = 0;
             if (operType.equals("Kirim")) {
                 try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_in=(sum_in-?), dollar_in=(dollar_in-?), hr_in=(hr_in-?) where who=99999")) {
-                    preparedStatement.setString(1, sum);
-                    preparedStatement.setString(2,dollar);
-                    preparedStatement.setString(3, hr);
-                    preparedStatement.executeUpdate();
+                    preparedStatement.setString(1, sum.trim().replaceAll("\\s+", ""));
+                    preparedStatement.setString(2,dollar.trim().replaceAll("\\s+", ""));
+                    preparedStatement.setString(3, hr.trim().replaceAll("\\s+", ""));
+                  i=   preparedStatement.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_out=(sum_out-?), dollar_out=(dollar_out-?), hr_out=(hr_out-?) where who='" + name + "'")) {
-                    preparedStatement.setString(1, sum);
-                    preparedStatement.setString(2,dollar);
-                    preparedStatement.setString(3, hr);
-                    preparedStatement.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try (PreparedStatement preparedStatement = myConn.prepareStatement("delete from sale_balance  where id='" + id + "'")) {
-                    preparedStatement.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if(i>0) {
+                    try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_out=(sum_out-?), dollar_out=(dollar_out-?), hr_out=(hr_out-?) where who=" + name + "")) {
+                        preparedStatement.setString(1, sum.trim().replaceAll("\\s+", ""));
+                        preparedStatement.setString(2, dollar.trim().replaceAll("\\s+", ""));
+                        preparedStatement.setString(3, hr.trim().replaceAll("\\s+", ""));
+                      ii=  preparedStatement.executeUpdate();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(ii>0) {
+                        try (PreparedStatement preparedStatement = myConn.prepareStatement("delete from sale_balance  where id='" + id + "'")) {
+                         iii=   preparedStatement.executeUpdate();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        if(iii>0) {
+                            try (PreparedStatement preparedStatement = myConn.prepareStatement("delete from report1  where sb_id=" + id + "")) {
+                                preparedStatement.executeUpdate();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
                 }
             } else if (operType.equals("Chiqim")) {
                 try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_in=(sum_in+?), dollar_in=(dollar_in+?), hr_in=(hr_in+?) where who=99999")) {
-                    preparedStatement.setString(1, sum);
-                    preparedStatement.setString(2,dollar);
-                    preparedStatement.setString(3, hr);
-                    preparedStatement.executeUpdate();
+                    preparedStatement.setString(1, sum.trim().replaceAll("\\s+", ""));
+                    preparedStatement.setString(2, dollar.trim().replaceAll("\\s+", ""));
+                    preparedStatement.setString(3, hr.trim().replaceAll("\\s+", ""));
+                    b = preparedStatement.executeUpdate();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-                try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_in=(sum_in-?), dollar_in=(dollar_in-?), hr_in=(hr_in-?) where who='" + name + "'")) {
-                    preparedStatement.setString(1, sum);
-                    preparedStatement.setString(2,dollar);
-                    preparedStatement.setString(3, hr);
-                    preparedStatement.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_out=(sum_out-?), dollar_out=(dollar_out-?), hr_out=(hr_out-?) where who=99999")) {
-                    preparedStatement.setString(1, sum);
-                    preparedStatement.setString(2,dollar);
-                    preparedStatement.setString(3, hr);
-                    preparedStatement.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try (PreparedStatement preparedStatement = myConn.prepareStatement("delete from sale_balance  where id='" + id + "'")) {
-                    preparedStatement.executeUpdate();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (b > 0) {
+                    try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_in=(sum_in-?), dollar_in=(dollar_in-?), hr_in=(hr_in-?) where who='" + name + "'")) {
+                        preparedStatement.setString(1, sum.trim().replaceAll("\\s+", ""));
+                        preparedStatement.setString(2, dollar.trim().replaceAll("\\s+", ""));
+                        preparedStatement.setString(3, hr.trim().replaceAll("\\s+", ""));
+                      bb=  preparedStatement.executeUpdate();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(bb>0) {
+                        try (PreparedStatement preparedStatement = myConn.prepareStatement("delete from sale_balance  where id='" + id + "'")) {
+                         bbb=   preparedStatement.executeUpdate();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                            if(bbb>0) {
+                                try (PreparedStatement preparedStatement = myConn.prepareStatement("delete from report1  where sb_id=" + id + "")) {
+                                 bbbb=   preparedStatement.executeUpdate();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                if(bbbb>0){
+                                    try (PreparedStatement preparedStatement = myConn.prepareStatement("UPDATE balance set sum_out=(sum_out-?), dollar_out=(dollar_out-?), hr_out=(hr_out-?) where who=99999")) {
+                                        preparedStatement.setString(1, sum.trim().replaceAll("\\s+", ""));
+                                        preparedStatement.setString(2, dollar.trim().replaceAll("\\s+", ""));
+                                        preparedStatement.setString(3, hr.trim().replaceAll("\\s+", ""));
+                                        preparedStatement.executeUpdate();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                    }
                 }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    public String getComboBoxId(String tableName, String columnName, String name) throws SQLException {
+    private String getComboBoxId(String tableName, String columnName, String name) throws SQLException {
         Statement st = null;
         ResultSet rs = null;
         try {
-            String q = "SELECT id FROM " + tableName + " WHERE " + columnName.trim() + "= '" + name.trim() + "'";
+            String q = "SELECT who FROM " + tableName + " WHERE " + columnName.trim() + "= '" + name.trim() + "'";
             st = myConn.createStatement();
             rs = st.executeQuery(q);
             if (rs.next()) {
-                return rs.getString("id");
+                return rs.getString("who");
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,6 +1,8 @@
 package sample.model.core;
 
-public class Person {
+import sample.components.models.AdminOperModel;
+
+public class Person extends AdminOperModel {
 
     String id;
     String name;
@@ -8,6 +10,10 @@ public class Person {
     public Person(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Person() {
+
     }
 
     public String getId() {

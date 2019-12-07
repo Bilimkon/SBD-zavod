@@ -463,7 +463,14 @@ public class ProductDao {
             preparedStatement.setInt(7, customer_id);
             preparedStatement.setInt(8, cr_by);
             preparedStatement.setString(9, date_cr);
-            preparedStatement.execute();
+           int i = preparedStatement.executeUpdate();
+           if(i>0){
+               try(PreparedStatement preparedStatement1 = myConn.prepareStatement("DELETE FROM report1 WHERE s_id=?")){
+                   preparedStatement1.setInt(1,id);
+                   preparedStatement1.executeUpdate();
+               }
+           }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -502,7 +509,7 @@ public class ProductDao {
 
     public void deleteHistory(String id) {
 
-        try(PreparedStatement preparedStatement =myConn.prepareStatement("Delete from history where sellaction_id = '"+id+"'")){
+        try(PreparedStatement preparedStatement =myConn.prepareStatement("Delete from history where sellaction_id = "+id+"")){
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -510,12 +517,15 @@ public class ProductDao {
         JOptionPane.showMessageDialog(null, "Operatsiya yakunlandi");
     }
 
-    public void ReportTableDao(TableView tableView, String name, String dan, String gacha) throws SQLException {
+    public void ReportTableDao(TableView tableView, String name, String dan, String gacha, Label rsum, Label rdollar, Label rhr, Label rpsum, Label rpdollar, Label rphr ) throws SQLException {
 
         Statement statement = null;
         ResultSet resultSet = null;
         PreparedStatement pr = null;
         ResultSet myRs = null;
+        DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+        symbols.setGroupingSeparator(' ');
+        DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
 
         //List to add items
         ObservableList<Report> tableBS = FXCollections.observableArrayList();
@@ -524,26 +534,29 @@ public class ProductDao {
             statement = myConn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM report1_V where who='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
 
-//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1 where who='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
-//            myRs = pr.executeQuery();
+            pr = myConn.prepareStatement("SELECT sum(sum) sum1, sum(dollar) dollar1, sum(hr) hr1, sum(psum) psum, sum(pdollar) pdollar, sum(phr) phr FROM report1_v where who='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+            myRs = pr.executeQuery();
+
         } else if (name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
             statement = myConn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM report1_V where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
 
-//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1 where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
-//            myRs = pr.executeQuery();
+            pr = myConn.prepareStatement("SELECT sum(sum) sum1, sum(dollar) dollar1, sum(hr) hr1, sum(psum) psum, sum(pdollar) pdollar, sum(phr) phr FROM report1_V where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+            myRs = pr.executeQuery();
+
         } else if (!name.isEmpty() && dan.isEmpty() && gacha.isEmpty()) {
             statement = myConn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM report1_V where who='" + name + "'");
 
-//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1 where who='" + name + "'");
-//            myRs = pr.executeQuery();
+            pr = myConn.prepareStatement("SELECT sum(sum) sum1, sum(dollar) dollar1, sum(hr) hr1, sum(psum) psum, sum(pdollar) pdollar, sum(phr) phr FROM report1_v where who='" + name + "'");
+            myRs = pr.executeQuery();
+
         } else if (name.equals("1") || dan.equals("1") || gacha.equals("1")) {
             statement = myConn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM report1_V ORDER BY id desc limit 500");
 
-//            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM report1");
-//            myRs = pr.executeQuery();
+            pr = myConn.prepareStatement("sum(sum) sum1, sum(dollar) dollar1, sum(hr) hr1, sum(psum) psum, sum(pdollar) pdollar, sum(phr) phr FROM report1_v");
+            myRs = pr.executeQuery();
         }
 
         try {
@@ -553,13 +566,13 @@ public class ProductDao {
                     tableB.setId(resultSet.getString("id"));
                     tableB.setType(resultSet.getString("type"));
                     tableB.setWho(resultSet.getString("who"));
-                    tableB.setSum(resultSet.getString("sum"));
-                    tableB.setDollar(resultSet.getString("dollar"));
-                    tableB.setHr(resultSet.getString("hr"));
-                    tableB.setPsum(resultSet.getString("psum"));
-                    tableB.setPdollar(resultSet.getString("pdollar"));
-                    tableB.setPhr(resultSet.getString("phr"));
-                    tableB.setSale(resultSet.getString("sale"));
+                    tableB.setSum(formatter.format(resultSet.getDouble("sum")));
+                    tableB.setDollar(formatter.format(resultSet.getDouble("dollar")));
+                    tableB.setHr(formatter.format(resultSet.getDouble("hr")));
+                    tableB.setPsum(formatter.format(resultSet.getDouble("psum")));
+                    tableB.setPdollar(formatter.format(resultSet.getDouble("pdollar")));
+                    tableB.setPhr(formatter.format(resultSet.getDouble("phr")));
+                    tableB.setSale(formatter.format(resultSet.getDouble("sale")));
                     tableB.setProduct(resultSet.getString("product"));
                     tableB.setComment(resultSet.getString("comment"));
                     tableB.setCr_on(resultSet.getString("cr_on"));
@@ -569,14 +582,15 @@ public class ProductDao {
             }
 
 
-            DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
-            symbols.setGroupingSeparator(' ');
-            DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
 
-//            if (myRs != null && myRs.next()) {
-//                quantity.setText(formatter.format(myRs.getDouble("outt")));
-//
-//            }
+            if (myRs != null && myRs.next()) {
+                rsum.setText(formatter.format(myRs.getDouble("sum1")));
+                rdollar.setText(formatter.format(myRs.getDouble("dollar1")));
+                rhr.setText(formatter.format(myRs.getDouble("hr1")));
+                rpsum.setText(formatter.format(myRs.getDouble("psum")));
+                rpdollar.setText(formatter.format(myRs.getDouble("pdollar")));
+                rphr.setText(formatter.format(myRs.getDouble("phr")));
+            }
 
             tableView.setItems(tableBS);
 
@@ -599,7 +613,7 @@ public class ProductDao {
 
     }
 
-    public void ReportExcellDao(TableView tableView, String name, String dan, String gacha) throws SQLException {
+    public void ReportExcellDao(Button button, TableView tableView, String name, String dan, String gacha) throws SQLException {
         Statement statement = null;
         ResultSet resultSet = null;
         PreparedStatement pr = null;
@@ -642,12 +656,6 @@ public class ProductDao {
         } finally {
             try {
                 sample.dao.DaoUtils.close(statement, resultSet);
-                if (pr != null) {
-                    pr.close();
-                }
-                if (myRs != null) {
-                    myRs.close();
-                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }

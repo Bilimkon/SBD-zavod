@@ -530,5 +530,17 @@ public class Main3Dao {
         }
     }
 
+    public int getDSPAmount() throws SQLException {
+        int resultId = 0;
+        try (Statement st = myConn.createStatement(); ResultSet rs = st.executeQuery("select dquantity from production3  where id = (select max(id) max_id from production3 where  ready = 0)")) {
+            while (rs.next()) {
+                resultId = rs.getInt("dquantity");
+            }
+            return resultId;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 
 }

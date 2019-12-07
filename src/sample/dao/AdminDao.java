@@ -167,7 +167,7 @@ AdminDao {
             pr.setString(5, unitMaker(userType));
             pr.setString(6, phone);
             pr.executeUpdate();
-            daoUtils.log("Admin1", "Foydalanuvchi qo'sish", "", String.valueOf(u.getId()), "Yangi foydalanuvchi qo'shildi" + username + " ," + firstname);
+            daoUtils.log1("Admin1", "Foydalanuvchi qo'sish", "", String.valueOf(u.getId()), "Yangi foydalanuvchi qo'shildi" + username + " ," + firstname);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ AdminDao {
             pr.setString(5, unitMaker(userType));
             pr.setString(6, phone);
             pr.executeUpdate();
-            daoUtils.log("Admin1", "O'zgartirish", "", String.valueOf(u.getId()), "Foydalanuvchi ma'lumotlari o'zgartirildi" + username + " ," + firstname);
+            daoUtils.log1("Admin1", "O'zgartirish", "", String.valueOf(u.getId()), "Foydalanuvchi ma'lumotlari o'zgartirildi" + username + " ," + firstname);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -214,7 +214,7 @@ AdminDao {
             pr = myConn.prepareStatement("DELETE FROM user WHERE id=?");
             pr.setString(1, id);
             pr.executeUpdate();
-            daoUtils.log("Admin1", "Foydalanuvchi qo'sish", "", String.valueOf(u.getId()), "Foydalanuchi o'chirildi " + id);
+            daoUtils.log1("Admin1", "Foydalanuvchi qo'sish", "", String.valueOf(u.getId()), "Foydalanuchi o'chirildi " + id);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -475,15 +475,17 @@ AdminDao {
                 resultSet = statement.executeQuery("SELECT * FROM admin_history_v ORDER BY id limit 100");
             }
 
+
             while (resultSet.next()) {
                 LogTable marketing = new LogTable();
                 marketing.setId(resultSet.getString("id"));
                 marketing.setModule(resultSet.getString("module"));
                 marketing.setType(resultSet.getString("type"));
-                marketing.setCost(resultSet.getString("cost"));
+                marketing.setCost(formatter.format(resultSet.getDouble("cost")));
                 marketing.setCr_by(resultSet.getString("cr_by"));
                 marketing.setDate(resultSet.getString("date"));
                 marketing.setComment(resultSet.getString("comment"));
+                marketing.setSumma(formatter.format(resultSet.getDouble("summa")));
                 marketings.add(marketing);
             }
             table_log.setItems(marketings);

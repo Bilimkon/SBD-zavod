@@ -11,8 +11,9 @@ public class LogTable {
     SimpleStringProperty cr_by = new SimpleStringProperty();
     SimpleStringProperty date = new SimpleStringProperty();
     SimpleStringProperty comment = new SimpleStringProperty();
+    SimpleStringProperty summa = new SimpleStringProperty();
 
-    public LogTable(SimpleStringProperty id, SimpleStringProperty module, SimpleStringProperty type, SimpleStringProperty cost, SimpleStringProperty cr_by, SimpleStringProperty date, SimpleStringProperty comment) {
+    public LogTable(SimpleStringProperty id, SimpleStringProperty module, SimpleStringProperty type, SimpleStringProperty cost, SimpleStringProperty cr_by, SimpleStringProperty date, SimpleStringProperty comment, SimpleStringProperty summa) {
         this.id = id;
         this.module = module;
         this.type = type;
@@ -20,10 +21,23 @@ public class LogTable {
         this.cr_by = cr_by;
         this.date = date;
         this.comment = comment;
+        this.summa = summa;
     }
 
     public LogTable() {
 
+    }
+
+    public String getSumma() {
+        return summa.get();
+    }
+
+    public SimpleStringProperty summaProperty() {
+        return summa;
+    }
+
+    public void setSumma(String summa) {
+        this.summa.set(summa);
     }
 
     public String getId() {

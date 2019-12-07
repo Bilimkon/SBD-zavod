@@ -260,7 +260,7 @@ public class ProductDao {
         ResultSet resultSet = null;
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT companyName FROM person where type=1");
+            resultSet = statement.executeQuery("SELECT companyName FROM person order by companyName");
             while (resultSet.next()) {  // loop
                 // Now add the comboBox addAll statement
                 comboBox.getItems().addAll(resultSet.getString("companyName"));
@@ -277,7 +277,7 @@ public class ProductDao {
         ResultSet resultSet = null;
         try {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT companyName FROM person");
+            resultSet = statement.executeQuery("SELECT companyName FROM person order by companyName");
             while (resultSet.next()) {  // loop
                 // Now add the comboBox addAll statement
                 comboBox.getItems().addAll(resultSet.getString("companyName"));

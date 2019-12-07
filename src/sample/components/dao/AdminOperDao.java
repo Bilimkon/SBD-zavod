@@ -2,6 +2,8 @@ package sample.components.dao;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import sample.Login;
@@ -29,13 +31,15 @@ public class AdminOperDao {
             e.printStackTrace();
         }
     }
-    public void addExpenceDao(String type, String sum, String dollar, String hr, String vhr, String comment) {
-        try(PreparedStatement preparedStatement = myConn.prepareStatement("INSERT INTO AdminOper (type, sum, dollar, hr, vhr, comment, cr_on, cr_by) VALUES(?,?,?,?,?,?,?,?)")){
+
+
+    public void addExpenceDaoChiqim(String type, String who, String sum, String dollar, String hr, String comment) {
+        try(PreparedStatement preparedStatement = myConn.prepareStatement("INSERT INTO AdminOper (type, who, sum, dollar, hr, comment, cr_on, cr_by) VALUES(?,?,?,?,?,?,?,?)")){
             preparedStatement.setString(1, type);
-            preparedStatement.setString(2, sum);
-            preparedStatement.setString(3, dollar);
-            preparedStatement.setString(4, hr);
-            preparedStatement.setString(5, vhr);
+            preparedStatement.setString(2, who);
+            preparedStatement.setString(3, sum);
+            preparedStatement.setString(4, dollar);
+            preparedStatement.setString(5, hr);
             preparedStatement.setString(6, comment);
             preparedStatement.setString(7, apple);
             preparedStatement.setString(8, user_id);
@@ -43,43 +47,40 @@ public class AdminOperDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
-        try(PreparedStatement preparedStatement = myConn.prepareStatement("Update total_balance set sum=(sum+?), dollar=(dollar+?), hr=(hr+?), vhr=(vhr+?) where id =1")) {
-            preparedStatement.setString(1, sum);
-            preparedStatement.setString(2, dollar);
-            preparedStatement.setString(3, hr);
-            preparedStatement.setString(4, vhr);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
+    public void GetPerson(ComboBox<String> comboBox) {
+        try {
+            PreparedStatement preparedStatement = null;
+            ResultSet resultSet = null;
+
+
+            try {
+                preparedStatement = myConn.prepareStatement("Select * from person order by companyName");
+                resultSet = preparedStatement.executeQuery();
+
+                if (resultSet != null) {
+                    while (resultSet.next()) {
+                        comboBox.getItems().addAll(resultSet.getString("companyName"));
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            }
+
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public void addExpenceDaoChiqim(String type, String sum, String dollar, String hr, String vhr, String comment) {
-        try(PreparedStatement preparedStatement = myConn.prepareStatement("INSERT INTO AdminOper (type, sum, dollar, hr, vhr, comment, cr_on, cr_by) VALUES(?,?,?,?,?,?,?,?)")){
-            preparedStatement.setString(1, type);
-            preparedStatement.setString(2, sum);
-            preparedStatement.setString(3, dollar);
-            preparedStatement.setString(4, hr);
-            preparedStatement.setString(5, vhr);
-            preparedStatement.setString(6, comment);
-            preparedStatement.setString(7, apple);
-            preparedStatement.setString(8, user_id);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try(PreparedStatement preparedStatement = myConn.prepareStatement("Update total_balance set sum=(sum-?), dollar=(dollar-?), hr=(hr-?), vhr=(vhr-?) where id =1")) {
-            preparedStatement.setString(1, sum);
-            preparedStatement.setString(2, dollar);
-            preparedStatement.setString(3, hr);
-            preparedStatement.setString(4, vhr);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
     public void total_balance(Label sum, Label dollar, Label account, Label VAL) {
         Statement statement = null;
         ResultSet resultSet = null;
@@ -150,6 +151,7 @@ public class AdminOperDao {
                         AdminOperModel invoice = new AdminOperModel();
                         invoice.setId(resultSet.getString("id"));
                         invoice.setType(resultSet.getString("type"));
+                        invoice.setWho(resultSet.getString("who"));
                         invoice.setSum(formatter.format(resultSet.getDouble("sum")));
                         invoice.setDollar(formatter.format(resultSet.getDouble("dollar")));
                         invoice.setHr(formatter.format(resultSet.getDouble("hr")));
@@ -182,7 +184,7 @@ public class AdminOperDao {
 
     }
 
-    public void adminTableExcell(String date1 , String date2, TableView tableView) {
+    public void adminTableExcell(Button button, String date1 , String date2, TableView tableView) {
         try {
             Statement statement = null;
             ResultSet resultSet = null;
@@ -228,22 +230,25 @@ public class AdminOperDao {
 
 
 
-    public void revertOperKirim(String id, String sum, String dollar, String hr, String vhr) {
-        try(PreparedStatement preparedStatement = myConn.prepareStatement("Update total_balance set sum=(sum-?), dollar=(dollar-?), hr=(hr-?), vhr=(vhr-?) where id =1")) {
-            preparedStatement.setString(1, sum);
-            preparedStatement.setString(2, dollar);
-            preparedStatement.setString(3, hr);
-            preparedStatement.setString(4, vhr);
-            preparedStatement.executeUpdate();
+    public void revertOperKirim(String id, String type, String who, String sum, String dollar, String hr) {
+        int i =0;
+        try(PreparedStatement preparedStatement = myConn.prepareStatement("Insert into admin_oper_r (type, who, sum, dollar, hr) values(?,?,?,?,?)")) {
+            preparedStatement.setString(1, type);
+            preparedStatement.setString(2, who);
+            preparedStatement.setString(3, sum);
+            preparedStatement.setString(4, dollar);
+            preparedStatement.setString(5, hr);
+           i=  preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        try(PreparedStatement preparedStatement = myConn.prepareStatement("Delete from AdminOper where id='"+id+"'")) {
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+           if(i>0) {
+               try (PreparedStatement preparedStatement = myConn.prepareStatement("Delete from AdminOper where id='" + id + "'")) {
+                   preparedStatement.executeUpdate();
+               } catch (SQLException e) {
+                   e.printStackTrace();
+               }
+           }
     }
 
     public void revertOperChiqim(String id,   String sum, String dollar, String hr, String vhr) {
@@ -260,6 +265,28 @@ public class AdminOperDao {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void getWhoName(String selectedItem, Label label) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try{
+            preparedStatement = myConn.prepareStatement("select id from person where companyName='"+selectedItem+"'");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                label.setText(resultSet.getString("id"));
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (resultSet != null) {
+                resultSet.close();
+            }
         }
     }
 }

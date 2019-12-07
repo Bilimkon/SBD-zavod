@@ -631,6 +631,21 @@ public class main2 implements Initializable {
         }
     }
 
+    @FXML private void btnSavdoAction() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("view/SavdoOmbor.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Savdo ombori");
+            stage.setScene(new Scene(root, 900, 600));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void btnMain2OmborFilter() {
         try {

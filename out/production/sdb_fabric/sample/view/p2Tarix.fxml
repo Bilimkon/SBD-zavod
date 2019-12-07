@@ -41,7 +41,7 @@
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin></Button>
-                        <Button mnemonicParsing="false" onAction="#btnExcell" prefHeight="44.0" prefWidth="271.0" text="Excell" GridPane.columnIndex="4">
+                        <Button mnemonicParsing="false" onAction="#btnExcellAction" prefHeight="44.0" prefWidth="271.0" text="Excell" GridPane.columnIndex="4">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
                      </GridPane.margin></Button>

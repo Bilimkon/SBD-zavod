@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -54,7 +53,6 @@
                <rowConstraints>
                   <RowConstraints minHeight="0.0" prefHeight="70.0" vgrow="NEVER" />
                   <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
-                  <RowConstraints minHeight="0.0" prefHeight="70.0" vgrow="NEVER" />
                   <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="NEVER" />
                   <RowConstraints minHeight="10.0" prefHeight="109.0" valignment="TOP" vgrow="NEVER" />
                </rowConstraints>
@@ -63,24 +61,20 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
                   </TextField>
                   <ImageView fitHeight="61.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-                  <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" prefHeight="41.0" prefWidth="903.0" text="Username" GridPane.columnIndex="1">
+                  <PasswordField fx:id="textPassword" prefHeight="78.0" prefWidth="299.0" promptText="Parolni kiriting" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </Label>
-                  <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" prefHeight="41.0" prefWidth="905.0" text="Parol" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="textPassword" prefHeight="78.0" prefWidth="299.0" promptText="Parolni kiriting" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
                   </PasswordField>
-                  <Button fx:id="btnKirish" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="69.0" maxWidth="374.0" mnemonicParsing="false" onAction="#btnActionKirish" opacity="0.99" prefHeight="69.0" prefWidth="237.0" style="-fx-background-color: #1c435e;" text="Kirish" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.valignment="BASELINE" GridPane.vgrow="ALWAYS">
+                  <Button fx:id="btnKirish" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxHeight="69.0" maxWidth="374.0" mnemonicParsing="false" onAction="#btnActionKirish" opacity="0.99" prefHeight="69.0" prefWidth="237.0" style="-fx-background-color: #1c435e;" text="Kirish" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.valignment="BASELINE" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font size="32.0" />
                      </font>

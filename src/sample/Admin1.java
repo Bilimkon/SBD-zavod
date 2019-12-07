@@ -1,7 +1,6 @@
 package sample;
 
 import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -26,12 +25,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import sample.components.sell.DAO.UtilsDao;
-import sample.components.sell.Utils.Utils;
 import sample.dao.AdminDao;
 import sample.dao.DaoUtils;
-import sample.dao.ProductDao;
 import sample.dao.database;
-import sample.model.Marketing;
 import sample.model.UserTable;
 import sample.utils.Workbookcontroller;
 import sample.utils.utils;
@@ -75,24 +71,6 @@ public class Admin1 implements Initializable {
     @FXML
     private TableView userTable;
     @FXML
-    private ComboBox<String> CompanyNameM;
-    @FXML
-    private TextField NameM;
-    @FXML
-    private TextField Barcode_OM;
-    @FXML
-    private TextField BarcodeM;
-    @FXML
-    private TextField ColorM;
-    @FXML
-    private TextField CostM;
-    @FXML
-    private TableView MarketingTableM;
-    @FXML
-    private JFXTextField idM;
-    @FXML
-    private ComboBox<String> ColorFilter;
-    @FXML
     private Label LabelSumTotal;
     @FXML
     private Label LabelDollarTotal;
@@ -129,9 +107,10 @@ public class Admin1 implements Initializable {
     private AreaChart chartAdminSale;
     @FXML
     private TableView table_log;
+    @FXML Button btnExcell;
+    @FXML Label textExchange;
 
     String user_id = String.valueOf(Login.currentUser.getId());
-    String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
     Workbookcontroller workbookcontroller = new Workbookcontroller();
 
     AdminDao adminDao = new AdminDao();
@@ -153,16 +132,11 @@ public class Admin1 implements Initializable {
         Role.getItems().addAll("Ombor", "1-ish/ch", "2-ish/ch", "Savdo", "Admin1", "Accounting");
         ExchangeCombobox.getItems().addAll("Sum-Dollar", "HR-Dollar", "Dollar-Sum", "Sum-Hr", "Hr-Sum");
         initializeTable();
-        initializeMarketingTable();
         intitializeAdminlogTable();
         userTable();
-        marketingTable();
         chart();
         AdminLogTable();
         setUpdate();
-        setUpdateMarketing();
-        AddCompanyCombobox();
-        colorCombobox();
         InitializeLogTable();
         total_Sum();
         AdminLog();
@@ -176,10 +150,9 @@ public class Admin1 implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 userTable();
-                marketingTable();
                 AdminLogTable();
                 total_Sum();
-
+                AdminLog();
             }
         }));
         ficeSecondsWonder.setCycleCount(Timeline.INDEFINITE);
@@ -210,25 +183,7 @@ public class Admin1 implements Initializable {
         password.setCellValueFactory(new PropertyValueFactory<UserTable, String>("password"));
     }
 
-    private void initializeMarketingTable() {
-        TableColumn id = new TableColumn("Tartib raqami");
-        TableColumn company = new TableColumn("Kompaniya nomi");
-        TableColumn name = new TableColumn("Maxsulot nomi");
-        TableColumn barcode_o = new TableColumn("Kompaniya barcodi");
-        TableColumn barcode = new TableColumn("Bizning barcode");
-        TableColumn color = new TableColumn("Rangi");
-        TableColumn cost = new TableColumn("Narxi");
-        MarketingTableM.getColumns().addAll(id, company, name, barcode_o, barcode, color, cost);
 
-        id.setCellValueFactory(new PropertyValueFactory<Marketing, String>("id"));
-        company.setCellValueFactory(new PropertyValueFactory<Marketing, String>("company"));
-        name.setCellValueFactory(new PropertyValueFactory<Marketing, String>("name"));
-        barcode_o.setCellValueFactory(new PropertyValueFactory<Marketing, String>("barcode_o"));
-        barcode.setCellValueFactory(new PropertyValueFactory<Marketing, String>("barcode"));
-        color.setCellValueFactory(new PropertyValueFactory<Marketing, String>("color"));
-        cost.setCellValueFactory(new PropertyValueFactory<Marketing, String>("cost"));
-
-    }
 
     // initializing table AdminLog
     private void intitializeAdminlogTable() {
@@ -268,27 +223,26 @@ public class Admin1 implements Initializable {
         TableColumn cr_by = new TableColumn("Ishchi");
         TableColumn date = new TableColumn("Sana");
         TableColumn comment = new TableColumn("Ma'lumot");
-        table_log.getColumns().addAll(date, module, type, cr_by, comment);
+        TableColumn summa = new TableColumn("Summa");
 
-        id.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("id"));
-        module.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("module"));
-        type.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("type"));
-        cost.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("cost"));
-        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("cr_by"));
-        date.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("date"));
-        comment.setCellValueFactory(new PropertyValueFactory<sample.model.AdminLogTable, String>("comment"));
+        table_log.getColumns().addAll(date, module, type, cr_by, comment, cost, summa);
+
+        id.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("id"));
+        module.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("module"));
+        type.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("type"));
+        cost.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cost"));
+        cr_by.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("cr_by"));
+        date.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("date"));
+        comment.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("comment"));
+        summa.setCellValueFactory(new PropertyValueFactory<sample.model.LogTable, String>("summa"));
     }
 
 
     // This function updates all the controls
     private void functionUpdate() {
         AdminLogTable();
-        marketingTable();
         userTable();
-        marketingTable();
         AdminLogTable();
-        AddCompanyCombobox();
-        colorCombobox();
     }
 
     @FXML
@@ -325,21 +279,6 @@ public class Admin1 implements Initializable {
             e.printStackTrace();
         }
     }
-
-    private void marketingTable() {
-        try {
-
-            String color = ColorFilter.getSelectionModel().getSelectedItem();
-            if (color != null) {
-                adminDao.marketingTable(MarketingTableM, color);
-            } else {
-                adminDao.marketingTable(MarketingTableM, "1");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
     private void AdminLogTable() {
         try {
@@ -485,93 +424,6 @@ public class Admin1 implements Initializable {
             }
     }
 
-    private void AddCompanyCombobox() {
-        try {
-            ProductDao productDao = new ProductDao();
-            productDao.addSuplierCombobox(CompanyNameM);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void setUpdateMarketing() {
-        try {
-            MarketingTableM.setOnMouseClicked(event -> {
-                Marketing marketing = (Marketing) MarketingTableM.getSelectionModel().getSelectedItem();
-                try {
-                    NameM.setText(marketing.getName());
-                    Barcode_OM.setText(marketing.getBarcode_o());
-                    BarcodeM.setText(marketing.getBarcode());
-                    ColorM.setText(marketing.getColor());
-                    CostM.setText(marketing.getCost());
-                    idM.setText(marketing.getId());
-                } catch (Exception exc) {
-                }
-            });
-        } catch (Exception exc) {
-            JOptionPane.showMessageDialog(null, "Error" + exc, "Xatolik", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    @FXML
-    private void btnSaveActionM() {
-        try {
-            String company = CompanyNameM.getSelectionModel().getSelectedItem();
-            String name = NameM.getText();
-            String barcode_o = Barcode_OM.getText();
-            String barcode = BarcodeM.getText();
-            String color = ColorM.getText();
-            String cost = CostM.getText();
-            adminDao.addToMarketing(company, name, barcode_o, barcode, color, cost);
-            marketingTable();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @FXML
-    private void btnUpdateActionM() {
-        try {
-            String name = NameM.getText();
-            String barcode_o = Barcode_OM.getText();
-            String barcode = BarcodeM.getText();
-            String color = ColorM.getText();
-            String cost = CostM.getText();
-            String id = idM.getText();
-            adminDao.updateMarketing(name, barcode_o, barcode, color, cost, id);
-            marketingTable();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void btnDeleteActionM() {
-        try {
-            String id = idM.getText();
-            adminDao.deleteMarketing(id);
-            marketingTable();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void colorCombobox() {
-        try {
-            adminDao.addColorCombobox(ColorFilter);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void btnFilterAction() {
-        marketingTable();
-
-    }
-
     @FXML
     private void btnExcellFilter() {
         try {
@@ -607,12 +459,14 @@ public class Admin1 implements Initializable {
 
                             pr = myConn.prepareStatement("update total_balance set dollar=(dollar+?) where id =1");
                             pr.setString(1, String.valueOf((sum / dollar)));
-                            pr.executeUpdate();
-                            pr1 = myConn.prepareStatement("update total_balance set sum=(sum-?) where id =1 ");
-                            pr1.setString(1, String.valueOf(sum));
-                            pr1.executeUpdate();
-                            total_Sum();
-                            daoUtils.log("Admin1", "Valyuta almashtirish", "", user_id, "Sum-dollar: " + sum / dollar);
+                           int i = pr.executeUpdate();
+                           if(i>0) {
+                               pr1 = myConn.prepareStatement("update total_balance set sum=(sum-?) where id =1 ");
+                               pr1.setString(1, String.valueOf(sum));
+                               pr1.executeUpdate();
+                               total_Sum();
+                               daoUtils.log("Admin1", "Valyuta almashtirish", dollar+"", user_id, "Sum-dollar: " + sum +"/"+dollar, sum+"");
+                           }
 
                         }
                     break;
@@ -628,13 +482,14 @@ public class Admin1 implements Initializable {
 
                             pr = myConn.prepareStatement("update total_balance set dollar=(dollar+?) where id =1 ");
                             pr.setDouble(1, (sum / dollar));
-                            pr.executeUpdate();
-                            pr1 = myConn.prepareStatement("update total_balance set hr=(hr-?) where id =1 ");
-                            pr1.setString(1, String.valueOf(sum));
-                            pr1.executeUpdate();
-                            total_Sum();
-                            daoUtils.log("Admin1", "Valyuta almashtirish", "", user_id, "HR-dollar: " + sum / dollar);
-
+                          int i=  pr.executeUpdate();
+                          if(i>0) {
+                              pr1 = myConn.prepareStatement("update total_balance set hr=(hr-?) where id =1 ");
+                              pr1.setString(1, String.valueOf(sum));
+                              pr1.executeUpdate();
+                              total_Sum();
+                              daoUtils.log("Admin1", "Valyuta almashtirish", dollar+"", user_id, "HR-dollar: " + sum +"/"+ dollar, ""+sum);
+                          }
 
                         }
                     break;
@@ -650,14 +505,15 @@ public class Admin1 implements Initializable {
 
                             pr = myConn.prepareStatement("update total_balance set sum=(sum+?) where id =1 ");
                             pr.setString(1, String.valueOf((dollar * sum)));
-                            pr.executeUpdate();
-                            pr1 = myConn.prepareStatement("update total_balance set dollar=(dollar-?) where id =1 ");
-                            pr1.setString(1, String.valueOf(sum));
-                            pr1.executeUpdate();
-                            total_Sum();
-                            daoUtils.log("Admin1", "Valyuta almashtirish", "", user_id, "Dollar-Sum: " + dollar * sum);
+                         int i =    pr.executeUpdate();
+                         if(i>0) {
+                             pr1 = myConn.prepareStatement("update total_balance set dollar=(dollar-?) where id =1 ");
+                             pr1.setString(1, String.valueOf(sum));
+                             pr1.executeUpdate();
+                             total_Sum();
+                             daoUtils.log("Admin1", "Valyuta almashtirish", ""+dollar, user_id, "Dollar-Sum: " + dollar +"*"+ sum,""+sum);
 
-
+                         }
                         }
                     break;
                 }
@@ -672,14 +528,14 @@ public class Admin1 implements Initializable {
 
                             pr = myConn.prepareStatement("update total_balance set sum=(sum-?) where id =1 ");
                             pr.setString(1, String.valueOf(sum));
-                            pr.executeUpdate();
-                            pr1 = myConn.prepareStatement("update total_balance set hr=(hr+?) where id =1 ");
-                            pr1.setString(1, String.valueOf(sum));
-                            pr1.executeUpdate();
-                            total_Sum();
-                            daoUtils.log("Admin1", "Valyuta almashtirish", "", user_id, "Sum-Hr: " + dollar * sum);
-
-
+                          int i=  pr.executeUpdate();
+                          if(i>0) {
+                              pr1 = myConn.prepareStatement("update total_balance set hr=(hr+?) where id =1 ");
+                              pr1.setString(1, String.valueOf(sum));
+                              pr1.executeUpdate();
+                              total_Sum();
+                              daoUtils.log("Admin1", "Valyuta almashtirish", ""+sum, user_id, "Sum-Hr: " + sum +" : "+ sum, ""+sum);
+                          }
                         }
                     break;
                 }
@@ -694,18 +550,21 @@ public class Admin1 implements Initializable {
 
                             pr = myConn.prepareStatement("update total_balance set sum=(sum+?) where id =1 ");
                             pr.setString(1, String.valueOf(sum));
-                            pr.executeUpdate();
+                        int i=    pr.executeUpdate();
+                        if(i>0) {
                             pr1 = myConn.prepareStatement("update total_balance set hr=(hr-?) where id =1 ");
                             pr1.setString(1, String.valueOf(sum));
                             pr1.executeUpdate();
                             total_Sum();
-                            daoUtils.log("Admin1", "Valyuta almashtirish", "", user_id, "Hr-Sum: " + dollar * sum);
-
-
+                            daoUtils.log("Admin1", "Valyuta almashtirish", ""+sum, user_id, "Hr-Sum: " + sum +" : "+ sum, ""+sum);
+                        }
                         }
                     break;
                 }
             }
+                ExchangeSumma.setText("");
+                DollarRate.setText("");
+                textExchange.setText("Valyuta ayrboshlandi");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -717,16 +576,6 @@ public class Admin1 implements Initializable {
             }
         }
     }
-
-    @FXML
-    private void btnA_ombor_excellAction() {
-        try {
-            workbookcontroller.datebaseToExcel("product_v", "Ombor.xls");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @FXML
     private void btnAdminSaralashAction() {
@@ -883,7 +732,7 @@ public class Admin1 implements Initializable {
             root = FXMLLoader.load(getClass().getResource("view/balance.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Umumiy balance oynasi");
-            stage.setScene(new Scene(root, 700, 500));
+            stage.setScene(new Scene(root, 1000, 700));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
             stage.show();

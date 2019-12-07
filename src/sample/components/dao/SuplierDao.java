@@ -55,7 +55,7 @@ public class SuplierDao {
         }
     }
 
-    public void addSuplier(String name, String account, String info, String phone) throws SQLException {
+    public void addSuplier(String name, String account, String info, String phone){
 
         try (PreparedStatement pr = myConn.prepareStatement("INSERT INTO person(type, companyName, account, phone, info,  date_cr, cr_by) VALUES (?,?,?,?,?,?,?)")) {
             pr.setString(1, "1");

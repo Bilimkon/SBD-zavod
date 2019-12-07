@@ -1,6 +1,6 @@
 package sample.utils;
 
-import com.gembox.spreadsheet.*;
+import com.gembox.spreadsheet.SpreadsheetInfo;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.shaded.apache.poi.hssf.usermodel.HSSFSheet;
@@ -11,6 +11,7 @@ import org.shaded.apache.poi.ss.usermodel.Sheet;
 import org.shaded.apache.poi.ss.usermodel.Workbook;
 import sample.dao.SystemUtilsDao;
 import sample.dao.database;
+
 import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Optional;
 
-public class Workbookcontroller {
+public class Workbookcontroller  {
     Connection myConn = null;
 
     public Workbookcontroller(){
@@ -33,8 +34,8 @@ public class Workbookcontroller {
         SpreadsheetInfo.setLicense("FREE-LIMITED-KEY");
     }
 
-    public void datebaseToExcel(String tableName, String fileName) throws SQLException {
 
+    public void datebaseToExcel( String tableName, String fileName) throws SQLException {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Excel fayl yaratish ");
@@ -111,8 +112,7 @@ public class Workbookcontroller {
             }
     }
 
-    public void datebaseToExcelResultset(String tableName, String fileName, ResultSet rs) throws SQLException {
-
+    public void datebaseToExcelResultset( String tableName, String fileName, ResultSet rs) throws SQLException {
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Excel fayl yaratish ");
@@ -122,9 +122,9 @@ public class Workbookcontroller {
         if (result.isPresent())
             if (result.get() == ButtonType.OK) {
                 SystemUtilsDao systemUtilsDao = new SystemUtilsDao();
-                String filename = systemUtilsDao.ExcelFilePath() + "OmborXisobi.xls";
+                String filename = systemUtilsDao.ExcelFilePath() + fileName;
                 HSSFWorkbook workbook = new HSSFWorkbook();
-                HSSFSheet sheet = workbook.createSheet("Ombor Xisobi");
+                HSSFSheet sheet = workbook.createSheet(fileName);
                 FileOutputStream fileOut1 = null;
                 try {
                     fileOut1 = new FileOutputStream(filename);
@@ -158,15 +158,18 @@ public class Workbookcontroller {
                         Cell newpath = desRow1.createCell(col);
                         newpath.setCellValue(rsmd.getColumnLabel(col + 1));
                     }
+
                     while (rs.next()) {
                         Row desRow = desSheet.createRow(rs.getRow());
                         for (int col = 0; col < columnsNumber; col++) {
                             Cell newpath = desRow.createCell(col);
                             newpath.setCellValue(rs.getString(col + 1));
                         }
-                        FileOutputStream fileOut = new FileOutputStream(systemUtilsDao.ExcelFilePath() + fileName);
-                        writeWorkbook.write(fileOut);
-                        fileOut.close();
+
+                            FileOutputStream fileOut = new FileOutputStream(systemUtilsDao.ExcelFilePath() + fileName);
+                            writeWorkbook.write(fileOut);
+                            fileOut.close();
+
                     }
                     JOptionPane.showMessageDialog(null, "Excel file yaratildi !");
                 } catch (SQLException e) {

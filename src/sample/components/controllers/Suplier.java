@@ -65,7 +65,7 @@ public class Suplier implements Initializable {
     @FXML
     private void btnSaveAction()  {
         try {
-            String name1 = name.getText().trim().toLowerCase().replaceAll("\\s+","");
+            String name1 = name.getText().trim().replaceAll("\\s+","_");
             String account = person.getText().trim().replaceAll("\\s+","");
             String info1 = info.getText().trim();
             String phone = textPhone.getText().trim().replaceAll("\\s+","");
@@ -89,6 +89,7 @@ public class Suplier implements Initializable {
                     info.setText(suplier.getInfo());
                     id.setText(suplier.getId());
                 } catch (Exception exc) {
+                    exc.printStackTrace();
                 }
             });
         } catch (Exception exc) {

@@ -38,7 +38,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnExcellp2X" prefHeight="31.0" prefWidth="175.0" text="Excell" GridPane.columnIndex="4">
+                  <Button mnemonicParsing="false" onAction="#btnExcellp2X" fx:id="btnExcell" prefHeight="31.0" prefWidth="175.0" text="Excell" GridPane.columnIndex="4">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin></Button>

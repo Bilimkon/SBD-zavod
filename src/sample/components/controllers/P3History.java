@@ -20,7 +20,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class P3History implements Initializable {
-
+    @FXML
+    public Button btnExcell;
     @FXML
     private DatePicker dan;
     @FXML

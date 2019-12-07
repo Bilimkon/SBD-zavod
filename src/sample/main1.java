@@ -51,6 +51,7 @@ import static sample.utils.BarCodeService.numbGen;
 public class main1 implements Initializable {
 
 
+    @FXML public Button btnExcell;
     private Connection myConn = null;
     ProductDao productDao = new ProductDao();
 
@@ -484,7 +485,7 @@ public class main1 implements Initializable {
             String path = dir.getAbsolutePath() + "\\";
             SystemUtilsDao systemUtilsDao = new SystemUtilsDao();
             systemUtilsDao.excellFolder(path);
-            JOptionPane.showMessageDialog(null, "Rasm joyi saqlandi!");
+            JOptionPane.showMessageDialog(null, "Fayl joyi saqlandi!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -691,6 +692,20 @@ public class main1 implements Initializable {
         }
     }
 
+    @FXML private void btnSellWindowAction(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("view/SavdoOmbor.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Savdo ombori");
+            stage.setScene(new Scene(root, 900, 700));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * Ombordan chiqish
      */

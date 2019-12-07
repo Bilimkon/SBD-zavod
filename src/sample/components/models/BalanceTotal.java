@@ -7,17 +7,24 @@ public class BalanceTotal {
     SimpleStringProperty p2 = new SimpleStringProperty();
     SimpleStringProperty p3 = new SimpleStringProperty();
     SimpleStringProperty sell = new SimpleStringProperty();
+    SimpleStringProperty c_sum = new SimpleStringProperty();
+    SimpleStringProperty c_dollar = new SimpleStringProperty();
+    SimpleStringProperty c_hr = new SimpleStringProperty();
     SimpleStringProperty sum = new SimpleStringProperty();
     SimpleStringProperty dollar = new SimpleStringProperty();
     SimpleStringProperty hr = new SimpleStringProperty();
     SimpleStringProperty vhr = new SimpleStringProperty();
     SimpleStringProperty total_all = new SimpleStringProperty();
 
-    public BalanceTotal(SimpleStringProperty product, SimpleStringProperty p2, SimpleStringProperty p3, SimpleStringProperty sell, SimpleStringProperty sum, SimpleStringProperty dollar, SimpleStringProperty hr, SimpleStringProperty vhr, SimpleStringProperty total_all) {
+
+    public BalanceTotal(SimpleStringProperty product, SimpleStringProperty p2, SimpleStringProperty p3, SimpleStringProperty sell, SimpleStringProperty c_sum, SimpleStringProperty c_dollar, SimpleStringProperty c_hr, SimpleStringProperty sum, SimpleStringProperty dollar, SimpleStringProperty hr, SimpleStringProperty vhr, SimpleStringProperty total_all) {
         this.product = product;
         this.p2 = p2;
         this.p3 = p3;
         this.sell = sell;
+        this.c_sum = c_sum;
+        this.c_dollar = c_dollar;
+        this.c_hr = c_hr;
         this.sum = sum;
         this.dollar = dollar;
         this.hr = hr;
@@ -27,6 +34,42 @@ public class BalanceTotal {
 
     public BalanceTotal() {
 
+    }
+
+    public String getC_sum() {
+        return c_sum.get();
+    }
+
+    public SimpleStringProperty c_sumProperty() {
+        return c_sum;
+    }
+
+    public void setC_sum(String c_sum) {
+        this.c_sum.set(c_sum);
+    }
+
+    public String getC_dollar() {
+        return c_dollar.get();
+    }
+
+    public SimpleStringProperty c_dollarProperty() {
+        return c_dollar;
+    }
+
+    public void setC_dollar(String c_dollar) {
+        this.c_dollar.set(c_dollar);
+    }
+
+    public String getC_hr() {
+        return c_hr.get();
+    }
+
+    public SimpleStringProperty c_hrProperty() {
+        return c_hr;
+    }
+
+    public void setC_hr(String c_hr) {
+        this.c_hr.set(c_hr);
     }
 
     public String getProduct() {

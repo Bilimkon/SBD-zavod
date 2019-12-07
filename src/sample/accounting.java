@@ -13,9 +13,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import sample.components.sell.productTableView.balance;
+import sample.dao.SystemUtilsDao;
 import sample.dao.accountingDao;
 import sample.model.AccountXarajat;
 import sample.model.ShartnomaTable;
@@ -25,6 +27,7 @@ import sample.utils.ComboBoxAutoComplete;
 import sample.utils.utils;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -38,6 +41,7 @@ import java.util.ResourceBundle;
 
 public class accounting implements Initializable {
 
+    @FXML public Button btnExcell;
     @FXML
     Label accHR_label;
     @FXML
@@ -198,18 +202,18 @@ public class accounting implements Initializable {
             }
         });
 
-        tablleAccountHarajat.setOnMouseClicked((MouseEvent event) -> {
-            if (event.getClickCount() == 2) {
-                AccountXarajat shartnomaTable = (AccountXarajat) tablleAccountHarajat.getSelectionModel().getSelectedItem();
-                try {
-                    dialogPrintXarajat(shartnomaTable.getId(), shartnomaTable.getHr(), shartnomaTable.getDollar());
-                    tableHarajat();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        tablleAccountHarajat.setOnMouseClicked((MouseEvent event) -> {
+//            if (event.getClickCount() == 2) {
+//                AccountXarajat shartnomaTable = (AccountXarajat) tablleAccountHarajat.getSelectionModel().getSelectedItem();
+//                try {
+//                    dialogPrintXarajat(shartnomaTable.getId(), shartnomaTable.getFirma(), shartnomaTable.getHr(), shartnomaTable.getDollar());
+//                    tableHarajat();
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
 
         /**
@@ -267,7 +271,7 @@ public class accounting implements Initializable {
         }
     }
 
-    private void dialogPrintXarajat(String id,String hr, String dollar) {
+    private void dialogPrintXarajat(String id, String firma, String hr, String dollar) {
         try {
             TextInputDialog dialog = new TextInputDialog(id);
             dialog.setTitle("O'chirish");
@@ -277,7 +281,7 @@ public class accounting implements Initializable {
             // The Java 8 way to get the response value (with lambda expression).
             result.ifPresent(name ->
                     {
-                        accountingDao.deleteXarajat(id, hr.trim().replaceAll("\\s+", ""), dollar.trim().replaceAll("\\s+", ""));
+                        accountingDao.deleteXarajat(id, firma, hr.trim().replaceAll("\\s+", ""), dollar.trim().replaceAll("\\s+", ""));
                         setSumms();
                     }
             );
@@ -506,7 +510,7 @@ public class accounting implements Initializable {
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
 
                 accountingDao.xarajatTableDao(tablleAccountHarajat, company, sdate1, sdate2, accountingTotalHr, accountingTotalDollar);
-            } else if(accountingSelectCompanyName.getSelectionModel().getSelectedItem().equals("") && accountingDate1.getValue() != null && accountingDate2.getValue() != null){
+            } else if(accountingSelectCompanyName.getSelectionModel().getSelectedItem() ==null && accountingDate1.getValue() != null && accountingDate2.getValue() != null){
                 LocalDate date1 = accountingDate1.getValue();
                 LocalDate date2 = accountingDate2.getValue();
 
@@ -516,7 +520,6 @@ public class accounting implements Initializable {
 
                 accountingDao.xarajatTableDao(tablleAccountHarajat, "", sdate1, sdate2, accountingTotalHr, accountingTotalDollar);
             } else{
-
                 accountingDao.xarajatTableDao(tablleAccountHarajat, "", "", "", accountingTotalHr, accountingTotalDollar);
             }
         } catch (Exception e){
@@ -537,8 +540,8 @@ public class accounting implements Initializable {
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
 
-                accountingDao.xarajatExcellTableDao( company, sdate1, sdate2);
-            } else if(accountingSelectCompanyName.getSelectionModel().getSelectedItem().equals("") && accountingDate1.getValue() != null && accountingDate2.getValue() != null){
+                accountingDao.xarajatExcellTableDao(btnExcell, company, sdate1, sdate2);
+            } else if(accountingSelectCompanyName.getSelectionModel().getSelectedItem() ==null && accountingDate1.getValue() != null && accountingDate2.getValue() != null){
                 LocalDate date1 = accountingDate1.getValue();
                 LocalDate date2 = accountingDate2.getValue();
 
@@ -546,10 +549,23 @@ public class accounting implements Initializable {
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
 
-                accountingDao.xarajatExcellTableDao( "", sdate1, sdate2);
+                accountingDao.xarajatExcellTableDao(btnExcell, "", sdate1, sdate2);
             } else{
-                accountingDao.xarajatExcellTableDao("", "", "");
+                accountingDao.xarajatExcellTableDao(btnExcell, "", "", "");
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML public void btnExcellPathAction(){
+        try {
+            DirectoryChooser directoryChooser = new DirectoryChooser();
+            Stage stage = null;
+            File dir = directoryChooser.showDialog(stage);
+            String path = dir.getAbsolutePath() + "\\";
+            SystemUtilsDao systemUtilsDao = new SystemUtilsDao();
+            systemUtilsDao.excellFolder(path);
+            JOptionPane.showMessageDialog(null, "Fayl joyi saqlandi!");
         } catch (Exception e) {
             e.printStackTrace();
         }

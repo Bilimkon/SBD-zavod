@@ -73,7 +73,7 @@ public class ShopItemListItem extends AnchorPane implements ShopItemConnector, I
             }
         });
 
-        comboCurrency.getItems().addAll("$", "Sum","Hr");
+        comboCurrency.getItems().addAll("$","Sum","Hr");
         itemPrice.setOnAction(event -> {
             amountField.requestFocus();
         });

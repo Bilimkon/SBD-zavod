@@ -74,10 +74,12 @@ import java.util.*;
  * Humoyun Qo'rg'onov  SBD(Software Business Development)
  */
 public class MainPageController extends Parent implements Initializable {
+
+    @FXML public Button btnExcell1;
+    @FXML public Button btnExcell11;
     private ProductDao productDao;
     UtilsDao utilsDao = new UtilsDao();
     utils utils = new utils();
-    sample.dao.DaoUtils daoUtils = new sample.dao.DaoUtils();
     @FXML
     private TextField textSampleIzlash;
     private Connection myConn;
@@ -245,6 +247,12 @@ public class MainPageController extends Parent implements Initializable {
     private DatePicker ReportGacha;
     @FXML
     private TableView ReportTable;
+    @FXML private Label rsum;
+    @FXML private Label rdollar;
+    @FXML private Label rhr;
+    @FXML private Label rpsum;
+    @FXML private Label rpdollar;
+    @FXML private Label rphr;
 
 
 
@@ -345,7 +353,7 @@ public class MainPageController extends Parent implements Initializable {
         TableColumn<balance, Integer> hr_balance = new TableColumn<>("Hisob raqam balans");
 
 
-        operBalanceTable.getColumns().addAll(who, sum_in, sum_out, sum_balance, dollar_in, dollar_out, dollar_balance, hr_in, hr_out, hr_balance);
+        operBalanceTable.getColumns().addAll(who, sum_balance,  dollar_balance,  hr_balance);
 
         who.setCellValueFactory(new PropertyValueFactory<>("who"));
         sum_in.setCellValueFactory(new PropertyValueFactory<>("sum_in"));
@@ -372,7 +380,7 @@ public class MainPageController extends Parent implements Initializable {
         TableColumn<balance, Integer> hr_balance = new TableColumn<>("Hisob raqam balans");
 
 
-        tableDebtorsOper.getColumns().addAll(who, sum_in, sum_out, sum_balance, dollar_in, dollar_out, dollar_balance, hr_in, hr_out, hr_balance);
+        tableDebtorsOper.getColumns().addAll(who,  sum_balance,  dollar_balance, hr_balance);
 
         who.setCellValueFactory(new PropertyValueFactory<>("who"));
         sum_in.setCellValueFactory(new PropertyValueFactory<>("sum_in"));
@@ -654,6 +662,7 @@ public class MainPageController extends Parent implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ChangeType.getItems().addAll("*");
         operType.getItems().addAll("Kirim", "Chiqim");
         ChangeType.getItems().addAll("sum-dollar", "hr-dollar", "dollar-sum", "dollar-hr", "hr-sum", "sum-hr");
         ChangeType.getSelectionModel().selectFirst();
@@ -716,6 +725,7 @@ public class MainPageController extends Parent implements Initializable {
             sellactionSelectCustomer.setTooltip(new Tooltip());
             exchangeSelectName.setTooltip(new Tooltip());
             tarixSelectName.setTooltip(new Tooltip());
+            ReportSelectName.setTooltip(new Tooltip());
             new ComboBoxAutoComplete<String>(ComboBoxBalance);
             new ComboBoxAutoComplete<String>(operHistoryWho);
             new ComboBoxAutoComplete<String>(operWho);
@@ -723,6 +733,7 @@ public class MainPageController extends Parent implements Initializable {
             new ComboBoxAutoComplete<String>(sellactionSelectCustomer);
             new ComboBoxAutoComplete<String>(exchangeSelectName);
             new ComboBoxAutoComplete<String>(tarixSelectName);
+            new ComboBoxAutoComplete<String>(ReportSelectName);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -1264,7 +1275,7 @@ public class MainPageController extends Parent implements Initializable {
             btnAddCustomer.setOnAction(event -> {
                 try {
                     if (textFirstName.getText().length() > 0) {
-                        String firstname = textFirstName.getText().trim().replaceAll("\\s+", "");
+                        String firstname = textFirstName.getText().trim().replaceAll("\\s+", "_");
                         btnAddCustomerAction(firstname);
                         productDao1.addWhoCombobox(operWho);
                         productDao1.addWhoCombobox(operCustomerFilter);
@@ -1715,14 +1726,14 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.excellHistoryTable(customer, name, sdate1, sdate2);
+                operDao.excellHistoryTable(btnExcell11, customer, name, sdate1, sdate2);
             } else if (HistoryDan.getValue() != null && HistoryGacha.getValue() != null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
                 LocalDate date1 = HistoryDan.getValue();
                 LocalDate date2 = HistoryGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.excellHistoryTable("", "", sdate1, sdate2);
+                operDao.excellHistoryTable(btnExcell11, "", "", sdate1, sdate2);
             } else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() == null && HistoryGacha.getValue() == null) {
                 operDao.HistoryTableFilter(HistoryTable, operHistoryWho.getSelectionModel().getSelectedItem(), tarixSelectName.getSelectionModel().getSelectedItem(), "", "", tarixTotalQuantity, tarixTotalCost);
             } else if (operHistoryWho.getSelectionModel().getSelectedItem() != null && tarixSelectName.getSelectionModel().getSelectedItem() == null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
@@ -1731,16 +1742,16 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.excellHistoryTable(operHistoryWho.getSelectionModel().getSelectedItem(), "", sdate1, sdate2);
+                operDao.excellHistoryTable(btnExcell11, operHistoryWho.getSelectionModel().getSelectedItem(), "", sdate1, sdate2);
             } else if (operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() != null && HistoryDan.getValue() != null && HistoryGacha.getValue() != null) {
                 LocalDate date1 = HistoryDan.getValue();
                 LocalDate date2 = HistoryGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                operDao.excellHistoryTable("", tarixSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2);
+                operDao.excellHistoryTable(btnExcell11, "", tarixSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2);
             } else if (HistoryDan.getValue() == null && HistoryGacha.getValue() == null && operHistoryWho.getSelectionModel().getSelectedItem() == null && tarixSelectName.getSelectionModel().getSelectedItem() == null) {
-                operDao.excellHistoryTable("", "", "", "");
+                operDao.excellHistoryTable(btnExcell11, "", "", "", "");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1840,18 +1851,18 @@ public class MainPageController extends Parent implements Initializable {
                     DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                     String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                     String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                    operDao.getCheckExcellSheet(name, sdate1, sdate2);
+                    operDao.getCheckExcellSheet(btnExcell11, name, sdate1, sdate2);
                 } else if (QarzDan.getValue() != null && QarzGacha.getValue() != null && sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null) {
                     LocalDate date1 = QarzDan.getValue();
                     LocalDate date2 = QarzGacha.getValue();
                     DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                     String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                     String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                    operDao.getCheckExcellSheet("", sdate1, sdate2);
+                    operDao.getCheckExcellSheet(btnExcell11, "", sdate1, sdate2);
                 } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() != null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
-                    operDao.getCheckExcellSheet(sellactionSelectCustomer.getSelectionModel().getSelectedItem(), "", "");
+                    operDao.getCheckExcellSheet(btnExcell11, sellactionSelectCustomer.getSelectionModel().getSelectedItem(), "", "");
                 } else if (sellactionSelectCustomer.getSelectionModel().getSelectedItem() == null && QarzDan.getValue() == null && QarzGacha.getValue() == null) {
-                    operDao.getCheckExcellSheet("1", "1", "1");
+                    operDao.getCheckExcellSheet(btnExcell11, "1", "1", "1");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -1945,16 +1956,16 @@ public class MainPageController extends Parent implements Initializable {
                         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                         String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                         String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                        operDao.excellOperTable(who, sdate1, sdate2);
+                        operDao.excellOperTable(btnExcell11,  who, sdate1, sdate2);
                     } else if (operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() != null && operDanFilter.getValue() != null) {
                         LocalDate date1 = operDanFilter.getValue();
                         LocalDate date2 = operGachaFilter.getValue();
                         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                         String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                         String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                        operDao.excellOperTable("", sdate1, sdate2);
+                        operDao.excellOperTable(btnExcell11, "", sdate1, sdate2);
                     } else if (operCustomerFilter.getSelectionModel().getSelectedItem() == null && operDanFilter.getValue() == null) {
-                        operDao.excellOperTable("", "", "");
+                        operDao.excellOperTable(btnExcell11, "", "", "");
                     }
                 }
         } catch (Exception e) {
@@ -1977,7 +1988,7 @@ public class MainPageController extends Parent implements Initializable {
             String path = dir.getAbsolutePath() + "\\";
             SystemUtilsDao systemUtilsDao = new SystemUtilsDao();
             systemUtilsDao.excellFolder(path);
-            JOptionPane.showMessageDialog(null, "Rasm joyi saqlandi!");
+            JOptionPane.showMessageDialog(null, "Fayl joyi saqlandi!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1993,7 +2004,7 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                productDao.ReportTableDao(ReportTable, name, sdate1, sdate2);
+                productDao.ReportTableDao(ReportTable, name, sdate1, sdate2, rsum, rdollar, rhr, rpsum, rpdollar, rphr);
 
             } else if (ReportDan.getValue() != null && ReportGacha.getValue() != null && ReportSelectName.getSelectionModel().getSelectedItem() == null) {
 
@@ -2002,15 +2013,13 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                productDao.ReportTableDao(ReportTable, "", sdate1, sdate2);
+                productDao.ReportTableDao(ReportTable, "", sdate1, sdate2, rsum, rdollar, rhr, rpsum, rpdollar, rphr);
             } else if (ReportSelectName.getSelectionModel().getSelectedItem() != null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
 
-                productDao.ReportTableDao(ReportTable, ReportSelectName.getSelectionModel().getSelectedItem(), "", "");
+                productDao.ReportTableDao(ReportTable, ReportSelectName.getSelectionModel().getSelectedItem(), "", "", rsum, rdollar, rhr, rpsum, rpdollar, rphr);
 
-            } else if (ReportSelectName.getSelectionModel().getSelectedItem() == null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
-                productDao.ReportTableDao(ReportTable, "1", "1", "1");
-            } else {
-                productDao.ReportTableDao(ReportTable, "1", "1", "1");
+            }  else {
+                productDao.ReportTableDao(ReportTable, "1", "1", "1", rsum, rdollar, rhr, rpsum, rpdollar, rphr);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -2033,7 +2042,7 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                productDao.ReportExcellDao(ReportTable, name, sdate1, sdate2);
+                productDao.ReportExcellDao(btnExcell11, ReportTable, name, sdate1, sdate2);
 
             } else if (ReportDan.getValue() != null && ReportGacha.getValue() != null && ReportSelectName.getSelectionModel().getSelectedItem() == null) {
 
@@ -2042,15 +2051,15 @@ public class MainPageController extends Parent implements Initializable {
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                productDao.ReportExcellDao(ReportTable, "", sdate1, sdate2);
+                productDao.ReportExcellDao(btnExcell11, ReportTable, "", sdate1, sdate2);
             } else if (ReportSelectName.getSelectionModel().getSelectedItem() != null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
 
-                productDao.ReportExcellDao(ReportTable, ReportSelectName.getSelectionModel().getSelectedItem(), "", "");
+                productDao.ReportExcellDao(btnExcell11, ReportTable, ReportSelectName.getSelectionModel().getSelectedItem(), "", "");
 
             } else if (ReportSelectName.getSelectionModel().getSelectedItem() == null && ReportDan.getValue() == null && ReportGacha.getValue() == null) {
-                productDao.ReportExcellDao(ReportTable, "1", "1", "1");
+                productDao.ReportExcellDao(btnExcell11, ReportTable, "1", "1", "1");
             } else {
-                productDao.ReportExcellDao(ReportTable, "1", "1", "1");
+                productDao.ReportExcellDao(btnExcell11, ReportTable, "1", "1", "1");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -2067,10 +2076,19 @@ public class MainPageController extends Parent implements Initializable {
         String who = LabelBalanceIdWho.getText();
         String type = ChangeType.getSelectionModel().getSelectedItem();
         String sum = ChangeSum.getText().trim().replaceAll("\\s+", "");
-        operDao.exchange(who, type, sum);
-        balanceTable();
-        ChangeSum.setText("");
-        ChangeSum.setPromptText("O'zgartirildi");
+        if(!who.isEmpty() && !type.isEmpty() && !sum.isEmpty()){
+            if(!type.equals("*")){
+                operDao.exchange(who, type, sum);
+                balanceTable();
+                ChangeSum.setText("");
+                ChangeSum.setPromptText("O'zgartirildi");
+            } else {
+                ChangeType.setStyle("-fx-background-color:Red");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Hamma ma'lumotlarni kiriting!");
+        }
+
     }
 
     private void getSellactionCompanyName() {

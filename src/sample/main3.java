@@ -348,10 +348,13 @@ public class main3 implements Initializable {
      */
     private void customDialogPaper(String name1, String barcode, String type, String cost, String unit, String color, String quantity, String type_p) {
         try {
+
+
+            main3Dao.getDSPAmount();
             LocalDate date1 = main3Date.getValue();
             DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
             String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-            TextInputDialog dialog = new TextInputDialog("1");
+            TextInputDialog dialog = new TextInputDialog(String.valueOf(main3Dao.getDSPAmount()*2));
             dialog.setTitle("Maxsulot");
             dialog.setHeaderText("Nomi:" + name1 + "\nBarcode: " + barcode + "\nTuri: " + type + "\nMiqdori: " + quantity);
             dialog.setContentText("Miqdorni kiriting");
@@ -360,11 +363,18 @@ public class main3 implements Initializable {
             result.ifPresent(name ->
                     {
                         try {
-                            main3Dao.addPaperProduction3Table(barcode, name1, type, color, name, cost, sdate1);
-                            main3Dao.updatePaperAmount(barcode, name);
-                            tableProduction3();
-                            tableDsp();
-                            tablePaper();
+                            if(Integer.parseInt(name)<=(main3Dao.getDSPAmount()*2)) {
+                                try {
+                                    main3Dao.addPaperProduction3Table(barcode, name1, type, color, name, cost, sdate1);
+                                    main3Dao.updatePaperAmount(barcode, name);
+                                    tableProduction3();
+                                    tableDsp();
+                                    tablePaper();
+                                } catch (SQLException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
@@ -374,6 +384,7 @@ public class main3 implements Initializable {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     private void btnPaperAction() {
@@ -565,6 +576,21 @@ public class main3 implements Initializable {
             root = FXMLLoader.load(getClass().getResource("view/Exchange.fxml"));
             Stage stage = new Stage();
             stage.setTitle("O'tkazmalar tarixi");
+            stage.setScene(new Scene(root, 900, 600));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML private void btnSavdoAction(){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("view/SavdoOmbor.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Savdo ombori");
             stage.setScene(new Scene(root, 900, 600));
             stage.setResizable(false);
             stage.isAlwaysOnTop();

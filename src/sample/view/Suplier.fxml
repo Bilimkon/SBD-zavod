@@ -35,12 +35,12 @@
                     <children>
                         <TextField id="text-red" fx:id="person" prefHeight="49.0" prefWidth="246.0" promptText="Xisob raqam" stylesheets="@../style/AdminPage.css" GridPane.rowIndex="2">
                             <GridPane.margin>
-                                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </TextField>
                         <TextArea fx:id="info" prefHeight="200.0" prefWidth="200.0" promptText="Qo'shimcha ma'lumot" stylesheets="@../style/AdminPage.css" GridPane.rowIndex="4">
                             <GridPane.margin>
-                                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </TextArea>
                         <Button fx:id="deleteType" mnemonicParsing="false" onAction="#btnDeleteAction" prefHeight="65.0" prefWidth="209.0" text="O'chirish" textFill="#070606" GridPane.rowIndex="8">
@@ -73,7 +73,7 @@
                                 <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                             </padding>
                         </Button>
-                        <Button fx:id="SaveBtn" mnemonicParsing="false" onAction="#btnSaveAction" prefHeight="60.0" prefWidth="209.0" text="Saqlash" textFill="#1b1b1b" GridPane.rowIndex="6">
+                        <Button fx:id="SaveBtn" defaultButton="true" mnemonicParsing="false" onAction="#btnSaveAction" prefHeight="60.0" prefWidth="209.0" text="Saqlash" textFill="#1b1b1b" GridPane.rowIndex="6">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
@@ -86,7 +86,7 @@
                         </Button>
                         <TextField fx:id="name" prefHeight="93.0" prefWidth="219.0" promptText="Kompaniya  nomi" GridPane.rowIndex="1">
                             <GridPane.margin>
-                                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </GridPane.margin>
                         </TextField>
                   <TextField fx:id="id" editable="false" prefHeight="0.0" prefWidth="209.0" style="-fx-background-color: #ABA8A8;" GridPane.rowIndex="5">
@@ -96,7 +96,7 @@
                   </TextField>
                   <TextField fx:id="textPhone" prefHeight="57.0" prefWidth="219.0" promptText="Telefon" GridPane.rowIndex="3">
                      <GridPane.margin>
-                        <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
                   </TextField>
                     </children>

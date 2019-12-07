@@ -99,6 +99,7 @@
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="629.0" minWidth="10.0" prefWidth="559.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="476.0" minWidth="10.0" prefWidth="446.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="476.0" minWidth="10.0" prefWidth="446.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="476.0" minWidth="10.0" prefWidth="446.0" />
                           </columnConstraints>
                           <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -116,6 +117,11 @@
                               <Button mnemonicParsing="false" onAction="#btnExchangeAction" prefHeight="103.0" prefWidth="484.0" text="O'tkazmalar tarixi" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="12.0" left="5.0" top="12.0" />
+                                 </GridPane.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#btnSavdoAction" prefHeight="35.0" prefWidth="153.0" text="Savdo ombori" GridPane.columnIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                                  </GridPane.margin>
                               </Button>
                            </children>
