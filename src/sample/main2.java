@@ -174,28 +174,28 @@ public class main2 implements Initializable {
 
     private void initializeTableB() {
         TableColumn id = new TableColumn("ID");
-        TableColumn date = new TableColumn("Sana");
+       // TableColumn date = new TableColumn("Sana");
         TableColumn barcode = new TableColumn("Barcode");
         TableColumn name = new TableColumn("Nomi");
         TableColumn quantity = new TableColumn("Miqdori");
-        TableColumn color = new TableColumn("Rangi");
+        //TableColumn color = new TableColumn("Rangi");
         TableColumn p_quantity = new TableColumn("Tayyor miqdori");
         TableColumn p_name = new TableColumn("Xarajat nomi");
         TableColumn p_barcode = new TableColumn("Xarajat barcodi");
-        TableColumn user = new TableColumn("Hodim");
+       // TableColumn user = new TableColumn("Hodim");
 
-        tableB.getColumns().addAll(id, date, barcode, name, color, p_quantity, p_name, p_barcode, quantity, user);
+        tableB.getColumns().addAll(id, barcode, name, p_quantity, p_name, p_barcode, quantity);
 
         id.setCellValueFactory(new PropertyValueFactory<TableB, String>("id"));
-        date.setCellValueFactory(new PropertyValueFactory<TableB, String>("date"));
+        //date.setCellValueFactory(new PropertyValueFactory<TableB, String>("date"));
         barcode.setCellValueFactory(new PropertyValueFactory<TableB, String>("barcode"));
         name.setCellValueFactory(new PropertyValueFactory<TableB, String>("name"));
-        color.setCellValueFactory(new PropertyValueFactory<TableB, String>("color"));
+        //color.setCellValueFactory(new PropertyValueFactory<TableB, String>("color"));
         quantity.setCellValueFactory(new PropertyValueFactory<TableB, String>("quantity"));
         p_quantity.setCellValueFactory(new PropertyValueFactory<TableB, String>("p_quantity"));
         p_name.setCellValueFactory(new PropertyValueFactory<TableB, String>("p_name"));
         p_barcode.setCellValueFactory(new PropertyValueFactory<TableB, String>("p_barcode"));
-        user.setCellValueFactory(new PropertyValueFactory<TableB, String>("p_barcode"));
+        //user.setCellValueFactory(new PropertyValueFactory<TableB, String>("p_barcode"));
     }
 
     private void tableA() {
@@ -414,24 +414,10 @@ public class main2 implements Initializable {
 
     public void customDialogP2ToP3(String id, String barcode, String type_id, String name1, String quantity, String cost, String unit, String description) {
         try {
-            TextInputDialog dialog = new TextInputDialog("1");
-            dialog.setTitle("Maxsulot");
-            dialog.setHeaderText("Nomi:" + name1 + "\nBarcode: " + barcode + "\nMiqdori: " + quantity);
-            dialog.setContentText("Miqdorni kiriting");
-            Optional<String> result = dialog.showAndWait();
-            // The Java 8 way to get the response value (with lambda expression).
-            result.ifPresent(name ->
-                    {
-                        try {
-                            main2Dao.insertintoProduction2_ready(id, barcode, type_id, name1, name, cost, unit, description);
-                            tableB();
-                            tableA();
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                    }
-            );
-        } catch (Exception e) {
+            main2Dao.addToPaper(id, barcode, type_id, name1, quantity, cost, unit, description);
+            tableB();
+            tableA();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -442,6 +428,13 @@ public class main2 implements Initializable {
             String id = textId.getText().trim();
             production2 dsp2 = main2Dao.getProductMain2Barcode(id);
             customDialogP2ToP3(id, dsp2.getBarcode(), dsp2.getType(), dsp2.getName(), dsp2.getP_quantity(), "1", "1", dsp2.getColor());
+            textBarcode.setText("");
+            textName2.setText("");
+            textBarcode2.setText("");
+            p2Type.setText("");
+            textId.setText("");
+            textQuantity.setText("");
+            textUpdate.setText("");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -638,6 +631,21 @@ public class main2 implements Initializable {
             Stage stage = new Stage();
             stage.setTitle("Savdo ombori");
             stage.setScene(new Scene(root, 900, 600));
+            stage.setResizable(false);
+            stage.isAlwaysOnTop();
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML private void btnPaperInventory() {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("view/Paper.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Qog'oz ombori");
+            stage.setScene(new Scene(root, 800, 600));
             stage.setResizable(false);
             stage.isAlwaysOnTop();
             stage.show();

@@ -71,23 +71,6 @@ public class SuplierDao {
         }
     }
 
-    private String getPersonId(String name){
-        Statement pr = null;
-         ResultSet rs = null;
-         String  id= null;
-        try{
-            pr = myConn.createStatement();
-           rs =  pr.executeQuery("Select id from person where companyName='"+name+"'");
-           while (rs.next()){
-               id = rs.getString("id");
-           }
-           return id;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-     return null;
-    }
-
     public void updateSuplier(String name, String account, String phone, String info, String id) throws SQLException {
         try (PreparedStatement pr = myConn.prepareStatement("UPDATE  person t set t.companyName=?, t.account=?, t.phone=?, t.info=? where t.id=?")) {
             pr.setString(1, name);
@@ -102,12 +85,10 @@ public class SuplierDao {
         }
     }
 
-    public void deleteSuplier(String id) throws SQLException {
-        PreparedStatement pr = null;
-        try{
-            /*pr = myConn.prepareStatement("DELETE FROM person WHERE id=?");
-            pr.setString(1,id);
-            pr.executeUpdate();*/
+    public void deleteSuplier(String id){
+        try(PreparedStatement preparedStatement=myConn.prepareStatement("DELETE FROM person where id=?")){
+            preparedStatement.setString(1,id);
+            preparedStatement.executeUpdate();
         }catch (Exception e){
             e.printStackTrace();
         }

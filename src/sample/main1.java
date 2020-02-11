@@ -11,7 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -34,6 +33,7 @@ import sample.utils.BarCodeService;
 import sample.utils.Barcode_pdf;
 import sample.utils.ComboBoxAutoComplete;
 import sample.utils.Workbookcontroller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -74,8 +74,6 @@ public class main1 implements Initializable {
     @FXML
     private TextField textColor;
     @FXML
-    private TextArea textDescription;
-    @FXML
     private TextField textId;
     @FXML
     private Button btnClose;
@@ -91,8 +89,6 @@ public class main1 implements Initializable {
     private TextField textSentBarcode;
     @FXML
     private Button btnSentBarcode;
-    @FXML
-    private ComboBox<String> ComboboxColor;
     @FXML
     private Label omborPrice;
     @FXML
@@ -121,17 +117,14 @@ public class main1 implements Initializable {
             selectProductName();
             addInvoiceCombobox();
             productTable();
-            colorComboBox();
             comboBoxSuplier.setTooltip(new Tooltip());
             ComboTypeList.setTooltip(new Tooltip());
             comboInvoice.setTooltip(new Tooltip());
-            ComboboxColor.setTooltip(new Tooltip());
             omborType.setTooltip(new Tooltip());
             omborName.setTooltip(new Tooltip());
             new ComboBoxAutoComplete<String>(comboBoxSuplier);
             new ComboBoxAutoComplete<String>(ComboTypeList);
             new ComboBoxAutoComplete<String>(comboInvoice);
-            new ComboBoxAutoComplete<String>(ComboboxColor);
             new ComboBoxAutoComplete<String>(omborType);
             new ComboBoxAutoComplete<String>(omborName);
         } catch (Exception e) {
@@ -146,7 +139,6 @@ public class main1 implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 productTable();
-                colorComboBox();
                 getTypeList();
                 selectProductName();
             }
@@ -173,10 +165,9 @@ public class main1 implements Initializable {
         TableColumn<Product, String> date = new TableColumn<>("Sana");
         TableColumn<Product, String> suplier = new TableColumn<>("Taminotchi");
         TableColumn<Product, String> unit = new TableColumn<>("Birlik");
-        TableColumn<Product, String> description = new TableColumn<>("Ma'lumot");
-        TableColumn<Product, String> color = new TableColumn<>("Rangi");
 
-        AdminTable.getColumns().addAll(barcode, type, name, quantity, cost, invoice, suplier, unit, date, user, color, description);
+
+        AdminTable.getColumns().addAll(barcode, type, name, quantity, cost, suplier, unit, user);
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         invoice.setCellValueFactory(new PropertyValueFactory<>("invoice"));
@@ -189,8 +180,6 @@ public class main1 implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<>("date_cr"));
         suplier.setCellValueFactory(new PropertyValueFactory<>("suplier"));
         unit.setCellValueFactory(new PropertyValueFactory<>("unit"));
-        description.setCellValueFactory(new PropertyValueFactory<>("description"));
-        color.setCellValueFactory(new PropertyValueFactory<>("color"));
 
     }
 
@@ -250,15 +239,13 @@ public class main1 implements Initializable {
             String unit = ComboBoxUnit.getSelectionModel().getSelectedItem();
             String quantity = textQuantity.getText();
             String cost = textCost.getText();
-            String color = ComboboxColor.getSelectionModel().getSelectedItem();
-            String description = textDescription.getText();
 
-            productDao.addProduct(invoice, barcode, name, type, cost, quantity, unit, description, Suplier, color);
+
+            productDao.addProduct(invoice, barcode, name, type, cost, quantity, unit, Suplier);
             textBarcode.setText("");
             textName.setText("");
             textQuantity.setText("");
             textCost.setText("");
-            textDescription.setText("");
             productTable();
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -284,9 +271,7 @@ public class main1 implements Initializable {
                         textName.setText(product.getName());
                         textCost.setText(product.getCost());
                         textQuantity.setText(product.getQuantity());
-                        textDescription.setText(product.getDescription());
                         textId.setText(String.valueOf(product.getId()));
-                        ComboboxColor.setValue(product.getColor());
                         omborType.setValue(product.getType());
                     } catch (Exception exc) {
                         exc.printStackTrace();
@@ -319,9 +304,7 @@ public class main1 implements Initializable {
                     String name = textName.getText().trim().replaceAll("\\s+", "");
                     String quantity = textQuantity.getText();
                     String cost = textCost.getText();
-                    String color = ComboboxColor.getSelectionModel().getSelectedItem();
-                    String description = textDescription.getText();
-                    productDao.updateProduct(id, barcode, name, quantity, cost, color, description);
+                    productDao.updateProduct(id, barcode, name, quantity, cost);
                     productTable();
                 } catch (Exception exc) {
                     exc.printStackTrace();
@@ -383,20 +366,6 @@ public class main1 implements Initializable {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private void colorComboBoxAction() {
-        colorComboBox();
-    }
-
-    private void colorComboBox() {
-        try {
-            productDao.colorComboBox(ComboboxColor);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
     @FXML
     private void AddBtnInvoiceAction() {

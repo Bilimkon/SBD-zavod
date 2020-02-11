@@ -844,26 +844,6 @@ public class OperDao {
         }
     }
 
-    private void log(String module, String type, String ksum, String kdollar, String khr, String csum, String cdollar, String chr, String cr_by) throws SQLException {
-
-        String apple = Utils.convertDateToStandardFormat(Utils.getCurrentDate());
-        try (PreparedStatement pr = myConn.prepareStatement("insert into admin_log_table ( module, type, ksum, kdollar, khr, csum, cdollar, chr, cr_by, date) values (?,?,?,?,?,?,?,?,?,?)")) {
-            pr.setString(1, module);
-            pr.setString(2, type);
-            pr.setString(3, ksum);
-            pr.setString(4, kdollar);
-            pr.setString(5, khr);
-            pr.setString(6, csum);
-            pr.setString(7, cdollar);
-            pr.setString(8, chr);
-            pr.setString(9, cr_by);
-            pr.setString(10, apple);
-            pr.execute();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void revertOper(String id, String operType, String sum, String dollar, String hr, String who) {
 

@@ -253,6 +253,8 @@ public class MainPageController extends Parent implements Initializable {
     @FXML private Label rpsum;
     @FXML private Label rpdollar;
     @FXML private Label rphr;
+    @FXML private ComboBox<String> exchangeType;
+    @FXML private Label Main_quantity;
 
 
 
@@ -684,6 +686,7 @@ public class MainPageController extends Parent implements Initializable {
             productDao1.addWhoCombobox(ComboBoxBalance);
             getSellactionCompanyName();
             getSellactionExchangeName();
+            getSellactionExchangeType();
             getTarixSelectName();
             getReportCompanyName();
             setCurrentIncome();
@@ -758,7 +761,7 @@ public class MainPageController extends Parent implements Initializable {
             String name = typeList.getSelectionModel().getSelectedItems().toString().replace("[", "").replace("]", "");
             System.out.println(name);
             try {
-                rs = productDao.searchProductType(name);
+                rs = productDao.searchProductType(name, Main_quantity);
                 ProductDao.productTableGenerator(rs, productTables);
                 tableSampleManual.setItems(productTables);
             } catch (Exception e) {
@@ -824,6 +827,7 @@ public class MainPageController extends Parent implements Initializable {
                 historyTable();
                 getSellactionCompanyName();
                 getSellactionExchangeName();
+                getSellactionExchangeType();
                 getTarixSelectName();
                 setCurrentIncome();
                 setCurrentOutcome();
@@ -1882,38 +1886,46 @@ public class MainPageController extends Parent implements Initializable {
     }
 
     public void table() throws SQLException {
-        productDao.exchangeTaleDao(ExchangeTable, "1", "1", "1", ExchangeTotalQuantity);
+        productDao.exchangeTaleDao(ExchangeTable, "1","1", "1", "1", ExchangeTotalQuantity);
     }
 
     private void btnFilter() {
 
         try {
-            if (ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null && exchangeSelectName.getSelectionModel().getSelectedItem() != null) {
-
+            if (ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null && exchangeType.getSelectionModel().getSelectedItem() != null && exchangeSelectName.getSelectionModel().getSelectedItem() != null) {
+                String customer = exchangeType.getSelectionModel().getSelectedItem();
                 String name = exchangeSelectName.getSelectionModel().getSelectedItem();
                 LocalDate date1 = ExchangeDan.getValue();
                 LocalDate date2 = ExchangeGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                productDao.exchangeTaleDao(ExchangeTable, name, sdate1, sdate2, ExchangeTotalQuantity);
-
-            } else if (ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null && exchangeSelectName.getSelectionModel().getSelectedItem() == null) {
-
+                productDao.exchangeTaleDao(ExchangeTable, customer, name, sdate1, sdate2,ExchangeTotalQuantity);
+            } else if (ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null && exchangeType.getSelectionModel().getSelectedItem() == null && exchangeSelectName.getSelectionModel().getSelectedItem() == null) {
                 LocalDate date1 = ExchangeDan.getValue();
                 LocalDate date2 = ExchangeGacha.getValue();
                 DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
                 String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
                 String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-                productDao.exchangeTaleDao(ExchangeTable, "", sdate1, sdate2, ExchangeTotalQuantity);
-            } else if (exchangeSelectName.getSelectionModel().getSelectedItem() != null && ExchangeDan.getValue() == null && ExchangeGacha.getValue() == null) {
-
-                productDao.exchangeTaleDao(ExchangeTable, exchangeSelectName.getSelectionModel().getSelectedItem(), "", "", ExchangeTotalQuantity);
-
-            } else if (exchangeSelectName.getSelectionModel().getSelectedItem() == null && ExchangeDan.getValue() == null && ExchangeGacha.getValue() == null) {
-                productDao.exchangeTaleDao(ExchangeTable, "1", "1", "1", ExchangeTotalQuantity);
-            } else {
-                productDao.exchangeTaleDao(ExchangeTable, "1", "1", "1", ExchangeTotalQuantity);
+                productDao.exchangeTaleDao(ExchangeTable, "", "", sdate1, sdate2,ExchangeTotalQuantity);
+            } else if (exchangeType.getSelectionModel().getSelectedItem() != null && exchangeSelectName.getSelectionModel().getSelectedItem() != null && ExchangeDan.getValue() == null && ExchangeGacha.getValue() == null) {
+                productDao.exchangeTaleDao(ExchangeTable, exchangeType.getSelectionModel().getSelectedItem(), tarixSelectName.getSelectionModel().getSelectedItem(), "", "", ExchangeTotalQuantity);
+            } else if (exchangeType.getSelectionModel().getSelectedItem() != null && exchangeSelectName.getSelectionModel().getSelectedItem() == null && ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null) {
+                LocalDate date1 = ExchangeDan.getValue();
+                LocalDate date2 = ExchangeGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.exchangeTaleDao(ExchangeTable, exchangeType.getSelectionModel().getSelectedItem(), "", sdate1, sdate2,ExchangeTotalQuantity);
+            } else if (exchangeType.getSelectionModel().getSelectedItem() == null && exchangeSelectName.getSelectionModel().getSelectedItem() != null && ExchangeDan.getValue() != null && ExchangeGacha.getValue() != null) {
+                LocalDate date1 = ExchangeDan.getValue();
+                LocalDate date2 = ExchangeGacha.getValue();
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String sdate1 = df.format(Date.from(date1.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                String sdate2 = df.format(Date.from(date2.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+                productDao.exchangeTaleDao(ExchangeTable, "", exchangeSelectName.getSelectionModel().getSelectedItem(), sdate1, sdate2,ExchangeTotalQuantity);
+            } else if (ExchangeDan.getValue() == null && ExchangeGacha.getValue() == null && exchangeType.getSelectionModel().getSelectedItem() == null && exchangeSelectName.getSelectionModel().getSelectedItem() == null) {
+                productDao.exchangeTaleDao(ExchangeTable, "", "", "", "",ExchangeTotalQuantity);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -2102,6 +2114,14 @@ public class MainPageController extends Parent implements Initializable {
     private void getSellactionExchangeName() {
         try {
             productDao.getSellActionExchangeName(exchangeSelectName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void getSellactionExchangeType() {
+        try {
+            productDao.getSellActionExchangeType(exchangeType);
         } catch (Exception e) {
             e.printStackTrace();
         }

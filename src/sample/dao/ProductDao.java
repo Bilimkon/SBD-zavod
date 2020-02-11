@@ -75,9 +75,6 @@ public class ProductDao {
                     product.setSuplier(resultSet.getString("suplier"));
                     product.setDate_cr(resultSet.getString("date_cr"));
                     product.setCr_by(resultSet.getString("user"));
-                    product.setDescription(resultSet.getString("description"));
-                    product.setColor(resultSet.getString("color"));
-
                     products.addAll(product);
                 }
             DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
@@ -106,12 +103,11 @@ public class ProductDao {
     /**
      * Adding product
      */
-    public void addProduct(String invoice, String barcode, String name, String type, String cost, String quantity, String unit, String description, String suplier, String color) throws SQLException {
+    public void addProduct(String invoice, String barcode, String name, String type, String cost, String quantity, String unit, String suplier) throws SQLException {
 
         String type_id = getComboBoxId("Type", "name", type);
         String suplier_id = getComboBoxId("person", "companyName", suplier);
         String invoice_id = getComboBoxId("invoice", "name", invoice);
-        String color_id = getComboBoxId("color", "name", color);
 
         PreparedStatement pr = null;
         try {
@@ -120,12 +116,12 @@ public class ProductDao {
                pr.setString(1, quantity);
                pr.executeUpdate();
 
-               addProductHistory("Yangilash",invoice_id, barcode, name, type, type_id, cost, quantity, typeDao.typeMaker(unit), description, suplier_id, color_id);
+               addProductHistory("Yangilash",invoice_id, barcode, name, type, type_id, cost, quantity, typeDao.typeMaker(unit), suplier_id);
             } else {
                 pr = myConn.prepareStatement("INSERT INTO product(invoice_id, barcode, name, " +
                         "type, type_id, cost,quantity, cr_by, date_cr," +
-                        " unit, description, suplier_id, color) " +
-                        "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                        " unit, suplier_id) " +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?,?)");
                 pr.setString(1, invoice_id);
                 pr.setString(2, barcode);
                 pr.setString(3, name);
@@ -136,12 +132,10 @@ public class ProductDao {
                 pr.setString(8, user_id);
                 pr.setString(9, apple);
                 pr.setString(10, typeDao.typeMaker(unit));
-                pr.setString(11, description);
-                pr.setString(12, suplier_id);
-                pr.setString(13, color_id);
+                pr.setString(11, suplier_id);
                 pr.executeUpdate();
 
-                addProductHistory("Yangi maxsulot qo'shish",invoice_id, barcode, name, type, type_id, cost, quantity, typeDao.typeMaker(unit), description, suplier_id, color_id);
+                addProductHistory("Yangi maxsulot qo'shish",invoice_id, barcode, name, type, type_id, cost, quantity, typeDao.typeMaker(unit), suplier_id);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -155,12 +149,12 @@ public class ProductDao {
     /**
      * Inserting into product_history
      * */
-      private void addProductHistory( String operType, String invoice, String barcode, String name, String type, String type_id, String cost, String quantity, String unit, String description, String suplier_id, String color_id) throws SQLException {
+      private void addProductHistory( String operType, String invoice, String barcode, String name, String type, String type_id, String cost, String quantity, String unit, String suplier_id) throws SQLException {
 
           try (PreparedStatement pr = myConn.prepareStatement("INSERT INTO product_h(oper_type, invoice_id, barcode, name, " +
                   "type, type_id, cost,quantity, cr_by, date_cr," +
-                  " unit, description, suplier_id, color) " +
-                  "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+                  " unit, suplier_id) " +
+                  "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")) {
               pr.setString(1, operType);
               pr.setString(2, invoice);
               pr.setString(3, barcode);
@@ -172,9 +166,7 @@ public class ProductDao {
               pr.setString(9, user_id);
               pr.setString(10, apple);
               pr.setString(11, typeDao.typeMaker(unit));
-              pr.setString(12, description);
-              pr.setString(13, suplier_id);
-              pr.setString(14, color_id);
+              pr.setString(12, suplier_id);
               pr.executeUpdate();
           } catch (Exception e) {
               e.printStackTrace();
@@ -183,19 +175,13 @@ public class ProductDao {
     /**
      * Updating product
      */
-    public void updateProduct(String id, String barcode, String name, String quantity,
-                              String cost, String color, String description) throws SQLException {
-        String color_id = getComboBoxId("color", "name", color);
-        try (PreparedStatement pr = myConn.prepareStatement("update product set barcode=?, name=?, quantity=?, cost=?, color=?," +
-                " description=? " +
-                "where id=?")) {
+    public void updateProduct(String id, String barcode, String name, String quantity, String cost) throws SQLException {
+        try (PreparedStatement pr = myConn.prepareStatement("update product set barcode=?, name=?, quantity=?, cost=? where id=?")) {
             pr.setString(1, barcode);
             pr.setString(2, name);
             pr.setString(3, quantity);
             pr.setString(4, cost);
-            pr.setString(5, color_id);
-            pr.setString(6, description);
-            pr.setString(7, id);
+            pr.setString(5, id);
             pr.executeUpdate();
 
         } catch (Exception e) {
@@ -206,7 +192,7 @@ public class ProductDao {
     /**
      * Deleting product
      */
-    public void deleteProduct(String id) throws SQLException {
+    public void deleteProduct(String id) {
 
         try (PreparedStatement pr = myConn.prepareStatement("DELETE  FROM product where  id=" + id)) {
             pr.executeUpdate();
@@ -235,24 +221,6 @@ public class ProductDao {
             DaoUtils.close(statement, resultSet);
         }
     }
-
-    public void colorComboBox(ComboBox<String> comboBox) throws SQLException {
-        Statement statement = null;
-        ResultSet resultSet = null;
-        try {
-            statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT Name FROM Color");
-            while (resultSet.next()) {  // loop
-                // Now add the comboBox addAll statement
-                comboBox.getItems().addAll(resultSet.getString("name"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            DaoUtils.close(statement, resultSet);
-        }
-    }
-
 
     public void addSuplierCombobox(ComboBox<String> comboBox) throws SQLException {
 
@@ -392,23 +360,6 @@ public class ProductDao {
         }
         return null;
     }
-    public String getSelectName(String name) throws SQLException {
-        Statement statement = null;
-        ResultSet resultSet = null;
-        try {
-            String s = "SELECT name FROM product WHERE name='" + name + "'";
-            statement = myConn.createStatement();
-            resultSet = statement.executeQuery(s);
-            if (resultSet.next()) {
-                return resultSet.getString("company");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            DaoUtils.close(statement, resultSet);
-        }
-        return null;
-    }
 
     /**
      * Getting dsp2 from ombor
@@ -471,7 +422,7 @@ public class ProductDao {
                 pr.setString(6, unit);
                 pr.setString(7, apple);
                 pr.setString(8, user_id);
-                pr.setString(9, description);
+                pr.setString(9, "1");
                 pr.execute();
 
                 pr1 = myConn.prepareStatement("Update product set quantity=(quantity-?) where barcode=?");

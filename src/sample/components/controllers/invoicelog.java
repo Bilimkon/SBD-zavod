@@ -83,7 +83,7 @@ public class invoicelog implements Initializable {
         TableColumn<Product, String> description = new TableColumn<>("Ma'lumot");
         TableColumn<Product, String> color = new TableColumn<>("Rangi");
 
-        tableInvoiceLog.getColumns().addAll(id, operType, invoice, unit, barcode, name, type, cost, quantity, suplier, date, user, color, description);
+        tableInvoiceLog.getColumns().addAll(id, operType, invoice, unit, barcode, name, type, cost, quantity, suplier, date, user);
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         operType.setCellValueFactory(new PropertyValueFactory<>("operType"));

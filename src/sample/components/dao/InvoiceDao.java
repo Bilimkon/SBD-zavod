@@ -152,9 +152,6 @@ public class InvoiceDao {
                 product.setSuplier(resultSet.getString("suplier"));
                 product.setDate_cr(resultSet.getString("date_cr"));
                 product.setCr_by(resultSet.getString("user"));
-                product.setDescription(resultSet.getString("description"));
-                product.setColor(resultSet.getString("color"));
-
                 products.addAll(product);
             }
 

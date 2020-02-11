@@ -37,6 +37,7 @@
                         <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="517.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
                             <RowConstraints maxHeight="79.0" minHeight="-Infinity" prefHeight="63.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
@@ -85,7 +86,7 @@
                                     </TextField>
                                 </children>
                             </GridPane>
-                            <GridPane prefHeight="56.0" prefWidth="382.0" GridPane.rowIndex="2">
+                            <GridPane prefHeight="56.0" prefWidth="382.0" GridPane.rowIndex="3">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -127,6 +128,27 @@
                                     </Button>
                                 </children>
                             </GridPane>
+                        <GridPane GridPane.rowIndex="2">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="194.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.0" minWidth="10.0" prefWidth="188.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="102.0" prefWidth="234.0" style="-fx-text-fill: #13aa52;" text="Miqdori">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="Main_quantity" alignment="CENTER" prefHeight="116.0" prefWidth="265.0" style="-fx-text-fill: #13aa52;" text="0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
                         </children>
                     </GridPane>
                 </center>
@@ -678,7 +700,10 @@
                <center>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <center>
-                        <TableView fx:id="operTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                        <TableView fx:id="operTable" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy></TableView>
                      </center>
                      <top>
                         <GridPane prefHeight="60.0" prefWidth="533.0" BorderPane.alignment="CENTER">
@@ -1148,26 +1173,27 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <JFXDatePicker fx:id="ExchangeDan" defaultColor="#ef7b33" prefHeight="28.0" prefWidth="315.0" GridPane.columnIndex="1">
+                        <JFXDatePicker fx:id="ExchangeDan" defaultColor="#ef7b33" prefHeight="28.0" prefWidth="315.0" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                            </GridPane.margin>
                         </JFXDatePicker>
-                        <JFXDatePicker fx:id="ExchangeGacha" defaultColor="#ef7b33" prefHeight="28.0" prefWidth="287.0" GridPane.columnIndex="2">
+                        <JFXDatePicker fx:id="ExchangeGacha" defaultColor="#ef7b33" prefHeight="28.0" prefWidth="287.0" GridPane.columnIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                            </GridPane.margin>
                         </JFXDatePicker>
-                        <Button mnemonicParsing="false" onAction="#btnExchangeFilterAction" prefHeight="25.0" prefWidth="375.0" text="Saralash" GridPane.columnIndex="3">
+                        <Button mnemonicParsing="false" onAction="#btnExchangeFilterAction" prefHeight="25.0" prefWidth="375.0" text="Saralash" GridPane.columnIndex="4">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Button>
-                        <ComboBox fx:id="exchangeSelectName" prefHeight="44.0" prefWidth="216.0" promptText="Nomi">
+                        <ComboBox fx:id="exchangeSelectName" prefHeight="44.0" prefWidth="216.0" promptText="Nomini tanlang" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </ComboBox>
+                        <ComboBox fx:id="exchangeType" prefHeight="52.0" prefWidth="180.0" promptText="Turni tanlang" />
                      </children>
                   </GridPane>
                </top>

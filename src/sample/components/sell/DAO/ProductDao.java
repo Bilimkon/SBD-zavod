@@ -112,17 +112,31 @@ public class ProductDao {
     }
 
 
-    public ResultSet searchProductType(String Name) throws Exception {
+    public ResultSet searchProductType(String Name, Label quantity) throws Exception {
         PreparedStatement myStmt = null;
         ResultSet myRs = null;
+        Name += "%";
+        int quantity1 = 0;
         try {
-            Name += "%";
+
             myStmt = myConn.prepareStatement("SELECT * FROM sell_v WHERE  type LIKE ?  ORDER BY name");
             myStmt.setString(1, Name);
             myRs = myStmt.executeQuery();
             return myRs;
+
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+
+            try(PreparedStatement pr = myConn.prepareStatement("Select sum(quantity) as total_quantity from sell_v where type like ? order by name")){
+                pr.setString(1,Name);
+                ResultSet resultSet = pr.executeQuery();
+                while (resultSet.next()){
+                    quantity1 = resultSet.getInt("total_quantity");
+                }
+                quantity.setText(quantity1+"");
+            }
         }
         return null;
     }
@@ -229,7 +243,7 @@ public class ProductDao {
         }
     }
 
-    public void exchangeTaleDao(TableView tableView, String name, String dan, String gacha, Label quantity) throws SQLException {
+    public void exchangeTaleDao(TableView tableView, String type, String name, String dan, String gacha, Label quantity) throws SQLException {
         Statement statement = null;
         ResultSet resultSet = null;
         PreparedStatement pr = null;
@@ -238,29 +252,41 @@ public class ProductDao {
         //List to add items
         ObservableList<Exchange> tableBS = FXCollections.observableArrayList();
 
-        if (!name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
+        if (!type.isEmpty() && !name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s where name='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s where type='" + type + "' and name='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
 
-            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM exchange_v_s where name='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+            pr = myConn.prepareStatement("SELECT sum(quantity) as total_quantity  FROM exchange_v_s where type='" + type + "' and name='" + name + "' and substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
             myRs = pr.executeQuery();
-        } else if (name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
+        } else if (type.isEmpty() && name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
             statement = myConn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM exchange_v_s where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
 
-            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM exchange_v_s where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+            pr = myConn.prepareStatement("SELECT sum(quantity) as total_quantity  FROM exchange_v_s where substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
             myRs = pr.executeQuery();
-        } else if (!name.isEmpty() && dan.isEmpty() && gacha.isEmpty()) {
+        } else if (!type.isEmpty() && !name.isEmpty() && dan.isEmpty() && gacha.isEmpty()) {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s where name='" + name + "'");
+            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s where type='" + type + "' and name='" + name + "'");
 
-            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM exchange_v_s where name='" + name + "'");
+            pr = myConn.prepareStatement("SELECT sum(quantity) as total_quantityFROM exchange_v_s where type='" + type + "' and name='" + name + "'");
             myRs = pr.executeQuery();
-        } else if (name.equals("1") || dan.equals("1") || gacha.equals("1")) {
+        } else if (!type.isEmpty() && name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
             statement = myConn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s ORDER BY id desc limit 500");
+            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s where type='" + type + "' and  substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
 
-            pr = myConn.prepareStatement("SELECT sum(quantity) as outt FROM exchange_v_s");
+            pr = myConn.prepareStatement("SELECT sum(quantity) as total_quantity FROM exchange_v_s  where type='" + type + "' and  substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "'  ");
+            myRs = pr.executeQuery();
+        } else if (type.isEmpty() && !name.isEmpty() && !dan.isEmpty() && !gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s where name='" + name + "' and  substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "' ");
+
+            pr = myConn.prepareStatement("SELECT sum(quantity) as total_quantity FROM exchange_v_s  where name='" + name + "' and  substr(cr_on,7,10) BETWEEN '" + dan + "' AND '" + gacha + "'  ");
+            myRs = pr.executeQuery();
+        } else if (type.isEmpty() && name.isEmpty() && dan.isEmpty() && gacha.isEmpty()) {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM exchange_v_s order by id desc limit 500 ");
+
+            pr = myConn.prepareStatement("SELECT sum(quantity) as total_quantity FROM exchange_v_s order by id desc limit 500 ");
             myRs = pr.executeQuery();
         }
 
@@ -286,7 +312,7 @@ public class ProductDao {
             DecimalFormat formatter = new DecimalFormat("###,###.##", symbols);
 
             if (myRs != null && myRs.next()) {
-                quantity.setText(formatter.format(myRs.getDouble("outt")));
+                quantity.setText(formatter.format(myRs.getDouble("total_quantity")));
 
             }
 
@@ -661,6 +687,23 @@ public class ProductDao {
             }
         }
 
+    }
+
+    public void getSellActionExchangeType(ComboBox<String> exchangeType) throws SQLException {
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = myConn.createStatement();
+            resultSet = statement.executeQuery("SELECT name from type_v order by id desc");
+            while (resultSet.next()) {  // loop
+                // Now add the comboBox addAll statement
+                exchangeType.getItems().addAll(resultSet.getString("name"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sample.dao.DaoUtils.close(statement, resultSet);
+        }
     }
 }
 

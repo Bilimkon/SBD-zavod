@@ -7,9 +7,307 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Anchadan beri ancha kop o'zgarish qilmagan edim">
+      <change afterPath="$PROJECT_DIR$/1Savdo_ombori.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/controllers/Paper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/dao/PaperDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/components/models/PaperModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Admin1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/Sale.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/accounting$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/accounting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/bar-chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AddType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AdminOper$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/AdminOper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Color.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Exchange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Invoice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Mainlist.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/P3History.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/SavdoOmbor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/Suplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/balance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/invoicelog.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/p2List.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/p2Tarix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/controllers/p2_xarajat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/AdminOperDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/ColorDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/ExchangeDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/InvoiceDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/ListDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/P3HistoryDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SavdoOmborDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/SuplierDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/TypeDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/balanceDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/invoicelogDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/p2ListDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/p2TarixDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/dao/p2_xarajatDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/AdminOperModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/AllCurrencyValues.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/BalanceTotal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Color.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Exchange.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Invoice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/ManList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/P2List.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/ProductName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/SavdoOmbori.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Suplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/TypeList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/omborReport.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/models/p2Xarajat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/CheckSums.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/History.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/HistoryAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/BasketItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/CreditModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/CustomerName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/ReceiptCheck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/SellAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Models/customerCredit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Session.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/Xisoblar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Core/type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/DaoUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/HistoryDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/OperDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/ProductDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/UtilsDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/DAO/printer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/MainPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/BarCodeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/NumberProperty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/PrinterService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils$Number.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/Utils/Utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/CollapsedHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/CustomerCreditTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/HistoryTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/KunlikReyting.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/MaxsulotTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/OperTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/ProductTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/QarzTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/SoldRate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/Sotuvchi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/TableHistory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/balance.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/productTableView/product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/1111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/1212.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/77.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/88.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/99.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/App_profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/Billings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/Icon-58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/Icon-80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/Icon-801.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/SBD-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/Sell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/Xisoblar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/blur_example.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/cal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/cal1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/cancel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/cancel1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/feature-update.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/index.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/logo-beta1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/logo-beta1.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/logout.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/password.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/passwordIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/sell1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/update.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/update1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/update2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/user2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/Images/usera.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/css/AdminPage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/style/css/mainPageStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/AddedItemListItem.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemConnector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomBasketItem/ShopItemListItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/CustomDiscountWindow/DiscountWindow.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/addProductWindow/addProductWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/components/sell/views/CustomItems/addProductWindow/addProductWindow.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/AdminDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main2Dao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/Main3Dao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/ProductDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/SystemUtilsDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/accountingDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/daoUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/dao/userDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/main3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/AccountXarajat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/AdminLogTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Debt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Dsp2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/History.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/LogTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Marketing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Production3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/Report.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/ShartnomaTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/TableA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/TableB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/TableDsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/TableExchangeDollar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/UserTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/manList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/p2list.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/production2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/production3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/core/revert.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/model/tablePaper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/AdminPage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/AdminPage1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/AdminPageDash.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/images/Person-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/images/about.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/images/bar-chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/images/logo-beta1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/images/ombor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/style/main2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/BarCodeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/Barcode_pdf.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/ComboBoxAutoComplete.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/TextFieldMoney.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/Workbookcontroller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/utils$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/utils$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/utils/utils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/AddType.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Admin1.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/AdminOper.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Dashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Exchange.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/1-Factory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/2-Factory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Barcode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Change.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Connection.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Data.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Delete.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Excel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Form.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/ICON.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Layouts.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Name.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/PDF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Package.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Packages.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Password.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/People.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Product.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Product_in1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Product_in2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Product_in_warehouse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Provider.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Pth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Role.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Sale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Save.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Search1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Subscription.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Tables.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Telephone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Typeadd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/UI_Elements.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/User1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Warehouse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Icons/Watch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Invoice.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/MainPage.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Manlist.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/P3Tarix.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Sale.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/Paper.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/SavdoOmbor.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/Suplier.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/accounting.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/balance.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/bar-chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/color.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/invoicelog.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/main3.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/p2List.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/p2Tarix.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/sdb_fabric/sample/view/p2_xarajat.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/Invoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/Invoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/controllers/invoicelog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/controllers/invoicelog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/InvoiceDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/SuplierDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/dao/invoicelogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/dao/invoicelogDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/OperDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/DAO/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/components/sell/MainPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/dao/Main2Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/Main2Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/dao/ProductDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/main1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/main2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/MainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/view/main2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/view/main2.fxml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +432,11 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -194,19 +497,13 @@
       <command value="Main" />
     </option>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -218,12 +515,6 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk1.8.0_131\jre" />
@@ -297,6 +588,18 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -390,6 +693,77 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Anchadan beri ancha kop o'zgarish qilmagan edim" />
     <option name="LAST_COMMIT_MESSAGE" value="Anchadan beri ancha kop o'zgarish qilmagan edim" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2685" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1578971391437">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2685" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578971391437" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1578935194325" />
+    <state x="690" y="274" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1579068357796">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="274" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1579068357796" />
+    <state width="1877" height="174" key="GridCell.Tab.0.bottom" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="380" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576526612928" />
+    <state width="1877" height="599" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580369695616" />
+    <state width="1877" height="390" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578972189290" />
+    <state width="1877" height="174" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state width="1877" height="174" key="GridCell.Tab.0.center" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="380" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576526612928" />
+    <state width="1877" height="599" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580369695616" />
+    <state width="1877" height="390" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578972189290" />
+    <state width="1877" height="174" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state width="1877" height="174" key="GridCell.Tab.0.left" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="380" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576526612928" />
+    <state width="1877" height="599" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580369695616" />
+    <state width="1877" height="390" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578972189290" />
+    <state width="1877" height="174" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state width="1877" height="174" key="GridCell.Tab.0.right" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1493" height="380" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576526612928" />
+    <state width="1877" height="599" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580369695616" />
+    <state width="1877" height="390" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578972189290" />
+    <state width="1877" height="174" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state width="1877" height="174" key="GridCell.Tab.1.bottom" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="174" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state width="1877" height="174" key="GridCell.Tab.1.center" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="174" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state width="1877" height="174" key="GridCell.Tab.1.left" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="174" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state width="1877" height="174" key="GridCell.Tab.1.right" timestamp="1581360575484">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="174" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581360575484" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1580368732563">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580368732563" />
+    <state x="2360" y="94" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1578929599342" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1579068407022" />
+    <state x="581" y="298" key="com.intellij.ide.util.TipDialog" timestamp="1581350676009">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1576519318016" />
+    <state x="581" y="298" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1580368721694" />
+    <state x="581" y="298" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581350676009" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1578215837730">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578215837730" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

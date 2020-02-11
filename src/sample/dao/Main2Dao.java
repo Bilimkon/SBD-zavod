@@ -13,7 +13,6 @@ import sample.model.core.manList;
 import sample.model.core.product;
 import sample.model.core.production2;
 
-import javax.swing.*;
 import java.math.BigDecimal;
 import java.sql.*;
 
@@ -302,52 +301,49 @@ public class Main2Dao {
         return null;
     }
 
-    public void insertintoProduction2_ready(String id, String barcode, String type_id, String name1, String quantity, String cost, String unit, String description) throws SQLException {
+    public void addToPaper(String id, String barcode, String type_id, String name1, String quantity, String cost, String unit, String description) throws SQLException {
 
         PreparedStatement pr = null;
         try {
-            if (checkDuplicate("production2_ready", barcode) > 0) {
-                pr = myConn.prepareStatement("update production2_ready set quantity=(quantity+?) where barcode=?");
+            if (checkDuplicate("paper", barcode) > 0) {
+                pr = myConn.prepareStatement("update paper set quantity=(quantity+?) where barcode=?");
                 pr.setString(1, quantity);
                 pr.setString(2, barcode);
-                pr.executeUpdate();
-                //Updating product quantity in production2 table
-                pr = myConn.prepareStatement("update production2 set p_quantity=(p_quantity-?) where id=?");
-                pr.setString(1, quantity);
-                pr.setString(2, id);
-                pr.executeUpdate();
+                int i = pr.executeUpdate();
+                if( i > 0 ) {
+                    //Updating product quantity in production2 table
+                    pr = myConn.prepareStatement("update production2 set p_quantity=(p_quantity-?) where id=?");
+                    pr.setString(1, quantity);
+                    pr.setString(2, id);
+                    pr.executeUpdate();
+                }
 
-                exchange_log(name1, barcode, type_id, quantity, "1-2", apple, user_id);
+                // exchange_log(name1, barcode, type_id, quantity, "1-2", apple, user_id);
             } else {
-                pr = myConn.prepareStatement("insert into production2_ready (barcode, name, type, quantity, color, date, user_id) values(?,?,?,?,?,?,?)");
+                pr = myConn.prepareStatement("insert into paper (barcode, name, type, quantity, cr_on) values(?,?,?,?,?)");
                 pr.setString(1, barcode);
                 pr.setString(2, name1);
                 pr.setString(3, type_id);
                 pr.setString(4, quantity);
-                pr.setString(5, description);
-                pr.setString(6, apple);
-                pr.setString(7, user_id);
-                pr.executeUpdate();
-
-                //Updating product quantity in production2 table
-                pr = myConn.prepareStatement("update production2 set p_quantity=(p_quantity-?) where id=?");
-                pr.setString(1, quantity);
-                pr.setString(2, id);
-                pr.executeUpdate();
-
-                exchange_log(name1, barcode, type_id, quantity, "1-2", apple, user_id);
+                pr.setString(5, apple);
+                int i = pr.executeUpdate();
+                if( i > 0) {
+                    //Updating product quantity in production2 table
+                    pr = myConn.prepareStatement("update production2 set p_quantity=(p_quantity-?) where id=?");
+                    pr.setString(1, quantity);
+                    pr.setString(2, id);
+                    pr.executeUpdate();
+                }
+                // exchange_log(name1, barcode, type_id, quantity, "1-2", apple, user_id);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Bunday barcodeli tavar savdoda mavjud barcodini o'zgartirib keyin savdoga o'tqazing!");
         } finally {
             if (pr != null) {
                 pr.close();
             }
         }
     }
-
-
 
     public void insertSellTableMain2(String id, String barcode, String type_id, String name1, String quantity, String cost, String unit, String description) throws SQLException {
 

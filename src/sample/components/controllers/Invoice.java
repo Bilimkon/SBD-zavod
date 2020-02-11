@@ -11,7 +11,6 @@ import sample.model.Product;
 import sample.utils.ComboBoxAutoComplete;
 import sample.utils.utils;
 
-import javax.swing.*;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -116,7 +115,7 @@ public class Invoice implements Initializable {
         TableColumn<Product, String> description = new TableColumn<>("Ma'lumot");
         TableColumn<Product, String> color = new TableColumn<>("Rangi");
 
-        tableProductHistory.getColumns().addAll(id, operType, invoice, unit, barcode, name, type, cost, quantity, suplier, date, user, color, description);
+        tableProductHistory.getColumns().addAll(id, operType, invoice, unit, barcode, name, type, cost, quantity, suplier, date, user );
 
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         operType.setCellValueFactory(new PropertyValueFactory<>("operType"));
@@ -196,7 +195,7 @@ public class Invoice implements Initializable {
         try {
 
             if(!Invoice_name.getText().isEmpty() && InvoiceCompanyList.getSelectionModel().getSelectedItem()!= null && InvoiceCompanyList.getSelectionModel().getSelectedItem()!=null
-            && !Invoice_Price.getText().isEmpty() && Invoice_date.getValue()!=null) {
+            && !Invoice_Price.getText().isEmpty() && Invoice_date.getValue()!=null && invoiceValyutaList.getSelectionModel().getSelectedItem() != null) {
                 String name = Invoice_name.getText().trim().replaceAll("\\s+", "");
                 String company = InvoiceCompanyList.getSelectionModel().getSelectedItem();
                 String currency = invoiceValyutaList.getSelectionModel().getSelectedItem();
@@ -210,7 +209,9 @@ public class Invoice implements Initializable {
                 Invoice_Price.setText("");
                 Invoice_name.setPromptText("Saqlandi");
             } else {
-                JOptionPane.showMessageDialog(null, "Hamma ma'lumotlarni kiritishingiz shart!");
+                Invoice_name.setPromptText("Hamma ma'lumotlarni kiriting!");
+                Invoice_name.setStyle("-fx-background-color:orange; -fx-text-fill: white");
+                //JOptionPane.showMessageDialog(null, "Hamma ma'lumotlarni kiritishingiz shart!");
             }
         } catch (Exception e) {
             e.printStackTrace();
