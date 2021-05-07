@@ -414,9 +414,7 @@ public class Admin1 implements Initializable {
                                     Main.class.getResourceAsStream("bar-chart.png")));
                     stage.show();
                     this.btnClose.getScene().getWindow().hide();
-
                     // Hide this current window (if this is what you want)
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
